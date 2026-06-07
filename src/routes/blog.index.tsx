@@ -82,7 +82,7 @@ function Blog() {
                     {p.category && (
                       <div className="font-urbanist text-[11px] uppercase tracking-[0.18em] text-gold">{p.category}</div>
                     )}
-                    <h2 className="mt-4 font-sora text-2xl font-light text-white leading-tight">{p.title}</h2>
+                    <h2 className="mt-4 font-amotha text-2xl font-light text-white leading-tight">{p.title}</h2>
                     {p.excerpt && (
                       <p className="mt-4 font-urbanist text-[15px] font-light text-white-3 leading-relaxed">{p.excerpt}</p>
                     )}
