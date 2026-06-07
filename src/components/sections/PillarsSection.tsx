@@ -67,7 +67,7 @@ export function PillarsSection() {
                 <div className="font-amotha text-[100px] font-thin text-gold/5 leading-none absolute top-5 right-8 tracking-[-0.06em] pointer-events-none">
                   {pillar.n}
                 </div>
-                <h3 className="font-sora text-[40px] font-extralight text-gold-l leading-none mb-3 tracking-[-0.02em]">
+                <h3 className="font-amotha text-[40px] font-extralight text-gold-l leading-none mb-3 tracking-[-0.02em]">
                   {pillar.verb}
                 </h3>
                 <p className="font-urbanist text-[14px] font-light text-white-3 italic mb-7 leading-relaxed">
