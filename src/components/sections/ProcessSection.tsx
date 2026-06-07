@@ -64,7 +64,7 @@ export function ProcessSection() {
               <Reveal key={step.n} delay={i * 100}>
                 <div className="group flex gap-0 mb-0.5 animate-[fadeUp_0.7s_cubic-bezier(.16,1,.3,1)_forwards]">
                   <div className="flex flex-col items-center w-[72px] shrink-0">
-                    <div className="w-12 h-12 border border-border bg-white-5 flex items-center justify-center font-sora text-[14px] font-light text-gold transition-all duration-300 group-hover:bg-gold group-hover:text-black group-hover:border-gold">
+                    <div className="w-12 h-12 border border-border bg-white-5 flex items-center justify-center font-amotha text-[14px] font-light text-gold transition-all duration-300 group-hover:bg-gold group-hover:text-black group-hover:border-gold">
                       {step.n}
                     </div>
                     {i < steps.length - 1 && <div className="w-px flex-1 min-h-[20px] bg-border" />}
