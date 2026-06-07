@@ -13,17 +13,22 @@ const deliverables = [
 
 export function AssessmentSection() {
   return (
-    <section className="py-28 md:py-40 px-6 md:px-10" style={{ background: "var(--ink)" }}>
-      <div className="mx-auto max-w-[1400px] grid lg:grid-cols-[1.1fr_1fr] gap-16 items-start">
+    <section id="assessment" className="bg-black py-[120px] px-6 lg:px-[80px]">
+      <div className="mx-auto max-w-[1400px] grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
         <div>
-          <Reveal><p className="eyebrow mb-6">Strategic Relocation Assessment</p></Reveal>
+          <Reveal>
+            <div className="font-urbanist text-[11px] tracking-[0.28em] uppercase text-gold mb-4 flex items-center gap-3">
+              <span className="w-6 h-px bg-gold" />
+              Strategic Relocation Assessment
+            </div>
+          </Reveal>
           <Reveal delay={100}>
-            <h2 className="font-display text-[clamp(30px,4.5vw,52px)] leading-[1.1]" style={{ color: "var(--ivory)", fontWeight: 200 }}>
+            <h2 className="font-sora text-[clamp(30px,4.5vw,52px)] font-extralight leading-[1.1] text-white">
               O diagnóstico que organiza<br />o que você não sabia<br />que precisava organizar.
             </h2>
           </Reveal>
           <Reveal delay={200}>
-            <p className="mt-8 text-[17px] leading-relaxed max-w-lg" style={{ color: "rgba(250,250,247,0.55)", fontWeight: 300 }}>
+            <p className="mt-8 font-urbanist text-[17px] font-light text-white-3 leading-relaxed max-w-lg">
               Não é uma consulta. É o primeiro trabalho estratégico da MOOVIA, com entregável físico,
               que mapeia tudo o que precisa ser decidido antes de comprar a passagem.
             </p>
@@ -32,32 +37,31 @@ export function AssessmentSection() {
 
         <Reveal delay={140}>
           <div
-            className="p-10 md:p-12 border-t-2"
-            style={{ background: "rgba(250,250,247,0.04)", borderColor: "var(--copper-mid)" }}
+            className="p-10 md:p-12 border-t-2 border-gold bg-white-5"
           >
-            <div className="font-display text-[72px] leading-none" style={{ color: "var(--copper-mid)", fontWeight: 200 }}>
+            <div className="font-sora text-[72px] font-thin text-gold-l leading-none tracking-[-0.04em]">
               €250
             </div>
-            <p className="mt-3 text-[12px] uppercase tracking-[0.18em]" style={{ color: "rgba(250,250,247,0.6)" }}>
+            <p className="mt-3 font-urbanist text-[12px] tracking-[0.18em] uppercase text-white-3">
               Strategic Relocation Assessment · 90 minutos
             </p>
-            <ul className="mt-8 space-y-3">
+            <ul className="mt-8 space-y-0">
               {deliverables.map((d) => (
-                <li key={d} className="flex gap-3 text-[15px]" style={{ color: "rgba(250,250,247,0.7)", fontWeight: 300 }}>
-                  <span style={{ color: "var(--copper-mid)" }}>—</span>
+                <li key={d} className="flex items-start gap-3 font-urbanist text-[15px] font-light text-white-3 py-3 border-b border-border last:border-0 leading-relaxed">
+                  <span className="text-gold shrink-0 mt-0.5">—</span>
                   {d}
                 </li>
               ))}
             </ul>
-            <p className="mt-8 font-display italic text-sm" style={{ color: "rgba(250,250,247,0.4)", fontWeight: 200 }}>
+            <p className="font-urbanist text-[13px] font-light text-gold/60 italic mt-8 border-t border-border pt-6">
               Os €250 são abatidos integralmente no mandato.
             </p>
             <Link
               to="/contacto"
-              className="mt-8 inline-block px-7 py-4 text-[11px] tracking-[0.18em] uppercase font-medium"
-              style={{ background: "var(--copper-mid)", color: "var(--ink)" }}
+              className="bg-gold text-black font-urbanist text-[12px] font-semibold tracking-[0.2em] uppercase px-10 py-4 relative overflow-hidden group transition-all duration-300 w-full text-center mt-8 block"
             >
-              Solicitar Assessment
+              <span className="relative z-10">Solicitar Assessment</span>
+              <div className="absolute inset-0 bg-gold-xl origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100" />
             </Link>
           </div>
         </Reveal>
