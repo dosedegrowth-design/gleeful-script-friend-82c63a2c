@@ -5,13 +5,13 @@ export function Wordmark({ tone = "dark" }: { tone?: "dark" | "light" }) {
     <div className="flex items-baseline gap-2 leading-none">
       <span
         className="font-display text-[22px] tracking-tight"
-        style={{ color: inkColor, fontWeight: 500 }}
+        style={{ color: inkColor, fontWeight: 400 }}
       >
-        MO<span style={{ color: "var(--copper)" }}>O</span>VIA
+        MOOVIA
       </span>
       <span
         className="font-sans text-[10px] uppercase"
-        style={{ color: stoneColor, letterSpacing: "0.22em", fontWeight: 300 }}
+        style={{ color: stoneColor, letterSpacing: "0.22em", fontWeight: 400 }}
       >
         Portugal
       </span>
