@@ -5,9 +5,9 @@ import { cn } from "@/lib/utils";
 import { Wordmark } from "./Wordmark";
 
 const links = [
-  { to: "/servicos", label: "Como funciona" },
   { to: "/servicos", label: "Serviços" },
   { to: "/assessment", label: "Assessment" },
+  { to: "/sobre", label: "Sobre" },
   { to: "/blog", label: "Blog" },
   { to: "/contacto", label: "Contacto" },
 ];

@@ -3,11 +3,27 @@ import { useQuery } from "@tanstack/react-query";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { supabase } from "@/integrations/supabase/client";
 
+async function fetchPost(slug: string) {
+  const { data, error } = await supabase
+    .from("posts")
+    .select("*")
+    .eq("slug", slug)
+    .eq("published", true)
+    .maybeSingle();
+  if (error) throw error;
+  return data;
+}
+
 export const Route = createFileRoute("/blog/$slug")({
-  head: () => ({
+  loader: async ({ params }) => {
+    return { post: await fetchPost(params.slug) };
+  },
+  head: ({ loaderData }) => ({
     meta: [
-      { title: "Artigo — MOOVIA Portugal" },
-      { name: "description", content: "Artigo MOOVIA Portugal sobre transição internacional." },
+      { title: loaderData?.post ? `${loaderData.post.title} — MOOVIA Portugal` : "Artigo — MOOVIA Portugal" },
+      { name: "description", content: loaderData?.post?.excerpt || "Artigo MOOVIA Portugal sobre transição internacional." },
+      { property: "og:title", content: loaderData?.post?.title || "Artigo MOOVIA Portugal" },
+      { property: "og:description", content: loaderData?.post?.excerpt || "Estratégia para quem está a coordenar uma transição internacional." },
     ],
   }),
   component: Post,
@@ -15,18 +31,12 @@ export const Route = createFileRoute("/blog/$slug")({
 
 function Post() {
   const { slug } = Route.useParams();
+  const initialData = Route.useLoaderData();
+  
   const { data: post, isLoading, error } = useQuery({
     queryKey: ["post", slug],
-    queryFn: async () => {
-      try {
-        const { data, error } = await supabase.from("posts").select("*").eq("slug", slug).eq("published", true).maybeSingle();
-        if (error) throw error;
-        return data;
-      } catch (e) {
-        console.error("Error fetching post:", e);
-        throw e;
-      }
-    },
+    queryFn: () => fetchPost(slug),
+    initialData: initialData?.post,
     retry: 1,
   });
 
@@ -50,7 +60,7 @@ function Post() {
     <SiteLayout>
       <article className="bg-black pt-[120px]">
         <div className="mx-auto max-w-3xl px-6 md:px-10 py-20">
-          {isLoading ? (
+          {isLoading && !post ? (
             <p className="text-white-3 font-urbanist">A carregar…</p>
           ) : !post ? (
             <div>

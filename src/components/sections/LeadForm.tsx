@@ -25,9 +25,18 @@ export function LeadForm() {
     setErr(null);
 
     try {
-      // Basic validation
-      if (!form.name || !form.email || !form.whatsapp) {
-        throw new Error("Por favor, preencha todos os campos obrigatórios.");
+      // Robust validation
+      if (!form.name || form.name.trim().length < 3) {
+        throw new Error("Por favor, insira o seu nome completo.");
+      }
+      
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!form.email || !emailRegex.test(form.email)) {
+        throw new Error("Por favor, insira um e-mail válido.");
+      }
+
+      if (!form.whatsapp || form.whatsapp.length < 8) {
+        throw new Error("Por favor, insira um WhatsApp válido.");
       }
 
       const { error } = await supabase.from("leads").insert({
@@ -35,7 +44,10 @@ export function LeadForm() {
         source: "website_form",
       });
 
-      if (error) throw error;
+      if (error) {
+        console.error("Supabase error:", error);
+        throw new Error("Ocorreu um erro ao processar o seu pedido. Por favor, tente novamente.");
+      }
 
       setSubmitted(true);
       toast.success("Mensagem enviada com sucesso!");
