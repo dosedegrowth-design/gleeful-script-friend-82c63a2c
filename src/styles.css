@@ -1,8 +1,19 @@
 @import "tailwindcss";
 
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@font-face {
+  font-family: 'Amotha';
+  src: url('/fonts/Amotha.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --font-sora: "Sora", sans-serif;
   --font-urbanist: "Urbanist", sans-serif;
+  --font-amotha: "Amotha", serif;
 
   --color-black: #0e0f12;
   --color-black-2: #12141a;
@@ -32,6 +43,12 @@
     font-family: var(--font-urbanist);
     font-weight: 300;
     overflow-x: hidden;
+    cursor: none;
+  }
+  
+  /* Reset link cursor since body is none */
+  a, button, select, input, textarea {
+    cursor: none;
   }
 }
 
