@@ -72,7 +72,7 @@ export function Nav() {
                 key={l.label}
                 to={l.to}
                 onClick={() => setOpen(false)}
-                className="font-sora text-3xl font-light text-white"
+                className="font-amotha text-3xl font-light text-white"
               >
                 {l.label}
               </Link>
