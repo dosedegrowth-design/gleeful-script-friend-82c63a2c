@@ -75,7 +75,7 @@ export function FoundersSection() {
 
         <Reveal>
           <div className="mt-20 p-10 md:p-14 border-l-[3px] border-gold bg-gold/5">
-            <p className="font-sora text-[clamp(20px,2.4vw,28px)] font-extralight leading-snug italic text-gold-l">
+            <p className="font-amotha text-[clamp(20px,2.4vw,28px)] font-extralight leading-snug italic text-gold-l">
               Vamos coordenar a sua transição internacional com o mesmo nível de cuidado, estrutura
               e atenção que gostaríamos de ter recebido na nossa.
             </p>
