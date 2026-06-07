@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Wordmark } from "./Wordmark";
+import { cn } from "@/lib/utils";
 
 const links = [
   { to: "/servicos", label: "Como funciona" },
@@ -95,7 +95,5 @@ export function Nav() {
         </div>
       )}
     </nav>
-  );
-}
   );
 }
