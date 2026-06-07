@@ -69,6 +69,8 @@ export function ProblemSection() {
               </div>
             </Reveal>
           ))}
+        </div>
+
         <Reveal delay={400} className="mt-20 text-center">
           <div className="w-12 h-px bg-gold mx-auto mb-10" />
           <p className="font-amotha text-[clamp(24px,3vw,36px)] font-extralight leading-snug text-white">
