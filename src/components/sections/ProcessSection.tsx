@@ -99,7 +99,7 @@ export function ProcessSection() {
                 ))}
               </ul>
               <p className="font-urbanist text-[13px] font-light text-gold/60 italic mt-6 pt-6 border-t border-border">
-                Os €250 são abatidos integralmente no mandato.
+                Os €250 são abatidos integralmente no mandato se decidir seguir com a MOOVIA.
               </p>
               <Link
                 to="/contacto"
