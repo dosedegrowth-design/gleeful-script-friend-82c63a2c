@@ -32,6 +32,9 @@ export function AssessmentSection() {
               Não é uma consulta. É o primeiro trabalho estratégico da MOOVIA, com entregável físico,
               que mapeia tudo o que precisa ser decidido antes de comprar a passagem.
             </p>
+            <p className="mt-6 font-urbanist text-[17px] font-light text-white-3 leading-relaxed max-w-lg">
+              A maioria das pessoas chega a Portugal sem ter respondido as perguntas certas. Nós construímos o mapa antes da viagem.
+            </p>
           </Reveal>
         </div>
 
@@ -45,7 +48,8 @@ export function AssessmentSection() {
             <p className="mt-3 font-urbanist text-[12px] tracking-[0.18em] uppercase text-white-3">
               Strategic Relocation Assessment · 90 minutos
             </p>
-            <ul className="mt-8 space-y-0">
+            <div className="mt-8 font-urbanist text-[11px] tracking-[0.2em] uppercase text-gold/80 mb-2">Entregáveis:</div>
+            <ul className="mt-0 space-y-0">
               {deliverables.map((d) => (
                 <li key={d} className="flex items-start gap-3 font-urbanist text-[15px] font-light text-white-3 py-3 border-b border-border last:border-0 leading-relaxed">
                   <span className="text-gold shrink-0 mt-0.5">—</span>

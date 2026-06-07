@@ -31,10 +31,13 @@ export function ManifestoSection() {
         </Reveal>
         
         <Reveal delay={360}>
-          <p className="font-urbanist text-[17px] font-light text-white-3 leading-[1.9] max-w-[560px] mx-auto">
+          <p className="font-urbanist text-[17px] font-light text-white-3 leading-[1.9] max-w-[620px] mx-auto">
             Acompanhamos um número limitado de mandatos em simultâneo.
             Não por limitação operacional, porque acreditamos que decisões desta importância
-            exigem acompanhamento próximo, coordenação ativa e atenção individual.
+            exigem acompanhamento próximo, coordenação ativa e atenção individual. Para preservar este nível, aceitamos apenas o número de novos mandatos que conseguimos coordenar com a qualidade que a decisão exige.
+          </p>
+          <p className="mt-8 font-urbanist text-[15px] font-medium tracking-[0.1em] text-gold-l uppercase">
+            Se o seu caso merece isso, este é o lugar.
           </p>
         </Reveal>
       </div>

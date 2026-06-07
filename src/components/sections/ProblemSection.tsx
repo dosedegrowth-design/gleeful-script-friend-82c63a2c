@@ -3,39 +3,27 @@ import { Reveal } from "@/components/site/Reveal";
 const cards = [
   {
     n: "01",
-    tag: "O Azulejo Inteiro",
-    title: "Portugal na primeira olhada",
-    body: "O todo emerge antes das partes. O cérebro reconhece o azulejo e classifica: Portugal, qualidade, permanência. A marca comunica onde existe antes de dizer uma palavra.",
+    tag: "Decisões simultâneas",
+    title: "O tempo não é o maior problema",
+    body: "O tempo não é o maior problema. É tomar dez decisões simultâneas sem ter feito nenhuma delas antes.",
   },
   {
     n: "02",
-    tag: "Portal e Ponte",
-    title: "Cross-border sem precisar dizer",
-    body: "Os arcos são os portais históricos de Portugal: entradas das cidades, pontes entre margens. A linguagem arquitetônica que diz: aqui começa outro mundo.",
+    tag: "Volume de informação",
+    title: "Informação demais, clareza de menos",
+    body: "Grupos de WhatsApp, YouTube, advogados e corretores dizem coisas diferentes. O volume de informação não resolve a decisão, cria mais dúvida.",
   },
   {
     n: "03",
-    tag: "A Alça da Mala",
-    title: "A mudança é concreta",
-    body: "A curva ornamental é uma alça de bagagem. Mudar de país é físico, real, tangível. A MOOVIA coordena o que vai dentro das malas e o que fica para trás.",
+    tag: "Riscos invisíveis",
+    title: "Erros que custam",
+    body: "Apartamento no bairro errado. Escola sem vaga. Uma rotina mal estruturada para a família. Cada erro custa dinheiro, tempo e energia que a família não tem.",
   },
   {
     n: "04",
-    tag: "A Casa",
-    title: "O destino final de todo mandato",
-    body: "No centro do padrão está uma casa. Não um imóvel. Uma casa. Porque o que a MOOVIA entrega não é um contrato: é a sensação de chegar a um lugar que é seu.",
-  },
-  {
-    n: "05",
-    tag: "As Pessoas",
-    title: "A MOOVIA conecta e move gente",
-    body: "Figuras humanas repetidas em quatro direções. A MOOVIA não move processos: move pessoas. Famílias inteiras, com histórias, com medo, com expectativa.",
-  },
-  {
-    n: "06",
-    tag: "O Avião",
-    title: "O momento em que tudo muda",
-    body: "O avião aparece quatro vezes porque a jornada não tem um único sentido. Vai, volta, acompanha. A MOOVIA começa antes do avião decolar.",
+    tag: "Adaptação estruturada",
+    title: "O depois que ninguém resolve",
+    body: "Chegar é metade do processo. A adaptação, do cônjuge que largou a carreira, das crianças na nova escola, da rotina reconstruída, exige acompanhamento real.",
   },
 ];
 
@@ -46,18 +34,18 @@ export function ProblemSection() {
         <Reveal>
           <div className="font-urbanist text-[11px] tracking-[0.28em] uppercase text-gold mb-4 flex items-center gap-3">
             <span className="w-6 h-px bg-gold" />
-            O símbolo
+            O mercado resolve tarefas
           </div>
         </Reveal>
         <Reveal delay={100}>
           <h2 className="font-amotha text-[clamp(32px,4vw,60px)] font-extralight leading-[1.06] tracking-[-0.02em] mb-6 text-white">
-            Seis grafismos.<br/>
-            <em className="text-gold-l not-italic italic">Uma história só.</em>
+            O problema não é a burocracia.<br/>
+            <em className="text-gold-l not-italic italic">É que ninguém coordena o todo.</em>
           </h2>
         </Reveal>
         <Reveal delay={200}>
-          <p className="font-urbanist text-[17px] font-light text-white-3 leading-[1.9] max-w-[680px] mb-12">
-            Dentro do azulejo da MOOVIA estão escondidos os seis momentos de toda transição. Você precisa saber olhar.
+          <p className="font-urbanist text-[17px] font-light text-white-3 leading-[1.9] max-w-[720px] mb-12">
+            Você tem um advogado para o visto, um corretor para o imóvel, uma escola para os filhos, um contador para o NIF. Cada um no seu quadrado. E você no meio tentando fazer tudo encaixar numa das decisões mais complexas da sua vida.
           </p>
         </Reveal>
 
@@ -81,7 +69,13 @@ export function ProblemSection() {
               </div>
             </Reveal>
           ))}
-        </div>
+        <Reveal delay={400} className="mt-20 text-center">
+          <div className="w-12 h-px bg-gold mx-auto mb-10" />
+          <p className="font-amotha text-[clamp(24px,3vw,36px)] font-extralight leading-snug text-white">
+            O mercado resolve tarefas.<br/>
+            <span className="text-gold-l italic">A MOOVIA resolve a decisão.</span>
+          </p>
+        </Reveal>
       </div>
     </section>
   );
