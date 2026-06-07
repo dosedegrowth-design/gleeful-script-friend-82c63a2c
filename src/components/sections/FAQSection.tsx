@@ -24,7 +24,7 @@ export function FAQSection() {
           </div>
         </Reveal>
         <Reveal delay={100}>
-          <h2 className="font-sora text-[clamp(28px,4vw,44px)] font-extralight leading-[1.15] text-white">
+          <h2 className="font-amotha text-[clamp(28px,4vw,44px)] font-extralight leading-[1.15] text-white">
             O que você precisa saber<br />antes da conversa.
           </h2>
         </Reveal>
