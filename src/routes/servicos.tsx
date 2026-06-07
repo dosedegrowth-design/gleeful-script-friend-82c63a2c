@@ -1,0 +1,35 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { SiteLayout } from "@/components/site/SiteLayout";
+import { ProcessSection } from "@/components/sections/ProcessSection";
+import { PillarsSection } from "@/components/sections/PillarsSection";
+import { FormSection } from "@/components/sections/FormSection";
+
+export const Route = createFileRoute("/servicos")({
+  head: () => ({
+    meta: [
+      { title: "Serviços — MOOVIA Portugal" },
+      { name: "description", content: "Quatro pilares, uma jornada completa: Planejamos, Instalamos, Integramos, Estruturamos. Coordenação completa Brasil → Portugal." },
+      { property: "og:title", content: "Serviços MOOVIA — quatro pilares, uma jornada" },
+      { property: "og:description", content: "Da estratégia à adaptação pós-chegada. Mandato sob medida, sem pacotes." },
+    ],
+  }),
+  component: Servicos,
+});
+
+function Servicos() {
+  return (
+    <SiteLayout>
+      <div style={{ background: "var(--ivory)", paddingTop: 120 }}>
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-20">
+          <p className="eyebrow mb-6">Os pilares</p>
+          <h1 className="font-display text-[clamp(40px,6vw,72px)] leading-[1.05]" style={{ fontWeight: 200 }}>
+            Quatro pilares.<br />Uma jornada completa.
+          </h1>
+        </div>
+      </div>
+      <PillarsSection />
+      <ProcessSection />
+      <FormSection />
+    </SiteLayout>
+  );
+}
