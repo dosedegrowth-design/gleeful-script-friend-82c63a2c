@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { Toaster } from "@/components/ui/sonner";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -101,6 +102,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   useEffect(() => {
+    const handleUnhandledError = (event: ErrorEvent) => {
+      console.error("Caught unhandled error:", event.error);
+      // toast.error("Ocorreu um erro inesperado. Por favor, recarregue a página."); // This might be too annoying
+    };
+
+    const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
+      console.error("Caught unhandled promise rejection:", event.reason);
+    };
+
+    window.addEventListener("error", handleUnhandledError);
+    window.addEventListener("unhandledrejection", handleUnhandledRejection);
+
+    return () => {
+      window.removeEventListener("error", handleUnhandledError);
+      window.removeEventListener("unhandledrejection", handleUnhandledRejection);
+    };
+  }, []);
+
+  useEffect(() => {
     const dot = document.getElementById('cursor-dot');
     const ring = document.getElementById('cursor-ring');
     if (!dot || !ring) return;
@@ -161,6 +181,7 @@ function RootShell({ children }: { children: ReactNode }) {
         <div id="cursor-dot" className="fixed top-0 left-0 w-1.5 h-1.5 bg-gold rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.08s_ease,opacity_0.2s]" />
         <div id="cursor-ring" className="fixed top-0 left-0 w-9 h-9 border border-gold/50 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.18s_ease,width_0.2s,height_0.2s,opacity_0.2s]" />
         {children}
+        <Toaster position="top-right" richColors />
         <Scripts />
       </body>
     </html>

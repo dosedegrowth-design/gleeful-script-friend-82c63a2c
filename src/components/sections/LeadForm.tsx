@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Reveal } from "@/components/site/Reveal";
 import { supabase } from "@/integrations/supabase/client";
+import { toast } from "sonner";
+import { reportLovableError } from "@/lib/lovable-error-reporting";
 
 const selectFields = [
   { name: "objective", placeholder: "Qual o seu objetivo principal?", options: ["Trabalhar em Portugal", "Estudar", "Mudar com a família", "Investir", "Outro"] },
@@ -21,13 +23,35 @@ export function LeadForm() {
     e.preventDefault();
     setLoading(true);
     setErr(null);
-    const { error } = await supabase.from("leads").insert({
-      ...form,
-      source: "website_form",
-    });
-    setLoading(false);
-    if (error) setErr("Não conseguimos registrar agora. Tente novamente em instantes.");
-    else setSubmitted(true);
+
+    try {
+      // Basic validation
+      if (!form.name || !form.email || !form.whatsapp) {
+        throw new Error("Por favor, preencha todos os campos obrigatórios.");
+      }
+
+      const { error } = await supabase.from("leads").insert({
+        ...form,
+        source: "website_form",
+      });
+
+      if (error) throw error;
+
+      setSubmitted(true);
+      toast.success("Mensagem enviada com sucesso!");
+    } catch (error: any) {
+      console.error("Form submission error:", error);
+      const message = error.message || "Não conseguimos registrar agora. Tente novamente em instantes.";
+      setErr(message);
+      toast.error(message);
+      reportLovableError(error, { 
+        component: "LeadForm", 
+        action: "submit",
+        formData: { ...form, email: "REDACTED" } // Privacy-conscious reporting
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
