@@ -58,7 +58,7 @@ function Blog() {
             <span className="w-6 h-px bg-gold" />
             Blog
           </p>
-          <h1 className="font-sora text-[clamp(40px,6vw,68px)] font-extralight leading-[1.05] max-w-3xl text-white">
+          <h1 className="font-amotha text-[clamp(40px,6vw,68px)] font-extralight leading-[1.05] max-w-3xl text-white">
             Estratégia, não dicas.
           </h1>
           <p className="mt-8 max-w-2xl font-urbanist text-[17px] font-light text-white-3 leading-relaxed">
