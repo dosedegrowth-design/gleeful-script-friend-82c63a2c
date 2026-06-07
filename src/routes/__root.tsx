@@ -80,7 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "MOOVIA Portugal" },
       { name: "description", content: "Coordenação Internacional de Vida e Património" },
-      { name: "author", content: "Lovable" },
+      { name: "author", content: "MOOVIA" },
       { property: "og:title", content: "MOOVIA Portugal" },
       { property: "og:description", content: "Coordenação Internacional de Vida e Património" },
       { property: "og:type", content: "website" },
