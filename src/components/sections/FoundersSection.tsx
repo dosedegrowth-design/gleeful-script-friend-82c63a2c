@@ -47,7 +47,7 @@ export function FoundersSection() {
           <Reveal delay={140}>
             <div>
               <p className="font-urbanist text-[11px] tracking-[0.2em] uppercase text-gold mb-4">Founder & Senior Advisor</p>
-              <h3 className="font-sora text-4xl font-extralight text-white">Frederico Prado</h3>
+              <h3 className="font-amotha text-4xl font-extralight text-white">Frederico Prado</h3>
               <p className="mt-6 font-urbanist text-[17px] font-light text-white-3 leading-relaxed">
                 29 anos em TI. Oracle, SAP, projetos enterprise de médio e grande porte. Veio para
                 Portugal em 2018 com a família e passou pelo que todo cliente nosso passa. Hoje
