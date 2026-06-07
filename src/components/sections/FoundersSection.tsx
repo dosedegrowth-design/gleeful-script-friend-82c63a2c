@@ -19,7 +19,7 @@ export function FoundersSection() {
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <h2 className="font-sora text-[clamp(32px,4vw,60px)] font-extralight leading-[1.1] text-white">
+            <h2 className="font-amotha text-[clamp(32px,4vw,60px)] font-extralight leading-[1.1] text-white">
               Antes de coordenar transições internacionais,<br />vivemos as nossas.
             </h2>
           </Reveal>
