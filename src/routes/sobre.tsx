@@ -18,13 +18,16 @@ export const Route = createFileRoute("/sobre")({
 function Sobre() {
   return (
     <SiteLayout>
-      <div style={{ background: "var(--ink)", paddingTop: 120 }}>
+      <div className="bg-black pt-[120px]">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-20">
-          <p className="eyebrow mb-6">A MOOVIA Portugal</p>
-          <h1 className="font-display text-[clamp(40px,6vw,72px)] leading-[1.05]" style={{ color: "var(--ivory)", fontWeight: 200 }}>
+          <p className="font-urbanist text-[11px] tracking-[0.28em] uppercase text-gold mb-6 flex items-center gap-3">
+            <span className="w-6 h-px bg-gold" />
+            A MOOVIA Portugal
+          </p>
+          <h1 className="font-sora text-[clamp(40px,6vw,72px)] font-extralight leading-[1.05] text-white">
             Uma consultoria boutique<br />de coordenação internacional.
           </h1>
-          <p className="mt-10 max-w-2xl text-[17px] leading-relaxed" style={{ color: "rgba(250,250,247,0.55)", fontWeight: 300 }}>
+          <p className="mt-10 max-w-2xl font-urbanist text-[17px] font-light text-white-3 leading-relaxed">
             Nascemos da experiência prática de quem fez o caminho. O mercado vende tarefas; nós
             coordenamos a decisão completa, do primeiro diagnóstico aos 90 dias depois da chegada.
           </p>

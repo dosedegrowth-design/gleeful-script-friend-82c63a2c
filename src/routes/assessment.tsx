@@ -18,7 +18,7 @@ export const Route = createFileRoute("/assessment")({
 function Assessment() {
   return (
     <SiteLayout>
-      <div style={{ background: "var(--ink)", paddingTop: 96 }} />
+      <div className="bg-black pt-[96px]" />
       <AssessmentSection />
       <FormSection />
     </SiteLayout>

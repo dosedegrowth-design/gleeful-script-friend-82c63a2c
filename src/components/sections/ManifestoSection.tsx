@@ -2,30 +2,39 @@ import { Reveal } from "@/components/site/Reveal";
 
 export function ManifestoSection() {
   return (
-    <section className="py-32 md:py-48 px-6 md:px-10 relative overflow-hidden" style={{ background: "var(--stone-light)" }}>
-      <div
-        className="absolute -top-10 left-1/2 -translate-x-1/2 font-display select-none pointer-events-none"
-        style={{ color: "var(--line)", fontSize: "clamp(140px, 22vw, 280px)", lineHeight: 1 }}
-      >
-        10
-      </div>
-      <div className="mx-auto max-w-3xl text-center relative z-10">
+    <section className="bg-black py-[160px] px-6 lg:px-[80px] flex items-center justify-center text-center relative overflow-hidden">
+      <div 
+        className="absolute inset-0 pointer-events-none z-0"
+        style={{
+          background: "radial-gradient(ellipse 60% 60% at 50% 50%, rgba(15,31,65,0.4) 0%, transparent 70%)"
+        }}
+      />
+      
+      <div className="max-w-[900px] relative z-[1]">
         <Reveal>
-          <h2 className="font-display text-[clamp(30px,4.5vw,46px)] leading-[1.15]">
-            Acompanhamos um número limitado<br />de mandatos em simultâneo.
-          </h2>
+          <div className="font-urbanist text-[11px] tracking-[0.28em] uppercase text-gold mb-4 flex items-center justify-center gap-3">
+            <span className="w-6 h-px bg-gold" />
+            A posição da marca
+            <span className="w-6 h-px bg-gold" />
+          </div>
         </Reveal>
+        
         <Reveal delay={120}>
-          <p className="mt-10 text-[17px] leading-relaxed" style={{ color: "var(--stone)", fontWeight: 300 }}>
-            Não por limitação operacional, porque acreditamos que decisões desta importância exigem
-            acompanhamento próximo, coordenação ativa e atenção individual. Para preservar este
-            nível, aceitamos apenas o número de novos mandatos que conseguimos coordenar com a
-            qualidade que a decisão exige.
-          </p>
+          <blockquote className="font-sora text-[clamp(26px,4vw,56px)] font-extralight leading-[1.2] tracking-[-0.02em] text-white mb-10">
+            "O mercado resolve tarefas.<br/>
+            <em className="text-gold-l not-italic italic">A MOOVIA resolve a decisão.</em>"
+          </blockquote>
         </Reveal>
+        
         <Reveal delay={240}>
-          <p className="mt-10 font-display italic text-xl" style={{ color: "var(--copper-dark)" }}>
-            Se o seu caso merece isso, este é o lugar.
+          <div className="w-12 h-px bg-gold mx-auto mb-10" />
+        </Reveal>
+        
+        <Reveal delay={360}>
+          <p className="font-urbanist text-[17px] font-light text-white-3 leading-[1.9] max-w-[560px] mx-auto">
+            Acompanhamos um número limitado de mandatos em simultâneo.
+            Não por limitação operacional, porque acreditamos que decisões desta importância
+            exigem acompanhamento próximo, coordenação ativa e atenção individual.
           </p>
         </Reveal>
       </div>

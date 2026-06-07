@@ -25,33 +25,36 @@ function Post() {
 
   return (
     <SiteLayout>
-      <article style={{ background: "var(--ivory)", paddingTop: 120 }}>
+      <article className="bg-black pt-[120px]">
         <div className="mx-auto max-w-3xl px-6 md:px-10 py-20">
           {isLoading ? (
-            <p style={{ color: "var(--stone)" }}>A carregar…</p>
+            <p className="text-white-3 font-urbanist">A carregar…</p>
           ) : !post ? (
             <div>
-              <p className="eyebrow mb-6">Não encontrado</p>
-              <h1 className="font-display text-4xl" style={{ fontWeight: 200 }}>Este artigo não existe ou ainda não foi publicado.</h1>
-              <Link to="/blog" className="mt-8 inline-block text-[12px] uppercase tracking-[0.18em] border-b pb-1" style={{ color: "var(--copper-dark)", borderColor: "var(--copper)" }}>
+              <p className="font-urbanist text-[11px] tracking-[0.28em] uppercase text-gold mb-6 flex items-center gap-3">
+                <span className="w-6 h-px bg-gold" />
+                Não encontrado
+              </p>
+              <h1 className="font-sora text-4xl font-extralight text-white">Este artigo não existe ou ainda não foi publicado.</h1>
+              <Link to="/blog" className="mt-8 inline-block font-urbanist text-[12px] uppercase tracking-[0.18em] border-b border-gold text-gold-l pb-1">
                 Voltar ao blog →
               </Link>
             </div>
           ) : (
             <>
               {post.category && (
-                <div className="text-[11px] uppercase tracking-[0.18em] mb-6" style={{ color: "var(--copper)" }}>{post.category}</div>
+                <div className="font-urbanist text-[11px] uppercase tracking-[0.18em] mb-6 text-gold">{post.category}</div>
               )}
-              <h1 className="font-display text-[clamp(32px,5vw,56px)] leading-[1.1]" style={{ fontWeight: 200 }}>{post.title}</h1>
+              <h1 className="font-sora text-[clamp(32px,5vw,56px)] font-extralight leading-[1.1] text-white">{post.title}</h1>
               {post.excerpt && (
-                <p className="mt-8 text-[19px] leading-relaxed" style={{ color: "var(--ink-mid)", fontWeight: 300 }}>{post.excerpt}</p>
+                <p className="mt-8 font-urbanist text-[19px] font-light text-white-2 leading-relaxed">{post.excerpt}</p>
               )}
-              <div className="mt-12 prose prose-lg max-w-none" style={{ color: "var(--ink-mid)" }} dangerouslySetInnerHTML={{ __html: post.content || "" }} />
+              <div className="mt-12 prose prose-invert prose-lg max-w-none font-urbanist font-light text-white-3 leading-[1.9]" dangerouslySetInnerHTML={{ __html: post.content || "" }} />
 
-              <div className="mt-20 p-10 border-l-[3px]" style={{ background: "#FFFFFF", borderColor: "var(--copper)" }}>
-                <p className="eyebrow mb-3">Pronto para dar o próximo passo?</p>
-                <h2 className="font-display text-2xl" style={{ fontWeight: 200 }}>Avalie o seu caso com a MOOVIA.</h2>
-                <Link to="/contacto" className="mt-6 inline-flex items-center px-6 py-3 text-[11px] uppercase tracking-[0.18em] font-medium" style={{ background: "var(--ink)", color: "var(--ivory)" }}>
+              <div className="mt-20 p-10 border-l-[3px] border-gold bg-black-3">
+                <p className="font-urbanist text-[11px] tracking-[0.22em] uppercase text-gold mb-3">Pronto para dar o próximo passo?</p>
+                <h2 className="font-sora text-2xl font-extralight text-white">Avalie o seu caso com a MOOVIA.</h2>
+                <Link to="/contacto" className="mt-6 inline-flex items-center px-8 py-4 bg-gold text-black font-urbanist text-[11px] uppercase tracking-[0.18em] font-semibold transition-all hover:bg-gold-xl">
                   Avaliar meu caso
                 </Link>
               </div>

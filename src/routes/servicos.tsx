@@ -19,10 +19,13 @@ export const Route = createFileRoute("/servicos")({
 function Servicos() {
   return (
     <SiteLayout>
-      <div style={{ background: "var(--ivory)", paddingTop: 120 }}>
+      <div className="bg-black pt-[120px]">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-20">
-          <p className="eyebrow mb-6">Os pilares</p>
-          <h1 className="font-display text-[clamp(40px,6vw,72px)] leading-[1.05]" style={{ fontWeight: 200 }}>
+          <p className="font-urbanist text-[11px] tracking-[0.28em] uppercase text-gold mb-6 flex items-center gap-3">
+            <span className="w-6 h-px bg-gold" />
+            Os pilares
+          </p>
+          <h1 className="font-sora text-[clamp(40px,6vw,72px)] font-extralight leading-[1.05] text-white">
             Quatro pilares.<br />Uma jornada completa.
           </h1>
         </div>

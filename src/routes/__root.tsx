@@ -100,12 +100,66 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  useEffect(() => {
+    const dot = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    if (!dot || !ring) return;
+
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    const onMouseMove = (e: MouseEvent) => {
+      mx = e.clientX;
+      my = e.clientY;
+    };
+    
+    document.addEventListener('mousemove', onMouseMove);
+
+    const animateCursor = () => {
+      dot.style.left = mx + 'px';
+      dot.style.top = my + 'px';
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px';
+      ring.style.top = ry + 'px';
+      requestAnimationFrame(animateCursor);
+    };
+    animateCursor();
+
+    const onMouseEnter = () => {
+      ring.style.width = '56px';
+      ring.style.height = '56px';
+      ring.style.borderColor = 'rgba(173,137,87,.8)';
+      dot.style.transform = 'translate(-50%,-50%) scale(2)';
+    };
+    const onMouseLeave = () => {
+      ring.style.width = '36px';
+      ring.style.height = '36px';
+      ring.style.borderColor = 'rgba(173,137,87,.5)';
+      dot.style.transform = 'translate(-50%,-50%) scale(1)';
+    };
+
+    const interactiveElements = document.querySelectorAll('a, button, select, input, textarea');
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', onMouseEnter);
+      el.addEventListener('mouseleave', onMouseLeave);
+    });
+
+    return () => {
+      document.removeEventListener('mousemove', onMouseMove);
+      interactiveElements.forEach(el => {
+        el.removeEventListener('mouseenter', onMouseEnter);
+        el.removeEventListener('mouseleave', onMouseLeave);
+      });
+    };
+  }, []);
+
   return (
     <html lang="pt">
       <head>
         <HeadContent />
       </head>
       <body>
+        <div id="cursor-dot" className="fixed top-0 left-0 w-1.5 h-1.5 bg-gold rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.08s_ease,opacity_0.2s]" />
+        <div id="cursor-ring" className="fixed top-0 left-0 w-9 h-9 border border-gold/50 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.18s_ease,width_0.2s,height_0.2s,opacity_0.2s]" />
         {children}
         <Scripts />
       </body>
