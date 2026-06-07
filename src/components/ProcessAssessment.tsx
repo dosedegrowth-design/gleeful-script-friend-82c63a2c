@@ -87,7 +87,7 @@ export const ProcessAssessment = () => {
             
             <div className="mb-8">
               <div className="flex items-baseline gap-2">
-                <span className="font-sora font-thin text-[88px] text-gold-l leading-none tracking-tighter">€250</span>
+                <span className="font-amotha font-thin text-[88px] text-gold-l leading-none tracking-tighter">€250</span>
               </div>
               <div className="font-urbanist font-normal text-xs uppercase tracking-widest text-white/35 mt-4">
                 Strategic Relocation Assessment · 90 minutos
