@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Reveal } from "@/components/site/Reveal";
 
 export function Hero() {
   const [scrollY, setScrollY] = useState(0);
@@ -9,11 +8,6 @@ export function Hero() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const planeY = Math.min(scrollY * 0.45, 320);
-  const planeX = Math.min(scrollY * 0.25, 180);
-  const planeRot = -15 + Math.min(scrollY / 25, 25);
-  const planeOpacity = Math.max(1 - scrollY / 700, 0.25);
 
   return (
     <section
@@ -60,33 +54,33 @@ export function Hero() {
           Coordenação Internacional de Vida e Património
         </p>
         
-        <h1 className="font-sora text-[clamp(44px,5.5vw,82px)] font-extralight leading-[1.04] tracking-[-0.02em] mb-9">
+        <h1 className="font-sora text-[clamp(44px,5.5vw,82px)] font-extralight leading-[1.04] tracking-[-0.02em] mb-9 text-white">
           <span className="inline-block overflow-hidden align-bottom">
-            <span className="inline-block animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 delay-[0.5s]">Você</span>
+            <span className="inline-block animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.5s]">Você</span>
           </span>
           <span className="inline-block overflow-hidden align-bottom ml-3">
-            <span className="inline-block animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 delay-[0.5s]">não</span>
+            <span className="inline-block animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.5s]">não</span>
           </span>
           <span className="inline-block overflow-hidden align-bottom ml-3">
-            <span className="inline-block animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 delay-[0.65s]">precisa</span>
+            <span className="inline-block animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.65s]">precisa</span>
           </span><br/>
           <span className="inline-block overflow-hidden align-bottom">
-            <span className="inline-block animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 delay-[0.75s]">de mais</span>
+            <span className="inline-block animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.75s]">de mais</span>
           </span>
           <span className="inline-block overflow-hidden align-bottom ml-3">
-            <span className="inline-block animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 delay-[0.75s]">informação.</span>
+            <span className="inline-block animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.75s]">informação.</span>
           </span><br/>
           <span className="inline-block overflow-hidden align-bottom">
-            <span className="inline-block animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 delay-[0.85s]">Precisa de</span>
+            <span className="inline-block animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.85s]">Precisa de</span>
           </span><br/>
           <span className="inline-block overflow-hidden align-bottom">
-            <span className="inline-block animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 delay-[0.95s]">alguém que</span>
+            <span className="inline-block animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.95s]">alguém que</span>
           </span><br/>
           <span className="inline-block overflow-hidden align-bottom">
-            <span className="inline-block text-gold-l animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 delay-[1.05s]">coordene a</span>
+            <span className="inline-block text-gold-l animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:1.05s]">coordene a</span>
           </span><br/>
           <span className="inline-block overflow-hidden align-bottom">
-            <span className="inline-block text-gold-l animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 delay-[1.15s]">decisão.</span>
+            <span className="inline-block text-gold-l animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:1.15s]">decisão.</span>
           </span>
         </h1>
 
@@ -121,7 +115,7 @@ export function Hero() {
           <div 
             key={stat.label}
             className="p-7 lg:p-8 border border-border bg-white-5 animate-[fadeUp_0.8s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 translate-x-10"
-            style={{ transitionDelay: stat.delay }}
+            style={{ animationDelay: stat.delay }}
           >
             <div className="font-sora text-[48px] font-extralight text-gold-l leading-none mb-2 tracking-[-0.03em]">{stat.num}</div>
             <div className="font-urbanist text-[11px] tracking-[0.14em] uppercase text-white-3">{stat.label}</div>
@@ -136,7 +130,5 @@ export function Hero() {
         Planejar · Chegar · Ficar
       </div>
     </section>
-  );
-}
   );
 }
