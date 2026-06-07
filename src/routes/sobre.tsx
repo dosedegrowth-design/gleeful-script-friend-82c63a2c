@@ -24,7 +24,7 @@ function Sobre() {
             <span className="w-6 h-px bg-gold" />
             A MOOVIA Portugal
           </p>
-          <h1 className="font-sora text-[clamp(40px,6vw,72px)] font-extralight leading-[1.05] text-white">
+          <h1 className="font-amotha text-[clamp(40px,6vw,72px)] font-extralight leading-[1.05] text-white">
             Uma consultoria boutique<br />de coordenação internacional.
           </h1>
           <p className="mt-10 max-w-2xl font-urbanist text-[17px] font-light text-white-3 leading-relaxed">
