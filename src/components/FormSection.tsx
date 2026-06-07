@@ -18,7 +18,7 @@ export const FormSection = () => {
     return (
       <section id="contacto" className="bg-black-2 py-[120px] px-8">
         <div className="max-w-screen-2xl mx-auto text-center">
-          <h2 className="font-sora font-extralight text-5xl text-gold-l mb-8">
+          <h2 className="font-amotha font-extralight text-5xl text-gold-l mb-8">
             Recebemos o seu caso, {formData.nome.split(' ')[0]}.
           </h2>
           <p className="font-urbanist font-light text-lg text-white/35 max-w-xl mx-auto mb-12">
