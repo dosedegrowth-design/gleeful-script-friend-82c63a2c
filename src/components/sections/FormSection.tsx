@@ -13,7 +13,7 @@ export function FormSection() {
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <h2 className="font-sora text-[clamp(32px,4vw,60px)] font-extralight leading-[1.06] tracking-[-0.02em] mb-6 text-white">
+            <h2 className="font-amotha text-[clamp(32px,4vw,60px)] font-extralight leading-[1.06] tracking-[-0.02em] mb-6 text-white">
               A conversa<br/>
               <em className="text-gold-l not-italic italic">certa.</em>
             </h2>
