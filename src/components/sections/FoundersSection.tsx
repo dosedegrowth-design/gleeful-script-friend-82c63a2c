@@ -66,7 +66,7 @@ export function FoundersSection() {
           {partners.map((p, i) => (
             <Reveal key={p.name} delay={i * 60}>
               <div className="p-8 h-full bg-black-2 hover:bg-black-3 transition-colors">
-                <div className="font-sora text-xl font-light text-white">{p.name}</div>
+                <div className="font-amotha text-xl font-light text-white">{p.name}</div>
                 <div className="mt-2 font-urbanist text-[12px] uppercase tracking-[0.12em] text-gold">{p.role}</div>
               </div>
             </Reveal>
