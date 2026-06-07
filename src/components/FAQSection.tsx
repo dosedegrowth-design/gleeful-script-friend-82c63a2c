@@ -41,7 +41,7 @@ export const FAQSection = () => {
   return (
     <section className="bg-black-2 py-[120px] px-8">
       <div className="max-w-3xl mx-auto">
-        <h2 className="font-sora font-extralight text-4xl text-white mb-16 text-center reveal">Perguntas Frequentes</h2>
+        <h2 className="font-amotha font-extralight text-4xl text-white mb-16 text-center reveal">Perguntas Frequentes</h2>
         
         <Accordion type="single" collapsible className="w-full space-y-4">
           {faqs.map((faq, i) => (
