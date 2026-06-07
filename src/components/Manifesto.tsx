@@ -14,7 +14,7 @@ export const Manifesto = () => {
           A posição da marca
         </div>
 
-        <blockquote className="font-sora font-extralight text-[clamp(26px,4vw,56px)] leading-[1.2] text-white max-w-[900px] mx-auto mb-16 reveal">
+        <blockquote className="font-amotha font-extralight text-[clamp(26px,4vw,56px)] leading-[1.2] text-white max-w-[900px] mx-auto mb-16 reveal">
           "O mercado resolve tarefas.<br />
           <span className="text-gold-l italic">A MOOVIA resolve a decisão.</span>"
         </blockquote>
