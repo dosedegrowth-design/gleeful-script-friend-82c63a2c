@@ -60,8 +60,8 @@ export const InsideTheSymbol = () => {
               {/* Gold border hover animation */}
               <div className="absolute left-0 top-0 w-[3px] h-0 bg-gold transition-all duration-500 group-hover:h-full" />
 
-              <div className="font-sora font-light text-sm text-gold-l mb-8">{card.num}</div>
-              <h3 className="font-sora font-light text-2xl text-white mb-2">{card.title}</h3>
+              <div className="font-amotha font-light text-sm text-gold-l mb-8">{card.num}</div>
+              <h3 className="font-amotha font-light text-2xl text-white mb-2">{card.title}</h3>
               <div className="font-urbanist font-normal text-xs uppercase tracking-wider text-gold-m mb-6">
                 {card.subtitle}
               </div>
