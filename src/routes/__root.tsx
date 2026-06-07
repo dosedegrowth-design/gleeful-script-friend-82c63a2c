@@ -102,6 +102,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   useEffect(() => {
+    const handleUnhandledError = (event: ErrorEvent) => {
+      console.error("Caught unhandled error:", event.error);
+      // toast.error("Ocorreu um erro inesperado. Por favor, recarregue a página."); // This might be too annoying
+    };
+
+    const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
+      console.error("Caught unhandled promise rejection:", event.reason);
+    };
+
+    window.addEventListener("error", handleUnhandledError);
+    window.addEventListener("unhandledrejection", handleUnhandledRejection);
+
+    return () => {
+      window.removeEventListener("error", handleUnhandledError);
+      window.removeEventListener("unhandledrejection", handleUnhandledRejection);
+    };
+  }, []);
+
+  useEffect(() => {
     const dot = document.getElementById('cursor-dot');
     const ring = document.getElementById('cursor-ring');
     if (!dot || !ring) return;
