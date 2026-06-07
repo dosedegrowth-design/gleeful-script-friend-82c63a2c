@@ -95,7 +95,7 @@ function Blog() {
             </div>
           ) : (
             <div className="py-32 text-center bg-black-2 border border-border">
-              <p className="font-sora text-2xl font-extralight text-white-3">
+              <p className="font-amotha text-2xl font-extralight text-white-3">
                 Primeiros artigos em breve.
               </p>
             </div>
