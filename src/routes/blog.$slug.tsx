@@ -4,9 +4,9 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/blog/$slug")({
-  head: () => ({
+  head: ({ params }) => ({
     meta: [
-      { title: "Artigo — MOOVIA Portugal" },
+      { title: `MOOVIA Portugal — Artigo` },
       { name: "description", content: "Artigo MOOVIA Portugal sobre transição internacional." },
     ],
   }),
