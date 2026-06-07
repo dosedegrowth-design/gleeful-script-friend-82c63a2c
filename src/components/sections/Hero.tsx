@@ -51,7 +51,7 @@ export function Hero() {
               className="font-display leading-[1.05] tracking-tight"
               style={{
                 color: "var(--ivory)",
-                fontWeight: 200,
+                fontWeight: 400,
                 fontSize: "clamp(44px, 7vw, 86px)",
               }}
             >
@@ -61,7 +61,7 @@ export function Hero() {
               coordene a{" "}
               <em
                 className="not-italic font-display italic"
-                style={{ color: "var(--copper-mid)", fontWeight: 200 }}
+                style={{ color: "var(--copper-mid)", fontWeight: 400 }}
               >
                 decisão.
               </em>
@@ -70,7 +70,7 @@ export function Hero() {
           <Reveal delay={260}>
             <p
               className="mt-10 max-w-[520px] text-[17px] leading-relaxed"
-              style={{ color: "rgba(250,250,247,0.55)", fontWeight: 300 }}
+              style={{ color: "rgba(250,250,247,0.55)", fontWeight: 400 }}
             >
               A MOOVIA Portugal não resolve tarefas isoladas. Coordenação completa, do primeiro
               diagnóstico aos 90 dias depois da chegada.
@@ -80,14 +80,14 @@ export function Hero() {
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
                 to="/contacto"
-                className="inline-flex items-center px-7 py-4 text-[11px] tracking-[0.18em] uppercase font-medium transition-colors"
+                className="inline-flex items-center px-7 py-4 text-[11px] tracking-[0.18em] uppercase font-bold transition-colors"
                 style={{ background: "var(--copper-mid)", color: "var(--ink)" }}
               >
                 Avaliar meu caso
               </Link>
               <a
                 href="#processo"
-                className="inline-flex items-center px-7 py-4 text-[11px] tracking-[0.18em] uppercase font-medium border transition-colors"
+                className="inline-flex items-center px-7 py-4 text-[11px] tracking-[0.18em] uppercase font-bold border transition-colors"
                 style={{ borderColor: "rgba(250,250,247,0.25)", color: "var(--ivory)" }}
               >
                 Ver como funciona
