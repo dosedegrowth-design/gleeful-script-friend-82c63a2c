@@ -8,7 +8,7 @@ export function Reveal({ children, className = "", delay = 0 }: { children: Reac
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => el.classList.add("in"), delay);
+          setTimeout(() => el.classList.add("up"), delay);
           io.disconnect();
         }
       },

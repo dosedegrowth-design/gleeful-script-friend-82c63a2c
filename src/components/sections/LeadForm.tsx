@@ -54,7 +54,7 @@ export function LeadForm() {
           <iframe src={calendlyUrl} className="w-full h-full" title="Calendly" />
         </div>
         <a
-          href={`https://wa.me/351000000000?text=${encodeURIComponent("Olá, acabei de submeter o formulário no site, sou " + (form.name || ""))}`}
+          href={`https://wa.me/351912345678?text=${encodeURIComponent("Olá, acabei de submeter o formulário no site, sou " + (form.name || ""))}`}
           target="_blank"
           rel="noreferrer"
           className="mt-6 inline-block text-[12px] uppercase tracking-[0.18em] border-b pb-1"

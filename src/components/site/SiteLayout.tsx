@@ -40,7 +40,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <Nav />
       <main>{children}</main>
       <Footer />
-      <WhatsAppFloat />
+      <WhatsAppButton />
     </>
   );
 }

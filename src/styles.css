@@ -55,6 +55,19 @@
   --navy: #0f1f41;
   --teal: #407e8d;
   --white: #f9f5ec;
+
+  /* Consistency aliases for var calls in components */
+  --ink: var(--black);
+  --ink-mid: #3d3d3d;
+  --ink-light: #6e6e6e;
+  --ivory: var(--white);
+  --copper: var(--gold);
+  --copper-mid: var(--gold-m);
+  --copper-light: rgba(173, 137, 87, 0.1);
+  --copper-dark: #8c6a3d;
+  --stone: #8c8c8c;
+  --stone-light: #f4f1ea;
+  --line: rgba(0, 0, 0, 0.08);
 }
 
 body {
@@ -62,7 +75,6 @@ body {
   color: var(--white);
   font-family: var(--font-urbanist);
   font-weight: 300;
-  cursor: none;
   overflow-x: hidden;
 }
 

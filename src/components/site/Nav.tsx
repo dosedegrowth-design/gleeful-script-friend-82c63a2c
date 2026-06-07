@@ -25,9 +25,9 @@ export function Nav() {
     <header
       className="fixed top-0 inset-x-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled ? "rgba(250,250,247,0.85)" : "transparent",
+        background: scrolled ? "rgba(255, 255, 255, 0.9)" : "transparent",
         backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid var(--line)" : "1px solid transparent",
+        borderBottom: scrolled ? "1px solid rgba(0,0,0,0.1)" : "1px solid transparent",
       }}
     >
       <div className="mx-auto max-w-[1400px] px-6 md:px-10 h-[72px] flex items-center justify-between">
