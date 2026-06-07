@@ -68,7 +68,7 @@ export const ProcessAssessment = () => {
                   <div className="font-urbanist font-normal text-[10px] uppercase tracking-widest text-gold-m mb-2">
                     {step.tag}
                   </div>
-                  <h3 className="font-sora font-light text-xl text-white mb-3">{step.title}</h3>
+                  <h3 className="font-amotha font-light text-xl text-white mb-3">{step.title}</h3>
                   <p className="font-urbanist font-light text-sm text-white/35 leading-relaxed max-w-md mb-4">
                     {step.content}
                   </p>
