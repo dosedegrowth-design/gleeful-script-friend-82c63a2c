@@ -44,6 +44,8 @@
     font-weight: 300;
     overflow-x: hidden;
     cursor: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   a, button, select, input, textarea {
@@ -69,7 +71,7 @@
    ANIMATIONS
    ═══════════════════════════════════════════════════════ */
 @keyframes slideUp {
-  from { transform: translateY(102%); opacity: 0; }
+  from { transform: translateY(30px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
 
