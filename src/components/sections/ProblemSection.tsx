@@ -44,14 +44,14 @@ export function ProblemSection() {
           </Reveal>
         </div>
 
-        <div className="mt-20 grid md:grid-cols-2 gap-px" style={{ background: "var(--line)" }}>
+        <div className="mt-20 grid md:grid-cols-2 gap-4">
           {cards.map((c, i) => (
             <Reveal key={c.n} delay={i * 80}>
               <div
-                className="p-10 md:p-12 h-full group transition-all duration-500 border-l-[3px] border-l-transparent hover:border-l-[var(--copper)]"
+                className="p-10 md:p-12 h-full group transition-all duration-700 hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] border border-[var(--line)]"
                 style={{ background: "var(--stone-light)" }}
               >
-                <span className="font-display text-sm" style={{ color: "var(--copper)", letterSpacing: "0.2em" }}>
+                <span className="font-display text-sm inline-block px-3 py-1 bg-[rgba(196,146,79,0.08)]" style={{ color: "var(--copper)", letterSpacing: "0.2em" }}>
                   {c.n}
                 </span>
                 <h3 className="mt-6 font-display text-2xl leading-tight" style={{ fontWeight: 300 }}>{c.title}</h3>
