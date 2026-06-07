@@ -60,7 +60,7 @@ export const ProcessAssessment = () => {
                   <div className="absolute left-[24px] top-[48px] w-px h-[calc(100%+48px)] bg-border" />
                 )}
                 
-                <div className="w-12 h-12 border border-border flex items-center justify-center font-sora font-light text-sm text-gold bg-black transition-all duration-500 group-hover:bg-gold group-hover:text-black group-hover:border-gold z-10">
+                <div className="w-12 h-12 border border-border flex items-center justify-center font-amotha font-light text-sm text-gold bg-black transition-all duration-500 group-hover:bg-gold group-hover:text-black group-hover:border-gold z-10">
                   {step.num}
                 </div>
                 
