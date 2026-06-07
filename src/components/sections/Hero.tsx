@@ -54,7 +54,7 @@ export function Hero() {
           Coordenação Internacional de Vida e Património
         </p>
         
-        <h1 className="font-sora text-[clamp(44px,5.5vw,82px)] font-extralight leading-[1.04] tracking-[-0.02em] mb-9 text-white">
+        <h1 className="font-amotha text-[clamp(44px,5.5vw,82px)] font-extralight leading-[1.04] tracking-[-0.02em] mb-9 text-white">
           <span className="inline-block overflow-hidden align-bottom">
             <span className="inline-block animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.5s]">Você</span>
           </span>
