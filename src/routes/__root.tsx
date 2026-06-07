@@ -178,7 +178,12 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <div id="cursor-dot" className="fixed top-0 left-0 w-1.5 h-1.5 bg-gold rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.08s_ease,opacity_0.2s]" />
+        <div id="cursor-dot" className="fixed top-0 left-0 w-4 h-4 text-gold pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.08s_ease,opacity_0.2s]">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+            <path d="M100 10 L130 40 L160 10 L190 40 L160 70 L190 100 L160 130 L190 160 L160 190 L130 160 L100 190 L70 160 L40 190 L10 160 L40 130 L10 100 L40 70 L10 40 L40 10 L70 40 Z" stroke="currentColor" strokeWidth="8" fill="none"/>
+            <circle cx="100" cy="100" r="28" stroke="currentColor" strokeWidth="8" fill="none"/>
+          </svg>
+        </div>
         <div id="cursor-ring" className="fixed top-0 left-0 w-9 h-9 border border-gold/50 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.18s_ease,width_0.2s,height_0.2s,opacity_0.2s]" />
         {children}
         <Toaster position="top-right" richColors />
