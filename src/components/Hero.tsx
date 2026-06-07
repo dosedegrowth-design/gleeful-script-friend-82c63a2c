@@ -80,7 +80,7 @@ export const Hero = () => {
             </span>
           </motion.div>
 
-          <h1 className="font-sora text-[clamp(44px,5.5vw,82px)] leading-[1.04] text-white mb-8">
+          <h1 className="font-amotha text-[clamp(44px,5.5vw,82px)] leading-[1.04] text-white mb-8">
             <StaggeredText text="Você não precisa" className="font-thin" delay={0.5} />
             <StaggeredText text="de mais informação." className="font-thin" delay={0.65} />
             <StaggeredText text="Precisa de alguém" className="font-extralight" delay={0.8} />
