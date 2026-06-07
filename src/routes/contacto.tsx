@@ -17,10 +17,13 @@ export const Route = createFileRoute("/contacto")({
 function Contacto() {
   return (
     <SiteLayout>
-      <div style={{ background: "var(--ivory)", paddingTop: 120 }}>
+      <div className="bg-black pt-[120px]">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-12">
-          <p className="eyebrow mb-6">Contacto</p>
-          <h1 className="font-display text-[clamp(40px,6vw,68px)] leading-[1.05] max-w-3xl" style={{ fontWeight: 200 }}>
+          <p className="font-urbanist text-[11px] tracking-[0.28em] uppercase text-gold mb-6 flex items-center gap-3">
+            <span className="w-6 h-px bg-gold" />
+            Contacto
+          </p>
+          <h1 className="font-sora text-[clamp(40px,6vw,68px)] font-extralight leading-[1.05] max-w-3xl text-white">
             Avalie o seu caso<br />com a MOOVIA.
           </h1>
         </div>
