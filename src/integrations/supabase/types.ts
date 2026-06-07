@@ -14,7 +14,138 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      leads: {
+        Row: {
+          composition: string | null
+          created_at: string | null
+          decision_phase: string | null
+          email: string | null
+          id: string
+          message: string | null
+          name: string | null
+          notes: string | null
+          objective: string | null
+          page_history: Json | null
+          session_id: string | null
+          source: string | null
+          status: string | null
+          timing: string | null
+          utm_campaign: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          whatsapp: string | null
+        }
+        Insert: {
+          composition?: string | null
+          created_at?: string | null
+          decision_phase?: string | null
+          email?: string | null
+          id?: string
+          message?: string | null
+          name?: string | null
+          notes?: string | null
+          objective?: string | null
+          page_history?: Json | null
+          session_id?: string | null
+          source?: string | null
+          status?: string | null
+          timing?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          whatsapp?: string | null
+        }
+        Update: {
+          composition?: string | null
+          created_at?: string | null
+          decision_phase?: string | null
+          email?: string | null
+          id?: string
+          message?: string | null
+          name?: string | null
+          notes?: string | null
+          objective?: string | null
+          page_history?: Json | null
+          session_id?: string | null
+          source?: string | null
+          status?: string | null
+          timing?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          whatsapp?: string | null
+        }
+        Relationships: []
+      }
+      posts: {
+        Row: {
+          category: string | null
+          content: string | null
+          created_at: string | null
+          excerpt: string | null
+          featured_image: string | null
+          id: string
+          meta_description: string | null
+          meta_title: string | null
+          published: boolean | null
+          read_time: number | null
+          slug: string
+          title: string
+          updated_at: string | null
+        }
+        Insert: {
+          category?: string | null
+          content?: string | null
+          created_at?: string | null
+          excerpt?: string | null
+          featured_image?: string | null
+          id?: string
+          meta_description?: string | null
+          meta_title?: string | null
+          published?: boolean | null
+          read_time?: number | null
+          slug: string
+          title: string
+          updated_at?: string | null
+        }
+        Update: {
+          category?: string | null
+          content?: string | null
+          created_at?: string | null
+          excerpt?: string | null
+          featured_image?: string | null
+          id?: string
+          meta_description?: string | null
+          meta_title?: string | null
+          published?: boolean | null
+          read_time?: number | null
+          slug?: string
+          title?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      site_content: {
+        Row: {
+          key: string
+          type: string | null
+          updated_at: string | null
+          value: string | null
+        }
+        Insert: {
+          key: string
+          type?: string | null
+          updated_at?: string | null
+          value?: string | null
+        }
+        Update: {
+          key?: string
+          type?: string | null
+          updated_at?: string | null
+          value?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
