@@ -78,7 +78,7 @@ function Post() {
               {post.category && (
                 <div className="font-urbanist text-[11px] uppercase tracking-[0.18em] mb-6 text-gold">{post.category}</div>
               )}
-              <h1 className="font-sora text-[clamp(32px,5vw,56px)] font-extralight leading-[1.1] text-white">{post.title}</h1>
+              <h1 className="font-amotha text-[clamp(32px,5vw,56px)] font-extralight leading-[1.1] text-white">{post.title}</h1>
               {post.excerpt && (
                 <p className="mt-8 font-urbanist text-[19px] font-light text-white-2 leading-relaxed">{post.excerpt}</p>
               )}
