@@ -77,18 +77,22 @@ export function Hero() {
             </p>
           </Reveal>
           <Reveal delay={400}>
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-12 flex flex-wrap gap-5">
               <Link
                 to="/contacto"
-                className="inline-flex items-center px-7 py-4 text-[11px] tracking-[0.18em] uppercase font-bold transition-colors"
-                style={{ background: "var(--copper-mid)", color: "var(--ink)" }}
+                className="inline-flex items-center px-10 py-5 text-[11px] tracking-[0.22em] uppercase font-bold transition-all duration-300 hover:scale-[1.03] active:scale-95"
+                style={{ 
+                  background: "var(--copper-mid)", 
+                  color: "var(--ink)",
+                  boxShadow: "0 10px 30px -10px rgba(155,107,58,0.4)" 
+                }}
               >
                 Avaliar meu caso
               </Link>
               <a
                 href="#processo"
-                className="inline-flex items-center px-7 py-4 text-[11px] tracking-[0.18em] uppercase font-bold border transition-colors"
-                style={{ borderColor: "rgba(250,250,247,0.25)", color: "var(--ivory)" }}
+                className="inline-flex items-center px-10 py-5 text-[11px] tracking-[0.22em] uppercase font-bold border transition-all duration-300 hover:bg-[rgba(250,250,247,0.05)]"
+                style={{ borderColor: "rgba(250,250,247,0.2)", color: "var(--ivory)" }}
               >
                 Ver como funciona
               </a>

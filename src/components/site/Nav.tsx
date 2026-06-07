@@ -32,25 +32,35 @@ export function Nav() {
     >
       <div className="mx-auto max-w-[1400px] px-6 md:px-10 h-[72px] flex items-center justify-between">
         <Link to="/"><Wordmark /></Link>
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-10">
           {links.map((l) => (
-            <Link key={l.label} to={l.to} className="nav-link">{l.label}</Link>
+            <Link 
+              key={l.label} 
+              to={l.to} 
+              className="nav-link text-[11px] uppercase tracking-[0.15em] font-medium opacity-70 hover:opacity-100 transition-opacity"
+            >
+              {l.label}
+            </Link>
           ))}
         </nav>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           <Link
             to="/contacto"
-            className="hidden md:inline-flex items-center justify-center px-5 py-3 text-[11px] tracking-[0.16em] uppercase font-medium transition-colors"
-            style={{ background: "var(--ink)", color: "var(--ivory)" }}
+            className="hidden md:inline-flex items-center justify-center px-6 py-3.5 text-[10px] tracking-[0.2em] uppercase font-bold transition-all duration-300 hover:scale-[1.02] active:scale-95"
+            style={{ 
+              background: scrolled ? "var(--ink)" : "var(--copper-mid)", 
+              color: scrolled ? "var(--ivory)" : "var(--ink)",
+              boxShadow: scrolled ? "none" : "0 4px 20px -5px rgba(155,107,58,0.3)"
+            }}
           >
             Avaliar meu caso
           </Link>
           <button
-            className="lg:hidden p-2"
+            className="lg:hidden p-2 hover:bg-[rgba(0,0,0,0.05)] rounded-full transition-colors"
             onClick={() => setOpen(true)}
             aria-label="Abrir menu"
           >
-            <Menu size={22} />
+            <Menu size={20} />
           </button>
         </div>
       </div>

@@ -49,21 +49,21 @@ export function ProcessSection() {
           </h2>
         </Reveal>
 
-        <div className="mt-20 space-y-px" style={{ background: "var(--line)" }}>
+        <div className="mt-20 space-y-4">
           {steps.map((s, i) => (
             <Reveal key={s.n} delay={i * 80}>
-              <div className="grid md:grid-cols-[160px_1fr] gap-8 p-10 md:p-14" style={{ background: "var(--stone-light)" }}>
+              <div className="grid md:grid-cols-[160px_1fr] gap-8 p-10 md:p-14 border border-[var(--line)] hover:border-[var(--copper-mid)] transition-colors duration-500" style={{ background: "var(--stone-light)" }}>
                 <div>
                   <div className="font-display text-[64px] leading-none" style={{ color: "var(--copper)", fontWeight: 200 }}>{s.n}</div>
                 </div>
                 <div>
-                  <div className="text-[11px] uppercase tracking-[0.18em]" style={{ color: "var(--copper-dark)" }}>{s.tag}</div>
+                  <div className="inline-block px-3 py-1 bg-[rgba(196,146,79,0.08)] text-[10px] uppercase tracking-[0.18em]" style={{ color: "var(--copper-dark)" }}>{s.tag}</div>
                   <h3 className="mt-3 font-display text-3xl" style={{ fontWeight: 200 }}>{s.title}</h3>
                   <p className="mt-5 text-[16px] leading-relaxed max-w-3xl" style={{ color: "var(--ink-mid)", fontWeight: 300 }}>{s.body}</p>
                   {s.bullets && (
-                    <ul className="mt-5 space-y-2 max-w-2xl">
+                    <ul className="mt-6 grid sm:grid-cols-2 gap-x-8 gap-y-3 max-w-2xl">
                       {s.bullets.map((b) => (
-                        <li key={b} className="flex gap-3 text-[15px]" style={{ color: "var(--ink-mid)" }}>
+                        <li key={b} className="flex gap-3 text-[14px]" style={{ color: "var(--ink-mid)" }}>
                           <span style={{ color: "var(--copper)" }}>·</span>
                           {b}
                         </li>
@@ -71,7 +71,7 @@ export function ProcessSection() {
                     </ul>
                   )}
                   {s.cta && (
-                    <Link to={s.cta.to} className="inline-block mt-6 text-[12px] uppercase tracking-[0.18em] font-medium border-b pb-1" style={{ color: "var(--copper-dark)", borderColor: "var(--copper)" }}>
+                    <Link to={s.cta.to} className="inline-flex mt-8 text-[11px] uppercase tracking-[0.18em] font-bold py-3 px-6 bg-[var(--ink)] text-[var(--ivory)] hover:bg-[var(--copper-mid)] hover:text-[var(--ink)] transition-colors duration-300">
                       {s.cta.label}
                     </Link>
                   )}
