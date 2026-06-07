@@ -124,7 +124,7 @@ export const Hero = () => {
               transition={{ duration: 0.8, delay: 1.6 + i * 0.1 }}
               className="bg-white/05 p-8 flex flex-col justify-center"
             >
-              <div className="font-sora font-extralight text-5xl text-gold-l mb-2 tracking-tight">
+              <div className="font-amotha font-extralight text-5xl text-gold-l mb-2 tracking-tight">
                 {stat.value}
               </div>
               <div className="font-urbanist font-normal text-[11px] uppercase tracking-[0.14em] text-white/35">
