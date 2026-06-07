@@ -29,7 +29,11 @@
 
 @layer base {
   body {
-    @apply bg-black text-white font-urbanist font-light overflow-x-hidden;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    font-family: var(--font-urbanist);
+    font-weight: 300;
+    overflow-x: hidden;
     cursor: none;
   }
 }
