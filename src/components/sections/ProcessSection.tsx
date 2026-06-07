@@ -6,8 +6,8 @@ const steps = [
     n: "01",
     tag: "Conversa Gratuita",
     title: "Entendemos o seu contexto",
-    body: "Uma conversa direta com o founder, sem script, sem chatbot. Validamos o fit e mostramos como a MOOVIA pensa o seu caso.",
-    badge: "Sem custo · Calendly",
+    body: "Uma conversa direta com o founder, sem script, sem chatbot. Validamos o fit e mostramos como a MOOVIA pensa o seu caso. Não entregamos a solução aqui. Mostramos a profundidade do que é necessário resolver.",
+    badge: "Sem custo · Agendamento via Calendly",
   },
   {
     n: "02",
@@ -27,7 +27,7 @@ const steps = [
     n: "90",
     tag: "Pós-chegada",
     title: "Chegar é metade",
-    body: "Os 90 dias após o pouso são os mais críticos. Nenhum concorrente acompanha este período de forma estruturada. Nós acompanhamos.",
+    body: "Os 90 dias após o pouso são os mais críticos. Adaptação familiar, rotina, integração. Nenhum concorrente acompanha este período de forma estruturada. Nós acompanhamos.",
     badge: "Único no mercado",
   },
 ];
@@ -99,7 +99,7 @@ export function ProcessSection() {
                 ))}
               </ul>
               <p className="font-urbanist text-[13px] font-light text-gold/60 italic mt-6 pt-6 border-t border-border">
-                Os €250 são abatidos integralmente no mandato.
+                Os €250 são abatidos integralmente no mandato se decidir seguir com a MOOVIA.
               </p>
               <Link
                 to="/contacto"

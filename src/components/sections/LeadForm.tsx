@@ -81,6 +81,9 @@ export function LeadForm() {
         <div className="aspect-[4/5] md:aspect-[16/10] border border-border">
           <iframe src={calendlyUrl} className="w-full h-full" title="Calendly" />
         </div>
+        <a href="https://wa.me/351913000000" target="_blank" rel="noopener noreferrer" className="mt-8 block text-center font-urbanist font-normal text-gold-l hover:text-gold transition-colors">
+          Prefere WhatsApp? →
+        </a>
       </div>
     );
   }
@@ -141,6 +144,16 @@ export function LeadForm() {
         <span className="relative z-10">{loading ? "A enviar…" : "Enviar e aguardar retorno"}</span>
         <div className="absolute inset-0 bg-gold-xl origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100" />
       </button>
+      <div className="mt-6 text-center">
+        <a 
+          href="https://calendly.com/moovia-portugal/conversa-gratuita" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="font-urbanist text-[12px] tracking-[0.12em] uppercase text-white-3 hover:text-gold transition-colors"
+        >
+          Já decidiu? → <span className="text-gold">Marcar Conversa Gratuita diretamente</span>
+        </a>
+      </div>
     </form>
   );
 }
