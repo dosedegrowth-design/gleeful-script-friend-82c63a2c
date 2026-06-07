@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700&family=Jost:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --ink: #1C1917;
+    --ink-mid: #3D3935;
+    --ink-light: #6B6560;
+    --copper: #9B6B3A;
+    --copper-dark: #7A5228;
+    --copper-light: #F5EAD8;
+    --copper-mid: #C4924F;
+    --stone: #8C8680;
+    --stone-light: #F0EEEC;
+    --ivory: #FAFAF7;
+    --border: #E4E0DC;
+    --white: #FFFFFF;
+  }
+
+  body {
+    @apply bg-[var(--ivory)] text-[var(--ink)] font-['Jost'] antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-['Sora'];
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[var(--ink)] text-[var(--ivory)] px-6 py-3 rounded-none transition-all duration-300 hover:bg-[var(--copper)] font-medium uppercase tracking-wider text-xs;
+  }
+  
+  .btn-secondary {
+    @apply bg-[var(--copper-mid)] text-[var(--ink)] px-6 py-3 rounded-none transition-all duration-300 hover:bg-[var(--copper-dark)] hover:text-white font-medium uppercase tracking-wider text-xs;
+  }
+
+  .btn-ghost {
+    @apply border border-[var(--border)] text-[var(--stone)] px-6 py-3 rounded-none transition-all duration-300 hover:border-[var(--copper)] hover:text-[var(--copper)] font-medium uppercase tracking-wider text-xs;
+  }
+
+  .section-padding {
+    @apply py-20 px-6 md:px-12 lg:px-24;
+  }
+
+  .card-hover {
+    @apply border border-[var(--border)] transition-all duration-500 hover:border-l-[3px] hover:border-l-[var(--copper)] hover:bg-[var(--copper-light)];
+  }
+}
