@@ -31,7 +31,7 @@ export const Navbar = () => {
     >
       <div className="max-w-screen-2xl mx-auto flex items-center justify-between">
         <div className="flex items-baseline gap-2 group cursor-pointer">
-          <span className="text-gold-l font-sora font-medium text-xl tracking-tight">MOOVIA</span>
+          <span className="text-gold-l font-urbanist font-bold text-xl tracking-tight">MOOVIA</span>
           <span className="text-white/35 font-urbanist font-light text-[10px] uppercase tracking-[0.32em]">
             Portugal
           </span>
