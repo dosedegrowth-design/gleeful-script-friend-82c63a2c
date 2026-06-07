@@ -41,7 +41,7 @@ export const PillarsSection = () => {
               )}
             >
               {/* Giant Ghost Number */}
-              <div className="absolute top-8 right-8 font-sora font-thin text-[120px] leading-none opacity-[0.04] pointer-events-none group-hover:opacity-[0.07] transition-opacity duration-700">
+              <div className="absolute top-8 right-8 font-amotha font-thin text-[120px] leading-none opacity-[0.04] pointer-events-none group-hover:opacity-[0.07] transition-opacity duration-700">
                 {pillar.num}
               </div>
 
