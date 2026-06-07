@@ -15,33 +15,37 @@ const faqs = [
 export function FAQSection() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section className="py-28 md:py-40 px-6 md:px-10" style={{ background: "#FFFFFF" }}>
+    <section className="bg-black py-[120px] px-6 lg:px-[80px]">
       <div className="mx-auto max-w-3xl">
         <Reveal>
-          <p className="eyebrow mb-6">Perguntas frequentes</p>
+          <div className="font-urbanist text-[11px] tracking-[0.28em] uppercase text-gold mb-6 flex items-center gap-3">
+            <span className="w-6 h-px bg-gold" />
+            Perguntas frequentes
+          </div>
         </Reveal>
         <Reveal delay={100}>
-          <h2 className="font-display text-[clamp(28px,4vw,44px)] leading-[1.15]">
+          <h2 className="font-sora text-[clamp(28px,4vw,44px)] font-extralight leading-[1.15] text-white">
             O que você precisa saber<br />antes da conversa.
           </h2>
         </Reveal>
-        <div className="mt-16 border-t" style={{ borderColor: "var(--line)" }}>
+        <div className="mt-16 border-t border-border">
           {faqs.map((f, i) => {
             const isOpen = open === i;
             return (
-              <div key={i} className="border-b" style={{ borderColor: "var(--line)" }}>
+              <div key={i} className="border-b border-border">
                 <button
                   className="w-full py-7 flex justify-between items-start gap-6 text-left"
                   onClick={() => setOpen(isOpen ? null : i)}
                 >
-                  <span className="font-display text-[19px] md:text-[22px]" style={{ color: "var(--black)" }}>{f.q}</span>
+                  <span className="font-sora text-[19px] md:text-[22px] font-light text-white">{f.q}</span>
                   <Plus
                     size={20}
-                    style={{ color: "var(--copper)", transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.4s", flexShrink: 0, marginTop: 6 }}
+                    className="text-gold shrink-0 mt-[6px] transition-transform duration-400"
+                    style={{ transform: isOpen ? "rotate(45deg)" : "rotate(0)" }}
                   />
                 </button>
                 {isOpen && (
-                  <p className="pb-8 pr-10 text-[16px] leading-relaxed" style={{ color: "var(--ink-mid)", fontWeight: 300 }}>
+                  <p className="pb-8 pr-10 font-urbanist text-[16px] font-light text-white-3 leading-relaxed">
                     {f.a}
                   </p>
                 )}
