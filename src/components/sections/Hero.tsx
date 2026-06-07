@@ -49,12 +49,12 @@ export function Hero() {
       </svg>
 
       <div className="relative z-[2] px-6 lg:pl-[80px] pt-[140px] pb-[120px]">
-        <p className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-gold mb-8 flex items-center gap-14 animate-[fadeUp_0.8s_ease_0.3s_forwards] opacity-0">
+        <p className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-gold mb-8 flex items-center gap-14 animate-[fadeUp_0.8s_ease_0.3s_forwards] opacity-0 will-change-transform">
           <span className="w-8 h-px bg-gold" />
           Coordenação Internacional de Vida e Património
         </p>
         
-        <h1 className="font-amotha text-[clamp(44px,5.5vw,82px)] font-extralight leading-[1.04] tracking-[-0.02em] mb-9 text-white">
+        <h1 className="font-amotha text-[clamp(44px,5.5vw,82px)] font-extralight leading-[1.04] tracking-[-0.02em] mb-9 text-white will-change-transform">
           <span className="inline-block overflow-hidden align-bottom">
             <span className="inline-block animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.5s]">Você</span>
           </span>
@@ -114,7 +114,7 @@ export function Hero() {
         ].map((stat) => (
           <div 
             key={stat.label}
-            className="p-7 lg:p-8 border border-border bg-white-5 animate-[fadeUp_0.8s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 translate-x-10"
+            className="p-7 lg:p-8 border border-border bg-white-5 animate-[fadeUp_0.8s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 translate-x-10 will-change-transform"
             style={{ animationDelay: stat.delay }}
           >
             <div className="font-amotha text-[48px] font-extralight text-gold-l leading-none mb-2 tracking-[-0.03em]">{stat.num}</div>

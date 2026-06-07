@@ -33,9 +33,9 @@ export function FormSection() {
           </Reveal>
         </div>
         
-        <div className="animate-[fadeUp_0.8s_ease_0.2s_forwards] opacity-0">
+        <Reveal delay={200} distance={20}>
           <LeadForm />
-        </div>
+        </Reveal>
       </div>
     </section>
   );

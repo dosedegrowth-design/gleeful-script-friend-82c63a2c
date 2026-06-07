@@ -62,7 +62,7 @@ export function PillarsSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border mt-[72px]">
           {pillars.map((pillar, i) => (
-            <Reveal key={pillar.n} delay={i * 100}>
+            <Reveal key={pillar.n} delay={i * 120} distance={30}>
               <div className="pillar bg-black-2 p-[60px] lg:p-[52px] relative overflow-hidden group transition-colors duration-400 hover:bg-black-3 h-full">
                 <div className="font-amotha text-[100px] font-thin text-gold/5 leading-none absolute top-5 right-8 tracking-[-0.06em] pointer-events-none">
                   {pillar.n}

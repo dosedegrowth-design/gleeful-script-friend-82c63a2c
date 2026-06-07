@@ -63,9 +63,9 @@ export function ProblemSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px border border-border mt-[72px]">
           {cards.map((card, i) => (
-            <Reveal key={card.n} delay={100 + i * 50}>
+            <Reveal key={card.n} delay={i * 80} distance={30}>
               <div className="inside-card p-10 lg:p-[48px] bg-black-2 relative overflow-hidden group transition-colors duration-400 hover:bg-black-3 h-full">
-                <div className="absolute top-0 left-0 w-[3px] h-0 bg-gold transition-all duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:h-full" />
+                <div className="absolute top-0 left-0 w-[3px] h-0 bg-gold transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:h-full" />
                 <div className="font-amotha text-[72px] font-thin text-gold/10 leading-none mb-1 tracking-[-0.04em]">
                   {card.n}
                 </div>

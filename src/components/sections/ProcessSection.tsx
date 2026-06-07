@@ -61,7 +61,7 @@ export function ProcessSection() {
 
           <div className="space-y-0" id="assessment">
             {steps.map((step, i) => (
-              <Reveal key={step.n} delay={i * 100}>
+              <Reveal key={step.n} delay={i * 120} distance={20}>
                 <div className="group flex gap-0 mb-0.5 animate-[fadeUp_0.7s_cubic-bezier(.16,1,.3,1)_forwards]">
                   <div className="flex flex-col items-center w-[72px] shrink-0">
                     <div className="w-12 h-12 border border-border bg-white-5 flex items-center justify-center font-amotha text-[14px] font-light text-gold transition-all duration-300 group-hover:bg-gold group-hover:text-black group-hover:border-gold">
