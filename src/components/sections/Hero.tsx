@@ -51,7 +51,6 @@ export function Hero() {
               className="font-display leading-[1.05] tracking-tight"
               style={{
                 color: "var(--ivory)",
-                fontWeight: 400,
                 fontSize: "clamp(44px, 7vw, 86px)",
               }}
             >
@@ -61,7 +60,7 @@ export function Hero() {
               coordene a{" "}
               <em
                 className="not-italic font-display italic"
-                style={{ color: "var(--copper-mid)", fontWeight: 400 }}
+                style={{ color: "var(--copper-mid)" }}
               >
                 decisão.
               </em>

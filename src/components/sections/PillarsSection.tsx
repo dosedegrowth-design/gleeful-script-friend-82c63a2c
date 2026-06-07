@@ -61,7 +61,7 @@ export function PillarsSection() {
     <section className="py-28 md:py-40 px-6 md:px-10" style={{ background: "#FFFFFF" }}>
       <div className="mx-auto max-w-[1400px]">
         <Reveal>
-          <h2 className="font-display text-[clamp(32px,5vw,56px)] leading-[1.1] max-w-3xl" style={{ fontWeight: 200 }}>
+          <h2 className="font-display text-[clamp(32px,5vw,56px)] leading-[1.1] max-w-3xl">
             Quatro pilares.<br />Uma jornada completa.
           </h2>
         </Reveal>
@@ -79,8 +79,8 @@ export function PillarsSection() {
                   <div className="flex items-start justify-between gap-6">
                     <div>
                       <div className="font-display text-sm" style={{ color: "var(--copper)", letterSpacing: "0.2em" }}>{p.n}</div>
-                      <h3 className="mt-4 font-display text-3xl" style={{ fontWeight: 300, letterSpacing: "0.04em" }}>{p.title}</h3>
-                      <p className="mt-3 font-display italic text-[17px]" style={{ color: "var(--ink-mid)", fontWeight: 200 }}>"{p.tag}"</p>
+                      <h3 className="mt-4 font-display text-3xl" style={{ letterSpacing: "0.04em" }}>{p.title}</h3>
+                      <p className="mt-3 font-display italic text-[17px]" style={{ color: "var(--ink-mid)" }}>"{p.tag}"</p>
                     </div>
                     <Plus
                       size={20}
