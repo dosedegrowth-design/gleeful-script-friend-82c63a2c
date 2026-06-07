@@ -72,7 +72,7 @@ export function ProblemSection() {
                 <p className="font-urbanist text-[10px] tracking-[0.22em] uppercase text-gold mb-4 font-medium">
                   {card.tag}
                 </p>
-                <h3 className="font-sora text-[20px] font-light text-white mb-4 leading-tight">
+                <h3 className="font-amotha text-[20px] font-light text-white mb-4 leading-tight">
                   {card.title}
                 </h3>
                 <p className="font-urbanist text-[14px] font-light text-white-3 leading-[1.85]">
