@@ -43,7 +43,7 @@ export function ProcessSection() {
       <div className="mx-auto max-w-[1400px]">
         <Reveal><p className="eyebrow mb-6">Como trabalhamos</p></Reveal>
         <Reveal delay={100}>
-          <h2 className="font-display text-[clamp(32px,5vw,56px)] leading-[1.1] max-w-3xl" style={{ fontWeight: 200 }}>
+          <h2 className="font-display text-[clamp(32px,5vw,56px)] leading-[1.1] max-w-3xl">
             Um processo em duas etapas.<br />
             Do diagnóstico ao destino.
           </h2>
@@ -54,11 +54,11 @@ export function ProcessSection() {
             <Reveal key={s.n} delay={i * 80}>
               <div className="grid md:grid-cols-[160px_1fr] gap-8 p-10 md:p-14 border border-[var(--line)] hover:border-[var(--copper-mid)] transition-colors duration-500" style={{ background: "var(--stone-light)" }}>
                 <div>
-                  <div className="font-display text-[64px] leading-none" style={{ color: "var(--copper)", fontWeight: 200 }}>{s.n}</div>
+                  <div className="font-display text-[64px] leading-none" style={{ color: "var(--copper)" }}>{s.n}</div>
                 </div>
                 <div>
                   <div className="inline-block px-3 py-1 bg-[rgba(196,146,79,0.08)] text-[10px] uppercase tracking-[0.18em]" style={{ color: "var(--copper-dark)" }}>{s.tag}</div>
-                  <h3 className="mt-3 font-display text-3xl" style={{ fontWeight: 200 }}>{s.title}</h3>
+                  <h3 className="mt-3 font-display text-3xl">{s.title}</h3>
                   <p className="mt-5 text-[16px] leading-relaxed max-w-3xl" style={{ color: "var(--ink-mid)", fontWeight: 300 }}>{s.body}</p>
                   {s.bullets && (
                     <ul className="mt-6 grid sm:grid-cols-2 gap-x-8 gap-y-3 max-w-2xl">

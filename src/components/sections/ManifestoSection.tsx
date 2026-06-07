@@ -5,13 +5,13 @@ export function ManifestoSection() {
     <section className="py-32 md:py-48 px-6 md:px-10 relative overflow-hidden" style={{ background: "var(--stone-light)" }}>
       <div
         className="absolute -top-10 left-1/2 -translate-x-1/2 font-display select-none pointer-events-none"
-        style={{ color: "var(--line)", fontSize: "clamp(140px, 22vw, 280px)", fontWeight: 200, lineHeight: 1 }}
+        style={{ color: "var(--line)", fontSize: "clamp(140px, 22vw, 280px)", lineHeight: 1 }}
       >
         10
       </div>
       <div className="mx-auto max-w-3xl text-center relative z-10">
         <Reveal>
-          <h2 className="font-display text-[clamp(30px,4.5vw,46px)] leading-[1.15]" style={{ fontWeight: 200 }}>
+          <h2 className="font-display text-[clamp(30px,4.5vw,46px)] leading-[1.15]">
             Acompanhamos um número limitado<br />de mandatos em simultâneo.
           </h2>
         </Reveal>
@@ -24,7 +24,7 @@ export function ManifestoSection() {
           </p>
         </Reveal>
         <Reveal delay={240}>
-          <p className="mt-10 font-display italic text-xl" style={{ color: "var(--copper-dark)", fontWeight: 200 }}>
+          <p className="mt-10 font-display italic text-xl" style={{ color: "var(--copper-dark)" }}>
             Se o seu caso merece isso, este é o lugar.
           </p>
         </Reveal>
