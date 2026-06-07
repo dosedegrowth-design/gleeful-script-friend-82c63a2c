@@ -34,7 +34,7 @@ export function FAQSection() {
                   className="w-full py-7 flex justify-between items-start gap-6 text-left"
                   onClick={() => setOpen(isOpen ? null : i)}
                 >
-                  <span className="font-display text-[19px] md:text-[22px]">{f.q}</span>
+                  <span className="font-display text-[19px] md:text-[22px]" style={{ color: "var(--black)" }}>{f.q}</span>
                   <Plus
                     size={20}
                     style={{ color: "var(--copper)", transform: isOpen ? "rotate(45deg)" : "rotate(0)", transition: "transform 0.4s", flexShrink: 0, marginTop: 6 }}

@@ -36,7 +36,7 @@ export function Footer() {
             <p className="text-sm mt-2">Lisboa, Portugal</p>
             <div className="flex gap-4 mt-6">
               <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-xs uppercase tracking-[0.16em]" style={{ color: "var(--copper-mid)" }}>LinkedIn</a>
-              <a href="https://wa.me/351000000000" target="_blank" rel="noreferrer" className="text-xs uppercase tracking-[0.16em]" style={{ color: "var(--copper-mid)" }}>WhatsApp</a>
+              <a href="https://wa.me/351912345678" target="_blank" rel="noreferrer" className="text-xs uppercase tracking-[0.16em]" style={{ color: "var(--copper-mid)" }}>WhatsApp</a>
             </div>
           </div>
         </div>
