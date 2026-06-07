@@ -15,13 +15,36 @@ export const Route = createFileRoute("/blog/$slug")({
 
 function Post() {
   const { slug } = Route.useParams();
-  const { data: post, isLoading } = useQuery({
+  const { data: post, isLoading, error } = useQuery({
     queryKey: ["post", slug],
     queryFn: async () => {
-      const { data } = await supabase.from("posts").select("*").eq("slug", slug).eq("published", true).maybeSingle();
-      return data;
+      try {
+        const { data, error } = await supabase.from("posts").select("*").eq("slug", slug).eq("published", true).maybeSingle();
+        if (error) throw error;
+        return data;
+      } catch (e) {
+        console.error("Error fetching post:", e);
+        throw e;
+      }
     },
+    retry: 1,
   });
+
+  if (error) {
+    return (
+      <SiteLayout>
+        <div className="bg-black pt-[120px]">
+          <div className="mx-auto max-w-3xl px-6 md:px-10 py-20 text-center">
+            <h1 className="text-white text-2xl font-light">Erro ao carregar o artigo.</h1>
+            <p className="text-white-3 mt-4">Por favor, tente novamente mais tarde.</p>
+            <Link to="/blog" className="mt-8 inline-block font-urbanist text-[12px] uppercase tracking-[0.18em] border-b border-gold text-gold-l pb-1">
+              Voltar ao blog →
+            </Link>
+          </div>
+        </div>
+      </SiteLayout>
+    );
+  }
 
   return (
     <SiteLayout>

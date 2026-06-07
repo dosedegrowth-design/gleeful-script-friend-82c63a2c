@@ -17,17 +17,38 @@ export const Route = createFileRoute("/blog/")({
 });
 
 function Blog() {
-  const { data: posts, isLoading } = useQuery({
+  const { data: posts, isLoading, error } = useQuery({
     queryKey: ["posts"],
     queryFn: async () => {
-      const { data } = await supabase
-        .from("posts")
-        .select("*")
-        .eq("published", true)
-        .order("created_at", { ascending: false });
-      return data || [];
+      try {
+        const { data, error } = await supabase
+          .from("posts")
+          .select("*")
+          .eq("published", true)
+          .order("created_at", { ascending: false });
+        
+        if (error) throw error;
+        return data || [];
+      } catch (e) {
+        console.error("Error fetching posts:", e);
+        throw e;
+      }
     },
+    retry: 1,
   });
+
+  if (error) {
+    return (
+      <SiteLayout>
+        <div className="bg-black pt-[120px]">
+          <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-16 text-center">
+            <h1 className="text-white text-2xl font-light">Não foi possível carregar o blog.</h1>
+            <p className="text-white-3 mt-4">Por favor, tente novamente mais tarde.</p>
+          </div>
+        </div>
+      </SiteLayout>
+    );
+  }
 
   return (
     <SiteLayout>
