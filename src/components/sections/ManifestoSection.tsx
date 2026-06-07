@@ -20,7 +20,7 @@ export function ManifestoSection() {
         </Reveal>
         
         <Reveal delay={120}>
-          <blockquote className="font-sora text-[clamp(26px,4vw,56px)] font-extralight leading-[1.2] tracking-[-0.02em] text-white mb-10">
+          <blockquote className="font-amotha text-[clamp(26px,4vw,56px)] font-extralight leading-[1.2] tracking-[-0.02em] text-white mb-10">
             "O mercado resolve tarefas.<br/>
             <em className="text-gold-l not-italic italic">A MOOVIA resolve a decisão.</em>"
           </blockquote>

@@ -4,8 +4,8 @@ export const Footer = () => {
       <div className="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_auto_auto] gap-20 mb-20">
         <div>
           <div className="flex items-baseline gap-1 mb-6">
-            <span className="font-sora font-medium text-2xl text-white">MOO</span>
-            <span className="font-sora font-medium text-2xl text-gold-l">VIA</span>
+            <span className="font-urbanist font-bold text-2xl text-white">MOO</span>
+            <span className="font-urbanist font-bold text-2xl text-gold-l">VIA</span>
           </div>
           <div className="font-urbanist font-normal text-[12px] uppercase tracking-[0.28em] text-white/20">
             Planejar · Chegar · Ficar

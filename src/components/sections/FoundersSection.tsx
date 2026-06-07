@@ -19,7 +19,7 @@ export function FoundersSection() {
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <h2 className="font-sora text-[clamp(32px,4vw,60px)] font-extralight leading-[1.1] text-white">
+            <h2 className="font-amotha text-[clamp(32px,4vw,60px)] font-extralight leading-[1.1] text-white">
               Antes de coordenar transições internacionais,<br />vivemos as nossas.
             </h2>
           </Reveal>
@@ -47,7 +47,7 @@ export function FoundersSection() {
           <Reveal delay={140}>
             <div>
               <p className="font-urbanist text-[11px] tracking-[0.2em] uppercase text-gold mb-4">Founder & Senior Advisor</p>
-              <h3 className="font-sora text-4xl font-extralight text-white">Frederico Prado</h3>
+              <h3 className="font-amotha text-4xl font-extralight text-white">Frederico Prado</h3>
               <p className="mt-6 font-urbanist text-[17px] font-light text-white-3 leading-relaxed">
                 29 anos em TI. Oracle, SAP, projetos enterprise de médio e grande porte. Veio para
                 Portugal em 2018 com a família e passou pelo que todo cliente nosso passa. Hoje
@@ -66,7 +66,7 @@ export function FoundersSection() {
           {partners.map((p, i) => (
             <Reveal key={p.name} delay={i * 60}>
               <div className="p-8 h-full bg-black-2 hover:bg-black-3 transition-colors">
-                <div className="font-sora text-xl font-light text-white">{p.name}</div>
+                <div className="font-amotha text-xl font-light text-white">{p.name}</div>
                 <div className="mt-2 font-urbanist text-[12px] uppercase tracking-[0.12em] text-gold">{p.role}</div>
               </div>
             </Reveal>
@@ -75,7 +75,7 @@ export function FoundersSection() {
 
         <Reveal>
           <div className="mt-20 p-10 md:p-14 border-l-[3px] border-gold bg-gold/5">
-            <p className="font-sora text-[clamp(20px,2.4vw,28px)] font-extralight leading-snug italic text-gold-l">
+            <p className="font-amotha text-[clamp(20px,2.4vw,28px)] font-extralight leading-snug italic text-gold-l">
               Vamos coordenar a sua transição internacional com o mesmo nível de cuidado, estrutura
               e atenção que gostaríamos de ter recebido na nossa.
             </p>

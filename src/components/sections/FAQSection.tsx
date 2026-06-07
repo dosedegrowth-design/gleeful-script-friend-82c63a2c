@@ -24,7 +24,7 @@ export function FAQSection() {
           </div>
         </Reveal>
         <Reveal delay={100}>
-          <h2 className="font-sora text-[clamp(28px,4vw,44px)] font-extralight leading-[1.15] text-white">
+          <h2 className="font-amotha text-[clamp(28px,4vw,44px)] font-extralight leading-[1.15] text-white">
             O que você precisa saber<br />antes da conversa.
           </h2>
         </Reveal>
@@ -37,7 +37,7 @@ export function FAQSection() {
                   className="w-full py-7 flex justify-between items-start gap-6 text-left"
                   onClick={() => setOpen(isOpen ? null : i)}
                 >
-                  <span className="font-sora text-[19px] md:text-[22px] font-light text-white">{f.q}</span>
+                  <span className="font-amotha text-[19px] md:text-[22px] font-light text-white">{f.q}</span>
                   <Plus
                     size={20}
                     className="text-gold shrink-0 mt-[6px] transition-transform duration-400"

@@ -23,7 +23,7 @@ export function AssessmentSection() {
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <h2 className="font-sora text-[clamp(30px,4.5vw,52px)] font-extralight leading-[1.1] text-white">
+            <h2 className="font-amotha text-[clamp(30px,4.5vw,52px)] font-extralight leading-[1.1] text-white">
               O diagnóstico que organiza<br />o que você não sabia<br />que precisava organizar.
             </h2>
           </Reveal>
@@ -39,7 +39,7 @@ export function AssessmentSection() {
           <div
             className="p-10 md:p-12 border-t-2 border-gold bg-white-5"
           >
-            <div className="font-sora text-[72px] font-thin text-gold-l leading-none tracking-[-0.04em]">
+            <div className="font-amotha text-[72px] font-thin text-gold-l leading-none tracking-[-0.04em]">
               €250
             </div>
             <p className="mt-3 font-urbanist text-[12px] tracking-[0.18em] uppercase text-white-3">

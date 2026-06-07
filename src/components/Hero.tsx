@@ -80,7 +80,7 @@ export const Hero = () => {
             </span>
           </motion.div>
 
-          <h1 className="font-sora text-[clamp(44px,5.5vw,82px)] leading-[1.04] text-white mb-8">
+          <h1 className="font-amotha text-[clamp(44px,5.5vw,82px)] leading-[1.04] text-white mb-8">
             <StaggeredText text="Você não precisa" className="font-thin" delay={0.5} />
             <StaggeredText text="de mais informação." className="font-thin" delay={0.65} />
             <StaggeredText text="Precisa de alguém" className="font-extralight" delay={0.8} />
@@ -124,7 +124,7 @@ export const Hero = () => {
               transition={{ duration: 0.8, delay: 1.6 + i * 0.1 }}
               className="bg-white/05 p-8 flex flex-col justify-center"
             >
-              <div className="font-sora font-extralight text-5xl text-gold-l mb-2 tracking-tight">
+              <div className="font-amotha font-extralight text-5xl text-gold-l mb-2 tracking-tight">
                 {stat.value}
               </div>
               <div className="font-urbanist font-normal text-[11px] uppercase tracking-[0.14em] text-white/35">

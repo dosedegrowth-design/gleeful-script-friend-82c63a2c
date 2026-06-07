@@ -53,7 +53,7 @@ export function ProcessSection() {
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <h2 className="font-sora text-[clamp(32px,4vw,60px)] font-extralight leading-[1.06] tracking-[-0.02em] mb-12 text-white">
+            <h2 className="font-amotha text-[clamp(32px,4vw,60px)] font-extralight leading-[1.06] tracking-[-0.02em] mb-12 text-white">
               Um processo.<br/>
               <em className="text-gold-l not-italic italic">Do diagnóstico<br/>ao destino.</em>
             </h2>
@@ -64,14 +64,14 @@ export function ProcessSection() {
               <Reveal key={step.n} delay={i * 100}>
                 <div className="group flex gap-0 mb-0.5 animate-[fadeUp_0.7s_cubic-bezier(.16,1,.3,1)_forwards]">
                   <div className="flex flex-col items-center w-[72px] shrink-0">
-                    <div className="w-12 h-12 border border-border bg-white-5 flex items-center justify-center font-sora text-[14px] font-light text-gold transition-all duration-300 group-hover:bg-gold group-hover:text-black group-hover:border-gold">
+                    <div className="w-12 h-12 border border-border bg-white-5 flex items-center justify-center font-amotha text-[14px] font-light text-gold transition-all duration-300 group-hover:bg-gold group-hover:text-black group-hover:border-gold">
                       {step.n}
                     </div>
                     {i < steps.length - 1 && <div className="w-px flex-1 min-h-[20px] bg-border" />}
                   </div>
                   <div className="pl-6 pb-8">
                     <p className="font-urbanist text-[10px] tracking-[0.2em] uppercase text-gold mb-2">{step.tag}</p>
-                    <h3 className="font-sora text-[20px] font-light text-white mb-2.5">{step.title}</h3>
+                    <h3 className="font-amotha text-[20px] font-light text-white mb-2.5">{step.title}</h3>
                     <p className="font-urbanist text-[14px] font-light text-white-3 leading-[1.85]">{step.body}</p>
                     <span className="inline-block font-urbanist text-[10px] tracking-[0.12em] uppercase text-black bg-gold px-3 py-1 mt-3">
                       {step.badge}
@@ -88,7 +88,7 @@ export function ProcessSection() {
             <div className="bg-black-3 border border-border p-[52px] relative overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-[3px] bg-[linear-gradient(90deg,var(--gold),var(--teal),var(--gold))] bg-[length:200%] animate-[gradientSlide_4s_ease_infinite]" />
               <p className="font-urbanist text-[11px] tracking-[0.24em] uppercase text-gold mb-6">Strategic Relocation Assessment</p>
-              <div className="font-sora text-[88px] font-thin text-gold-l leading-none tracking-[-0.04em] mb-1">€250</div>
+              <div className="font-amotha text-[88px] font-thin text-gold-l leading-none tracking-[-0.04em] mb-1">€250</div>
               <p className="font-urbanist text-[11px] tracking-[0.24em] uppercase text-white-3 mb-9">90 minutos · Entregável físico</p>
               <ul className="space-y-0">
                 {deliverables.map((item) => (

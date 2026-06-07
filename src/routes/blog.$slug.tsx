@@ -68,7 +68,7 @@ function Post() {
                 <span className="w-6 h-px bg-gold" />
                 Não encontrado
               </p>
-              <h1 className="font-sora text-4xl font-extralight text-white">Este artigo não existe ou ainda não foi publicado.</h1>
+              <h1 className="font-amotha text-4xl font-extralight text-white">Este artigo não existe ou ainda não foi publicado.</h1>
               <Link to="/blog" className="mt-8 inline-block font-urbanist text-[12px] uppercase tracking-[0.18em] border-b border-gold text-gold-l pb-1">
                 Voltar ao blog →
               </Link>
@@ -78,7 +78,7 @@ function Post() {
               {post.category && (
                 <div className="font-urbanist text-[11px] uppercase tracking-[0.18em] mb-6 text-gold">{post.category}</div>
               )}
-              <h1 className="font-sora text-[clamp(32px,5vw,56px)] font-extralight leading-[1.1] text-white">{post.title}</h1>
+              <h1 className="font-amotha text-[clamp(32px,5vw,56px)] font-extralight leading-[1.1] text-white">{post.title}</h1>
               {post.excerpt && (
                 <p className="mt-8 font-urbanist text-[19px] font-light text-white-2 leading-relaxed">{post.excerpt}</p>
               )}
@@ -86,7 +86,7 @@ function Post() {
 
               <div className="mt-20 p-10 border-l-[3px] border-gold bg-black-3">
                 <p className="font-urbanist text-[11px] tracking-[0.22em] uppercase text-gold mb-3">Pronto para dar o próximo passo?</p>
-                <h2 className="font-sora text-2xl font-extralight text-white">Avalie o seu caso com a MOOVIA.</h2>
+                <h2 className="font-amotha text-2xl font-extralight text-white">Avalie o seu caso com a MOOVIA.</h2>
                 <Link to="/contacto" className="mt-6 inline-flex items-center px-8 py-4 bg-gold text-black font-urbanist text-[11px] uppercase tracking-[0.18em] font-semibold transition-all hover:bg-gold-xl">
                   Avaliar meu caso
                 </Link>

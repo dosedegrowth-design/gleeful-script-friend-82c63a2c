@@ -50,7 +50,7 @@ export function ProblemSection() {
           </div>
         </Reveal>
         <Reveal delay={100}>
-          <h2 className="font-sora text-[clamp(32px,4vw,60px)] font-extralight leading-[1.06] tracking-[-0.02em] mb-6 text-white">
+          <h2 className="font-amotha text-[clamp(32px,4vw,60px)] font-extralight leading-[1.06] tracking-[-0.02em] mb-6 text-white">
             Seis grafismos.<br/>
             <em className="text-gold-l not-italic italic">Uma história só.</em>
           </h2>
@@ -66,13 +66,13 @@ export function ProblemSection() {
             <Reveal key={card.n} delay={100 + i * 50}>
               <div className="inside-card p-10 lg:p-[48px] bg-black-2 relative overflow-hidden group transition-colors duration-400 hover:bg-black-3 h-full">
                 <div className="absolute top-0 left-0 w-[3px] h-0 bg-gold transition-all duration-500 ease-[cubic-bezier(.16,1,.3,1)] group-hover:h-full" />
-                <div className="font-sora text-[72px] font-thin text-gold/10 leading-none mb-1 tracking-[-0.04em]">
+                <div className="font-amotha text-[72px] font-thin text-gold/10 leading-none mb-1 tracking-[-0.04em]">
                   {card.n}
                 </div>
                 <p className="font-urbanist text-[10px] tracking-[0.22em] uppercase text-gold mb-4 font-medium">
                   {card.tag}
                 </p>
-                <h3 className="font-sora text-[20px] font-light text-white mb-4 leading-tight">
+                <h3 className="font-amotha text-[20px] font-light text-white mb-4 leading-tight">
                   {card.title}
                 </h3>
                 <p className="font-urbanist text-[14px] font-light text-white-3 leading-[1.85]">

@@ -48,7 +48,7 @@ export const ProcessAssessment = () => {
           <div className="font-urbanist font-normal text-[11px] uppercase tracking-[0.32em] text-gold mb-8 reveal">
             Como trabalhamos
           </div>
-          <h2 className="font-sora font-extralight text-5xl text-white mb-20 reveal">
+          <h2 className="font-amotha font-extralight text-5xl text-white mb-20 reveal">
             Um processo.<br />Do diagnóstico<br />ao destino.
           </h2>
 
@@ -60,7 +60,7 @@ export const ProcessAssessment = () => {
                   <div className="absolute left-[24px] top-[48px] w-px h-[calc(100%+48px)] bg-border" />
                 )}
                 
-                <div className="w-12 h-12 border border-border flex items-center justify-center font-sora font-light text-sm text-gold bg-black transition-all duration-500 group-hover:bg-gold group-hover:text-black group-hover:border-gold z-10">
+                <div className="w-12 h-12 border border-border flex items-center justify-center font-amotha font-light text-sm text-gold bg-black transition-all duration-500 group-hover:bg-gold group-hover:text-black group-hover:border-gold z-10">
                   {step.num}
                 </div>
                 
@@ -68,7 +68,7 @@ export const ProcessAssessment = () => {
                   <div className="font-urbanist font-normal text-[10px] uppercase tracking-widest text-gold-m mb-2">
                     {step.tag}
                   </div>
-                  <h3 className="font-sora font-light text-xl text-white mb-3">{step.title}</h3>
+                  <h3 className="font-amotha font-light text-xl text-white mb-3">{step.title}</h3>
                   <p className="font-urbanist font-light text-sm text-white/35 leading-relaxed max-w-md mb-4">
                     {step.content}
                   </p>
@@ -87,7 +87,7 @@ export const ProcessAssessment = () => {
             
             <div className="mb-8">
               <div className="flex items-baseline gap-2">
-                <span className="font-sora font-thin text-[88px] text-gold-l leading-none tracking-tighter">€250</span>
+                <span className="font-amotha font-thin text-[88px] text-gold-l leading-none tracking-tighter">€250</span>
               </div>
               <div className="font-urbanist font-normal text-xs uppercase tracking-widest text-white/35 mt-4">
                 Strategic Relocation Assessment · 90 minutos

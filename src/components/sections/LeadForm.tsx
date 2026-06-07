@@ -71,7 +71,7 @@ export function LeadForm() {
     return (
       <div className="p-10 md:p-14 bg-black-3 border border-border">
         <p className="font-urbanist text-[11px] tracking-[0.22em] uppercase text-gold mb-4">Recebido</p>
-        <h3 className="font-sora text-3xl font-extralight text-white mb-5 leading-tight">
+        <h3 className="font-amotha text-3xl font-extralight text-white mb-5 leading-tight">
           Recebemos o seu caso, {form.name?.split(" ")[0] || "obrigado"}.
         </h3>
         <p className="font-urbanist text-[16px] font-light text-white-3 leading-relaxed mb-8">

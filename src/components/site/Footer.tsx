@@ -6,7 +6,7 @@ export function Footer() {
       <div className="mx-auto max-w-[1400px]">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_auto] gap-20 mb-[56px]">
           <div className="footer-brand">
-            <div className="font-sora text-[28px] font-extralight tracking-[0.04em] text-white mb-2">
+            <div className="font-urbanist text-[28px] font-bold tracking-[0.04em] text-white mb-2">
               MOO<span className="text-gold-l">VIA</span>
             </div>
             <p className="font-urbanist text-[12px] tracking-[0.28em] uppercase text-white-4">
