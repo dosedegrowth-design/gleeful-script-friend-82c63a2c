@@ -23,7 +23,7 @@ export function AssessmentSection() {
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <h2 className="font-sora text-[clamp(30px,4.5vw,52px)] font-extralight leading-[1.1] text-white">
+            <h2 className="font-amotha text-[clamp(30px,4.5vw,52px)] font-extralight leading-[1.1] text-white">
               O diagnóstico que organiza<br />o que você não sabia<br />que precisava organizar.
             </h2>
           </Reveal>
