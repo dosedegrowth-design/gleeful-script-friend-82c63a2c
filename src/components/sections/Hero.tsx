@@ -117,7 +117,7 @@ export function Hero() {
             className="p-7 lg:p-8 border border-border bg-white-5 animate-[fadeUp_0.8s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 translate-x-10"
             style={{ animationDelay: stat.delay }}
           >
-            <div className="font-sora text-[48px] font-extralight text-gold-l leading-none mb-2 tracking-[-0.03em]">{stat.num}</div>
+            <div className="font-amotha text-[48px] font-extralight text-gold-l leading-none mb-2 tracking-[-0.03em]">{stat.num}</div>
             <div className="font-urbanist text-[11px] tracking-[0.14em] uppercase text-white-3">{stat.label}</div>
           </div>
         ))}
