@@ -48,7 +48,7 @@ export const ProcessAssessment = () => {
           <div className="font-urbanist font-normal text-[11px] uppercase tracking-[0.32em] text-gold mb-8 reveal">
             Como trabalhamos
           </div>
-          <h2 className="font-sora font-extralight text-5xl text-white mb-20 reveal">
+          <h2 className="font-amotha font-extralight text-5xl text-white mb-20 reveal">
             Um processo.<br />Do diagnóstico<br />ao destino.
           </h2>
 
