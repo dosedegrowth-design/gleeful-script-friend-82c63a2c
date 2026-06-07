@@ -53,7 +53,7 @@ export function ProcessSection() {
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <h2 className="font-sora text-[clamp(32px,4vw,60px)] font-extralight leading-[1.06] tracking-[-0.02em] mb-12 text-white">
+            <h2 className="font-amotha text-[clamp(32px,4vw,60px)] font-extralight leading-[1.06] tracking-[-0.02em] mb-12 text-white">
               Um processo.<br/>
               <em className="text-gold-l not-italic italic">Do diagnóstico<br/>ao destino.</em>
             </h2>
