@@ -86,7 +86,7 @@ function Post() {
 
               <div className="mt-20 p-10 border-l-[3px] border-gold bg-black-3">
                 <p className="font-urbanist text-[11px] tracking-[0.22em] uppercase text-gold mb-3">Pronto para dar o próximo passo?</p>
-                <h2 className="font-sora text-2xl font-extralight text-white">Avalie o seu caso com a MOOVIA.</h2>
+                <h2 className="font-amotha text-2xl font-extralight text-white">Avalie o seu caso com a MOOVIA.</h2>
                 <Link to="/contacto" className="mt-6 inline-flex items-center px-8 py-4 bg-gold text-black font-urbanist text-[11px] uppercase tracking-[0.18em] font-semibold transition-all hover:bg-gold-xl">
                   Avaliar meu caso
                 </Link>
