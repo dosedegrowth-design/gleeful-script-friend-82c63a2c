@@ -44,7 +44,7 @@ export const InsideTheSymbol = () => {
   return (
     <section className="bg-black-2 py-[120px] px-8">
       <div className="max-w-screen-2xl mx-auto">
-        <h2 className="font-sora font-extralight text-5xl text-white mb-20 reveal">
+        <h2 className="font-amotha font-extralight text-5xl text-white mb-20 reveal">
           Seis grafismos. Uma história só.
         </h2>
 
