@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Wordmark } from "./Wordmark";
 
 const links = [
   { to: "/servicos", label: "Como funciona" },
@@ -29,12 +30,7 @@ export function Nav() {
         scrolled ? "bg-black/92 backdrop-blur-[20px] border-b border-border" : "bg-transparent"
       )}
     >
-      <Link to="/" className="flex flex-col gap-0 group">
-        <span className="font-sora text-[20px] font-medium tracking-[0.08em] text-gold-l">MOOVIA</span>
-        <span className="font-urbanist text-[10px] tracking-[0.32em] uppercase text-white-3 mt-[1px]">
-          Portugal
-        </span>
-      </Link>
+      <Wordmark />
 
       <div className="hidden lg:flex items-center gap-10">
         {links.map((l) => (
@@ -65,10 +61,7 @@ export function Nav() {
       {open && (
         <div className="fixed inset-0 z-[1000] bg-black flex flex-col p-6">
           <div className="flex items-center justify-between h-[72px] mb-8">
-            <Link to="/" onClick={() => setOpen(false)} className="flex flex-col">
-              <span className="font-sora text-[20px] font-medium tracking-[0.08em] text-gold-l">MOOVIA</span>
-              <span className="font-urbanist text-[10px] tracking-[0.32em] uppercase text-white-3">Portugal</span>
-            </Link>
+            <Wordmark />
             <button onClick={() => setOpen(false)} className="text-white-3">
               <X size={32} />
             </button>
