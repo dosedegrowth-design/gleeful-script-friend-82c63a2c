@@ -68,7 +68,7 @@ function Post() {
                 <span className="w-6 h-px bg-gold" />
                 Não encontrado
               </p>
-              <h1 className="font-sora text-4xl font-extralight text-white">Este artigo não existe ou ainda não foi publicado.</h1>
+              <h1 className="font-amotha text-4xl font-extralight text-white">Este artigo não existe ou ainda não foi publicado.</h1>
               <Link to="/blog" className="mt-8 inline-block font-urbanist text-[12px] uppercase tracking-[0.18em] border-b border-gold text-gold-l pb-1">
                 Voltar ao blog →
               </Link>
