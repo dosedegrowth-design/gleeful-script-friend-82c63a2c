@@ -30,7 +30,7 @@ export function Hero() {
           transform: `translateY(calc(-50% + ${scrollY * 0.1}px)) rotate(${scrollY * 0.015}deg)`
         }}
       >
-        <svg viewBox="0 0 3332.54 3331.06" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-gold opacity-60 animate-[slowspin_120s_linear_infinite]">
+        <svg viewBox="0 0 3332.54 3331.06" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-gold opacity-60 animate-[slowspin_180s_linear_infinite]">
           <path 
             fillRule="evenodd"
             d="M1781.35,1664.28c.95,63.41-49.05,115.39-111.56,115.99-65.07.62-114.78-48.05-115.93-113.53-1.12-63.48,48.29-113.93,112.41-114.77,63.47-.83,114.13,48.61,115.08,112.31Z

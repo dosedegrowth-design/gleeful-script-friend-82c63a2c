@@ -27,7 +27,7 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <SiteLayout>
-      <div id="grain" className="fixed inset-[-50%] w-[200%] h-[200%] pointer-events-none z-[1000] opacity-60 animate-[grain_8s_steps(10)_infinite] bg-[url('data:image/svg+xml,%3Csvg_viewBox=%220_0_256_256%22_xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter_id=%22noise%22%3E%3CfeTurbulence_type=%22fractalNoise%22_baseFrequency=%22.9%22_numOctaves=%224%22_stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect_width=%22100%25%22_height=%22100%25%22_filter=%22url(%23noise)%22_opacity=%22.04%22/%3E%3C/svg%3E')]" />
+      <div id="grain" className="fixed inset-[-50%] w-[200%] h-[200%] pointer-events-none z-[1000] opacity-40 animate-[grain_8s_steps(10)_infinite] bg-[url('data:image/svg+xml,%3Csvg_viewBox=%220_0_256_256%22_xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter_id=%22noise%22%3E%3CfeTurbulence_type=%22fractalNoise%22_baseFrequency=%22.9%22_numOctaves=%224%22_stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect_width=%22100%25%22_height=%22100%25%22_filter=%22url(%23noise)%22_opacity=%22.04%22/%3E%3C/svg%3E')]" />
       <Hero />
       <div className="marquee-wrap border-y border-border bg-black/80 overflow-hidden h-12 flex items-center relative z-10">
         <div className="marquee-track flex whitespace-nowrap animate-[marquee_30s_linear_infinite]">
