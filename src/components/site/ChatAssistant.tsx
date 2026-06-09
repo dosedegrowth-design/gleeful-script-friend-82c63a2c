@@ -50,7 +50,7 @@ export function ChatAssistant() {
   return (
     <div className="fixed bottom-8 right-8 lg:right-32 z-[850] flex flex-col items-end">
       {isOpen && (
-        <div className="w-[380px] h-[560px] bg-black-2 border border-border flex flex-col shadow-2xl animate-[fadeUp_0.4s_ease_forwards] mb-6">
+        <div className="w-[calc(100vw-40px)] md:w-[380px] h-[560px] max-h-[calc(100vh-140px)] bg-black-2 border border-border flex flex-col shadow-2xl animate-[fadeUp_0.4s_ease_forwards] mb-6">
           {/* Header */}
           <div className="p-6 border-b border-border flex items-center justify-between bg-black-3">
             <div className="flex items-center gap-4">
