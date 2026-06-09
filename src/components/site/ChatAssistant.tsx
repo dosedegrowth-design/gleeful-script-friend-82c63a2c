@@ -128,8 +128,6 @@ export function ChatAssistant() {
           </div>
         )}
       </button>
-
-
     </div>
   );
 }
