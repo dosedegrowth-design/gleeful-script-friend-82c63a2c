@@ -3,41 +3,39 @@ import { Reveal } from "@/components/site/Reveal";
 const pillars = [
   {
     n: "01",
-    verb: "Planejamos",
+    verb: "PLANEJAMOS",
     tagline: '"Tomar as decisões certas antes de mudar."',
     services: [
-      "Assessment", "Diagnósticos", "Mapa de Decisão",
-      "Estratégia Migratória", "Fiscal Inicial", "City Experience"
-    ]
+      "Strategic Relocation Assessment", "Diagnósticos", "Mapa de Decisão", "Estratégia Migratória", "Planeamento Fiscal", "City Experience", "Planeamento Habitacional", "Avaliação de Crédito"
+    ],
+    deliverable: "Plano Estratégico de Transição Internacional"
   },
   {
     n: "02",
-    verb: "Instalamos",
-    tagline: '"Tudo que precisa para chegar legalmente instalado."',
+    verb: "INSTALAMOS",
+    tagline: '"Tudo o que precisa para chegar e ficar legalmente instalado."',
     services: [
-      "Habitação", "NIF · NISS", "Conta Bancária",
-      "Concierge", "Airport Pick-up", "Traduções"
+      "Habitação (Busca Ativa, Airbnb Hunting, Visitas, Negociação)", "Documentação (NIF, NISS, Utente, PB4, Conta Bancária, Carta, Passe Navegante, Abertura de Atividade, Recibos Verdes, Estatuto de Igualdade)", "Concierge (Airport Pick-up, Compras, Água, Gás, Eletricidade, Internet, Ginásio)", "Traduções e Equivalências"
     ]
   },
   {
     n: "03",
-    verb: "Integramos",
-    tagline: '"Transformando uma mudança numa transição de vida."',
+    verb: "INTEGRAMOS",
+    tagline: '"Transformando uma mudança de país numa transição de vida."',
     services: [
-      "School Matching", "Educação Internacional",
-      "Adaptação Familiar", "Pet Relocation", "Lisboa Experience"
+      "Educação Nacional (School Matching, Busca, Matrícula)", "Educação Internacional", "Adaptação Familiar (Programa 30/60/90 dias)", "Pet Relocation", "Lisboa Experience Premium", "Integração Cultural"
     ]
   },
   {
     n: "04",
-    verb: "Estruturamos",
-    tagline: '"Para quem quer estruturar a vida financeira em Portugal."',
+    verb: "ESTRUTURAMOS",
+    tagline: '"Para investidores, empresários e profissionais que querem estruturar sua vida financeira em Portugal."',
     services: [
-      "Fiscalidade", "Constituição de Empresa",
-      "Contabilidade", "Planeamento Patrimonial", "Investidores"
+      "Fiscalidade (Enquadramento, Simulação de Rendimentos, Abertura/Encerramento de Atividade, IRS, Segurança Social)", "Empresas (Constituição, Contabilidade Mensal ENI e Lda., Processamento Salarial, Estruturação Societária)", "Investidores (Estruturação Patrimonial, Planeamento de Investimentos)"
     ]
   }
 ];
+
 
 export function PillarsSection() {
   return (
