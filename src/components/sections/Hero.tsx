@@ -48,7 +48,7 @@ export function Hero() {
         <circle cx="160" cy="160" r="2" fill="#ad8957" opacity=".6"/>
       </svg>
 
-      <div className="relative z-[2] px-6 lg:pl-[80px] pt-[140px] pb-[120px]">
+      <div className="relative z-[2] px-6 lg:pl-[80px] pt-[140px] pb-[120px] flex-1">
         <p className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-gold mb-8 flex items-center gap-14 animate-[fadeUp_0.8s_ease_0.3s_forwards] opacity-0 will-change-transform">
           <span className="w-8 h-px bg-gold" />
           Coordenação Internacional de Vida e Património
