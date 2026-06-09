@@ -121,6 +121,8 @@ function RootShell({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
+    if (window.innerWidth < 1024) return;
+    
     const dot = document.getElementById('cursor-dot');
     const ring = document.getElementById('cursor-ring');
     if (!dot || !ring) return;
@@ -142,7 +144,7 @@ function RootShell({ children }: { children: ReactNode }) {
       ring.style.top = ry + 'px';
       requestAnimationFrame(animateCursor);
     };
-    animateCursor();
+    const rafId = requestAnimationFrame(animateCursor);
 
     const onMouseEnter = () => {
       ring.style.width = '56px';
@@ -165,12 +167,14 @@ function RootShell({ children }: { children: ReactNode }) {
 
     return () => {
       document.removeEventListener('mousemove', onMouseMove);
+      cancelAnimationFrame(rafId);
       interactiveElements.forEach(el => {
         el.removeEventListener('mouseenter', onMouseEnter);
         el.removeEventListener('mouseleave', onMouseLeave);
       });
     };
   }, []);
+
 
   return (
     <html lang="pt">
