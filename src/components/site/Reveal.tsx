@@ -21,28 +21,36 @@ export function Reveal({
     const el = ref.current;
     if (!el) return;
 
-    // Initial state based on direction
-    const transforms: Record<string, string> = {
-      up: `translateY(${distance}px)`,
-      down: `translateY(-${distance}px)`,
-      left: `translateX(${distance}px)`,
-      right: `translateX(-${distance}px)`
-    };
+    // Set initial state without causing layout thrashing before observer
+    const initialTransform = {
+      up: `translate3d(0, ${distance}px, 0)`,
+      down: `translate3d(0, -${distance}px, 0)`,
+      left: `translate3d(${distance}px, 0, 0)`,
+      right: `translate3d(-${distance}px, 0, 0)`
+    }[direction];
 
     el.style.opacity = "0";
-    el.style.transform = transforms[direction];
-    el.style.transition = "all 0.9s cubic-bezier(0.16, 1, 0.3, 1)";
+    el.style.transform = initialTransform;
+    el.style.transition = "opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)";
     el.style.transitionDelay = `${delay}ms`;
+    el.style.willChange = "opacity, transform";
 
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          el.style.opacity = "1";
-          el.style.transform = "translate(0, 0)";
+          requestAnimationFrame(() => {
+            el.style.opacity = "1";
+            el.style.transform = "translate3d(0, 0, 0)";
+            
+            // Clean up will-change after transition to free up resources
+            setTimeout(() => {
+              if (el) el.style.willChange = "auto";
+            }, 1000 + delay);
+          });
           io.disconnect();
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -50px 0px" },
+      { threshold: 0.05, rootMargin: "0px 0px -20px 0px" },
     );
     
     io.observe(el);
