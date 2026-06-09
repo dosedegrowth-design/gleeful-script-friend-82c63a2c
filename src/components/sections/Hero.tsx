@@ -33,7 +33,7 @@ export function Hero() {
         <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full animate-[slowspin_120s_linear_infinite]">
           <path d="M100 20 L115 35 H165 V85 L180 100 L165 115 V165 H115 L100 180 L85 165 H35 V115 L20 100 L35 85 V35 H85 L100 20 Z" stroke="#ad8957" strokeWidth="0.5" fill="none"/>
           <circle cx="100" cy="100" r="10" stroke="#ad8957" strokeWidth="0.5" fill="none"/>
-          <path d="M100 92 V108 M92 100 H112" stroke="#ad8957" strokeWidth="0.5"/>
+          <path d="M100 92 V108 M92 100 H108" stroke="#ad8957" strokeWidth="0.5"/>
           {/* Symmetrical ornaments */}
           {[0, 90, 180, 270].map((rot) => (
             <g key={rot} transform={`rotate(${rot} 100 100)`}>
