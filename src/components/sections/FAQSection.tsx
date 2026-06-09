@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Reveal } from "@/components/site/Reveal";
 import { Plus } from "lucide-react";
+import { cn } from "@/lib/utils";
+
 
 const faqs = [
   { q: "O que exatamente a MOOVIA Portugal faz?", a: "A MOOVIA Portugal coordena a jornada completa de transição internacional, do diagnóstico estratégico até os 90 dias após a chegada. Não somos uma empresa de imigração, não somos uma imobiliária, não somos uma escola. Somos o único ponto de responsabilidade para uma decisão que normalmente exige coordenar dez fornecedores diferentes ao mesmo tempo." },
