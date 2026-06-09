@@ -82,12 +82,6 @@ export function TeamSection() {
                   ))}
                 </div>
 
-                {member.isLarge && (
-                  <div className="aspect-[4/3] w-full bg-[#181818] mb-6 grayscale hover:grayscale-0 transition-all duration-700 overflow-hidden relative">
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                  </div>
-                )}
-
                 <h3 className="font-sora font-[300] text-[18px] text-white mt-auto">
                   {member.name}
                 </h3>
