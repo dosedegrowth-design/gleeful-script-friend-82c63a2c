@@ -37,7 +37,7 @@ export function FAQSection() {
                   className="w-full py-7 flex justify-between items-center gap-6 text-left"
                   onClick={() => setOpen(isOpen ? null : i)}
                 >
-                  <span className="font-amotha text-[19px] md:text-[22px] font-light text-white">{f.q}</span>
+                  <span className="font-urbanist text-[16px] font-normal text-white">{f.q}</span>
                   <Plus
                     size={20}
                     className="text-gold shrink-0 mt-[6px] transition-transform duration-400"
