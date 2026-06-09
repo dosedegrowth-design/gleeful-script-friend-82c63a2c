@@ -125,8 +125,9 @@ export function Hero() {
 
       <div className="absolute bottom-10 left-6 lg:left-[80px] z-[2] flex items-center gap-14 font-urbanist text-[11px] tracking-[0.2em] uppercase text-white-3 animate-[fadeUp_0.6s_ease_1.8s_forwards] opacity-0">
         <div className="w-10 h-px bg-border relative overflow-hidden">
-          <div className="absolute inset-0 bg-gold -translate-x-full animate-[scrollLine_2s_ease_2s_infinite]" />
+          <div className="absolute inset-0 bg-gold -translate-x-full animate-[scrollLine_2s_ease_infinite]" />
         </div>
+
         Planejar · Chegar · Ficar
       </div>
     </section>
