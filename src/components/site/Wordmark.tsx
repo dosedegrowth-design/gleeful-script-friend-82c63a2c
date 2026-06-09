@@ -17,7 +17,7 @@ export function Wordmark() {
       </div>
       <div className="flex flex-col gap-0">
         <div className="font-amotha text-[26px] tracking-[0.04em] text-white leading-none">
-          MOO<span className="text-gold-l">VIA</span>
+          MO<span className="text-gold-l">O</span>VIA
         </div>
         <span className="font-urbanist text-[10px] tracking-[0.35em] uppercase text-white/30 mt-[3px]">
           Portugal
