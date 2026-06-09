@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { MessageSquare, X, Send, Loader2 } from 'lucide-react';
+import { X, Send, Loader2 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { cn } from '@/lib/utils';
 
@@ -16,12 +16,13 @@ export function ChatAssistant() {
     }
   }, [messages]);
 
-  const sendMessage = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!input.trim() || loading) return;
+  const sendMessage = async (e: React.FormEvent | string) => {
+    if (typeof e !== 'string') e.preventDefault();
+    
+    const userMessage = typeof e === 'string' ? e : input.trim();
+    if (!userMessage || loading) return;
 
-    const userMessage = input.trim();
-    setInput('');
+    if (typeof e !== 'string') setInput('');
     const newMessages = [...messages, { role: 'user' as const, content: userMessage }];
     setMessages(newMessages);
     setLoading(true);
@@ -51,7 +52,6 @@ export function ChatAssistant() {
     <div className="fixed bottom-24 lg:bottom-8 right-8 lg:right-32 z-[850] flex flex-col items-end">
       {isOpen && (
         <div className="w-[calc(100vw-40px)] md:w-[380px] h-[560px] max-h-[calc(100vh-140px)] bg-black-2 border border-border flex flex-col shadow-2xl animate-[fadeUp_0.4s_ease_forwards] mb-6">
-          {/* Header */}
           <div className="p-6 border-b border-border flex items-center justify-between bg-black-3">
             <div className="flex items-center gap-4">
               <div className="w-8 h-8 text-gold">
@@ -70,17 +70,16 @@ export function ChatAssistant() {
             </button>
           </div>
 
-          {/* Messages */}
           <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-4 font-urbanist text-sm">
             {messages.length === 0 && (
               <div className="text-center py-10">
-                <p className="text-white-3 mb-6">Olá! Como posso ajudar na sua transição para Portugal?</p>
+                <p className="text-white-3 mb-6 font-light">Olá! Como posso ajudar na sua transição para Portugal?</p>
                 <div className="flex flex-col gap-2">
                   {['Como funciona?', 'Quanto custa?', 'Agendar conversa'].map(q => (
                     <button 
                       key={q} 
-                      onClick={() => { setInput(q); }}
-                      className="p-3 border border-border text-white-4 hover:text-gold hover:border-gold transition-colors text-[12px] uppercase tracking-widest"
+                      onClick={() => sendMessage(q)}
+                      className="p-3 border border-border text-white-4 hover:text-gold hover:border-gold transition-colors text-[11px] uppercase tracking-widest bg-black/20"
                     >
                       {q}
                     </button>
@@ -89,24 +88,23 @@ export function ChatAssistant() {
               </div>
             )}
             {messages.map((m, i) => (
-              <div key={i} className={cn("max-w-[85%] p-4 rounded-sm", m.role === 'user' ? "ml-auto bg-gold text-black font-medium" : "mr-auto bg-black-3 text-white-3 border border-border")}>
+              <div key={i} className={cn("max-w-[85%] p-4 rounded-sm leading-relaxed", m.role === 'user' ? "ml-auto bg-gold text-black font-semibold" : "mr-auto bg-black-3 text-white-3 border border-border")}>
                 {m.content}
               </div>
             ))}
             {loading && (
-              <div className="mr-auto bg-black-3 p-4 border border-border text-gold animate-pulse">
+              <div className="mr-auto bg-black-3 p-4 border border-border text-gold animate-pulse rounded-sm">
                 ...
               </div>
             )}
           </div>
 
-          {/* Input */}
           <form onSubmit={sendMessage} className="p-4 border-t border-border bg-black-3 flex gap-2">
             <input
               value={input}
               onChange={e => setInput(e.target.value)}
               placeholder="Digite sua mensagem..."
-              className="flex-1 bg-black border border-border text-white px-4 py-3 font-urbanist text-sm outline-none focus:border-gold"
+              className="flex-1 bg-black border border-border text-white px-4 py-3 font-urbanist text-sm outline-none focus:border-gold transition-colors"
             />
             <button type="submit" className="bg-gold text-black p-3 hover:bg-gold-xl transition-colors disabled:opacity-50">
               {loading ? <Loader2 className="animate-spin" size={20} /> : <Send size={20} />}
@@ -131,4 +129,5 @@ export function ChatAssistant() {
     </div>
   );
 }
+
 
