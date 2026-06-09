@@ -131,12 +131,19 @@ function AdminLeads() {
                 />
               </div>
               <button 
+                onClick={handleLogout}
+                className="bg-black-3 border border-border text-red-400 p-3 hover:bg-red-500 hover:text-white hover:border-red-500 transition-colors flex items-center gap-2 font-urbanist text-[12px] uppercase tracking-widest"
+              >
+                Sair
+              </button>
+              <button 
                 onClick={exportCSV}
                 className="bg-black-3 border border-border text-white-3 p-3 hover:text-gold hover:border-gold transition-colors flex items-center gap-2 font-urbanist text-[12px] uppercase tracking-widest"
               >
                 <Download size={18} />
                 Exportar CSV
               </button>
+
             </div>
           </div>
 
