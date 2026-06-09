@@ -196,7 +196,7 @@ function RootShell({ children }: { children: ReactNode }) {
             <circle cx="160" cy="160" r="2" fill="currentColor" opacity=".6"/>
           </svg>
         </div>
-        <div id="cursor-ring" className="fixed top-0 left-0 w-9 h-9 border border-gold/50 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.18s_ease,width_0.2s,height_0.2s,opacity_0.2s]" />
+        <div id="cursor-ring" className="hidden lg:block fixed top-0 left-0 w-9 h-9 border border-gold/50 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.18s_ease,width_0.2s,height_0.2s,opacity_0.2s]" />
         {children}
         <Toaster position="top-right" richColors />
         <Scripts />
