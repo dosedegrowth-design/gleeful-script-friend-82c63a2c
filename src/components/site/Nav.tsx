@@ -12,6 +12,7 @@ const links = [
   { to: "/contacto", label: "Contacto" },
 
 
+
 ];
 
 export function Nav() {
