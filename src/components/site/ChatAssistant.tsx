@@ -119,7 +119,6 @@ export function ChatAssistant() {
         onClick={() => setIsOpen(!isOpen)}
         className="w-14 h-14 bg-black-3 border border-border rounded-full flex items-center justify-center text-gold shadow-2xl hover:scale-110 transition-transform group"
       >
-
         {isOpen ? <X size={24} /> : (
           <div className="w-8 h-8">
             <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -129,6 +128,7 @@ export function ChatAssistant() {
           </div>
         )}
       </button>
+
     </div>
   );
 }
