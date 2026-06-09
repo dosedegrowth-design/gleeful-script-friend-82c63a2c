@@ -48,7 +48,7 @@ export function ChatAssistant() {
   };
 
   return (
-    <div className="fixed bottom-8 right-[100px] z-[850] flex flex-col items-end">
+    <div className="fixed bottom-8 right-8 lg:right-32 z-[850] flex flex-col items-end">
       {isOpen && (
         <div className="w-[380px] h-[560px] bg-black-2 border border-border flex flex-col shadow-2xl animate-[fadeUp_0.4s_ease_forwards] mb-6">
           {/* Header */}
