@@ -49,7 +49,7 @@ export function ProblemSection() {
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px border border-border mt-[72px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px border border-border mt-[72px]">
           {cards.map((card, i) => (
             <Reveal key={card.n} delay={i * 80} distance={30}>
               <div className="inside-card p-10 lg:p-[48px] bg-black-2 relative overflow-hidden group transition-colors duration-400 hover:bg-black-3 h-full">
@@ -71,13 +71,13 @@ export function ProblemSection() {
           ))}
         </div>
 
-        <Reveal delay={400} className="mt-20 text-center">
-          <div className="w-12 h-px bg-gold mx-auto mb-10" />
-          <p className="font-amotha text-[clamp(24px,3vw,36px)] font-extralight leading-snug text-white">
-            O mercado resolve tarefas.<br/>
-            <span className="text-gold-l italic">A MOOVIA resolve a decisão.</span>
+        <Reveal delay={400} className="mt-20 text-center bg-black p-12">
+          <p className="font-amotha text-[clamp(28px,4vw,52px)] font-extralight leading-snug text-white">
+            "O mercado resolve tarefas."<br/>
+            <span className="text-gold-l italic">"A MOOVIA resolve a decisão."</span>
           </p>
         </Reveal>
+
       </div>
     </section>
   );

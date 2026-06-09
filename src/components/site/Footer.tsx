@@ -6,13 +6,17 @@ export function Footer() {
       <div className="mx-auto max-w-[1400px]">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_auto] gap-20 mb-[56px]">
           <div className="footer-brand">
-            <div className="font-urbanist text-[28px] font-bold tracking-[0.04em] text-white mb-2">
+            <div className="font-amotha text-[28px] tracking-[0.04em] text-white mb-0">
               MOO<span className="text-gold-l">VIA</span>
             </div>
-            <p className="font-urbanist text-[12px] tracking-[0.28em] uppercase text-white-4">
+            <p className="font-urbanist text-[11px] tracking-[0.3em] uppercase text-white-4 mb-3">
+              Portugal
+            </p>
+            <p className="font-urbanist text-[10px] tracking-[0.2em] uppercase text-white/10">
               Planejar · Chegar · Ficar
             </p>
           </div>
+
           
           <div className="footer-col">
             <h5 className="font-urbanist text-[11px] tracking-[0.2em] uppercase text-gold mb-5 font-medium">Serviços</h5>

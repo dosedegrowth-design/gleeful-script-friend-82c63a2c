@@ -2,12 +2,12 @@ import { Reveal } from "@/components/site/Reveal";
 import { Link } from "@tanstack/react-router";
 
 const deliverables = [
-  "Diagnóstico de perfil: familiar, financeiro e migratório",
-  "Avaliação patrimonial e estrutura fiscal ideal",
-  "Análise de timing e mapeamento de riscos",
-  "Mapa de decisão: visto, cidades e housing strategy",
-  "Estratégia de escolas e integração familiar",
-  "Cronograma personalizado completo",
+  "Mapa de decisão personalizado",
+  "Estratégia de habitação",
+  "Estratégia documental e migratória",
+  "Estratégia familiar e escolar",
+  "Estrutura fiscal inicial",
+  "Plano de próximos passos com cronograma",
   "Entregável físico: documento que você leva",
 ];
 
@@ -40,19 +40,20 @@ export function AssessmentSection() {
 
         <Reveal delay={140}>
           <div
-            className="p-10 md:p-12 border-t-2 border-gold bg-white-5"
+            className="p-10 md:p-12 border border-border bg-black-3 relative overflow-hidden"
           >
-            <div className="font-amotha text-[72px] font-thin text-gold-l leading-none tracking-[-0.04em]">
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-[linear-gradient(90deg,var(--gold),var(--teal),var(--gold))] bg-[length:200%] animate-[gradientSlide_4s_ease_infinite]" />
+            <div className="font-amotha text-[88px] font-thin text-gold-l leading-none tracking-[-0.04em]">
               €250
             </div>
-            <p className="mt-3 font-urbanist text-[12px] tracking-[0.18em] uppercase text-white-3">
+            <p className="mt-3 font-urbanist text-[11px] tracking-[0.18em] uppercase text-white-3">
               Strategic Relocation Assessment · 90 minutos
             </p>
-            <div className="mt-8 font-urbanist text-[11px] tracking-[0.2em] uppercase text-gold/80 mb-2">Entregáveis:</div>
+            <div className="mt-12 font-urbanist text-[11px] tracking-[0.2em] uppercase text-gold mb-4">Entregáveis:</div>
             <ul className="mt-0 space-y-0">
               {deliverables.map((d) => (
-                <li key={d} className="flex items-start gap-3 font-urbanist text-[15px] font-light text-white-3 py-3 border-b border-border last:border-0 leading-relaxed">
-                  <span className="text-gold shrink-0 mt-0.5">—</span>
+                <li key={d} className="flex items-start gap-3 font-urbanist text-[14px] font-light text-white-3 py-3 border-b border-border last:border-0 leading-relaxed">
+                  <span className="text-gold shrink-0 mt-0.5">→</span>
                   {d}
                 </li>
               ))}
@@ -62,7 +63,7 @@ export function AssessmentSection() {
             </p>
             <Link
               to="/contacto"
-              className="bg-gold text-black font-urbanist text-[12px] font-semibold tracking-[0.2em] uppercase px-10 py-4 relative overflow-hidden group transition-all duration-300 w-full text-center mt-8 block"
+              className="bg-gold text-black font-urbanist text-[12px] font-semibold tracking-[0.2em] uppercase px-10 py-5 relative overflow-hidden group transition-all duration-300 w-full text-center mt-8 block"
             >
               <span className="relative z-10">Solicitar Assessment</span>
               <div className="absolute inset-0 bg-gold-xl origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100" />
@@ -70,6 +71,10 @@ export function AssessmentSection() {
           </div>
         </Reveal>
       </div>
+      <style>{`
+        @keyframes gradientSlide { 0%{background-position:0%} 100%{background-position:200%} }
+      `}</style>
     </section>
   );
 }
+

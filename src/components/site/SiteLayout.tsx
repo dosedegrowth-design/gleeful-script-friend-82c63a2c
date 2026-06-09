@@ -3,6 +3,8 @@ import { useRouterState } from "@tanstack/react-router";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { WhatsAppButton } from "../WhatsAppButton";
+import { ChatAssistant } from "./ChatAssistant";
+
 
 function useMooviaTracking() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -41,6 +43,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <main>{children}</main>
       <Footer />
       <WhatsAppButton />
+      <ChatAssistant />
     </>
+
   );
 }

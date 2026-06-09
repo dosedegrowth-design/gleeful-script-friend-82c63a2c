@@ -11,7 +11,7 @@ export function Hero() {
 
   return (
     <section
-      className="relative min-h-[100svh] grid grid-cols-1 lg:grid-cols-2 items-center overflow-hidden"
+      className="relative min-h-[100svh] flex flex-col lg:flex-row items-center overflow-hidden"
     >
       <div className="absolute inset-0 z-0 bg-black">
         <div 
@@ -24,7 +24,7 @@ export function Hero() {
       </div>
 
       <svg 
-        className="hero-symbol absolute right-[-80px] top-1/2 -translate-y-1/2 w-[680px] height-[680px] opacity-[0.07] z-[1] animate-[slowspin_80s_linear_infinite]" 
+        className="hero-symbol absolute right-[-80px] top-1/2 -translate-y-1/2 w-[680px] h-[680px] opacity-[0.07] z-[1] animate-[slowspin_80s_linear_infinite]" 
         viewBox="0 0 200 200" 
         fill="none" 
         xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ export function Hero() {
         <circle cx="160" cy="160" r="2" fill="#ad8957" opacity=".6"/>
       </svg>
 
-      <div className="relative z-[2] px-6 lg:pl-[80px] pt-[140px] pb-[120px]">
+      <div className="relative z-[2] px-6 lg:pl-[80px] pt-[140px] pb-[120px] flex-1">
         <p className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-gold mb-8 flex items-center gap-14 animate-[fadeUp_0.8s_ease_0.3s_forwards] opacity-0 will-change-transform">
           <span className="w-8 h-px bg-gold" />
           Coordenação Internacional de Vida e Património
@@ -56,31 +56,31 @@ export function Hero() {
         
         <h1 className="font-amotha text-[clamp(44px,5.5vw,82px)] font-extralight leading-[1.04] tracking-[-0.02em] mb-9 text-white will-change-transform">
           <span className="inline-block overflow-hidden align-bottom">
-            <span className="inline-block animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.5s]">Você</span>
+            <span className="inline-block font-thin animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.5s]">Você</span>
           </span>
           <span className="inline-block overflow-hidden align-bottom ml-3">
-            <span className="inline-block animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.5s]">não</span>
+            <span className="inline-block font-thin animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.5s]">não</span>
           </span>
           <span className="inline-block overflow-hidden align-bottom ml-3">
-            <span className="inline-block animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.65s]">precisa</span>
+            <span className="inline-block font-thin animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.65s]">precisa</span>
           </span><br/>
           <span className="inline-block overflow-hidden align-bottom">
-            <span className="inline-block animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.75s]">de mais</span>
+            <span className="inline-block font-thin animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.75s]">de mais</span>
           </span>
           <span className="inline-block overflow-hidden align-bottom ml-3">
-            <span className="inline-block animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.75s]">informação.</span>
+            <span className="inline-block font-thin animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.75s]">informação.</span>
           </span><br/>
           <span className="inline-block overflow-hidden align-bottom">
-            <span className="inline-block animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.85s]">Precisa de</span>
+            <span className="inline-block font-extralight animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.85s]">Precisa de</span>
           </span><br/>
           <span className="inline-block overflow-hidden align-bottom">
-            <span className="inline-block animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.95s]">alguém que</span>
+            <span className="inline-block font-extralight animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.95s]">alguém que</span>
           </span><br/>
           <span className="inline-block overflow-hidden align-bottom">
-            <span className="inline-block text-gold-l animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:1.05s]">coordene a</span>
+            <span className="inline-block font-extralight text-gold-l animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:1.05s]">coordene a</span>
           </span><br/>
           <span className="inline-block overflow-hidden align-bottom">
-            <span className="inline-block text-gold-l animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:1.15s]">decisão.</span>
+            <span className="inline-block font-extralight text-gold-l animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:1.15s]">decisão.</span>
           </span>
         </h1>
 
@@ -105,7 +105,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="hidden lg:flex flex-col gap-0.5 relative z-[2] px-6 pl-10 pt-[140px] pb-[120px]">
+      <div className="hidden lg:flex flex-col gap-px bg-border relative z-[2] ml-auto mr-[80px]">
         {[
           { num: "€250", label: "Strategic Assessment", delay: "0.6s" },
           { num: "90'", label: "Sessão com o founder", delay: "0.75s" },
@@ -114,7 +114,7 @@ export function Hero() {
         ].map((stat) => (
           <div 
             key={stat.label}
-            className="p-7 lg:p-8 border border-border bg-white-5 animate-[fadeUp_0.8s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 translate-x-10 will-change-transform"
+            className="p-7 lg:p-8 border border-border bg-white-5 animate-[fadeUp_0.8s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 translate-x-10 will-change-transform min-w-[280px]"
             style={{ animationDelay: stat.delay }}
           >
             <div className="font-amotha text-[48px] font-extralight text-gold-l leading-none mb-2 tracking-[-0.03em]">{stat.num}</div>
@@ -125,8 +125,9 @@ export function Hero() {
 
       <div className="absolute bottom-10 left-6 lg:left-[80px] z-[2] flex items-center gap-14 font-urbanist text-[11px] tracking-[0.2em] uppercase text-white-3 animate-[fadeUp_0.6s_ease_1.8s_forwards] opacity-0">
         <div className="w-10 h-px bg-border relative overflow-hidden">
-          <div className="absolute inset-0 bg-gold -translate-x-full animate-[scrollLine_2s_ease_2s_infinite]" />
+          <div className="absolute inset-0 bg-gold -translate-x-full animate-[scrollLine_2s_ease_infinite]" />
         </div>
+
         Planejar · Chegar · Ficar
       </div>
     </section>

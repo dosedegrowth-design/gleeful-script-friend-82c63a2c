@@ -65,21 +65,23 @@ export function FoundersSection() {
         <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
           {partners.map((p, i) => (
             <Reveal key={p.name} delay={i * 60}>
-              <div className="p-8 h-full bg-black-2 hover:bg-black-3 transition-colors">
-                <div className="font-amotha text-xl font-light text-white">{p.name}</div>
-                <div className="mt-2 font-urbanist text-[12px] uppercase tracking-[0.12em] text-gold">{p.role}</div>
+              <div className="p-10 h-full bg-black-2 hover:bg-black-3 transition-all duration-300 border-l-[3px] border-transparent hover:border-gold">
+                <div className="font-amotha text-2xl font-light text-white mb-2">{p.name}</div>
+                <div className="font-urbanist text-[11px] uppercase tracking-[0.14em] text-gold-l">{p.role}</div>
               </div>
             </Reveal>
           ))}
         </div>
 
+
         <Reveal>
-          <div className="mt-20 p-10 md:p-14 border-l-[3px] border-gold bg-gold/5">
-            <p className="font-amotha text-[clamp(20px,2.4vw,28px)] font-extralight leading-snug italic text-gold-l">
-              Vamos coordenar a sua transição internacional com o mesmo nível de cuidado, estrutura
-              e atenção que gostaríamos de ter recebido na nossa.
+          <div className="mt-20 p-10 md:p-14 border-l-[3px] border-gold bg-gold/5 animate-[fadeUp_1s_ease_forwards]">
+            <p className="font-amotha text-[clamp(22px,2.4vw,28px)] font-extralight leading-snug italic text-gold-m">
+              "Vamos coordenar a sua transição internacional com o mesmo nível de cuidado, estrutura
+              e atenção que gostaríamos de ter recebido na nossa."
             </p>
           </div>
+
         </Reveal>
       </div>
     </section>

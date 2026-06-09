@@ -3,38 +3,35 @@ import { Reveal } from "@/components/site/Reveal";
 const pillars = [
   {
     n: "01",
-    verb: "Planejamos",
+    verb: "PLANEJAMOS",
     tagline: '"Tomar as decisões certas antes de mudar."',
     services: [
-      "Assessment", "Diagnósticos", "Mapa de Decisão",
-      "Estratégia Migratória", "Fiscal Inicial", "City Experience"
-    ]
+      "Strategic Relocation Assessment", "Diagnósticos", "Mapa de Decisão", "Estratégia Migratória", "Planeamento Fiscal", "City Experience", "Planeamento Habitacional", "Avaliação de Crédito"
+    ],
+    deliverable: "Plano Estratégico de Transição Internacional"
   },
   {
     n: "02",
-    verb: "Instalamos",
-    tagline: '"Tudo que precisa para chegar legalmente instalado."',
+    verb: "INSTALAMOS",
+    tagline: '"Tudo o que precisa para chegar e ficar legalmente instalado."',
     services: [
-      "Habitação", "NIF · NISS", "Conta Bancária",
-      "Concierge", "Airport Pick-up", "Traduções"
+      "Habitação (Busca Ativa, Airbnb Hunting, Visitas, Negociação)", "Documentação (NIF, NISS, Utente, PB4, Conta Bancária, Carta, Passe Navegante, Abertura de Atividade, Recibos Verdes, Estatuto de Igualdade)", "Concierge (Airport Pick-up, Compras, Água, Gás, Eletricidade, Internet, Ginásio)", "Traduções e Equivalências"
     ]
   },
   {
     n: "03",
-    verb: "Integramos",
-    tagline: '"Transformando uma mudança numa transição de vida."',
+    verb: "INTEGRAMOS",
+    tagline: '"Transformando uma mudança de país numa transição de vida."',
     services: [
-      "School Matching", "Educação Internacional",
-      "Adaptação Familiar", "Pet Relocation", "Lisboa Experience"
+      "Educação Nacional (School Matching, Busca, Matrícula)", "Educação Internacional", "Adaptação Familiar (Programa 30/60/90 dias)", "Pet Relocation", "Lisboa Experience Premium", "Integração Cultural"
     ]
   },
   {
     n: "04",
-    verb: "Estruturamos",
-    tagline: '"Para quem quer estruturar a vida financeira em Portugal."',
+    verb: "ESTRUTURAMOS",
+    tagline: '"Para investidores, empresários e profissionais que querem estruturar sua vida financeira em Portugal."',
     services: [
-      "Fiscalidade", "Constituição de Empresa",
-      "Contabilidade", "Planeamento Patrimonial", "Investidores"
+      "Fiscalidade (Enquadramento, Simulação de Rendimentos, Abertura/Encerramento de Atividade, IRS, Segurança Social)", "Empresas (Constituição, Contabilidade Mensal ENI e Lda., Processamento Salarial, Estruturação Societária)", "Investidores (Estruturação Patrimonial, Planeamento de Investimentos)"
     ]
   }
 ];
@@ -62,7 +59,7 @@ export function PillarsSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border mt-[72px]">
           {pillars.map((pillar, i) => (
-            <Reveal key={pillar.n} delay={i * 120} distance={30}>
+            <Reveal key={pillar.n} delay={i * 120} distance={30} className="h-full">
               <div className="pillar bg-black-2 p-[60px] lg:p-[52px] relative overflow-hidden group transition-colors duration-400 hover:bg-black-3 h-full">
                 <div className="font-amotha text-[100px] font-thin text-gold/5 leading-none absolute top-5 right-8 tracking-[-0.06em] pointer-events-none">
                   {pillar.n}
@@ -80,6 +77,12 @@ export function PillarsSection() {
                     </li>
                   ))}
                 </ul>
+                {pillar.deliverable && (
+                  <div className="mt-8 pt-6 border-t border-border">
+                    <p className="font-urbanist text-[10px] uppercase tracking-widest text-gold-l mb-1">Entregável:</p>
+                    <p className="font-urbanist text-[13px] text-white-3">{pillar.deliverable}</p>
+                  </div>
+                )}
                 <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-gold to-teal transition-all duration-600 ease-[cubic-bezier(.16,1,.3,1)] group-hover:w-full" />
               </div>
             </Reveal>
@@ -89,3 +92,4 @@ export function PillarsSection() {
     </section>
   );
 }
+

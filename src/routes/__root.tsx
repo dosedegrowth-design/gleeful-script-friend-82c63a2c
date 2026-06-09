@@ -121,6 +121,8 @@ function RootShell({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
+    if (window.innerWidth < 1024) return;
+    
     const dot = document.getElementById('cursor-dot');
     const ring = document.getElementById('cursor-ring');
     if (!dot || !ring) return;
@@ -142,7 +144,7 @@ function RootShell({ children }: { children: ReactNode }) {
       ring.style.top = ry + 'px';
       requestAnimationFrame(animateCursor);
     };
-    animateCursor();
+    const rafId = requestAnimationFrame(animateCursor);
 
     const onMouseEnter = () => {
       ring.style.width = '56px';
@@ -165,6 +167,7 @@ function RootShell({ children }: { children: ReactNode }) {
 
     return () => {
       document.removeEventListener('mousemove', onMouseMove);
+      cancelAnimationFrame(rafId);
       interactiveElements.forEach(el => {
         el.removeEventListener('mouseenter', onMouseEnter);
         el.removeEventListener('mouseleave', onMouseLeave);
@@ -172,13 +175,14 @@ function RootShell({ children }: { children: ReactNode }) {
     };
   }, []);
 
+
   return (
     <html lang="pt">
       <head>
         <HeadContent />
       </head>
       <body>
-        <div id="cursor-dot" className="fixed top-0 left-0 w-8 h-8 text-gold pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.08s_ease,opacity_0.2s]">
+        <div id="cursor-dot" className="hidden lg:block fixed top-0 left-0 w-8 h-8 text-gold pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.08s_ease,opacity_0.2s]">
           <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
             <path d="M100 10 L130 40 L160 10 L190 40 L160 70 L190 100 L160 130 L190 160 L160 190 L130 160 L100 190 L70 160 L40 190 L10 160 L40 130 L10 100 L40 70 L10 40 L40 10 L70 40 Z" stroke="currentColor" strokeWidth="0.5" fill="none"/>
             <path d="M100 30 L120 50 L140 30 L160 50 L140 70 L160 100 L140 130 L160 150 L140 170 L120 150 L100 170 L80 150 L60 170 L40 150 L60 130 L40 100 L60 70 L40 50 L60 30 L80 50 Z" stroke="currentColor" strokeWidth="0.5" fill="none"/>
@@ -196,7 +200,7 @@ function RootShell({ children }: { children: ReactNode }) {
             <circle cx="160" cy="160" r="2" fill="currentColor" opacity=".6"/>
           </svg>
         </div>
-        <div id="cursor-ring" className="fixed top-0 left-0 w-9 h-9 border border-gold/50 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.18s_ease,width_0.2s,height_0.2s,opacity_0.2s]" />
+        <div id="cursor-ring" className="hidden lg:block fixed top-0 left-0 w-9 h-9 border border-gold/50 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.18s_ease,width_0.2s,height_0.2s,opacity_0.2s]" />
         {children}
         <Toaster position="top-right" richColors />
         <Scripts />
