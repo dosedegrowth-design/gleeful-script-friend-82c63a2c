@@ -69,6 +69,12 @@ function AdminLeads() {
     }
   }
 
+  async function handleLogout() {
+    await supabase.auth.signOut();
+    navigate({ to: "/admin" });
+  }
+
+
   async function updateStatus(id: string, status: string) {
     try {
       const { error } = await supabase
