@@ -10,10 +10,6 @@ const links = [
   { to: "/assessment", label: "Assessment" },
   { to: "/blog", label: "Blog" },
   { to: "/contacto", label: "Contacto" },
-
-
-
-
 ];
 
 export function Nav() {
