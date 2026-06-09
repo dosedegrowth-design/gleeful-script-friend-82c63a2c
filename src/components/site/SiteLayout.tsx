@@ -43,6 +43,8 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <main>{children}</main>
       <Footer />
       <WhatsAppButton />
+      <ChatAssistant />
     </>
+
   );
 }
