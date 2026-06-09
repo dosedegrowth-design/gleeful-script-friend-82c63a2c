@@ -31,11 +31,9 @@ export function Hero() {
         }}
       >
         <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full animate-[slowspin_120s_linear_infinite]">
-          <path d="M100 5 L115 20 H180 V85 L195 100 L180 115 V180 H115 L100 195 L85 180 H20 V115 L5 100 L20 85 V20 H85 L100 5 Z" stroke="#ad8957" strokeWidth="0.5" fill="none"/>
-          <path d="M100 25 L110 35 H165 V90 L175 100 L165 110 V165 H110 L100 175 L90 165 H35 V110 L25 100 L35 90 V35 H90 L100 25 Z" stroke="#ad8957" strokeWidth="0.5" fill="none"/>
-          {/* Inner details representing the 6 motifs */}
-          <circle cx="100" cy="100" r="12" stroke="#ad8957" strokeWidth="0.5" fill="none"/>
-          <path d="M100 88 V112 M88 100 H112" stroke="#ad8957" strokeWidth="0.5"/>
+          <path d="M100 20 L115 35 H165 V85 L180 100 L165 115 V165 H115 L100 180 L85 165 H35 V115 L20 100 L35 85 V35 H85 L100 20 Z" stroke="#ad8957" strokeWidth="0.5" fill="none"/>
+          <circle cx="100" cy="100" r="10" stroke="#ad8957" strokeWidth="0.5" fill="none"/>
+          <path d="M100 92 V108 M92 100 H108" stroke="#ad8957" strokeWidth="0.5"/>
           {/* Symmetrical ornaments */}
           {[0, 90, 180, 270].map((rot) => (
             <g key={rot} transform={`rotate(${rot} 100 100)`}>
