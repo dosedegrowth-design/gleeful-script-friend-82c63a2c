@@ -49,7 +49,7 @@ export function ProblemSection() {
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px border border-border mt-[72px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px border border-border mt-[72px]">
           {cards.map((card, i) => (
             <Reveal key={card.n} delay={i * 80} distance={30}>
               <div className="inside-card p-10 lg:p-[48px] bg-black-2 relative overflow-hidden group transition-colors duration-400 hover:bg-black-3 h-full">
