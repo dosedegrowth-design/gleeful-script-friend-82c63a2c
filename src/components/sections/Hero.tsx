@@ -11,7 +11,7 @@ export function Hero() {
 
   return (
     <section
-      className="relative min-h-[100svh] grid grid-cols-1 lg:grid-cols-2 items-center overflow-hidden"
+      className="relative min-h-[100svh] flex flex-col lg:flex-row items-center overflow-hidden"
     >
       <div className="absolute inset-0 z-0 bg-black">
         <div 
