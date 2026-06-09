@@ -71,13 +71,13 @@ export function ProblemSection() {
           ))}
         </div>
 
-        <Reveal delay={400} className="mt-20 text-center">
-          <div className="w-12 h-px bg-gold mx-auto mb-10" />
-          <p className="font-amotha text-[clamp(24px,3vw,36px)] font-extralight leading-snug text-white">
-            O mercado resolve tarefas.<br/>
-            <span className="text-gold-l italic">A MOOVIA resolve a decisão.</span>
+        <Reveal delay={400} className="mt-20 text-center bg-black p-12">
+          <p className="font-amotha text-[clamp(28px,4vw,52px)] font-extralight leading-snug text-white">
+            "O mercado resolve tarefas."<br/>
+            <span className="text-gold-l italic">"A MOOVIA resolve a decisão."</span>
           </p>
         </Reveal>
+
       </div>
     </section>
   );
