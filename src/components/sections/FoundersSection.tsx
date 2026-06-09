@@ -1,11 +1,5 @@
 import { Reveal } from "@/components/site/Reveal";
 
-const partners = [
-  { name: "Felipe", role: "Conselheiro Estratégico · ex-Deloitte" },
-  { name: "Pablo", role: "Especialista em Ativos Digitais" },
-  { name: "Sara Russo", role: "Imobiliária · Remax Collection" },
-  { name: "Laura", role: "Advogada de Imigração" },
-];
 
 export function FoundersSection() {
   return (
@@ -62,16 +56,6 @@ export function FoundersSection() {
           </Reveal>
         </div>
 
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border">
-          {partners.map((p, i) => (
-            <Reveal key={p.name} delay={i * 60}>
-              <div className="p-10 h-full bg-black-2 hover:bg-black-3 transition-all duration-300 border-l-[3px] border-transparent hover:border-gold">
-                <div className="font-amotha text-2xl font-light text-white mb-2">{p.name}</div>
-                <div className="font-urbanist text-[11px] uppercase tracking-[0.14em] text-gold-l">{p.role}</div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
 
 
         <Reveal>
