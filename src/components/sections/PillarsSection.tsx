@@ -78,8 +78,15 @@ export function PillarsSection() {
                     </li>
                   ))}
                 </ul>
+                {pillar.deliverable && (
+                  <div className="mt-8 pt-6 border-t border-border">
+                    <p className="font-urbanist text-[10px] uppercase tracking-widest text-gold-l mb-1">Entregável:</p>
+                    <p className="font-urbanist text-[13px] text-white-3">{pillar.deliverable}</p>
+                  </div>
+                )}
                 <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-gold to-teal transition-all duration-600 ease-[cubic-bezier(.16,1,.3,1)] group-hover:w-full" />
               </div>
+
             </Reveal>
           ))}
         </div>
