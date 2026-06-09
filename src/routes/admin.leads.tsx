@@ -8,6 +8,8 @@ import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { Loader2, Search, Download, ExternalLink, MessageSquare } from "lucide-react";
 import { toast } from "sonner";
+import { cn } from "@/lib/utils";
+
 
 export const Route = createFileRoute("/admin/leads")({
   component: AdminLeads,
