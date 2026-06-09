@@ -35,25 +35,25 @@ export function FAQSection() {
             return (
               <div key={i} className="border-b border-border">
                 <button
-                  className="w-full py-7 flex justify-between items-center gap-6 text-left"
+                  className="w-full py-7 flex justify-between items-center gap-6 text-left group"
                   onClick={() => setOpen(isOpen ? null : i)}
                 >
-                  <span className="font-urbanist text-[16px] font-normal text-white">{f.q}</span>
+                  <span className="font-urbanist text-[16px] font-normal text-white group-hover:text-gold transition-colors">{f.q}</span>
                   <Plus
                     size={20}
-                    className="text-gold shrink-0 mt-[6px] transition-transform duration-400"
+                    className="text-gold shrink-0 transition-transform duration-400"
                     style={{ transform: isOpen ? "rotate(45deg)" : "rotate(0)" }}
                   />
                 </button>
                 {isOpen && (
-                  <div className="pb-8 pr-10 border-l-2 border-gold bg-gold/5 p-6 mb-6">
+                  <div className="pb-8 pr-10 border-l-2 border-gold bg-gold/5 p-6 mb-6 animate-[fadeUp_0.4s_ease_forwards]">
                     <p className="font-urbanist text-[15px] font-light text-white-3 leading-[1.85]">
                       {f.a}
                     </p>
                   </div>
                 )}
-
               </div>
+
             );
           })}
         </div>
