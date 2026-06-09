@@ -30,7 +30,7 @@ function Home() {
       <Hero />
       <div className="marquee-wrap border-y border-border bg-black/80 overflow-hidden h-12 flex items-center relative z-10">
         <div className="marquee-track flex whitespace-nowrap animate-[marquee_30s_linear_infinite]">
-          {[1, 2].map((i) => (
+          {[1, 2, 3].map((i) => (
             <div key={i} className="marquee-item flex items-center gap-10 px-10 font-urbanist text-[11px] tracking-[0.24em] uppercase text-white-3 shrink-0">
               Transição Internacional <span className="text-gold text-lg">·</span> 
               Brasil para Portugal <span className="text-gold text-lg">·</span> 
@@ -44,6 +44,7 @@ function Home() {
           ))}
         </div>
       </div>
+
       <ProblemSection />
       <FoundersSection />
       <ProcessSection />
