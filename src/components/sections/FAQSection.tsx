@@ -25,8 +25,9 @@ export function FAQSection() {
         </Reveal>
         <Reveal delay={100}>
           <h2 className="font-amotha text-[clamp(28px,4vw,44px)] font-extralight leading-[1.15] text-white">
-            O que você precisa saber<br />antes da conversa.
+            O que as pessoas perguntam<br />antes de decidir.
           </h2>
+
         </Reveal>
         <div className="mt-16 border-t border-border">
           {faqs.map((f, i) => {
