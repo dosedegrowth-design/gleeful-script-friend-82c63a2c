@@ -18,8 +18,6 @@ export function FormSection() {
               <em className="text-gold-l not-italic italic">certa.</em>
             </h2>
           </Reveal>
-
-
           <Reveal delay={200}>
             <p className="font-urbanist text-[17px] font-light text-white-3 leading-[1.9] max-w-[680px] mb-10">
               Não é um formulário de contato. É o início de um diagnóstico. Quanto mais você nos contar, mais preciso será o nosso retorno.
@@ -42,3 +40,4 @@ export function FormSection() {
     </section>
   );
 }
+
