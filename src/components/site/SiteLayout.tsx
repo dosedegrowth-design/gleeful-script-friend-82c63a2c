@@ -2,7 +2,6 @@ import { useEffect, type ReactNode } from "react";
 import { useRouterState } from "@tanstack/react-router";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
-import { WhatsAppButton } from "../WhatsAppButton";
 import { ChatAssistant } from "./ChatAssistant";
 
 
@@ -42,9 +41,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <Nav />
       <main>{children}</main>
       <Footer />
-      <WhatsAppButton />
       <ChatAssistant />
     </>
-
   );
 }

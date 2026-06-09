@@ -26,53 +26,53 @@ export function Nav() {
     <nav
       id="nav"
       className={cn(
-        "fixed top-0 left-0 right-0 z-[900] px-6 md:px-[60px] h-[72px] flex items-center justify-between transition-all duration-500 ease-in-out",
-        scrolled ? "bg-black/92 backdrop-blur-[20px] border-b border-border" : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-[900] px-6 md:px-[80px] h-[88px] flex items-center justify-between transition-all duration-500 ease-in-out",
+        scrolled ? "bg-black/95 backdrop-blur-[24px] border-b border-white/05 h-[72px]" : "bg-transparent"
       )}
     >
       <Wordmark />
 
-      <div className="hidden lg:flex items-center gap-10">
+      <div className="hidden lg:flex items-center gap-12">
         {links.map((l) => (
           <Link
             key={l.label}
             to={l.to}
-            className="font-urbanist text-[13px] font-normal tracking-[0.1em] uppercase text-white-3 hover:text-white relative transition-colors group"
+            className="font-urbanist text-[13px] font-normal tracking-[0.12em] uppercase text-white/40 hover:text-white relative transition-colors group"
           >
             {l.label}
-            <span className="absolute -bottom-[2px] left-0 w-0 h-px bg-gold transition-all duration-300 group-hover:w-full" />
+            <span className="absolute -bottom-[4px] left-0 w-0 h-px bg-gold transition-all duration-300 group-hover:w-full" />
           </Link>
         ))}
         <Link
           to="/contacto"
-          className="bg-transparent border border-border-2 text-gold-l px-6 py-[10px] font-urbanist text-[12px] tracking-[0.16em] uppercase transition-all duration-300 hover:bg-gold hover:text-black hover:border-gold"
+          className="bg-transparent border border-border/40 text-gold-l px-8 py-[12px] font-urbanist text-[12px] tracking-[0.2em] uppercase transition-all duration-300 hover:bg-gold hover:text-black hover:border-gold"
         >
           Avaliar meu caso
         </Link>
       </div>
 
       <button
-        className="lg:hidden p-2 text-white-3 hover:text-white transition-colors"
+        className="lg:hidden p-2 text-white/60 hover:text-white transition-colors"
         onClick={() => setOpen(true)}
       >
-        <Menu size={24} />
+        <Menu size={28} />
       </button>
 
       {open && (
-        <div className="fixed inset-0 z-[1000] bg-black flex flex-col p-6">
-          <div className="flex items-center justify-between h-[72px] mb-8">
+        <div className="fixed inset-0 z-[1000] bg-black flex flex-col p-8 animate-[fadeUp_0.4s_ease_forwards]">
+          <div className="flex items-center justify-between h-[88px] mb-12">
             <Wordmark />
-            <button onClick={() => setOpen(false)} className="text-white-3">
-              <X size={32} />
+            <button onClick={() => setOpen(false)} className="text-white/60">
+              <X size={36} />
             </button>
           </div>
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-10">
             {links.map((l) => (
               <Link
                 key={l.label}
                 to={l.to}
                 onClick={() => setOpen(false)}
-                className="font-amotha text-3xl font-light text-white"
+                className="font-amotha text-4xl font-light text-white tracking-tight"
               >
                 {l.label}
               </Link>
@@ -80,7 +80,7 @@ export function Nav() {
             <Link
               to="/contacto"
               onClick={() => setOpen(false)}
-              className="bg-gold text-black text-center py-4 font-urbanist text-sm font-semibold tracking-widest uppercase mt-4"
+              className="bg-gold text-black text-center py-5 font-urbanist text-sm font-semibold tracking-[0.25em] uppercase mt-6"
             >
               Avaliar meu caso
             </Link>

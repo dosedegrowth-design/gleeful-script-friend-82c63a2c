@@ -15,97 +15,82 @@ export function Hero() {
     >
       <div className="absolute inset-0 z-0 bg-black">
         <div 
-          className="absolute inset-0"
+          className="absolute inset-0 opacity-40"
           style={{
-            background: `radial-gradient(ellipse 80% 60% at 70% 50%, rgba(15,31,65,.7) 0%, transparent 70%),
-                         radial-gradient(ellipse 40% 60% at 20% 80%, rgba(173,137,87,.06) 0%, transparent 60%)`
+            background: `radial-gradient(ellipse 80% 60% at 70% 50%, rgba(15,31,65,0.7) 0%, transparent 70%),
+                         radial-gradient(ellipse 40% 60% at 20% 80%, rgba(173,137,87,0.06) 0%, transparent 60%)`
           }}
         />
       </div>
 
-      <svg 
-        className="hero-symbol absolute right-[-80px] top-1/2 -translate-y-1/2 w-[680px] h-[680px] opacity-[0.07] z-[1] animate-[slowspin_80s_linear_infinite]" 
-        viewBox="0 0 200 200" 
-        fill="none" 
-        xmlns="http://www.w3.org/2000/svg"
+      {/* Large Decorative Azulejo */}
+      <div 
+        className="absolute right-[-10%] top-1/2 -translate-y-1/2 w-[60vw] max-w-[800px] aspect-square opacity-[0.06] z-[1]"
         style={{
-          transform: `translateY(calc(-50% + ${scrollY * 0.15}px)) rotate(${scrollY * 0.02}deg)`
+          transform: `translateY(calc(-50% + ${scrollY * 0.1}px)) rotate(${scrollY * 0.015}deg)`
         }}
       >
-        <path d="M100 10 L130 40 L160 10 L190 40 L160 70 L190 100 L160 130 L190 160 L160 190 L130 160 L100 190 L70 160 L40 190 L10 160 L40 130 L10 100 L40 70 L10 40 L40 10 L70 40 Z" stroke="#ad8957" strokeWidth=".5" fill="none"/>
-        <path d="M100 30 L120 50 L140 30 L160 50 L140 70 L160 100 L140 130 L160 150 L140 170 L120 150 L100 170 L80 150 L60 170 L40 150 L60 130 L40 100 L60 70 L40 50 L60 30 L80 50 Z" stroke="#ad8957" strokeWidth=".5" fill="none"/>
-        <circle cx="100" cy="100" r="28" stroke="#ad8957" strokeWidth=".5" fill="none"/>
-        <circle cx="100" cy="100" r="16" stroke="#ad8957" strokeWidth=".5" fill="none"/>
-        <path d="M100 72 L100 128 M72 100 L128 100 M79 79 L121 121 M121 79 L79 121" stroke="#ad8957" strokeWidth=".3"/>
-        <path d="M100 10 L100 30 M100 170 L100 190 M10 100 L30 100 M170 100 L190 100" stroke="#ad8957" strokeWidth=".8"/>
-        <circle cx="100" cy="10" r="3" fill="#ad8957"/>
-        <circle cx="100" cy="190" r="3" fill="#ad8957"/>
-        <circle cx="10" cy="100" r="3" fill="#ad8957"/>
-        <circle cx="190" cy="100" r="3" fill="#ad8957"/>
-        <circle cx="40" cy="40" r="2" fill="#ad8957" opacity=".6"/>
-        <circle cx="160" cy="40" r="2" fill="#ad8957" opacity=".6"/>
-        <circle cx="40" cy="160" r="2" fill="#ad8957" opacity=".6"/>
-        <circle cx="160" cy="160" r="2" fill="#ad8957" opacity=".6"/>
-      </svg>
+        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full animate-[slowspin_120s_linear_infinite]">
+          <path d="M100 5 L115 20 H180 V85 L195 100 L180 115 V180 H115 L100 195 L85 180 H20 V115 L5 100 L20 85 V20 H85 L100 5 Z" stroke="#ad8957" strokeWidth="0.5" fill="none"/>
+          <path d="M100 25 L110 35 H165 V90 L175 100 L165 110 V165 H110 L100 175 L90 165 H35 V110 L25 100 L35 90 V35 H90 L100 25 Z" stroke="#ad8957" strokeWidth="0.5" fill="none"/>
+          {/* Inner details representing the 6 motifs */}
+          <circle cx="100" cy="100" r="12" stroke="#ad8957" strokeWidth="0.5" fill="none"/>
+          <path d="M100 88 V112 M88 100 H112" stroke="#ad8957" strokeWidth="0.5"/>
+          {/* Symmetrical ornaments */}
+          {[0, 90, 180, 270].map((rot) => (
+            <g key={rot} transform={`rotate(${rot} 100 100)`}>
+              <path d="M100 45 Q115 45 115 60 T100 75" stroke="#ad8957" strokeWidth="0.5" fill="none"/> {/* Arch/Bridge */}
+              <path d="M130 100 Q130 85 145 85 T160 100" stroke="#ad8957" strokeWidth="0.5" fill="none"/> {/* Handle */}
+              <circle cx="100" cy="20" r="2" fill="#ad8957"/>
+              <circle cx="180" cy="100" r="2" fill="#ad8957"/>
+            </g>
+          ))}
+        </svg>
+      </div>
 
-      <div className="relative z-[2] px-6 lg:pl-[80px] pt-[140px] pb-[120px] flex-1">
-        <p className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-gold mb-8 flex items-center gap-14 animate-[fadeUp_0.8s_ease_0.3s_forwards] opacity-0 will-change-transform">
-          <span className="w-8 h-px bg-gold" />
+      <div className="relative z-[2] px-8 lg:px-[100px] pt-[160px] pb-[120px] flex-1">
+        <p className="font-urbanist text-[11px] tracking-[0.4em] uppercase text-gold mb-10 flex items-center gap-12 animate-[fadeUp_0.8s_ease_0.3s_forwards] opacity-0 will-change-transform">
+          <span className="w-10 h-px bg-gold" />
           Coordenação Internacional de Vida e Património
         </p>
         
-        <h1 className="font-amotha text-[clamp(44px,5.5vw,82px)] font-extralight leading-[1.04] tracking-[-0.02em] mb-9 text-white will-change-transform">
-          <span className="inline-block overflow-hidden align-bottom">
-            <span className="inline-block font-thin animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.5s]">Você</span>
+        <h1 className="font-amotha text-[clamp(48px,6vw,92px)] font-extralight leading-[1.02] tracking-[-0.03em] mb-12 text-white will-change-transform max-w-[900px]">
+          <span className="block overflow-hidden h-[1.1em]">
+            <span className="inline-block animate-[slideUp_1.1s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0">Você não precisa</span>
           </span>
-          <span className="inline-block overflow-hidden align-bottom ml-3">
-            <span className="inline-block font-thin animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.5s]">não</span>
+          <span className="block overflow-hidden h-[1.1em]">
+            <span className="inline-block animate-[slideUp_1.1s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.15s]">de mais informação.</span>
           </span>
-          <span className="inline-block overflow-hidden align-bottom ml-3">
-            <span className="inline-block font-thin animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.65s]">precisa</span>
-          </span><br/>
-          <span className="inline-block overflow-hidden align-bottom">
-            <span className="inline-block font-thin animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.75s]">de mais</span>
+          <span className="block overflow-hidden h-[1.1em]">
+            <span className="inline-block animate-[slideUp_1.1s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.3s]">Precisa de alguém que</span>
           </span>
-          <span className="inline-block overflow-hidden align-bottom ml-3">
-            <span className="inline-block font-thin animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.75s]">informação.</span>
-          </span><br/>
-          <span className="inline-block overflow-hidden align-bottom">
-            <span className="inline-block font-extralight animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.85s]">Precisa de</span>
-          </span><br/>
-          <span className="inline-block overflow-hidden align-bottom">
-            <span className="inline-block font-extralight animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.95s]">alguém que</span>
-          </span><br/>
-          <span className="inline-block overflow-hidden align-bottom">
-            <span className="inline-block font-extralight text-gold-l animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:1.05s]">coordene a</span>
-          </span><br/>
-          <span className="inline-block overflow-hidden align-bottom">
-            <span className="inline-block font-extralight text-gold-l animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:1.15s]">decisão.</span>
+          <span className="block overflow-hidden h-[1.1em]">
+            <span className="inline-block text-gold-l animate-[slideUp_1.1s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.45s] italic">coordene a decisão.</span>
           </span>
         </h1>
 
-        <p className="font-urbanist text-[17px] font-light text-white-3 leading-[1.85] max-w-[460px] mb-[52px] animate-[fadeUp_0.8s_ease_1.3s_forwards] opacity-0">
+        <p className="font-urbanist text-[18px] font-light text-white/50 leading-[1.8] max-w-[520px] mb-[64px] animate-[fadeUp_0.8s_ease_1.3s_forwards] opacity-0">
           A MOOVIA Portugal não resolve tarefas isoladas. Coordenação completa, <strong className="text-white-2 font-normal">do primeiro diagnóstico aos 90 dias depois da chegada.</strong>
         </p>
 
-        <div className="flex flex-wrap gap-4 animate-[fadeUp_0.8s_ease_1.5s_forwards] opacity-0">
+        <div className="flex flex-wrap gap-5 animate-[fadeUp_0.8s_ease_1.5s_forwards] opacity-0">
           <Link
             to="/contacto"
-            className="bg-gold text-black font-urbanist text-[12px] font-semibold tracking-[0.2em] uppercase px-10 py-4 relative overflow-hidden group transition-all duration-300"
+            className="bg-gold text-black font-urbanist text-[12px] font-semibold tracking-[0.24em] uppercase px-12 py-5 relative overflow-hidden group transition-all duration-300"
           >
             <span className="relative z-10">Avaliar meu caso</span>
             <div className="absolute inset-0 bg-gold-xl origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100" />
           </Link>
           <a
             href="#processo"
-            className="bg-transparent border border-border text-white-3 font-urbanist text-[12px] font-normal tracking-[0.18em] uppercase px-10 py-4 transition-all duration-300 hover:text-white hover:border-gold-m"
+            className="bg-transparent border border-border text-white-3 font-urbanist text-[12px] font-normal tracking-[0.2em] uppercase px-12 py-5 transition-all duration-300 hover:text-white hover:border-gold-m"
           >
             Ver como funciona
           </a>
         </div>
       </div>
 
-      <div className="hidden lg:flex flex-col gap-px bg-border relative z-[2] ml-auto mr-[80px]">
+      <div className="hidden xl:flex flex-col gap-px bg-border/20 relative z-[2] ml-auto mr-[100px] border border-border/20">
         {[
           { num: "€250", label: "Strategic Assessment", delay: "0.6s" },
           { num: "90'", label: "Sessão com o founder", delay: "0.75s" },
@@ -114,20 +99,19 @@ export function Hero() {
         ].map((stat) => (
           <div 
             key={stat.label}
-            className="p-7 lg:p-8 border border-border bg-white-5 animate-[fadeUp_0.8s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 translate-x-10 will-change-transform min-w-[280px]"
+            className="p-10 border border-border/10 bg-black/40 backdrop-blur-sm animate-[fadeUp_0.8s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 translate-x-10 will-change-transform min-w-[300px]"
             style={{ animationDelay: stat.delay }}
           >
-            <div className="font-amotha text-[48px] font-extralight text-gold-l leading-none mb-2 tracking-[-0.03em]">{stat.num}</div>
-            <div className="font-urbanist text-[11px] tracking-[0.14em] uppercase text-white-3">{stat.label}</div>
+            <div className="font-amotha text-[52px] font-extralight text-gold-l leading-none mb-3 tracking-[-0.04em]">{stat.num}</div>
+            <div className="font-urbanist text-[11px] tracking-[0.18em] uppercase text-white/40">{stat.label}</div>
           </div>
         ))}
       </div>
 
-      <div className="absolute bottom-10 left-6 lg:left-[80px] z-[2] flex items-center gap-14 font-urbanist text-[11px] tracking-[0.2em] uppercase text-white-3 animate-[fadeUp_0.6s_ease_1.8s_forwards] opacity-0">
-        <div className="w-10 h-px bg-border relative overflow-hidden">
+      <div className="absolute bottom-12 left-8 lg:left-[100px] z-[2] flex items-center gap-16 font-urbanist text-[11px] tracking-[0.25em] uppercase text-white/30 animate-[fadeUp_0.6s_ease_1.8s_forwards] opacity-0">
+        <div className="w-12 h-px bg-border/30 relative overflow-hidden">
           <div className="absolute inset-0 bg-gold -translate-x-full animate-[scrollLine_2s_ease_infinite]" />
         </div>
-
         Planejar · Chegar · Ficar
       </div>
     </section>

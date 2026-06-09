@@ -49,37 +49,39 @@ export function ChatAssistant() {
   };
 
   return (
-    <div className="fixed bottom-24 lg:bottom-8 right-8 lg:right-32 z-[850] flex flex-col items-end">
+    <div className="fixed bottom-8 right-8 z-[850] flex flex-col items-end">
       {isOpen && (
-        <div className="w-[calc(100vw-40px)] md:w-[380px] h-[560px] max-h-[calc(100vh-140px)] bg-black-2 border border-border flex flex-col shadow-2xl animate-[fadeUp_0.4s_ease_forwards] mb-6">
-          <div className="p-6 border-b border-border flex items-center justify-between bg-black-3">
+        <div className="w-[calc(100vw-40px)] md:w-[380px] h-[560px] max-h-[calc(100vh-140px)] bg-black/95 backdrop-blur-xl border border-border flex flex-col shadow-2xl animate-[fadeUp_0.4s_ease_forwards] mb-6">
+          <div className="p-6 border-b border-border flex items-center justify-between bg-black-3/50">
             <div className="flex items-center gap-4">
-              <div className="w-8 h-8 text-gold">
-                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M100 10 L130 40 L160 10 L190 40 L160 70 L190 100 L160 130 L190 160 L160 190 L130 160 L100 190 L70 160 L40 190 L10 160 L40 130 L10 100 L40 70 L10 40 L40 10 L70 40 Z" stroke="currentColor" strokeWidth="2" fill="none"/>
-                  <circle cx="100" cy="100" r="28" stroke="currentColor" strokeWidth="2" fill="none"/>
+              <div className="w-10 h-10 text-gold">
+                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+                  <path d="M100 20 L115 35 H165 V85 L180 100 L165 115 V165 H115 L100 180 L85 165 H35 V115 L20 100 L35 85 V35 H85 L100 20 Z" stroke="currentColor" strokeWidth="1" fill="currentColor" fillOpacity="0.1"/>
+                  <path d="M100 20 L115 35 H165 V85 L180 100 L165 115 V165 H115 L100 180 L85 165 H35 V115 L20 100 L35 85 V35 H85 L100 20 Z" stroke="currentColor" strokeWidth="0.8" fill="none"/>
+                  <circle cx="100" cy="100" r="10" stroke="currentColor" strokeWidth="0.8" fill="none"/>
+                  <path d="M100 92 V108 M92 100 H108" stroke="currentColor" strokeWidth="0.8"/>
                 </svg>
               </div>
               <div>
-                <h4 className="font-amotha text-lg text-white">Assistente MOOVIA</h4>
-                <p className="font-urbanist text-[10px] uppercase tracking-widest text-gold-l">Online agora</p>
+                <h4 className="font-amotha text-xl text-white tracking-tight">Assistente MOOVIA</h4>
+                <p className="font-urbanist text-[10px] uppercase tracking-[0.2em] text-gold/60">Especialista em Coordenação</p>
               </div>
             </div>
-            <button onClick={() => setIsOpen(false)} className="text-white-4 hover:text-white transition-colors">
+            <button onClick={() => setIsOpen(false)} className="text-white/40 hover:text-white transition-colors">
               <X size={20} />
             </button>
           </div>
 
-          <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-4 font-urbanist text-sm">
+          <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-5 font-urbanist text-[14px]">
             {messages.length === 0 && (
-              <div className="text-center py-10">
-                <p className="text-white-3 mb-6 font-light">Olá! Como posso ajudar na sua transição para Portugal?</p>
-                <div className="flex flex-col gap-2">
+              <div className="text-center py-8">
+                <p className="text-white/40 mb-8 font-light italic leading-relaxed">Olá! Como posso ajudar na coordenação da sua transição para Portugal?</p>
+                <div className="flex flex-col gap-3">
                   {['Como funciona?', 'Quanto custa?', 'Agendar conversa'].map(q => (
                     <button 
                       key={q} 
                       onClick={() => sendMessage(q)}
-                      className="p-3 border border-border text-white-4 hover:text-gold hover:border-gold transition-colors text-[11px] uppercase tracking-widest bg-black/20"
+                      className="p-4 border border-border text-white/50 hover:text-gold hover:border-gold transition-all duration-300 text-[11px] uppercase tracking-[0.2em] bg-white/05"
                     >
                       {q}
                     </button>
@@ -88,23 +90,23 @@ export function ChatAssistant() {
               </div>
             )}
             {messages.map((m, i) => (
-              <div key={i} className={cn("max-w-[85%] p-4 rounded-sm leading-relaxed", m.role === 'user' ? "ml-auto bg-gold text-black font-semibold" : "mr-auto bg-black-3 text-white-3 border border-border")}>
+              <div key={i} className={cn("max-w-[85%] p-4 leading-relaxed", m.role === 'user' ? "ml-auto bg-gold text-black font-medium" : "mr-auto bg-black-3 text-white/70 border border-border/50")}>
                 {m.content}
               </div>
             ))}
             {loading && (
-              <div className="mr-auto bg-black-3 p-4 border border-border text-gold animate-pulse rounded-sm">
+              <div className="mr-auto bg-black-3 p-4 border border-border/50 text-gold animate-pulse">
                 ...
               </div>
             )}
           </div>
 
-          <form onSubmit={sendMessage} className="p-4 border-t border-border bg-black-3 flex gap-2">
+          <form onSubmit={sendMessage} className="p-4 border-t border-border bg-black-3/30 flex gap-2">
             <input
               value={input}
               onChange={e => setInput(e.target.value)}
-              placeholder="Digite sua mensagem..."
-              className="flex-1 bg-black border border-border text-white px-4 py-3 font-urbanist text-sm outline-none focus:border-gold transition-colors"
+              placeholder="Sua pergunta sobre a transição..."
+              className="flex-1 bg-black/40 border border-border text-white px-4 py-3 font-urbanist text-sm outline-none focus:border-gold transition-colors placeholder:text-white/20"
             />
             <button type="submit" className="bg-gold text-black p-3 hover:bg-gold-xl transition-colors disabled:opacity-50">
               {loading ? <Loader2 className="animate-spin" size={20} /> : <Send size={20} />}
@@ -115,13 +117,16 @@ export function ChatAssistant() {
       
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-14 h-14 bg-black-3 border border-border rounded-full flex items-center justify-center text-gold shadow-2xl hover:scale-110 transition-transform group"
+        className="w-14 h-14 bg-black/90 backdrop-blur-md border border-border/50 rounded-full flex items-center justify-center text-gold shadow-2xl hover:scale-105 transition-all duration-300 group relative"
       >
+        <div className="absolute inset-0 rounded-full border border-gold/20 scale-100 group-hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500" />
         {isOpen ? <X size={24} /> : (
-          <div className="w-8 h-8">
-            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M100 10 L130 40 L160 10 L190 40 L160 70 L190 100 L160 130 L190 160 L160 190 L130 160 L100 190 L70 160 L40 190 L10 160 L40 130 L10 100 L40 70 L10 40 L40 10 L70 40 Z" stroke="currentColor" strokeWidth="2" fill="none"/>
-              <circle cx="100" cy="100" r="28" stroke="currentColor" strokeWidth="2" fill="none"/>
+          <div className="w-10 h-10">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-[0_0_10px_rgba(173,137,87,0.3)]">
+              <path d="M100 20 L115 35 H165 V85 L180 100 L165 115 V165 H115 L100 180 L85 165 H35 V115 L20 100 L35 85 V35 H85 L100 20 Z" stroke="currentColor" strokeWidth="1" fill="currentColor" fillOpacity="0.1"/>
+              <path d="M100 20 L115 35 H165 V85 L180 100 L165 115 V165 H115 L100 180 L85 165 H35 V115 L20 100 L35 85 V35 H85 L100 20 Z" stroke="currentColor" strokeWidth="1" fill="none"/>
+              <circle cx="100" cy="100" r="10" stroke="currentColor" strokeWidth="1" fill="none"/>
+              <path d="M100 92 V108 M92 100 H108" stroke="currentColor" strokeWidth="1"/>
             </svg>
           </div>
         )}
@@ -129,5 +134,3 @@ export function ChatAssistant() {
     </div>
   );
 }
-
-

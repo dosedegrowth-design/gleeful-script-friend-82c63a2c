@@ -15,17 +15,17 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen items-center justify-center bg-background px-4 text-white">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
+        <h1 className="text-7xl font-amotha font-extralight">404</h1>
+        <h2 className="mt-4 text-xl font-urbanist font-light uppercase tracking-widest text-gold">Page not found</h2>
+        <p className="mt-2 text-sm text-white/40 font-urbanist">
           The page you're looking for doesn't exist or has been moved.
         </p>
         <div className="mt-6">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center bg-gold px-8 py-3 text-sm font-semibold text-black uppercase tracking-widest transition-colors hover:bg-gold-xl"
           >
             Go home
           </Link>
@@ -43,27 +43,27 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   }, [error]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+    <div className="flex min-h-screen items-center justify-center bg-background px-4 text-white">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-semibold tracking-tight text-foreground">
+        <h1 className="text-xl font-amotha font-light tracking-tight">
           This page didn't load
         </h1>
-        <p className="mt-2 text-sm text-muted-foreground">
+        <p className="mt-2 text-sm text-white/40 font-urbanist">
           Something went wrong on our end. You can try refreshing or head back home.
         </p>
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
+        <div className="mt-6 flex flex-wrap justify-center gap-4">
           <button
             onClick={() => {
               router.invalidate();
               reset();
             }}
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="bg-gold px-8 py-3 text-sm font-semibold text-black uppercase tracking-widest transition-colors hover:bg-gold-xl"
           >
             Try again
           </button>
           <a
             href="/"
-            className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
+            className="border border-border px-8 py-3 text-sm font-urbanist font-light text-white uppercase tracking-widest transition-colors hover:border-gold"
           >
             Go home
           </a>
@@ -104,7 +104,6 @@ function RootShell({ children }: { children: ReactNode }) {
   useEffect(() => {
     const handleUnhandledError = (event: ErrorEvent) => {
       console.error("Caught unhandled error:", event.error);
-      // toast.error("Ocorreu um erro inesperado. Por favor, recarregue a página."); // This might be too annoying
     };
 
     const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
@@ -138,8 +137,8 @@ function RootShell({ children }: { children: ReactNode }) {
     const animateCursor = () => {
       dot.style.left = mx + 'px';
       dot.style.top = my + 'px';
-      rx += (mx - rx) * 0.12;
-      ry += (my - ry) * 0.12;
+      rx += (mx - rx) * 0.15;
+      ry += (my - ry) * 0.15;
       ring.style.left = rx + 'px';
       ring.style.top = ry + 'px';
       requestAnimationFrame(animateCursor);
@@ -147,31 +146,47 @@ function RootShell({ children }: { children: ReactNode }) {
     const rafId = requestAnimationFrame(animateCursor);
 
     const onMouseEnter = () => {
-      ring.style.width = '56px';
-      ring.style.height = '56px';
-      ring.style.borderColor = 'rgba(173,137,87,.8)';
-      dot.style.transform = 'translate(-50%,-50%) scale(2)';
+      ring.style.width = '64px';
+      ring.style.height = '64px';
+      ring.style.borderColor = 'rgba(173,137,87,0.8)';
+      dot.style.transform = 'translate(-50%,-50%) scale(1.5)';
     };
     const onMouseLeave = () => {
       ring.style.width = '36px';
       ring.style.height = '36px';
-      ring.style.borderColor = 'rgba(173,137,87,.5)';
+      ring.style.borderColor = 'rgba(173,137,87,0.4)';
       dot.style.transform = 'translate(-50%,-50%) scale(1)';
     };
 
-    const interactiveElements = document.querySelectorAll('a, button, select, input, textarea');
-    interactiveElements.forEach(el => {
-      el.addEventListener('mouseenter', onMouseEnter);
-      el.addEventListener('mouseleave', onMouseLeave);
+    const updateInteractiveElements = () => {
+      const interactiveElements = document.querySelectorAll('a, button, select, input, textarea, .interactive');
+      interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', onMouseEnter);
+        el.addEventListener('mouseleave', onMouseLeave);
+      });
+      return interactiveElements;
+    };
+
+    let elements = updateInteractiveElements();
+
+    // Re-bind on route change
+    const observer = new MutationObserver(() => {
+      elements.forEach(el => {
+        el.removeEventListener('mouseenter', onMouseEnter);
+        el.removeEventListener('mouseleave', onMouseLeave);
+      });
+      elements = updateInteractiveElements();
     });
+    observer.observe(document.body, { childList: true, subtree: true });
 
     return () => {
       document.removeEventListener('mousemove', onMouseMove);
       cancelAnimationFrame(rafId);
-      interactiveElements.forEach(el => {
+      elements.forEach(el => {
         el.removeEventListener('mouseenter', onMouseEnter);
         el.removeEventListener('mouseleave', onMouseLeave);
       });
+      observer.disconnect();
     };
   }, []);
 
@@ -182,25 +197,15 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <div id="cursor-dot" className="hidden lg:block fixed top-0 left-0 w-8 h-8 text-gold pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.08s_ease,opacity_0.2s]">
-          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-            <path d="M100 10 L130 40 L160 10 L190 40 L160 70 L190 100 L160 130 L190 160 L160 190 L130 160 L100 190 L70 160 L40 190 L10 160 L40 130 L10 100 L40 70 L10 40 L40 10 L70 40 Z" stroke="currentColor" strokeWidth="0.5" fill="none"/>
-            <path d="M100 30 L120 50 L140 30 L160 50 L140 70 L160 100 L140 130 L160 150 L140 170 L120 150 L100 170 L80 150 L60 170 L40 150 L60 130 L40 100 L60 70 L40 50 L60 30 L80 50 Z" stroke="currentColor" strokeWidth="0.5" fill="none"/>
-            <circle cx="100" cy="100" r="28" stroke="currentColor" strokeWidth="0.5" fill="none"/>
-            <circle cx="100" cy="100" r="16" stroke="currentColor" strokeWidth="0.5" fill="none"/>
-            <path d="M100 72 L100 128 M72 100 L128 100 M79 79 L121 121 M121 79 L79 121" stroke="currentColor" strokeWidth="0.3"/>
-            <path d="M100 10 L100 30 M100 170 L100 190 M10 100 L30 100 M170 100 L190 100" stroke="currentColor" strokeWidth="0.8"/>
-            <circle cx="100" cy="10" r="3" fill="currentColor"/>
-            <circle cx="100" cy="190" r="3" fill="currentColor"/>
-            <circle cx="10" cy="100" r="3" fill="currentColor"/>
-            <circle cx="190" cy="100" r="3" fill="currentColor"/>
-            <circle cx="40" cy="40" r="2" fill="currentColor" opacity=".6"/>
-            <circle cx="160" cy="40" r="2" fill="currentColor" opacity=".6"/>
-            <circle cx="40" cy="160" r="2" fill="currentColor" opacity=".6"/>
-            <circle cx="160" cy="160" r="2" fill="currentColor" opacity=".6"/>
+        <div id="cursor-dot" className="hidden lg:block fixed top-0 left-0 w-8 h-8 text-gold pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.15s_ease,opacity_0.2s]">
+          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-[0_0_8px_rgba(173,137,87,0.4)]">
+            <path d="M100 20 L115 35 H165 V85 L180 100 L165 115 V165 H115 L100 180 L85 165 H35 V115 L20 100 L35 85 V35 H85 L100 20 Z" stroke="currentColor" strokeWidth="1" fill="currentColor" fillOpacity="0.1"/>
+            <path d="M100 20 L115 35 H165 V85 L180 100 L165 115 V165 H115 L100 180 L85 165 H35 V115 L20 100 L35 85 V35 H85 L100 20 Z" stroke="currentColor" strokeWidth="0.5" fill="none"/>
+            <circle cx="100" cy="100" r="10" stroke="currentColor" strokeWidth="0.5" fill="none"/>
+            <path d="M100 92 V108 M92 100 H108" stroke="currentColor" strokeWidth="0.5"/>
           </svg>
         </div>
-        <div id="cursor-ring" className="hidden lg:block fixed top-0 left-0 w-9 h-9 border border-gold/50 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.18s_ease,width_0.2s,height_0.2s,opacity_0.2s]" />
+        <div id="cursor-ring" className="hidden lg:block fixed top-0 left-0 w-9 h-9 border border-gold/40 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.2s_ease,width_0.25s,height_0.25s,opacity_0.2s]" />
         {children}
         <Toaster position="top-right" richColors />
         <Scripts />
@@ -214,7 +219,6 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
   );
