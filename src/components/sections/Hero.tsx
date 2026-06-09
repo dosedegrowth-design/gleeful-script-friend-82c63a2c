@@ -81,6 +81,7 @@ export function Hero() {
           </span><br/>
           <span className="inline-block overflow-hidden align-bottom">
             <span className="inline-block text-gold-l animate-[slideUp_0.9s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:1.15s]">decisão.</span>
+
           </span>
         </h1>
 
