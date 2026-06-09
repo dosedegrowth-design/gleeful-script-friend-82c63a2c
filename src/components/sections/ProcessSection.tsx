@@ -36,10 +36,12 @@ const deliverables = [
   "Mapa de decisão personalizado",
   "Estratégia de habitação",
   "Estratégia documental e migratória",
-  "Estrutura fiscal inicial",
   "Estratégia familiar e escolar",
-  "Plano de próximos passos",
+  "Estrutura fiscal inicial",
+  "Plano de próximos passos com cronograma",
+  "Entregável físico: documento que você leva",
 ];
+
 
 export function ProcessSection() {
   return (
