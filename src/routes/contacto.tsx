@@ -18,7 +18,7 @@ function Contacto() {
   return (
     <SiteLayout>
       <div className="bg-black pt-[120px]">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-12">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-[80px] py-12">
           <p className="font-urbanist text-[11px] tracking-[0.28em] uppercase text-gold mb-6 flex items-center gap-3">
             <span className="w-6 h-px bg-gold" />
             Contacto
@@ -28,6 +28,7 @@ function Contacto() {
           </h1>
         </div>
       </div>
+
       <FormSection />
     </SiteLayout>
   );
