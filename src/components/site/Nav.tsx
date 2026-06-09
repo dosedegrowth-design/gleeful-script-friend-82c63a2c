@@ -11,6 +11,7 @@ const links = [
   { to: "/blog", label: "Blog" },
   { to: "/contacto", label: "Contacto" },
 
+
 ];
 
 export function Nav() {
