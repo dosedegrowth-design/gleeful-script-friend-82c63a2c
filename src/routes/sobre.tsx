@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { FoundersSection } from "@/components/sections/FoundersSection";
 import { ManifestoSection } from "@/components/sections/ManifestoSection";
+import { FullTeamSection } from "@/components/sections/FullTeamSection";
 
 export const Route = createFileRoute("/sobre")({
   head: () => ({
@@ -34,7 +35,7 @@ function Sobre() {
         </div>
       </div>
 
-      <FoundersSection />
+      <FullTeamSection />
       <ManifestoSection />
     </SiteLayout>
   );

@@ -3,6 +3,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { Hero } from "@/components/sections/Hero";
 import { ProblemSection } from "@/components/sections/ProblemSection";
 import { FoundersSection } from "@/components/sections/FoundersSection";
+import { TeamSection } from "@/components/sections/TeamSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { AssessmentSection } from "@/components/sections/AssessmentSection";
 import { PillarsSection } from "@/components/sections/PillarsSection";
@@ -47,6 +48,7 @@ function Home() {
 
       <ProblemSection />
       <FoundersSection />
+      <TeamSection />
       <ProcessSection />
       <AssessmentSection />
       <PillarsSection />
