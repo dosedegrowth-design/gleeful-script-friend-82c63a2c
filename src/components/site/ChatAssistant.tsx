@@ -1,36 +1,155 @@
+'use client'
+
 import { useState, useRef, useEffect } from 'react';
 import { X, Send, Loader2 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { cn } from '@/lib/utils';
 
+interface Message {
+  role: 'user' | 'assistant'
+  content: string
+  timestamp: Date
+}
+
+interface LeadData {
+  name?: string
+  whatsapp?: string
+  email?: string
+  objective?: string
+  timing?: string
+  notes?: string
+}
+
 export function ChatAssistant() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<{ role: 'user' | 'assistant', content: string }[]>([]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const [leadData, setLeadData] = useState<LeadData>({});
+  const [leadSaved, setLeadSaved] = useState(false);
+  const [phoneError, setPhoneError] = useState('');
+  const [sessionStart] = useState(Date.now());
   const scrollRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
+  // Saudação inicial ao abrir
+  useEffect(() => {
+    if (isOpen && messages.length === 0) {
+      const greeting: Message = {
+        role: 'assistant',
+        content: 'Olá! Seja bem-vindo à MOOVIA Portugal.\n\nAntes de tudo — como posso te chamar?',
+        timestamp: new Date()
+      }
+      setMessages([greeting])
+      setTimeout(() => inputRef.current?.focus(), 300)
+    }
+  }, [isOpen]);
+
+  // Auto-scroll
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages]);
 
-  const sendMessage = async (e: React.FormEvent | string) => {
-    if (typeof e !== 'string') e.preventDefault();
-    
-    const userMessage = typeof e === 'string' ? e : input.trim();
-    if (!userMessage || loading) return;
+  // Extrai e limpa o JSON de captura de lead da resposta
+  function extractLeadCapture(text: string): { clean: string; data: LeadData | null } {
+    const match = text.match(/\[LEAD_CAPTURE\](.*?)\[\/LEAD_CAPTURE\]/s)
+    if (!match) return { clean: text, data: null }
 
-    if (typeof e !== 'string') setInput('');
-    const newMessages = [...messages, { role: 'user' as const, content: userMessage }];
+    try {
+      const data = JSON.parse(match[1])
+      const clean = text.replace(/\[LEAD_CAPTURE\].*?\[\/LEAD_CAPTURE\]/s, '').trim()
+      return { clean, data }
+    } catch {
+      return { clean: text, data: null }
+    }
+  }
+
+  // Salva lead no Supabase
+  async function saveLead(data: LeadData) {
+    if (leadSaved) return
+    
+    const { error } = await supabase.from('leads').insert({
+      name:         data.name,
+      whatsapp:     data.whatsapp,
+      email:        data.email,
+      objective:    data.objective,
+      timing:       data.timing,
+      message:      data.notes,
+      source:       'chat',
+      status:       'novo',
+      page_history: JSON.parse(localStorage.getItem('moovia_history') || '[]'),
+      session_id:   localStorage.getItem('moovia_session'),
+      utm_source:   JSON.parse(localStorage.getItem('moovia_utm') || '{}').source,
+      utm_medium:   JSON.parse(localStorage.getItem('moovia_utm') || '{}').medium,
+      utm_campaign: JSON.parse(localStorage.getItem('moovia_utm') || '{}').campaign,
+    })
+    
+    if (!error) {
+      setLeadSaved(true)
+      console.log('[MOOVIA] Lead salvo:', data.name)
+    }
+  }
+
+  // Salva conversa no Supabase ao fechar ou sair
+  async function saveConversation(msgs: Message[], currentLead: LeadData) {
+    if (msgs.length === 0) return;
+
+    await supabase.from('chat_logs').insert({
+      session_id:    localStorage.getItem('moovia_session'),
+      messages:      msgs.map(m => ({
+        role:      m.role,
+        content:   m.content,
+        timestamp: m.timestamp.toISOString()
+      })),
+      lead_captured: !!currentLead.whatsapp,
+      page_url:      window.location.href,
+      duration_secs: Math.floor((Date.now() - sessionStart) / 1000)
+    })
+  }
+
+  // Validação básica de telefone
+  function isValidPhone(phone: string): boolean {
+    const digits = phone.replace(/\D/g, '')
+    return digits.length >= 10 && (phone.startsWith('+') || digits.length >= 11)
+  }
+
+  function looksLikePhone(text: string): boolean {
+    return /[\d\s\-\+\(\)]{8,}/.test(text) && text.replace(/\D/g, '').length >= 8
+  }
+
+  function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const val = e.target.value
+    setInput(val)
+    setPhoneError('')
+
+    if (looksLikePhone(val) && val.length > 8) {
+      if (!val.startsWith('+')) {
+        setPhoneError('Inclua o código do país: +55 para Brasil, +351 para Portugal')
+      } else if (!isValidPhone(val)) {
+        setPhoneError('Número incompleto')
+      }
+    }
+  }
+
+  const sendMessage = async (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    
+    const text = input.trim();
+    if (!text || loading || (phoneError && looksLikePhone(text))) return;
+
+    const userMsg: Message = { role: 'user' as const, content: text, timestamp: new Date() };
+    const newMessages = [...messages, userMsg];
     setMessages(newMessages);
+    setInput('');
+    setPhoneError('');
     setLoading(true);
 
     try {
       const { data, error } = await supabase.functions.invoke('chat', {
         body: { 
-          messages: newMessages,
+          messages: newMessages.map(m => ({ role: m.role, content: m.content })),
           session_id: localStorage.getItem('moovia_session')
         }
       });
@@ -38,92 +157,130 @@ export function ChatAssistant() {
       if (error) throw error;
 
       if (data && data.content && data.content[0]) {
-        setMessages([...newMessages, { role: 'assistant', content: data.content[0].text }]);
+        const raw = data.content[0].text;
+        const { clean, data: captured } = extractLeadCapture(raw);
+
+        if (captured) {
+          const updated = { ...leadData, ...captured };
+          setLeadData(updated);
+          await saveLead(updated);
+        }
+
+        setMessages([...newMessages, { 
+          role: 'assistant', 
+          content: clean,
+          timestamp: new Date() 
+        }]);
       }
     } catch (error) {
       console.error('Chat error:', error);
-      setMessages([...newMessages, { role: 'assistant', content: 'Desculpe, tive um problema ao processar sua mensagem. Pode tentar novamente?' }]);
+      setMessages([...newMessages, { 
+        role: 'assistant', 
+        content: 'Tive uma instabilidade aqui. Pode repetir a sua mensagem?',
+        timestamp: new Date() 
+      }]);
     } finally {
       setLoading(false);
+      setTimeout(() => inputRef.current?.focus(), 100);
     }
   };
+
+  useEffect(() => {
+    const handleUnload = () => {
+      saveConversation(messages, leadData);
+    };
+    window.addEventListener('beforeunload', handleUnload);
+    return () => {
+      window.removeEventListener('beforeunload', handleUnload);
+      if (messages.length > 0) handleUnload();
+    };
+  }, [messages, leadData]);
+
+  const MooviaIsotipo = ({ size, color }: { size: number, color: string }) => (
+    <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M50 10L90 35V65L50 90L10 65V35L50 10Z" stroke={color} strokeWidth="4" />
+      <path d="M30 45L50 35L70 45V55L50 65L30 55V45Z" fill={color} />
+    </svg>
+  );
 
   return (
     <div className="fixed bottom-8 right-8 z-[850] flex flex-col items-end">
       {isOpen && (
-        <div className="w-[calc(100vw-40px)] md:w-[380px] h-[560px] max-h-[calc(100vh-140px)] bg-black/95 backdrop-blur-xl border border-border flex flex-col shadow-2xl animate-[fadeUp_0.4s_ease_forwards] mb-6">
-          <div className="p-6 border-b border-border flex items-center justify-between bg-black-3/50">
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 flex items-center justify-center">
-                <img src="/mooviagold.svg" alt="MOOVIA Logo" className="w-8 h-8 object-contain" />
+        <div className="w-[calc(100vw-40px)] md:w-[380px] h-[560px] max-h-[calc(100vh-140px)] bg-[#12141a] border border-gold/20 flex flex-col shadow-2xl animate-[fadeUp_0.4s_ease_forwards] mb-6">
+          <div className="p-4 border-b border-gold/15 flex items-center justify-between bg-black-3/50">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 bg-gold/12 border border-gold/30 flex items-center justify-center">
+                <MooviaIsotipo size={18} color="#ad8957" />
               </div>
               <div>
-                <h4 className="font-amotha text-xl text-white tracking-tight">Assistente MOOVIA</h4>
-                <p className="font-urbanist text-[10px] uppercase tracking-[0.2em] text-gold/60">Especialista em Coordenação</p>
+                <h4 className="font-sora text-[13px] font-normal text-[#f9f5ec]">MOOVIA</h4>
+                <p className="font-urbanist text-[11px] text-white/35 uppercase tracking-[0.12em]">
+                  {leadData.name ? `Olá, ${leadData.name}` : 'Assistente'}
+                </p>
               </div>
             </div>
-            <button onClick={() => setIsOpen(false)} className="text-white/40 hover:text-white transition-colors">
+            <button onClick={() => setIsOpen(false)} className="text-white/35 hover:text-white transition-colors">
               <X size={20} />
             </button>
           </div>
 
-          <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-5 font-urbanist text-[14px]">
-            {messages.length === 0 && (
-              <div className="text-center py-8">
-                <p className="text-white/40 mb-8 font-light italic leading-relaxed">Olá! Como posso ajudar na coordenação da sua transição para Portugal?</p>
-                <div className="flex flex-col gap-3">
-                  {['Como funciona a MOOVIA?', 'Quanto custa?', 'Quero agendar uma conversa'].map(q => (
-                    <button 
-                      key={q} 
-                      onClick={() => sendMessage(q)}
-                      className="p-4 border border-border text-white/50 hover:text-gold hover:border-gold transition-all duration-300 text-[11px] uppercase tracking-[0.2em] bg-white/05"
-                    >
-                      {q}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-            {messages.map((m, i) => (
-              <div key={i} className={cn("max-w-[85%] p-4 leading-relaxed", m.role === 'user' ? "ml-auto bg-gold text-black font-medium" : "mr-auto bg-black-3 text-white/70 border border-border/50")}>
-                {m.content}
+          <div ref={scrollRef} className="flex-1 overflow-y-auto p-5 space-y-3 font-urbanist text-[14px]">
+            {messages.map((msg, i) => (
+              <div key={i} className={cn(
+                "max-w-[82%] p-3 leading-relaxed", 
+                msg.role === 'user' 
+                  ? "ml-auto bg-gold/15 text-[#f9f5ec] font-normal" 
+                  : "mr-auto bg-black-3 text-white/80 border-l-2 border-l-gold"
+              )}>
+                {msg.content}
               </div>
             ))}
             {loading && (
-              <div className="mr-auto bg-black-3 p-4 border border-border/50 text-gold animate-pulse">
-                ...
+              <div className="flex gap-1 p-3">
+                {[0,1,2].map(i => (
+                  <div key={i} className="w-1.5 h-1.5 rounded-full bg-gold/60 animate-bounce" style={{ animationDelay: `${i * 0.2}s` }} />
+                ))}
               </div>
             )}
           </div>
 
-          <form onSubmit={sendMessage} className="p-4 border-t border-border bg-black-3/30 flex gap-2">
-            <input
-              value={input}
-              onChange={e => setInput(e.target.value)}
-              placeholder="Sua pergunta sobre a transição..."
-              className="flex-1 bg-black/40 border border-border text-white px-4 py-3 font-urbanist text-sm outline-none focus:border-gold transition-colors placeholder:text-white/20"
-            />
-            <button type="submit" className="bg-gold text-black p-3 hover:bg-gold-xl transition-colors disabled:opacity-50">
-              {loading ? <Loader2 className="animate-spin" size={20} /> : <Send size={20} />}
-            </button>
+          <form onSubmit={sendMessage} className="p-4 border-t border-gold/15 bg-black-3/30">
+            {phoneError && (
+              <p className="font-urbanist text-[11px] color-gold mb-2 tracking-[0.06em] text-gold">
+                ⚠ {phoneError}
+              </p>
+            )}
+            <div className="flex gap-2">
+              <input
+                ref={inputRef}
+                value={input}
+                onChange={handleInputChange}
+                placeholder="Digite sua mensagem..."
+                className={cn(
+                  "flex-1 bg-[#0e0f12] border p-3 font-urbanist text-sm outline-none transition-colors text-[#f9f5ec]",
+                  phoneError ? "border-gold" : "border-gold/20 focus:border-gold"
+                )}
+              />
+              <button 
+                type="submit" 
+                disabled={loading || !input.trim() || !!phoneError}
+                className={cn(
+                  "w-10 flex items-center justify-center transition-all font-bold",
+                  input.trim() && !phoneError ? "bg-gold text-[#0e0f12]" : "bg-gold/20 text-[#0e0f12] cursor-not-allowed"
+                )}
+              >
+                <Send size={18} />
+              </button>
+            </div>
           </form>
         </div>
       )}
       
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-14 h-14 bg-black/90 backdrop-blur-md border border-border/50 rounded-full flex items-center justify-center text-gold shadow-2xl hover:scale-105 transition-all duration-300 group relative"
+        className="w-14 h-14 bg-gold rounded-full flex items-center justify-center shadow-[0_8px_32px_rgba(173,137,87,0.35)] hover:scale-105 transition-all duration-300"
       >
-        <div className="absolute inset-0 rounded-full border border-gold/20 scale-100 group-hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500" />
-        {isOpen ? <X size={24} /> : (
-          <div className="w-10 h-10 flex items-center justify-center">
-            <img 
-              src="/mooviagold.svg" 
-              alt="Chat MOOVIA" 
-              className="w-8 h-8 object-contain drop-shadow-[0_0_10px_rgba(173,137,87,0.3)]" 
-            />
-          </div>
-        )}
+        {isOpen ? <X size={24} className="text-[#0e0f12]" /> : <MooviaIsotipo size={28} color="#0e0f12" />}
       </button>
     </div>
   );
