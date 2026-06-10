@@ -66,8 +66,9 @@ export function Airplane({ progressRef, targetRef }: Props) {
       .setFromAxisAngle(new THREE.Vector3(1, 0, 0), pitchAngle)
     groupRef.current.quaternion.multiply(bankQ).multiply(pitchQ)
 
-    // Escala dinâmica por profundidade (Z)
-    const depthFactor = THREE.MathUtils.lerp(0.012, 0.018, (position.z + 1) * 0.5)
+    // Escala dinâmica aumentada (o usuário relatou estar muito pequeno)
+    const baseScale = 0.08; // Aumentado significativamente
+    const depthFactor = THREE.MathUtils.lerp(baseScale, baseScale * 1.5, (position.z + 1) * 0.5)
     groupRef.current.scale.setScalar(depthFactor)
   })
 
