@@ -36,15 +36,15 @@ export function ActivityFeed() {
           id: l.id,
           type: 'lead' as const,
           message: `Novo lead registrado: ${l.name}`,
-          timestamp: l.created_at
+          timestamp: l.created_at as string
         })),
         ...(chats.data || []).map(c => ({
           id: c.id,
           type: 'chat' as const,
           message: c.lead_captured ? "Lead capturado via Chat" : "Nova conversa iniciada no Chat",
-          timestamp: c.created_at
+          timestamp: c.created_at as string
         }))
-      ].sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()).slice(0, 15);
+      ].sort((a, b) => new Date(b.timestamp as string).getTime() - new Date(a.timestamp as string).getTime()).slice(0, 15);
 
       setActivities(combined);
     } catch (error) {
