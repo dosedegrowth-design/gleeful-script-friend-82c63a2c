@@ -11,7 +11,8 @@ export function Hero() {
 
   return (
     <section
-      className="relative min-h-[100svh] flex flex-col lg:flex-row items-center overflow-hidden"
+      className="relative min-h-[100svh] flex flex-col lg:flex-row items-center overflow-hidden z-[1]"
+
     >
       <div className="absolute inset-0 z-0 bg-black">
         <div 
@@ -37,7 +38,7 @@ export function Hero() {
         />
       </div>
 
-      <div className="relative z-[2] px-8 lg:px-[100px] pt-[160px] pb-[120px] flex-1">
+      <div className="relative z-[100] px-8 lg:px-[100px] pt-[160px] pb-[120px] flex-1 isolate">
         <p className="font-urbanist text-[11px] tracking-[0.4em] uppercase text-gold mb-10 flex items-center gap-12 animate-[fadeUp_0.8s_ease_0.3s_forwards] opacity-0 will-change-transform">
           <span className="w-10 h-px bg-gold" />
           Coordenação Internacional de Vida e Património
@@ -79,7 +80,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="hidden xl:flex flex-col gap-px bg-border/20 relative z-[2] ml-auto mr-[100px] border border-border/20">
+      <div className="hidden xl:flex flex-col gap-px bg-border/20 relative z-[100] ml-auto mr-[100px] border border-border/20 isolate">
         {[
           { num: "€250", label: "Strategic Assessment", delay: "0.6s" },
           { num: "90'", label: "Sessão com o founder", delay: "0.75s" },
