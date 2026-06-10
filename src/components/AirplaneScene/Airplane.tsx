@@ -47,7 +47,7 @@ export function Airplane({
     }
 
     // Escala por profundidade Z - Aumentada significativamente para garantir presença premium
-    const sc = THREE.MathUtils.lerp(0.4, 0.6, (pos.z + 1) * 0.5)
+    const sc = THREE.MathUtils.lerp(0.3, 0.45, (pos.z + 1) * 0.5)
     groupRef.current.scale.setScalar(sc)
 
     // Orientação: aponta na direção do movimento
