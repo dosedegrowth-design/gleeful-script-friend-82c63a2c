@@ -167,7 +167,7 @@ function RootShell({ children }: { children: ReactNode }) {
     };
 
     const updateInteractiveElements = () => {
-      const interactiveElements = document.querySelectorAll('a, button, select, input, textarea, .interactive');
+      const interactiveElements = document.querySelectorAll('a, button, select, input, textarea, [role="button"], .interactive, .cursor-pointer');
       interactiveElements.forEach(el => {
         el.addEventListener('mouseenter', onMouseEnter);
         el.addEventListener('mouseleave', onMouseLeave);
