@@ -83,13 +83,6 @@ export function Airplane({
       {/* Modelo do avião */}
       <group ref={groupRef}>
         <primitive object={scene.clone()} dispose={null} />
-        {/* Fallback visual simples caso o GLB falhe por algum motivo no navegador */}
-        {!scene && (
-           <mesh>
-             <boxGeometry args={[1, 0.2, 0.5]} />
-             <meshStandardMaterial color="#cead84" />
-           </mesh>
-        )}
       </group>
     </>
   )
