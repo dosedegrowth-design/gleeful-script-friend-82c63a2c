@@ -6,7 +6,7 @@ import * as THREE    from 'three'
 import { FLIGHT_PATH, getTangent } from './FlightPath'
 
 // Preload para evitar pop-in
-useGLTF.preload('/3D/airplane.glb')
+useGLTF.preload('/3D/scene.gltf')
 
 interface Props {
   progressRef: React.MutableRefObject<number>
@@ -18,7 +18,7 @@ export function Airplane({ progressRef, targetRef }: Props) {
   const lightRef   = useRef<THREE.PointLight>(null)
 
   // Carregar o modelo
-  const { scene } = useGLTF('/3D/airplane.glb')
+  const { scene } = useGLTF('/3D/scene.gltf')
 
   useFrame((_, delta) => {
     if (!groupRef.current) return
