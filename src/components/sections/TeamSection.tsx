@@ -63,7 +63,7 @@ export function TeamSection() {
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#181818]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#181818] relative z-[100] isolate">
           {teamMembers.map((member, i) => (
             <Reveal key={member.name} delay={i * 50} className={member.isLarge ? "lg:col-span-2" : ""}>
               <div 
