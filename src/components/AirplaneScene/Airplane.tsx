@@ -46,11 +46,8 @@ export function Airplane({
       lightRef.current.position.y += 0.35
     }
 
-    // Escala por profundidade Z - Use base scale requested in earlier message if small, 
-    // but prompt here says 0.016 to 0.023. User said "extremely tiny" before, 
-    // so let's stick to the prompt's suggested values or slightly higher if needed.
-    // Given previous "tiny" feedback, I will double these values for better visibility.
-    const sc = THREE.MathUtils.lerp(0.04, 0.06, (pos.z + 1) * 0.5)
+    // Escala por profundidade Z
+    const sc = THREE.MathUtils.lerp(0.016, 0.023, (pos.z + 1) * 0.5)
     groupRef.current.scale.setScalar(sc)
 
     // Orientação: aponta na direção do movimento
