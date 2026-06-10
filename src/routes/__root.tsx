@@ -197,17 +197,12 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <div id="cursor-dot" className="hidden lg:block fixed top-0 left-0 w-8 h-8 text-gold pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.15s_ease,opacity_0.2s]">
-          <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-[0_0_8px_rgba(173,137,87,0.4)]">
-            <path d="M100 20 L115 35 H165 V85 L180 100 L165 115 V165 H115 L100 180 L85 165 H35 V115 L20 100 L35 85 V35 H85 L100 20 Z" stroke="currentColor" strokeWidth="1" fill="currentColor" fillOpacity="0.1"/>
-            <path d="M100 20 L115 35 H165 V85 L180 100 L165 115 V165 H115 L100 180 L85 165 H35 V115 L20 100 L35 85 V35 H85 L100 20 Z" stroke="currentColor" strokeWidth="0.5" fill="none"/>
-            <circle cx="100" cy="100" r="12" stroke="currentColor" strokeWidth="0.5" fill="none"/>
-            <path d="M100 88 V112 M88 100 H112" stroke="currentColor" strokeWidth="0.5" strokeLinecap="round"/>
-            <circle cx="100" cy="20" r="1.5" fill="currentColor"/>
-            <circle cx="180" cy="100" r="1.5" fill="currentColor"/>
-            <circle cx="100" cy="180" r="1.5" fill="currentColor"/>
-            <circle cx="20" cy="100" r="1.5" fill="currentColor"/>
-          </svg>
+        <div id="cursor-dot" className="hidden lg:block fixed top-0 left-0 w-8 h-8 pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.15s_ease,opacity_0.2s]">
+          <img 
+            src="/mooviagold.svg" 
+            alt="Cursor" 
+            className="w-full h-full drop-shadow-[0_0_8px_rgba(173,137,87,0.4)]"
+          />
         </div>
         <div id="cursor-ring" className="hidden lg:block fixed top-0 left-0 w-9 h-9 border border-gold/40 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.2s_ease,width_0.25s,height_0.25s,opacity_0.2s]" />
         {children}
