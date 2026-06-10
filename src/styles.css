@@ -149,3 +149,13 @@ button:hover i, button:hover svg, button:hover img,
   width: 0 !important;
   overflow: hidden !important;
 }
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
