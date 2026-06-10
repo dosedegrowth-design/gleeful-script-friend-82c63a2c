@@ -32,7 +32,7 @@ export function AirplaneScene() {
       style={{
         position:      'fixed',
         inset:         0,
-        zIndex:        50,        // ← ENTRE fundo (z-1) e cards (z-100)
+        zIndex:        1000,      // ← Aumentado para garantir que não fique sob o fundo
         pointerEvents: 'none',
       }}
     >
