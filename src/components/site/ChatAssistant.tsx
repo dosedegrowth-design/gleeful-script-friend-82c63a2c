@@ -54,17 +54,8 @@ export function ChatAssistant() {
         <div className="w-[calc(100vw-40px)] md:w-[380px] h-[560px] max-h-[calc(100vh-140px)] bg-black/95 backdrop-blur-xl border border-border flex flex-col shadow-2xl animate-[fadeUp_0.4s_ease_forwards] mb-6">
           <div className="p-6 border-b border-border flex items-center justify-between bg-black-3/50">
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 text-gold">
-                <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                  <path d="M100 20 L115 35 H165 V85 L180 100 L165 115 V165 H115 L100 180 L85 165 H35 V115 L20 100 L35 85 V35 H85 L100 20 Z" stroke="currentColor" strokeWidth="1" fill="currentColor" fillOpacity="0.1"/>
-                  <path d="M100 20 L115 35 H165 V85 L180 100 L165 115 V165 H115 L100 180 L85 165 H35 V115 L20 100 L35 85 V35 H85 L100 20 Z" stroke="currentColor" strokeWidth="0.8" fill="none"/>
-                  <circle cx="100" cy="100" r="12" stroke="currentColor" strokeWidth="0.8" fill="none"/>
-                  <path d="M100 88 V112 M88 100 H112" stroke="currentColor" strokeWidth="0.8" strokeLinecap="round"/>
-                  <circle cx="100" cy="20" r="1.5" fill="currentColor"/>
-                  <circle cx="180" cy="100" r="1.5" fill="currentColor"/>
-                  <circle cx="100" cy="180" r="1.5" fill="currentColor"/>
-                  <circle cx="20" cy="100" r="1.5" fill="currentColor"/>
-                </svg>
+              <div className="w-10 h-10 flex items-center justify-center">
+                <img src="/mooviagold.svg" alt="MOOVIA Logo" className="w-8 h-8 object-contain" />
               </div>
               <div>
                 <h4 className="font-amotha text-xl text-white tracking-tight">Assistente MOOVIA</h4>
@@ -125,17 +116,12 @@ export function ChatAssistant() {
       >
         <div className="absolute inset-0 rounded-full border border-gold/20 scale-100 group-hover:scale-125 opacity-0 group-hover:opacity-100 transition-all duration-500" />
         {isOpen ? <X size={24} /> : (
-          <div className="w-10 h-10">
-            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-[0_0_10px_rgba(173,137,87,0.3)]">
-              <path d="M100 20 L115 35 H165 V85 L180 100 L165 115 V165 H115 L100 180 L85 165 H35 V115 L20 100 L35 85 V35 H85 L100 20 Z" stroke="currentColor" strokeWidth="1" fill="currentColor" fillOpacity="0.1"/>
-              <path d="M100 20 L115 35 H165 V85 L180 100 L165 115 V165 H115 L100 180 L85 165 H35 V115 L20 100 L35 85 V35 H85 L100 20 Z" stroke="currentColor" strokeWidth="1" fill="none"/>
-              <circle cx="100" cy="100" r="12" stroke="currentColor" strokeWidth="1" fill="none"/>
-              <path d="M100 88 V112 M88 100 H112" stroke="currentColor" strokeWidth="1" strokeLinecap="round"/>
-              <circle cx="100" cy="20" r="1.5" fill="currentColor"/>
-              <circle cx="180" cy="100" r="1.5" fill="currentColor"/>
-              <circle cx="100" cy="180" r="1.5" fill="currentColor"/>
-              <circle cx="20" cy="100" r="1.5" fill="currentColor"/>
-            </svg>
+          <div className="w-10 h-10 flex items-center justify-center">
+            <img 
+              src="/mooviagold.svg" 
+              alt="Chat MOOVIA" 
+              className="w-8 h-8 object-contain drop-shadow-[0_0_10px_rgba(173,137,87,0.3)]" 
+            />
           </div>
         )}
       </button>
