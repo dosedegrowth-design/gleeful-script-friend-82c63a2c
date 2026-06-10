@@ -126,7 +126,10 @@ function RootShell({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
-    if (window.innerWidth < 1024) return;
+    if (window.innerWidth < 1024) {
+      document.body.style.cursor = 'auto';
+      return;
+    }
     
     const dot = document.getElementById('cursor-dot');
     const ring = document.getElementById('cursor-ring');
@@ -140,7 +143,7 @@ function RootShell({ children }: { children: ReactNode }) {
       dot.style.top = my + 'px';
     };
     
-    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mousemove', onMouseMove, { passive: true });
 
     const animateCursor = () => {
       rx += (mx - rx) * 0.15;
