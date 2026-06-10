@@ -29,7 +29,7 @@ const cards = [
 
 export function ProblemSection() {
   return (
-    <section className="bg-black-2 py-[120px] px-6 lg:px-[80px]">
+    <section className="bg-black-2 py-[120px] px-6 lg:px-[80px] relative z-[1]">
       <div className="mx-auto max-w-[1400px]">
         <Reveal>
           <div className="font-urbanist text-[11px] tracking-[0.28em] uppercase text-gold mb-4 flex items-center gap-3">
@@ -49,7 +49,7 @@ export function ProblemSection() {
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px border border-border mt-[72px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px border border-border mt-[72px] relative z-[100] isolate">
           {cards.map((card, i) => (
             <Reveal key={card.n} delay={i * 80} distance={30}>
               <div className="inside-card p-10 lg:p-[48px] bg-black-2 relative overflow-hidden group transition-colors duration-400 hover:bg-black-3 h-full">

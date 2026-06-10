@@ -10,7 +10,7 @@ export function ManifestoSection() {
         }}
       />
       
-      <div className="max-w-[900px] relative z-[1]">
+      <div className="max-w-[900px] relative z-[100] isolate">
         <Reveal>
           <div className="font-urbanist text-[11px] tracking-[0.28em] uppercase text-gold mb-4 flex items-center justify-center gap-3">
             <span className="w-6 h-px bg-gold" />
