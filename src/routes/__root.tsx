@@ -155,13 +155,13 @@ function RootShell({ children }: { children: ReactNode }) {
       ring.style.width = '64px';
       ring.style.height = '64px';
       ring.style.borderColor = 'rgba(206,173,132,0.8)';
-      dot.style.transform = 'translate(-50%,-50%) scale(1.5)';
+      dot.style.transform = 'translate(-50%,-50%) scale(1.5) rotate(360deg)';
     };
     const onMouseLeave = () => {
       ring.style.width = '36px';
       ring.style.height = '36px';
       ring.style.borderColor = 'rgba(206,173,132,0.4)';
-      dot.style.transform = 'translate(-50%,-50%) scale(1)';
+      dot.style.transform = 'translate(-50%,-50%) scale(1) rotate(0deg)';
     };
 
     const updateInteractiveElements = () => {
