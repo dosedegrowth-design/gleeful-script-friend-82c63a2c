@@ -42,32 +42,33 @@ export function Airplane({ progressRef, targetRef }: Props) {
     }
 
     // Orientação: aponta na direção do movimento
-    const tangent = getTangent(t)
-    const up      = new THREE.Vector3(0, 1, 0)
-    const right   = new THREE.Vector3().crossVectors(tangent, up).normalize()
-    const realUp  = new THREE.Vector3().crossVectors(right, tangent).normalize()
-    const rotMat  = new THREE.Matrix4().makeBasis(right, realUp, tangent.negate())
-    const targetQ = new THREE.Quaternion().setFromRotationMatrix(rotMat)
-    groupRef.current.quaternion.slerp(targetQ, Math.min(delta * 5, 1))
+    const tangent = getTangent(t).normalize()
+    
+    // Matriz de rotação básica baseada na tangente
+    const dummy = new THREE.Object3D()
+    dummy.position.copy(position)
+    dummy.lookAt(position.clone().add(tangent))
+    
+    // Slerp suave para a rotação base
+    groupRef.current.quaternion.slerp(dummy.quaternion, Math.min(delta * 5, 1))
 
-    // Bank angle suave e controlado
-    const tNext = Math.min(1, t + 0.005)
-    const tPrev = Math.max(0, t - 0.005)
+    // Adiciona Bank (inclinação lateral) e Pitch (inclinação vertical) controlados
+    const tNext = Math.min(1, t + 0.01)
+    const tPrev = Math.max(0, t - 0.01)
     const pNext = FLIGHT_PATH.getPoint(tNext)
     const pPrev = FLIGHT_PATH.getPoint(tPrev)
     
-    // Calcula curvatura horizontal para o bank (inclinação lateral)
     const deltaX = pNext.x - pPrev.x
-    const bankAngle = THREE.MathUtils.clamp(deltaX * 0.5, -0.4, 0.4)
-    
-    // Calcula inclinação vertical (pitch) baseada na subida/descida
     const deltaY = pNext.y - pPrev.y
-    const pitchAngle = THREE.MathUtils.clamp(deltaY * 0.2, -0.2, 0.2)
-
-    const bankQ = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 0, 1), -bankAngle)
-    const pitchQ = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), pitchAngle)
     
-    groupRef.current.quaternion.multiply(bankQ).multiply(pitchQ)
+    // Bank baseado na curva horizontal (X)
+    const bankAngle = THREE.MathUtils.clamp(deltaX * 2.0, -0.5, 0.5)
+    // Pitch baseado na variação de altura (Y)
+    const pitchAngle = THREE.MathUtils.clamp(deltaY * 0.5, -0.3, 0.3)
+
+    const extraRot = new THREE.Euler(pitchAngle, 0, -bankAngle)
+    groupRef.current.rotateZ(extraRot.z * 0.1)
+    groupRef.current.rotateX(extraRot.x * 0.1)
 
     // Escala dinâmica massivamente aumentada para visibilidade cinematográfica
     const baseScale = 0.6; // Aumentado em ~7.5x da escala anterior
