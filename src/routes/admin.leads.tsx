@@ -19,6 +19,8 @@ import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { LeadDetailsDrawer } from "@/components/admin/LeadDetailsDrawer";
 
+import { ptBR } from "date-fns/locale";
+
 export const Route = createFileRoute("/admin/leads")({
   component: AdminCRM,
 });
