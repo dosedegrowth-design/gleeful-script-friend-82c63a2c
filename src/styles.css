@@ -124,9 +124,9 @@ button:hover i, button:hover svg,
   animation: hoverSpin 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-/* Rotação do ícone do cursor (o dot) */
-.cursor-hovering #cursor-dot img {
-  animation: hoverSpin 1s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
+/* Rotação do ícone do cursor (o dot) quando estiver em hover */
+#cursor-dot.cursor-hover img {
+  animation: hoverSpin 0.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 #lovable-badge-cta {
