@@ -89,14 +89,10 @@ export function Trail({
   return (
     <>
       {/* Glow — dourado suave, mais largo */}
-      <line_ {...({ geometry: glowGeo.current } as any)}>
-        <lineBasicMaterial vertexColors transparent opacity={0.45} />
-      </line_>
+      <primitive object={new THREE.Line(glowGeo.current, new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.45 }))} />
 
       {/* Core — branco→dourado, fino e brilhante */}
-      <line_ {...({ geometry: coreGeo.current } as any)}>
-        <lineBasicMaterial vertexColors transparent opacity={0.85} />
-      </line_>
+      <primitive object={new THREE.Line(coreGeo.current, new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.85 }))} />
     </>
   )
 }
