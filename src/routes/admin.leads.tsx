@@ -191,6 +191,9 @@ function AdminCRM() {
                                 ref={provided.innerRef}
                                 {...provided.draggableProps}
                                 {...provided.dragHandleProps}
+                                style={{
+                                  ...provided.draggableProps.style,
+                                } as React.CSSProperties}
                                 onClick={() => setSelectedLead(lead)}
                                 className={cn(
                                   "bg-black-2 border border-border p-5 group cursor-pointer hover:border-gold transition-all relative overflow-hidden",
