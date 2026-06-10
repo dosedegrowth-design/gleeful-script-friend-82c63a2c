@@ -115,12 +115,18 @@
   100% { transform: rotate(360deg); }
 }
 
+/* Ícones dentro de botões/links */
 a:hover i, a:hover svg,
 button:hover i, button:hover svg,
 [role="button"]:hover i, [role="button"]:hover svg,
-.group:hover .group-hover\:spin-once,
+.group:hover .group-hover\:hover-spin,
 .hover-spin:hover i, .hover-spin:hover svg {
   animation: hoverSpin 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Rotação do ícone do cursor (o dot) */
+.cursor-hovering #cursor-dot img {
+  animation: hoverSpin 1s cubic-bezier(0.4, 0, 0.2, 1) infinite !important;
 }
 
 #lovable-badge-cta {
