@@ -117,11 +117,11 @@
 }
 
 /* Ícones dentro de botões/links */
-a:hover i, a:hover svg,
-button:hover i, button:hover svg,
-[role="button"]:hover i, [role="button"]:hover svg,
+a:hover i, a:hover svg, a:hover img,
+button:hover i, button:hover svg, button:hover img,
+[role="button"]:hover i, [role="button"]:hover svg, [role="button"]:hover img,
 .group:hover .group-hover\:hover-spin,
-.hover-spin:hover i, .hover-spin:hover svg {
+.hover-spin:hover i, .hover-spin:hover svg, .hover-spin:hover img {
   animation: hoverSpin 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
