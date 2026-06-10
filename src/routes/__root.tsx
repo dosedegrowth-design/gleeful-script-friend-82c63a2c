@@ -202,7 +202,7 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <div id="cursor-dot" className="hidden lg:block fixed top-0 left-0 w-8 h-8 pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.15s_ease,opacity_0.2s]">
+        <div id="cursor-dot" className="hidden lg:block fixed top-0 left-0 w-8 h-8 pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.6s_cubic-bezier(0.4,0,0.2,1),opacity_0.2s]">
           <img 
             src="/mooviagold.svg" 
             alt="Cursor" 
