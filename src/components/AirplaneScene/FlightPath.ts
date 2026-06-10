@@ -1,41 +1,54 @@
 import * as THREE from 'three'
 
+// Coordenadas em espaço Three.js:
+//   X: -4 (esquerda) → +4 (direita)
+//   Y: +4.5 (topo/hero) → -17 (footer)
+//   Z: variação de profundidade (-1 → +1)
+
 export const FLIGHT_PATH = new THREE.CatmullRomCurve3([
-  // Ponto 0 — Entrada pelo topo direito (hero)
-  new THREE.Vector3(3.5, 4.5, 0.5),
+  // ── HERO (entrada pelo canto superior direito) ──
+  new THREE.Vector3( 4.8,  4.5,  0.6),
+  new THREE.Vector3( 3.2,  3.6, -0.2),
+  new THREE.Vector3( 1.0,  3.0,  0.4),
 
-  // Ponto 1 — Curva suave entrando na página
-  new THREE.Vector3(2.0, 3.2, -0.2),
+  // ── PROBLEMA ──
+  new THREE.Vector3(-1.2,  2.0,  0.8),
+  new THREE.Vector3(-3.2,  1.0, -0.3),
+  new THREE.Vector3(-3.0, -0.2,  0.2),
 
-  // Ponto 2 — Mergulho pela seção problema
-  new THREE.Vector3(-1.5, 1.8, 0.8),
+  // ── FUNDADORES ──
+  new THREE.Vector3( 0.5, -1.2, -0.6),
+  new THREE.Vector3( 3.5, -2.0,  0.5),
+  new THREE.Vector3( 3.2, -3.0, -0.1),
 
-  // Ponto 3 — Vira à direita
-  new THREE.Vector3(2.8, 0.2, -0.5),
+  // ── PROCESSO ──
+  new THREE.Vector3( 1.5, -4.0,  0.7),
+  new THREE.Vector3(-0.8, -5.2, -0.5),
+  new THREE.Vector3(-2.8, -6.0,  0.3),
 
-  // Ponto 4 — Grande curva descendente pelo processo
-  new THREE.Vector3(0.5, -1.8, 0.3),
+  // ── PILARES ──
+  new THREE.Vector3(-2.5, -7.2,  0.8),
+  new THREE.Vector3( 0.2, -8.0, -0.4),
+  new THREE.Vector3( 2.8, -8.8,  0.2),
 
-  // Ponto 5 — Mergulha pela esquerda (Assessment)
-  new THREE.Vector3(-2.5, -3.5, -0.8),
+  // ── MANIFESTO ──
+  new THREE.Vector3( 2.0,-10.0,  0.5),
+  new THREE.Vector3( 0.0,-11.2, -0.3),
+  new THREE.Vector3(-1.5,-12.0,  0.1),
 
-  // Ponto 6 — Sobe brevemente e passa sobre os pilares
-  new THREE.Vector3(1.2, -5.2, 0.4),
+  // ── FAQ / FORM ──
+  new THREE.Vector3( 0.5,-13.5,  0.4),
+  new THREE.Vector3( 1.8,-14.8, -0.2),
 
-  // Ponto 7 — Vira novamente, passa por trás dos pilares
-  new THREE.Vector3(-0.8, -7.0, -0.3),
-
-  // Ponto 8 — Longo deslize pelo manifesto
-  new THREE.Vector3(2.2, -9.0, 0.6),
-
-  // Ponto 9 — Curva final pelo FAQ
-  new THREE.Vector3(-1.0, -11.5, -0.4),
-
-  // Ponto 10 — Aproximação ao formulário
-  new THREE.Vector3(0.5, -13.8, 0.2),
-
-  // Ponto 11 — Pouso no footer
-  new THREE.Vector3(-2.5, -16.0, 0.0),
+  // ── FOOTER ──
+  new THREE.Vector3(-0.5,-16.0,  0.0),
+  new THREE.Vector3(-3.0,-17.0,  0.0),
 ], false, 'catmullrom', 0.5)
 
-export const FLIGHT_POINTS = FLIGHT_PATH.getPoints(500)
+export const PATH_POINTS = FLIGHT_PATH.getPoints(1000)
+
+export function getTangent(t: number) {
+  const t1 = Math.min(1, t + 0.003)
+  const t2 = Math.max(0, t - 0.003)
+  return FLIGHT_PATH.getPoint(t1).sub(FLIGHT_PATH.getPoint(t2)).normalize()
+}

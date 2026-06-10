@@ -1,86 +1,74 @@
-import React, { useRef, useEffect } from 'react'
-import { useFrame } from '@react-three/fiber'
-import { useGLTF, Sparkles } from '@react-three/drei'
-import * as THREE from 'three'
-import { FLIGHT_PATH } from './FlightPath'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { AirplaneGeometry } from './AirplaneGeometry'
-import { Contrail } from './Contrail'
+'use client'
+import { useRef } from 'react'
+import { useFrame }  from '@react-three/fiber'
+import { useGLTF }   from '@react-three/drei'
+import * as THREE    from 'three'
+import { FLIGHT_PATH, getTangent } from './FlightPath'
 
-gsap.registerPlugin(ScrollTrigger)
+// Preload para evitar pop-in
+useGLTF.preload('/3D/airplane.glb')
 
-export function Airplane() {
-  const airplaneRef = useRef<THREE.Group>(null)
-  const lightRef = useRef<THREE.PointLight>(null)
-  const progressRef = useRef(0)
-  const targetProgressRef = useRef(0)
+interface Props {
+  progressRef: React.MutableRefObject<number>
+  targetRef:   React.MutableRefObject<number>
+}
 
-  useEffect(() => {
-    const trigger = ScrollTrigger.create({
-      trigger: 'body',
-      start: 'top top',
-      end: 'bottom bottom',
-      onUpdate: (self) => {
-        targetProgressRef.current = self.progress
-      }
-    })
-    return () => trigger.kill()
-  }, [])
+export function Airplane({ progressRef, targetRef }: Props) {
+  const groupRef   = useRef<THREE.Group>(null)
+  const lightRef   = useRef<THREE.PointLight>(null)
 
-  useFrame((state, delta) => {
-    if (!airplaneRef.current) return
+  // Carregar o modelo
+  const { scene } = useGLTF('/3D/airplane.glb')
 
-    // Lerp suave do progresso (inércia cinematográfica)
+  useFrame((_, delta) => {
+    if (!groupRef.current) return
+
+    // Lerp suave (inércia cinematográfica)
     progressRef.current = THREE.MathUtils.lerp(
       progressRef.current,
-      targetProgressRef.current,
+      targetRef.current,
       Math.min(delta * 3.5, 1)
     )
-
-    const t = progressRef.current
+    const t = THREE.MathUtils.clamp(progressRef.current, 0, 1)
 
     // Posição na curva
     const position = FLIGHT_PATH.getPoint(t)
-    airplaneRef.current.position.copy(position)
+    groupRef.current.position.copy(position)
 
-    // Orientação: tangente da curva
-    const tangent = FLIGHT_PATH.getTangent(t).normalize()
-    const up = new THREE.Vector3(0, 1, 0)
-    const quaternion = new THREE.Quaternion()
-    const matrix = new THREE.Matrix4()
-    matrix.lookAt(
-      new THREE.Vector3(0, 0, 0),
-      tangent,
-      up
-    )
-    quaternion.setFromRotationMatrix(matrix)
-    airplaneRef.current.quaternion.slerp(quaternion, Math.min(delta * 4, 1))
-
-    // Bank angle (inclina nas curvas)
-    const tNext = Math.min(t + 0.005, 1)
-    const tPrev = Math.max(t - 0.005, 0)
-    const pNext = FLIGHT_PATH.getPoint(tNext)
-    const pPrev = FLIGHT_PATH.getPoint(tPrev)
-    const curvature = pNext.x - pPrev.x
-    const bankAngle = THREE.MathUtils.clamp(curvature * 0.8, -0.6, 0.6)
-
-    airplaneRef.current.rotation.z = THREE.MathUtils.lerp(
-      airplaneRef.current.rotation.z,
-      bankAngle,
-      Math.min(delta * 3, 1)
-    )
-
-    // Scale
-    const depth = position.z
-    const scale = THREE.MathUtils.lerp(0.18, 0.24, (depth + 1) / 2)
-    airplaneRef.current.scale.setScalar(scale)
-
-    // Luz que segue o avião
+    // Luz dourada que acompanha
     if (lightRef.current) {
       lightRef.current.position.copy(position)
-      lightRef.current.position.y += 0.5
+      lightRef.current.position.y += 0.4
     }
+
+    // Orientação: aponta na direção do movimento
+    const tangent = getTangent(t)
+    const up      = new THREE.Vector3(0, 1, 0)
+    const right   = new THREE.Vector3().crossVectors(tangent, up).normalize()
+    const realUp  = new THREE.Vector3().crossVectors(right, tangent).normalize()
+    const rotMat  = new THREE.Matrix4().makeBasis(right, realUp, tangent.negate())
+    const targetQ = new THREE.Quaternion().setFromRotationMatrix(rotMat)
+    groupRef.current.quaternion.slerp(targetQ, Math.min(delta * 5, 1))
+
+    // Bank angle (inclina nas curvas)
+    const tNext = Math.min(1, t + 0.008)
+    const tPrev = Math.max(0, t - 0.008)
+    const pNext = FLIGHT_PATH.getPoint(tNext)
+    const pPrev = FLIGHT_PATH.getPoint(tPrev)
+    const curvatureX = pNext.x - pPrev.x
+    const curvatureZ = pNext.z - pPrev.z
+    const bankAngle  = THREE.MathUtils.clamp(curvatureX * 0.9, -0.7, 0.7)
+    const pitchAngle = THREE.MathUtils.clamp(curvatureZ * 0.3, -0.2, 0.2)
+
+    const bankQ = new THREE.Quaternion()
+      .setFromAxisAngle(new THREE.Vector3(0, 0, 1), -bankAngle)
+    const pitchQ = new THREE.Quaternion()
+      .setFromAxisAngle(new THREE.Vector3(1, 0, 0), pitchAngle)
+    groupRef.current.quaternion.multiply(bankQ).multiply(pitchQ)
+
+    // Escala dinâmica por profundidade (Z)
+    const depthFactor = THREE.MathUtils.lerp(0.012, 0.018, (position.z + 1) * 0.5)
+    groupRef.current.scale.setScalar(depthFactor)
   })
 
   return (
@@ -92,17 +80,8 @@ export function Airplane() {
         distance={6}
         decay={2}
       />
-      <group ref={airplaneRef}>
-        <AirplaneGeometry />
-        <Contrail />
-        <Sparkles
-          count={20}
-          scale={1.5}
-          size={0.4}
-          speed={0.3}
-          color="#cead84"
-          opacity={0.4}
-        />
+      <group ref={groupRef}>
+        <primitive object={scene.clone()} />
       </group>
     </>
   )
