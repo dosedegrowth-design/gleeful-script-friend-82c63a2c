@@ -89,14 +89,14 @@ export function Trail({
   return (
     <>
       {/* Glow — dourado suave, mais largo */}
-      <line geometry={glowGeo.current}>
+      <line_ {...({ geometry: glowGeo.current } as any)}>
         <lineBasicMaterial vertexColors transparent opacity={0.45} />
-      </line>
+      </line_>
 
       {/* Core — branco→dourado, fino e brilhante */}
-      <line geometry={coreGeo.current}>
+      <line_ {...({ geometry: coreGeo.current } as any)}>
         <lineBasicMaterial vertexColors transparent opacity={0.85} />
-      </line>
+      </line_>
     </>
   )
 }
