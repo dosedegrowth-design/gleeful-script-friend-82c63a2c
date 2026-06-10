@@ -56,8 +56,6 @@ export function Contrail({ progressRef }: Props) {
   })
 
   return (
-    <line ref={lineRef} geometry={geoRef.current}>
-      <lineBasicMaterial vertexColors transparent opacity={0.75} />
-    </line>
+    <primitive object={new THREE.Line(geoRef.current, new THREE.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.75 }))} ref={lineRef} />
   )
 }
