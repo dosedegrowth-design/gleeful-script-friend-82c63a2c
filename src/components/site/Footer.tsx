@@ -6,13 +6,20 @@ export function Footer() {
       <div className="mx-auto max-w-[1400px]">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_auto] gap-20 mb-[56px]">
           <div className="footer-brand">
-            <Link to="/" className="flex flex-col group mb-6">
-              <div className="font-amotha text-[28px] tracking-[0.04em] text-white leading-none">
-                MO<span className="text-gold-l">O</span>VIA
+            <Link to="/" className="flex items-center gap-4 group mb-6">
+              <img 
+                src="/mooviagold.svg" 
+                alt="MOOVIA Logo" 
+                className="w-10 h-10 object-contain drop-shadow-[0_0_8px_rgba(173,137,87,0.2)]"
+              />
+              <div className="flex flex-col">
+                <div className="font-amotha text-[28px] tracking-[0.04em] text-white leading-none">
+                  MO<span className="text-[#cead84]">O</span>VIA
+                </div>
+                <p className="font-urbanist text-[11px] tracking-[0.3em] uppercase text-white/40 mt-1">
+                  Portugal
+                </p>
               </div>
-              <p className="font-urbanist text-[11px] tracking-[0.3em] uppercase text-white/40 mt-1">
-                Portugal
-              </p>
             </Link>
             <p className="font-urbanist text-[10px] tracking-[0.2em] uppercase text-white/10">
               Planejar · Chegar · Ficar
