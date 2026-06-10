@@ -111,17 +111,15 @@
    HOVER SPIN ANIMATION
    ═══════════════════════════════════════════════════════ */
 @keyframes hoverSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-a:hover i, 
-a:hover svg,
-button:hover i, 
-button:hover svg,
-[role="button"]:hover i,
-[role="button"]:hover svg {
-  animation: hoverSpin 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+a:hover i, a:hover svg,
+button:hover i, button:hover svg,
+[role="button"]:hover i, [role="button"]:hover svg,
+.group:hover .group-hover\:spin-once {
+  animation: hoverSpin 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 #lovable-badge-cta {
