@@ -20,6 +20,7 @@ import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as AdminLeadsRouteImport } from './routes/admin.leads'
 import { Route as AdminContentRouteImport } from './routes/admin.content'
+import { Route as AdminChatRouteImport } from './routes/admin.chat'
 import { Route as AdminBlogRouteImport } from './routes/admin.blog'
 
 const SobreRoute = SobreRouteImport.update({
@@ -77,6 +78,11 @@ const AdminContentRoute = AdminContentRouteImport.update({
   path: '/content',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminChatRoute = AdminChatRouteImport.update({
+  id: '/chat',
+  path: '/chat',
+  getParentRoute: () => AdminRoute,
+} as any)
 const AdminBlogRoute = AdminBlogRouteImport.update({
   id: '/blog',
   path: '/blog',
@@ -91,6 +97,7 @@ export interface FileRoutesByFullPath {
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
   '/admin/blog': typeof AdminBlogRoute
+  '/admin/chat': typeof AdminChatRoute
   '/admin/content': typeof AdminContentRoute
   '/admin/leads': typeof AdminLeadsRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -104,6 +111,7 @@ export interface FileRoutesByTo {
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
   '/admin/blog': typeof AdminBlogRoute
+  '/admin/chat': typeof AdminChatRoute
   '/admin/content': typeof AdminContentRoute
   '/admin/leads': typeof AdminLeadsRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -119,6 +127,7 @@ export interface FileRoutesById {
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
   '/admin/blog': typeof AdminBlogRoute
+  '/admin/chat': typeof AdminChatRoute
   '/admin/content': typeof AdminContentRoute
   '/admin/leads': typeof AdminLeadsRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -135,6 +144,7 @@ export interface FileRouteTypes {
     | '/servicos'
     | '/sobre'
     | '/admin/blog'
+    | '/admin/chat'
     | '/admin/content'
     | '/admin/leads'
     | '/blog/$slug'
@@ -148,6 +158,7 @@ export interface FileRouteTypes {
     | '/servicos'
     | '/sobre'
     | '/admin/blog'
+    | '/admin/chat'
     | '/admin/content'
     | '/admin/leads'
     | '/blog/$slug'
@@ -162,6 +173,7 @@ export interface FileRouteTypes {
     | '/servicos'
     | '/sobre'
     | '/admin/blog'
+    | '/admin/chat'
     | '/admin/content'
     | '/admin/leads'
     | '/blog/$slug'
@@ -259,6 +271,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminContentRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/chat': {
+      id: '/admin/chat'
+      path: '/chat'
+      fullPath: '/admin/chat'
+      preLoaderRoute: typeof AdminChatRouteImport
+      parentRoute: typeof AdminRoute
+    }
     '/admin/blog': {
       id: '/admin/blog'
       path: '/blog'
@@ -271,6 +290,7 @@ declare module '@tanstack/react-router' {
 
 interface AdminRouteChildren {
   AdminBlogRoute: typeof AdminBlogRoute
+  AdminChatRoute: typeof AdminChatRoute
   AdminContentRoute: typeof AdminContentRoute
   AdminLeadsRoute: typeof AdminLeadsRoute
   AdminIndexRoute: typeof AdminIndexRoute
@@ -278,6 +298,7 @@ interface AdminRouteChildren {
 
 const AdminRouteChildren: AdminRouteChildren = {
   AdminBlogRoute: AdminBlogRoute,
+  AdminChatRoute: AdminChatRoute,
   AdminContentRoute: AdminContentRoute,
   AdminLeadsRoute: AdminLeadsRoute,
   AdminIndexRoute: AdminIndexRoute,
