@@ -50,20 +50,23 @@ export function Airplane({ progressRef, targetRef }: Props) {
     const targetQ = new THREE.Quaternion().setFromRotationMatrix(rotMat)
     groupRef.current.quaternion.slerp(targetQ, Math.min(delta * 5, 1))
 
-    // Bank angle (inclina nas curvas)
-    const tNext = Math.min(1, t + 0.008)
-    const tPrev = Math.max(0, t - 0.008)
+    // Bank angle suave e controlado
+    const tNext = Math.min(1, t + 0.005)
+    const tPrev = Math.max(0, t - 0.005)
     const pNext = FLIGHT_PATH.getPoint(tNext)
     const pPrev = FLIGHT_PATH.getPoint(tPrev)
-    const curvatureX = pNext.x - pPrev.x
-    const curvatureZ = pNext.z - pPrev.z
-    const bankAngle  = THREE.MathUtils.clamp(curvatureX * 0.9, -0.7, 0.7)
-    const pitchAngle = THREE.MathUtils.clamp(curvatureZ * 0.3, -0.2, 0.2)
+    
+    // Calcula curvatura horizontal para o bank (inclinação lateral)
+    const deltaX = pNext.x - pPrev.x
+    const bankAngle = THREE.MathUtils.clamp(deltaX * 0.5, -0.4, 0.4)
+    
+    // Calcula inclinação vertical (pitch) baseada na subida/descida
+    const deltaY = pNext.y - pPrev.y
+    const pitchAngle = THREE.MathUtils.clamp(deltaY * 0.2, -0.2, 0.2)
 
-    const bankQ = new THREE.Quaternion()
-      .setFromAxisAngle(new THREE.Vector3(0, 0, 1), -bankAngle)
-    const pitchQ = new THREE.Quaternion()
-      .setFromAxisAngle(new THREE.Vector3(1, 0, 0), pitchAngle)
+    const bankQ = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 0, 1), -bankAngle)
+    const pitchQ = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), pitchAngle)
+    
     groupRef.current.quaternion.multiply(bankQ).multiply(pitchQ)
 
     // Escala dinâmica massivamente aumentada para visibilidade cinematográfica
