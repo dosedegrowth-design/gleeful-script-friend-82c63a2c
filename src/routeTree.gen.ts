@@ -23,6 +23,7 @@ import { Route as AdminContentRouteImport } from './routes/admin.content'
 import { Route as AdminChatRouteImport } from './routes/admin.chat'
 import { Route as AdminBlogRouteImport } from './routes/admin.blog'
 import { Route as AdminAssessmentsRouteImport } from './routes/admin.assessments'
+import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
 
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
@@ -94,6 +95,11 @@ const AdminAssessmentsRoute = AdminAssessmentsRouteImport.update({
   path: '/assessments',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminAnalyticsRoute = AdminAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
+  getParentRoute: () => AdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -102,6 +108,7 @@ export interface FileRoutesByFullPath {
   '/contacto': typeof ContactoRoute
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/assessments': typeof AdminAssessmentsRoute
   '/admin/blog': typeof AdminBlogRoute
   '/admin/chat': typeof AdminChatRoute
@@ -117,6 +124,7 @@ export interface FileRoutesByTo {
   '/contacto': typeof ContactoRoute
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/assessments': typeof AdminAssessmentsRoute
   '/admin/blog': typeof AdminBlogRoute
   '/admin/chat': typeof AdminChatRoute
@@ -134,6 +142,7 @@ export interface FileRoutesById {
   '/contacto': typeof ContactoRoute
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
+  '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/assessments': typeof AdminAssessmentsRoute
   '/admin/blog': typeof AdminBlogRoute
   '/admin/chat': typeof AdminChatRoute
@@ -152,6 +161,7 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/servicos'
     | '/sobre'
+    | '/admin/analytics'
     | '/admin/assessments'
     | '/admin/blog'
     | '/admin/chat'
@@ -167,6 +177,7 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/servicos'
     | '/sobre'
+    | '/admin/analytics'
     | '/admin/assessments'
     | '/admin/blog'
     | '/admin/chat'
@@ -183,6 +194,7 @@ export interface FileRouteTypes {
     | '/contacto'
     | '/servicos'
     | '/sobre'
+    | '/admin/analytics'
     | '/admin/assessments'
     | '/admin/blog'
     | '/admin/chat'
@@ -304,10 +316,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminAssessmentsRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/analytics': {
+      id: '/admin/analytics'
+      path: '/analytics'
+      fullPath: '/admin/analytics'
+      preLoaderRoute: typeof AdminAnalyticsRouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
 
 interface AdminRouteChildren {
+  AdminAnalyticsRoute: typeof AdminAnalyticsRoute
   AdminAssessmentsRoute: typeof AdminAssessmentsRoute
   AdminBlogRoute: typeof AdminBlogRoute
   AdminChatRoute: typeof AdminChatRoute
@@ -317,6 +337,7 @@ interface AdminRouteChildren {
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminAnalyticsRoute: AdminAnalyticsRoute,
   AdminAssessmentsRoute: AdminAssessmentsRoute,
   AdminBlogRoute: AdminBlogRoute,
   AdminChatRoute: AdminChatRoute,
