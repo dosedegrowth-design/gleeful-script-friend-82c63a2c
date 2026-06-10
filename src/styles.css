@@ -118,7 +118,8 @@
 a:hover i, a:hover svg,
 button:hover i, button:hover svg,
 [role="button"]:hover i, [role="button"]:hover svg,
-.group:hover .group-hover\:spin-once {
+.group:hover .group-hover\:spin-once,
+.hover-spin:hover i, .hover-spin:hover svg {
   animation: hoverSpin 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
