@@ -72,7 +72,7 @@ export function ChatAssistant() {
               <div className="text-center py-8">
                 <p className="text-white/40 mb-8 font-light italic leading-relaxed">Olá! Como posso ajudar na coordenação da sua transição para Portugal?</p>
                 <div className="flex flex-col gap-3">
-                  {['Como funciona?', 'Quanto custa?', 'Agendar conversa'].map(q => (
+                  {['Como funciona a MOOVIA?', 'Quanto custa?', 'Quero agendar uma conversa'].map(q => (
                     <button 
                       key={q} 
                       onClick={() => sendMessage(q)}
