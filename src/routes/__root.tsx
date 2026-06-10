@@ -112,6 +112,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
     ],
+    link: [
+      { rel: "icon", type: "image/svg+xml", href: "/mooviagold.svg" },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
