@@ -203,7 +203,7 @@ function RootShell({ children }: { children: ReactNode }) {
             className="w-full h-full drop-shadow-[0_0_8px_rgba(173,137,87,0.4)]"
           />
         </div>
-        <div id="cursor-ring" className="hidden lg:block fixed top-0 left-0 w-9 h-9 border border-gold/40 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.2s_ease,width_0.25s,height_0.25s,opacity_0.2s]" />
+        <div id="cursor-ring" className="hidden lg:block fixed top-0 left-0 w-9 h-9 border border-[#cead84]/40 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.2s_ease,width_0.25s,height_0.25s,opacity_0.2s]" />
         {children}
         <Toaster position="top-right" richColors />
         <Scripts />
