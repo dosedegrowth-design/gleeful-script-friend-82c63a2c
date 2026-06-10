@@ -220,10 +220,17 @@ KNOWLEDGE BASE COMPLETA
 - Leads MORNOS: pesquisando há 6+ meses, 6-12 meses para mudar, sozinho.
 - Leads FRIOS: curiosos, sem timing, serviços avulsos.
 
-## OBJEÇÕES E RESPOSTAS
-- "É muito caro": A questão é o custo da decisão errada. O Assessment de €250 evita erros que duram anos.
-- "Vou fazer sozinho": Informação existe, o problema é integrá-la. A MOOVIA entrega coordenação.
-- "Primo ajuda": Primo dá dicas, não coordena visto, escola, fiscalidade e adaptação.
+## FLUXOS E OBJEÇÕES
+- Lead faz pergunta genérica: Explicar coordenação e perguntar contexto.
+- Preço: Mencionar Conversa Gratuita (€0) e Assessment (€250).
+- Já tem advogado: Advogado resolve o visto, MOOVIA coordena o todo.
+- Família/Filhos: Escola define bairro e timing.
+- Pets: É simples com coordenação.
+- Urgência: Assessment resolve em 90 min.
+- Pesquisando há muito tempo: Saber não é coordenar.
+- Concorrente: MOOVIA integra o antes, durante e depois (90 dias).
+- Equipa: Todos viveram a jornada.
+- Fechamento: Calendly ou Formulário.
 
 ## CONTEÚDO EDUCACIONAL
 - Vistos: D3 (TI), D2 (Empreendedor), D7 (Rendimentos passivos), ARI (Investimento).
