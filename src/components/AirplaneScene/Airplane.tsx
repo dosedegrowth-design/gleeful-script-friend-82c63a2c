@@ -52,22 +52,28 @@ export function Airplane({
     groupRef.current.scale.setScalar(sc)
 
     // Orientação: aponta na direção do movimento
-    const tA = Math.min(1, t + 0.005)
-    const tB = Math.max(0, t - 0.005)
+    const tA = Math.min(1, t + 0.001)
+    const tB = Math.max(0, t - 0.001)
     const pA = FLIGHT_PATH.getPoint(tA)
     const pB = FLIGHT_PATH.getPoint(tB)
     const tangent = pA.clone().sub(pB).normalize()
-    const up      = new THREE.Vector3(0, 1, 0)
-    const right   = new THREE.Vector3().crossVectors(tangent, up).normalize()
-    const realUp  = new THREE.Vector3().crossVectors(right, tangent).normalize()
-    const mat     = new THREE.Matrix4().makeBasis(right, realUp, tangent.clone().negate())
+    
+    // Matriz de rotação estável baseada na tangente
+    const up = new THREE.Vector3(0, 1, 0)
+    const right = new THREE.Vector3().crossVectors(tangent, up).normalize()
+    const realUp = new THREE.Vector3().crossVectors(right, tangent).normalize()
+    const mat = new THREE.Matrix4().makeBasis(right, realUp, tangent.clone().negate())
+    
     tmpQ.current.setFromRotationMatrix(mat)
-    groupRef.current.quaternion.slerp(tmpQ.current, Math.min(delta * 5, 1))
-
-    // Bank angle — inclina nas curvas, inverte ao subir
-    const bank = THREE.MathUtils.clamp((pA.x - pB.x) * 1.1, -0.75, 0.75)
-    bankQ.current.setFromAxisAngle(bankAx, -bank)
-    groupRef.current.quaternion.multiply(bankQ.current)
+    
+    // Bank angle (inclinação lateral) suave baseado na curva horizontal
+    const bank = THREE.MathUtils.clamp((pA.x - pB.x) * 2, -0.6, 0.6)
+    bankQ.current.setFromAxisAngle(new THREE.Vector3(0, 0, 1), -bank)
+    
+    tmpQ.current.multiply(bankQ.current)
+    
+    // Aplica a rotação final com slerp para suavizar micro-variações
+    groupRef.current.quaternion.slerp(tmpQ.current, Math.min(delta * 4, 1))
   })
 
   return (
