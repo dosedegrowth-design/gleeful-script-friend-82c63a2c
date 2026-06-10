@@ -38,8 +38,8 @@ export function AirplaneScene() {
     >
       <Canvas
         camera={{ position: [0, 0, 10], fov: 45 }}
-        gl={{ alpha: true, antialias: true, powerPreference: 'high-performance' }}
-        dpr={[1, 1.5]}
+        gl={{ alpha: true, antialias: true, powerPreference: 'high-performance', preserveDrawingBuffer: true }}
+        dpr={typeof window !== 'undefined' ? Math.min(window.devicePixelRatio, 2) : 1}
         style={{ background: 'transparent' }}
       >
         <ambientLight    intensity={0.6}  color="#f9f5ec" />
