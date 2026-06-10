@@ -130,13 +130,13 @@ function RootShell({ children }: { children: ReactNode }) {
     const onMouseMove = (e: MouseEvent) => {
       mx = e.clientX;
       my = e.clientY;
+      dot.style.left = mx + 'px';
+      dot.style.top = my + 'px';
     };
     
     document.addEventListener('mousemove', onMouseMove);
 
     const animateCursor = () => {
-      dot.style.left = mx + 'px';
-      dot.style.top = my + 'px';
       rx += (mx - rx) * 0.15;
       ry += (my - ry) * 0.15;
       ring.style.left = rx + 'px';
@@ -148,13 +148,13 @@ function RootShell({ children }: { children: ReactNode }) {
     const onMouseEnter = () => {
       ring.style.width = '64px';
       ring.style.height = '64px';
-      ring.style.borderColor = 'rgba(173,137,87,0.8)';
+      ring.style.borderColor = 'rgba(206,173,132,0.8)';
       dot.style.transform = 'translate(-50%,-50%) scale(1.5)';
     };
     const onMouseLeave = () => {
       ring.style.width = '36px';
       ring.style.height = '36px';
-      ring.style.borderColor = 'rgba(173,137,87,0.4)';
+      ring.style.borderColor = 'rgba(206,173,132,0.4)';
       dot.style.transform = 'translate(-50%,-50%) scale(1)';
     };
 
@@ -169,7 +169,6 @@ function RootShell({ children }: { children: ReactNode }) {
 
     let elements = updateInteractiveElements();
 
-    // Re-bind on route change
     const observer = new MutationObserver(() => {
       elements.forEach(el => {
         el.removeEventListener('mouseenter', onMouseEnter);
@@ -204,7 +203,7 @@ function RootShell({ children }: { children: ReactNode }) {
             className="w-full h-full drop-shadow-[0_0_8px_rgba(173,137,87,0.4)]"
           />
         </div>
-        <div id="cursor-ring" className="hidden lg:block fixed top-0 left-0 w-9 h-9 border border-gold/40 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.2s_ease,width_0.25s,height_0.25s,opacity_0.2s]" />
+        <div id="cursor-ring" className="hidden lg:block fixed top-0 left-0 w-9 h-9 border border-[#cead84]/40 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.2s_ease,width_0.25s,height_0.25s,opacity_0.2s]" />
         {children}
         <Toaster position="top-right" richColors />
         <Scripts />
