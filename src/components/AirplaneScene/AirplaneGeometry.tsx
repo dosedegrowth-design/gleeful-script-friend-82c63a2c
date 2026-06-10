@@ -1,4 +1,6 @@
 import React from 'react'
+import * as THREE from 'three'
+
 
 export function AirplaneGeometry() {
   return (
