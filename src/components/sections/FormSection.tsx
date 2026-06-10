@@ -3,7 +3,7 @@ import { LeadForm } from "./LeadForm";
 
 export function FormSection() {
   return (
-    <section id="contacto" className="bg-black-2 py-[120px] px-6 lg:px-[80px]">
+    <section id="contacto" className="bg-black-2 py-[120px] px-6 lg:px-[80px] relative z-[1]">
       <div className="mx-auto max-w-[1400px] grid grid-cols-1 lg:grid-cols-2 gap-20">
         <div className="pt-2">
           <Reveal>
@@ -33,7 +33,7 @@ export function FormSection() {
           </Reveal>
         </div>
         
-        <Reveal delay={200} distance={20}>
+        <Reveal delay={200} distance={20} className="relative z-[100] isolate">
           <LeadForm />
         </Reveal>
       </div>

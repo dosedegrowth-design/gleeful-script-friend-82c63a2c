@@ -9,6 +9,8 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 import { Toaster } from "@/components/ui/sonner";
+import { AirplaneScene } from "@/components/AirplaneScene";
+
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -204,8 +206,10 @@ function RootShell({ children }: { children: ReactNode }) {
           />
         </div>
         <div id="cursor-ring" className="hidden lg:block fixed top-0 left-0 w-9 h-9 border border-[#cead84]/40 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.2s_ease,width_0.25s,height_0.25s,opacity_0.2s]" />
+        <AirplaneScene />
         {children}
         <Toaster position="top-right" richColors />
+
         <Scripts />
       </body>
     </html>
