@@ -64,7 +64,7 @@
 }
 
 @media (min-width: 1024px) {
-  body, a, button, select, input, textarea, [role="button"], .interactive {
+  body, a, button, select, input, textarea, [role="button"], .interactive, .cursor-pointer {
     cursor: none !important;
   }
 }
