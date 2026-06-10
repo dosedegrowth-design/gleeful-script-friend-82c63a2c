@@ -48,7 +48,7 @@ const teamMembers = [
 
 export function TeamSection() {
   return (
-    <section className="bg-black pt-[80px] px-6 lg:px-[80px]">
+    <section className="bg-black pt-[80px] px-6 lg:px-[80px] relative z-[1]">
       <div className="mx-auto max-w-[1400px]">
         <div className="max-w-[580px] mb-20">
           <Reveal>
@@ -63,7 +63,7 @@ export function TeamSection() {
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#181818]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#181818] relative z-[100] isolate">
           {teamMembers.map((member, i) => (
             <Reveal key={member.name} delay={i * 50} className={member.isLarge ? "lg:col-span-2" : ""}>
               <div 

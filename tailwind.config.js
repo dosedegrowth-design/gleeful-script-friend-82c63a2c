@@ -29,6 +29,9 @@ export default {
           2: "rgba(173,137,87,.35)",
         },
       },
+      zIndex: {
+        'above-plane': '100',
+      },
       fontFamily: {
         sora: ["Sora", "sans-serif"],
         urbanist: ["Urbanist", "sans-serif"],
