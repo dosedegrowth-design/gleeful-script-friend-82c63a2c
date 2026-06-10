@@ -56,23 +56,29 @@ export function Airplane({
     const tB = Math.max(0, t - 0.001)
     const pA = FLIGHT_PATH.getPoint(tA)
     const pB = FLIGHT_PATH.getPoint(tB)
+    
+    // Vetor direção (frente do avião)
     const tangent = pA.clone().sub(pB).normalize()
     
-    // Matriz de rotação estável baseada na tangente
-    const up = new THREE.Vector3(0, 1, 0)
-    const right = new THREE.Vector3().crossVectors(tangent, up).normalize()
-    const realUp = new THREE.Vector3().crossVectors(right, tangent).normalize()
-    const mat = new THREE.Matrix4().makeBasis(right, realUp, tangent.clone().negate())
+    // Se estivermos voltando (scroll up), a direção inverte
+    const isScrollingUp = targetRef.current < progressRef.current
+    const forward = isScrollingUp ? tangent.clone().negate() : tangent
     
+    // Matriz de rotação estável
+    const up = new THREE.Vector3(0, 1, 0)
+    const right = new THREE.Vector3().crossVectors(forward, up).normalize()
+    const realUp = new THREE.Vector3().crossVectors(right, forward).normalize()
+    
+    // makeBasis espera (x, y, z) onde z é a direção para onde o objeto "olha"
+    // No modelo GLB padrão, a frente é +Z, então passamos forward como o terceiro vetor
+    const mat = new THREE.Matrix4().makeBasis(right, realUp, forward)
     tmpQ.current.setFromRotationMatrix(mat)
     
-    // Bank angle (inclinação lateral) suave baseado na curva horizontal
+    // Bank angle (inclinação lateral) baseado na curva
     const bank = THREE.MathUtils.clamp((pA.x - pB.x) * 2, -0.6, 0.6)
-    bankQ.current.setFromAxisAngle(new THREE.Vector3(0, 0, 1), -bank)
+    bankQ.current.setFromAxisAngle(new THREE.Vector3(0, 0, 1), isScrollingUp ? bank : -bank)
     
     tmpQ.current.multiply(bankQ.current)
-    
-    // Aplica a rotação final com slerp para suavizar micro-variações
     groupRef.current.quaternion.slerp(tmpQ.current, Math.min(delta * 4, 1))
   })
 

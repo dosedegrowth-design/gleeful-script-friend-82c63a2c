@@ -90,8 +90,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@MOOVIA" },
       { name: "twitter:title", content: "MOOVIA Portugal" },
       { name: "twitter:description", content: "Coordenação Internacional de Vida e Património" },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0d86ec46-d11f-4ad0-ab10-63e458fe26a8/id-preview-85215d1d--57c331ec-8da7-4f38-bbc1-2dade8d60d5e.lovable.app-1781061779053.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/0d86ec46-d11f-4ad0-ab10-63e458fe26a8/id-preview-85215d1d--57c331ec-8da7-4f38-bbc1-2dade8d60d5e.lovable.app-1781061779053.png" },
+      { property: "og:image", content: "/mooviagold.svg" },
+      { name: "twitter:image", content: "/mooviagold.svg" },
     ],
     links: [
       {
@@ -111,6 +111,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
+    ],
+    link: [
+      { rel: "icon", type: "image/svg+xml", href: "/mooviagold.svg" },
     ],
   }),
   shellComponent: RootShell,
