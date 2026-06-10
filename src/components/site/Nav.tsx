@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Wordmark } from "./Wordmark";
@@ -15,8 +15,21 @@ const links = [
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => {
+      const currentScrollY = window.scrollY;
+      setScrolled(currentScrollY > 60);
+      
+      if (currentScrollY > lastScrollY.current && currentScrollY > 300) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      lastScrollY.current = currentScrollY;
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -27,7 +40,8 @@ export function Nav() {
       id="nav"
       className={cn(
         "fixed top-0 left-0 right-0 z-[900] px-6 md:px-[80px] h-[88px] flex items-center justify-between transition-all duration-500 ease-in-out",
-        scrolled ? "bg-black/95 backdrop-blur-[24px] border-b border-white/05 h-[72px]" : "bg-transparent"
+        scrolled ? "bg-black/95 backdrop-blur-[24px] border-b border-white/05 h-[72px]" : "bg-transparent",
+        !isVisible && "translate-y-[-100%] opacity-0"
       )}
     >
       <Wordmark />
