@@ -35,7 +35,7 @@ export function AirplaneScene() {
         left: 0,
         width: '100vw',
         height: '100vh',
-        zIndex:        800,      // ← Entre o fundo e o conteúdo interativo
+        zIndex:        10,      // ← Entre o fundo (0) e o conteúdo (100+)
         pointerEvents: 'none',
       }}
     >
