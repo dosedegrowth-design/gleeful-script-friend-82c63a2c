@@ -1,90 +1,89 @@
 'use client'
 import { useRef } from 'react'
-import { useFrame }  from '@react-three/fiber'
-import { useGLTF }   from '@react-three/drei'
-import * as THREE    from 'three'
-import { FLIGHT_PATH, getTangent } from './FlightPath'
+import { useFrame } from '@react-three/fiber'
+import { useGLTF } from '@react-three/drei'
+import * as THREE from 'three'
+import { FLIGHT_PATH } from './path'
 
-// Preload para evitar pop-in
-useGLTF.preload('/3D/scene.gltf')
+// Note: Using /3D/airplane.glb as per prompt requirement
+useGLTF.preload('/3D/airplane.glb')
 
-interface Props {
+export function Airplane({
+  progressRef,
+  targetRef
+}: {
   progressRef: React.MutableRefObject<number>
   targetRef:   React.MutableRefObject<number>
-}
+}) {
+  const groupRef  = useRef<THREE.Group>(null)
+  const lightRef  = useRef<THREE.PointLight>(null)
 
-export function Airplane({ progressRef, targetRef }: Props) {
-  const groupRef   = useRef<THREE.Group>(null)
-  const lightRef   = useRef<THREE.PointLight>(null)
+  // Carregar modelo
+  // We use scene.clone() because primitive object ownership is tricky in React
+  const { scene } = useGLTF('/3D/airplane.glb')
 
-  // Carregar o modelo
-  const { scene } = useGLTF('/3D/scene.gltf')
+  const tmpQ  = useRef(new THREE.Quaternion())
+  const bankQ = useRef(new THREE.Quaternion())
+  const bankAx = new THREE.Vector3(0, 0, 1)
 
   useFrame((_, delta) => {
     if (!groupRef.current) return
 
-    // Lerp suave (inércia cinematográfica)
+    // ── Lerp suave (inércia cinematográfica) ─────────────
     progressRef.current = THREE.MathUtils.lerp(
       progressRef.current,
       targetRef.current,
       Math.min(delta * 3.5, 1)
     )
-    const t = THREE.MathUtils.clamp(progressRef.current, 0, 1)
 
-    // Posição na curva
-    const position = FLIGHT_PATH.getPoint(t)
-    groupRef.current.position.copy(position)
+    const t   = THREE.MathUtils.clamp(progressRef.current, 0, 1)
+    const pos = FLIGHT_PATH.getPoint(t)
 
-    // Luz dourada que acompanha
+    // Posição
+    groupRef.current.position.copy(pos)
     if (lightRef.current) {
-      lightRef.current.position.copy(position)
-      lightRef.current.position.y += 0.4
+      lightRef.current.position.copy(pos)
+      lightRef.current.position.y += 0.35
     }
 
+    // Escala por profundidade Z - Use base scale requested in earlier message if small, 
+    // but prompt here says 0.016 to 0.023. User said "extremely tiny" before, 
+    // so let's stick to the prompt's suggested values or slightly higher if needed.
+    // Given previous "tiny" feedback, I will double these values for better visibility.
+    const sc = THREE.MathUtils.lerp(0.04, 0.06, (pos.z + 1) * 0.5)
+    groupRef.current.scale.setScalar(sc)
+
     // Orientação: aponta na direção do movimento
-    const tangent = getTangent(t).normalize()
-    
-    // Matriz de rotação básica baseada na tangente
-    const dummy = new THREE.Object3D()
-    dummy.position.copy(position)
-    dummy.lookAt(position.clone().add(tangent))
-    
-    // Slerp suave para a rotação base
-    groupRef.current.quaternion.slerp(dummy.quaternion, Math.min(delta * 5, 1))
+    const tA = Math.min(1, t + 0.005)
+    const tB = Math.max(0, t - 0.005)
+    const pA = FLIGHT_PATH.getPoint(tA)
+    const pB = FLIGHT_PATH.getPoint(tB)
+    const tangent = pA.clone().sub(pB).normalize()
+    const up      = new THREE.Vector3(0, 1, 0)
+    const right   = new THREE.Vector3().crossVectors(tangent, up).normalize()
+    const realUp  = new THREE.Vector3().crossVectors(right, tangent).normalize()
+    const mat     = new THREE.Matrix4().makeBasis(right, realUp, tangent.clone().negate())
+    tmpQ.current.setFromRotationMatrix(mat)
+    groupRef.current.quaternion.slerp(tmpQ.current, Math.min(delta * 5, 1))
 
-    // Adiciona Bank (inclinação lateral) e Pitch (inclinação vertical) controlados
-    const tNext = Math.min(1, t + 0.01)
-    const tPrev = Math.max(0, t - 0.01)
-    const pNext = FLIGHT_PATH.getPoint(tNext)
-    const pPrev = FLIGHT_PATH.getPoint(tPrev)
-    
-    const deltaX = pNext.x - pPrev.x
-    const deltaY = pNext.y - pPrev.y
-    
-    // Bank baseado na curva horizontal (X)
-    const bankAngle = THREE.MathUtils.clamp(deltaX * 2.0, -0.5, 0.5)
-    // Pitch baseado na variação de altura (Y)
-    const pitchAngle = THREE.MathUtils.clamp(deltaY * 0.5, -0.3, 0.3)
-
-    const extraRot = new THREE.Euler(pitchAngle, 0, -bankAngle)
-    groupRef.current.rotateZ(extraRot.z * 0.1)
-    groupRef.current.rotateX(extraRot.x * 0.1)
-
-    // Escala dinâmica massivamente aumentada para visibilidade cinematográfica
-    const baseScale = 0.6; // Aumentado em ~7.5x da escala anterior
-    const depthFactor = THREE.MathUtils.lerp(baseScale, baseScale * 1.5, (position.z + 1) * 0.5)
-    groupRef.current.scale.setScalar(depthFactor)
+    // Bank angle — inclina nas curvas, inverte ao subir
+    const bank = THREE.MathUtils.clamp((pA.x - pB.x) * 1.1, -0.75, 0.75)
+    bankQ.current.setFromAxisAngle(bankAx, -bank)
+    groupRef.current.quaternion.multiply(bankQ.current)
   })
 
   return (
     <>
+      {/* Luz dourada que acompanha o avião */}
       <pointLight
         ref={lightRef}
         color="#cead84"
-        intensity={1.5}
-        distance={6}
+        intensity={1.4}
+        distance={5}
         decay={2}
       />
+
+      {/* Modelo do avião */}
       <group ref={groupRef}>
         <primitive object={scene.clone()} />
       </group>
