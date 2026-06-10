@@ -106,3 +106,13 @@
   80%{transform:translate3d(1%,1%,0)}
   90%{transform:translate3d(-1%,-1%,0)}
 }
+
+#lovable-badge-cta {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+}
