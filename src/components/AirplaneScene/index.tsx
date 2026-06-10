@@ -31,8 +31,11 @@ export function AirplaneScene() {
     <div
       style={{
         position:      'fixed',
-        inset:         0,
-        zIndex:        1000,      // ← Aumentado para garantir que não fique sob o fundo
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        zIndex:        800,      // ← Entre o fundo e o conteúdo interativo
         pointerEvents: 'none',
       }}
     >
