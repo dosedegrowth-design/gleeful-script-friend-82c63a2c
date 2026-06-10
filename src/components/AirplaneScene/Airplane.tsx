@@ -46,8 +46,8 @@ export function Airplane({
       lightRef.current.position.y += 0.35
     }
 
-    // Escala por profundidade Z - Aumentada significativamente para garantir presença premium
-    const sc = THREE.MathUtils.lerp(0.3, 0.45, (pos.z + 1) * 0.5)
+    // Escala por profundidade Z - Aumentada significativamente para presença premium extrema
+    const sc = THREE.MathUtils.lerp(0.5, 0.75, (pos.z + 1) * 0.5)
     groupRef.current.scale.setScalar(sc)
 
     // Orientação: aponta na direção do movimento
