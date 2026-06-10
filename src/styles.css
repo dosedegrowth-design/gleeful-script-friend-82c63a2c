@@ -64,7 +64,7 @@
 }
 
 @media (min-width: 1024px) {
-  body, a, button, select, input, textarea, [role="button"], .interactive {
+  body, a, button, select, input, textarea, [role="button"], .interactive, .cursor-pointer {
     cursor: none !important;
   }
 }
@@ -121,8 +121,9 @@ a:hover i, a:hover svg, a:hover img,
 button:hover i, button:hover svg, button:hover img,
 [role="button"]:hover i, [role="button"]:hover svg, [role="button"]:hover img,
 .group:hover .group-hover\:hover-spin,
-.hover-spin:hover i, .hover-spin:hover svg, .hover-spin:hover img {
-  animation: hoverSpin 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+.hover-spin:hover i, .hover-spin:hover svg, .hover-spin:hover img,
+.interactive:hover i, .interactive:hover svg, .interactive:hover img {
+  animation: hoverSpin 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
 }
 
 /* Rotação contínua do ícone do cursor (o dot) quando estiver em hover */
