@@ -4,7 +4,8 @@ import { Reveal } from "@/components/site/Reveal";
 import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
-import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { Eye, EyeOff, Loader2, ShieldAlert } from "lucide-react";
+import { AdminSidebar } from "@/components/admin/AdminSidebar";
 
 export const Route = createFileRoute("/admin")({
   component: AdminLayout,
@@ -12,28 +13,88 @@ export const Route = createFileRoute("/admin")({
 
 function AdminLayout() {
   const [session, setSession] = useState<any>(null);
+  const [adminUser, setAdminUser] = useState<any>(null);
   const [checking, setChecking] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    async function initAuth() {
+      const { data: { session } } = await supabase.auth.getSession();
       setSession(session);
+      
+      if (session) {
+        const { data: admin } = await supabase
+          .from("admin_users")
+          .select("*")
+          .eq("id", session.user.id)
+          .single();
+        
+        setAdminUser(admin);
+      }
       setChecking(false);
-    });
+    }
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    initAuth();
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
       setSession(session);
+      if (session) {
+        const { data: admin } = await supabase
+          .from("admin_users")
+          .select("*")
+          .eq("id", session.user.id)
+          .single();
+        setAdminUser(admin);
+      } else {
+        setAdminUser(null);
+      }
     });
 
     return () => subscription.unsubscribe();
   }, []);
 
-  if (checking) return null;
+  if (checking) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <Loader2 className="animate-spin text-gold" size={40} />
+      </div>
+    );
+  }
 
   if (!session) {
     return <AdminLogin />;
   }
 
-  return <Outlet />;
+  if (!adminUser) {
+    return (
+      <div className="min-h-screen bg-black flex items-center justify-center p-6 text-center">
+        <div className="max-w-md bg-black-2 border border-border p-12">
+          <ShieldAlert className="mx-auto text-red-500 mb-6" size={48} />
+          <h1 className="font-amotha text-2xl text-white mb-4">Acesso Negado</h1>
+          <p className="font-urbanist text-white/50 mb-8 leading-relaxed">
+            Você está autenticado, mas não possui permissões administrativas para acessar este painel. Entre em contato com o Frederico Prado.
+          </p>
+          <button 
+            onClick={() => supabase.auth.signOut()}
+            className="bg-gold text-black font-urbanist text-[12px] font-bold uppercase tracking-widest px-8 py-4 hover:bg-gold-xl transition-colors"
+          >
+            Sair e trocar conta
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex bg-black min-h-screen overflow-x-hidden">
+      <AdminSidebar />
+      <main className="flex-1 min-h-screen overflow-y-auto">
+        <div className="p-8 lg:p-12">
+          <Outlet />
+        </div>
+      </main>
+    </div>
+  );
 }
 
 function AdminLogin() {
