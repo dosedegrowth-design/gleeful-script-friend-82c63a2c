@@ -204,13 +204,13 @@ export function ChatAssistant() {
   );
 
   return (
-    <div className="fixed bottom-8 right-8 z-[850] flex flex-col items-end">
+    <div className="fixed bottom-8 right-8 z-[850] flex flex-col items-end pointer-events-none">
       {isOpen && (
-        <div className="w-[calc(100vw-40px)] md:w-[380px] h-[560px] max-h-[calc(100vh-140px)] bg-[#12141a] border border-gold/20 flex flex-col shadow-2xl animate-[fadeUp_0.4s_ease_forwards] mb-6">
+        <div className="w-[calc(100vw-40px)] md:w-[380px] h-[560px] max-h-[calc(100vh-140px)] bg-[#12141a] border border-gold/20 flex flex-col shadow-2xl animate-[fadeUp_0.4s_ease_forwards] mb-6 pointer-events-auto">
           <div className="p-4 border-b border-gold/15 flex items-center justify-between bg-black-3/50">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 bg-gold/12 border border-gold/30 flex items-center justify-center">
-                <MooviaIsotipo size={18} color="#ad8957" />
+                <img src="/mooviagold.svg" alt="MOOVIA" className="w-5 h-5 object-contain" />
               </div>
               <div>
                 <h4 className="font-sora text-[13px] font-normal text-[#f9f5ec]">MOOVIA</h4>
@@ -280,7 +280,7 @@ export function ChatAssistant() {
         onClick={() => setIsOpen(!isOpen)}
         className="w-14 h-14 bg-gold rounded-full flex items-center justify-center shadow-[0_8px_32px_rgba(173,137,87,0.35)] hover:scale-105 transition-all duration-300"
       >
-        {isOpen ? <X size={24} className="text-[#0e0f12]" /> : <MooviaIsotipo size={28} color="#0e0f12" />}
+        {isOpen ? <X size={24} className="text-[#0e0f12]" /> : <img src="/mooviagold.svg" alt="MOOVIA" className="w-7 h-7 object-contain" />}
       </button>
     </div>
   );
