@@ -82,7 +82,7 @@ export function Airplane({
 
       {/* Modelo do avião */}
       <group ref={groupRef}>
-        <primitive object={scene.clone()} />
+        <primitive object={scene.clone()} dispose={null} />
       </group>
     </>
   )
