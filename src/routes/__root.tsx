@@ -130,13 +130,13 @@ function RootShell({ children }: { children: ReactNode }) {
     const onMouseMove = (e: MouseEvent) => {
       mx = e.clientX;
       my = e.clientY;
+      dot.style.left = mx + 'px';
+      dot.style.top = my + 'px';
     };
     
     document.addEventListener('mousemove', onMouseMove);
 
     const animateCursor = () => {
-      dot.style.left = mx + 'px';
-      dot.style.top = my + 'px';
       rx += (mx - rx) * 0.15;
       ry += (my - ry) * 0.15;
       ring.style.left = rx + 'px';
@@ -148,13 +148,13 @@ function RootShell({ children }: { children: ReactNode }) {
     const onMouseEnter = () => {
       ring.style.width = '64px';
       ring.style.height = '64px';
-      ring.style.borderColor = 'rgba(173,137,87,0.8)';
+      ring.style.borderColor = 'rgba(206,173,132,0.8)';
       dot.style.transform = 'translate(-50%,-50%) scale(1.5)';
     };
     const onMouseLeave = () => {
       ring.style.width = '36px';
       ring.style.height = '36px';
-      ring.style.borderColor = 'rgba(173,137,87,0.4)';
+      ring.style.borderColor = 'rgba(206,173,132,0.4)';
       dot.style.transform = 'translate(-50%,-50%) scale(1)';
     };
 
@@ -169,7 +169,6 @@ function RootShell({ children }: { children: ReactNode }) {
 
     let elements = updateInteractiveElements();
 
-    // Re-bind on route change
     const observer = new MutationObserver(() => {
       elements.forEach(el => {
         el.removeEventListener('mouseenter', onMouseEnter);
