@@ -14,68 +14,357 @@ export type Database = {
   }
   public: {
     Tables: {
+      ab_tests: {
+        Row: {
+          active: boolean | null
+          created_at: string | null
+          id: string
+          key: string
+          traffic_split: number | null
+          updated_at: string | null
+          variant_a: string | null
+          variant_b: string | null
+          winner: string | null
+        }
+        Insert: {
+          active?: boolean | null
+          created_at?: string | null
+          id?: string
+          key: string
+          traffic_split?: number | null
+          updated_at?: string | null
+          variant_a?: string | null
+          variant_b?: string | null
+          winner?: string | null
+        }
+        Update: {
+          active?: boolean | null
+          created_at?: string | null
+          id?: string
+          key?: string
+          traffic_split?: number | null
+          updated_at?: string | null
+          variant_a?: string | null
+          variant_b?: string | null
+          winner?: string | null
+        }
+        Relationships: []
+      }
+      admin_users: {
+        Row: {
+          created_at: string | null
+          id: string
+          name: string | null
+          role: string
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id: string
+          name?: string | null
+          role?: string
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          name?: string | null
+          role?: string
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      assessments: {
+        Row: {
+          amount_eur: number | null
+          completed_at: string | null
+          converted_to_mandato: boolean | null
+          created_at: string | null
+          id: string
+          lead_id: string | null
+          notes: string | null
+          payment_method: string | null
+          payment_status: string | null
+          report_url: string | null
+          scheduled_at: string | null
+          status: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          amount_eur?: number | null
+          completed_at?: string | null
+          converted_to_mandato?: boolean | null
+          created_at?: string | null
+          id?: string
+          lead_id?: string | null
+          notes?: string | null
+          payment_method?: string | null
+          payment_status?: string | null
+          report_url?: string | null
+          scheduled_at?: string | null
+          status?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          amount_eur?: number | null
+          completed_at?: string | null
+          converted_to_mandato?: boolean | null
+          created_at?: string | null
+          id?: string
+          lead_id?: string | null
+          notes?: string | null
+          payment_method?: string | null
+          payment_status?: string | null
+          report_url?: string | null
+          scheduled_at?: string | null
+          status?: string | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "assessments_lead_id_fkey"
+            columns: ["lead_id"]
+            isOneToOne: false
+            referencedRelation: "leads"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      chat_logs: {
+        Row: {
+          created_at: string | null
+          duration_secs: number | null
+          id: string
+          lead_captured: boolean | null
+          lead_id: string | null
+          messages: Json | null
+          page_url: string | null
+          session_id: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          duration_secs?: number | null
+          id?: string
+          lead_captured?: boolean | null
+          lead_id?: string | null
+          messages?: Json | null
+          page_url?: string | null
+          session_id?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          duration_secs?: number | null
+          id?: string
+          lead_captured?: boolean | null
+          lead_id?: string | null
+          messages?: Json | null
+          page_url?: string | null
+          session_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "chat_logs_lead_id_fkey"
+            columns: ["lead_id"]
+            isOneToOne: false
+            referencedRelation: "leads"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      funnel_events: {
+        Row: {
+          city: string | null
+          country: string | null
+          created_at: string | null
+          device: string | null
+          event: string
+          id: string
+          page: string | null
+          referrer: string | null
+          session_id: string | null
+          utm_campaign: string | null
+          utm_medium: string | null
+          utm_source: string | null
+        }
+        Insert: {
+          city?: string | null
+          country?: string | null
+          created_at?: string | null
+          device?: string | null
+          event: string
+          id?: string
+          page?: string | null
+          referrer?: string | null
+          session_id?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Update: {
+          city?: string | null
+          country?: string | null
+          created_at?: string | null
+          device?: string | null
+          event?: string
+          id?: string
+          page?: string | null
+          referrer?: string | null
+          session_id?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+        }
+        Relationships: []
+      }
       leads: {
         Row: {
+          city: string | null
           composition: string | null
+          country: string | null
           created_at: string | null
           decision_phase: string | null
+          device: string | null
           email: string | null
           id: string
+          ip_hash: string | null
+          last_activity: string | null
           message: string | null
           name: string | null
           notes: string | null
           objective: string | null
           page_history: Json | null
+          referrer: string | null
           session_id: string | null
           source: string | null
           status: string | null
+          temperature: string | null
           timing: string | null
+          updated_at: string | null
           utm_campaign: string | null
+          utm_content: string | null
           utm_medium: string | null
           utm_source: string | null
           whatsapp: string | null
         }
         Insert: {
+          city?: string | null
           composition?: string | null
+          country?: string | null
           created_at?: string | null
           decision_phase?: string | null
+          device?: string | null
           email?: string | null
           id?: string
+          ip_hash?: string | null
+          last_activity?: string | null
           message?: string | null
           name?: string | null
           notes?: string | null
           objective?: string | null
           page_history?: Json | null
+          referrer?: string | null
           session_id?: string | null
           source?: string | null
           status?: string | null
+          temperature?: string | null
           timing?: string | null
+          updated_at?: string | null
           utm_campaign?: string | null
+          utm_content?: string | null
           utm_medium?: string | null
           utm_source?: string | null
           whatsapp?: string | null
         }
         Update: {
+          city?: string | null
           composition?: string | null
+          country?: string | null
           created_at?: string | null
           decision_phase?: string | null
+          device?: string | null
           email?: string | null
           id?: string
+          ip_hash?: string | null
+          last_activity?: string | null
           message?: string | null
           name?: string | null
           notes?: string | null
           objective?: string | null
           page_history?: Json | null
+          referrer?: string | null
           session_id?: string | null
           source?: string | null
           status?: string | null
+          temperature?: string | null
           timing?: string | null
+          updated_at?: string | null
           utm_campaign?: string | null
+          utm_content?: string | null
           utm_medium?: string | null
           utm_source?: string | null
           whatsapp?: string | null
         }
         Relationships: []
+      }
+      mandatos: {
+        Row: {
+          assessment_id: string | null
+          commission_eur: number | null
+          completed_at: string | null
+          created_at: string | null
+          id: string
+          lead_id: string | null
+          notes: string | null
+          pilares: Json | null
+          started_at: string | null
+          status: string | null
+          updated_at: string | null
+          value_eur: number | null
+        }
+        Insert: {
+          assessment_id?: string | null
+          commission_eur?: number | null
+          completed_at?: string | null
+          created_at?: string | null
+          id?: string
+          lead_id?: string | null
+          notes?: string | null
+          pilares?: Json | null
+          started_at?: string | null
+          status?: string | null
+          updated_at?: string | null
+          value_eur?: number | null
+        }
+        Update: {
+          assessment_id?: string | null
+          commission_eur?: number | null
+          completed_at?: string | null
+          created_at?: string | null
+          id?: string
+          lead_id?: string | null
+          notes?: string | null
+          pilares?: Json | null
+          started_at?: string | null
+          status?: string | null
+          updated_at?: string | null
+          value_eur?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "mandatos_assessment_id_fkey"
+            columns: ["assessment_id"]
+            isOneToOne: false
+            referencedRelation: "assessments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "mandatos_lead_id_fkey"
+            columns: ["lead_id"]
+            isOneToOne: false
+            referencedRelation: "leads"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       posts: {
         Row: {
@@ -87,8 +376,11 @@ export type Database = {
           id: string
           meta_description: string | null
           meta_title: string | null
+          og_image: string | null
           published: boolean | null
+          published_at: string | null
           read_time: number | null
+          schema_json: Json | null
           slug: string
           title: string
           updated_at: string | null
@@ -102,8 +394,11 @@ export type Database = {
           id?: string
           meta_description?: string | null
           meta_title?: string | null
+          og_image?: string | null
           published?: boolean | null
+          published_at?: string | null
           read_time?: number | null
+          schema_json?: Json | null
           slug: string
           title: string
           updated_at?: string | null
@@ -117,15 +412,89 @@ export type Database = {
           id?: string
           meta_description?: string | null
           meta_title?: string | null
+          og_image?: string | null
           published?: boolean | null
+          published_at?: string | null
           read_time?: number | null
+          schema_json?: Json | null
           slug?: string
           title?: string
           updated_at?: string | null
         }
         Relationships: []
       }
+      script_injections: {
+        Row: {
+          active: boolean | null
+          code: string | null
+          created_at: string | null
+          environment: string | null
+          id: string
+          name: string
+          placement: string | null
+          updated_at: string | null
+        }
+        Insert: {
+          active?: boolean | null
+          code?: string | null
+          created_at?: string | null
+          environment?: string | null
+          id?: string
+          name: string
+          placement?: string | null
+          updated_at?: string | null
+        }
+        Update: {
+          active?: boolean | null
+          code?: string | null
+          created_at?: string | null
+          environment?: string | null
+          id?: string
+          name?: string
+          placement?: string | null
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
       site_content: {
+        Row: {
+          key: string
+          label: string | null
+          section: string | null
+          type: string | null
+          updated_at: string | null
+          updated_by: string | null
+          value: string | null
+        }
+        Insert: {
+          key: string
+          label?: string | null
+          section?: string | null
+          type?: string | null
+          updated_at?: string | null
+          updated_by?: string | null
+          value?: string | null
+        }
+        Update: {
+          key?: string
+          label?: string | null
+          section?: string | null
+          type?: string | null
+          updated_at?: string | null
+          updated_by?: string | null
+          value?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "site_content_updated_by_fkey"
+            columns: ["updated_by"]
+            isOneToOne: false
+            referencedRelation: "admin_users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      site_settings: {
         Row: {
           key: string
           type: string | null
@@ -151,7 +520,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      calculate_lead_score: {
+        Args: { lead_record: Database["public"]["Tables"]["leads"]["Row"] }
+        Returns: string
+      }
     }
     Enums: {
       [_ in never]: never
