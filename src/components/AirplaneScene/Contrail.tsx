@@ -11,7 +11,7 @@ interface Props {
 }
 
 export function Contrail({ progressRef }: Props) {
-  const lineRef      = useRef<THREE.Line>(null)
+  const lineRef      = useRef<any>(null)
   const historyRef   = useRef<THREE.Vector3[]>([])
   const geoRef       = useRef(new THREE.BufferGeometry())
 
