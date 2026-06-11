@@ -10,11 +10,8 @@ export function Footer() {
               <img 
                 src="/moovia-logo-full.png" 
                 alt="MOOVIA Logo" 
-                className="h-16 w-auto object-contain self-start"
+                className="h-20 w-auto object-contain self-start"
               />
-              <p className="font-sora text-[10px] tracking-[0.34em] uppercase text-white/20 transition-colors group-hover:text-white/40">
-                Planejar · Chegar · Ficar
-              </p>
             </Link>
           </div>
 
