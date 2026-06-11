@@ -4,6 +4,7 @@ import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { WhatsAppFloat } from "./WhatsAppFloat";
 import { ChatAssistant } from "./ChatAssistant";
+import { CustomCursor } from "../ui/CustomCursor";
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -15,6 +16,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   return (
     <>
       <div className="grain" />
+      <CustomCursor />
       <Nav />
       <main className="relative z-10 overflow-x-hidden">{children}</main>
       <Footer />
