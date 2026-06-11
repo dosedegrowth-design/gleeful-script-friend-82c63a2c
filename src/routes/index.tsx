@@ -33,14 +33,14 @@ function Home() {
         <div className="marquee-track flex whitespace-nowrap animate-[marquee_30s_linear_infinite]">
           {[1, 2, 3].map((i) => (
             <div key={i} className="marquee-item flex items-center gap-10 px-10 font-urbanist text-[11px] tracking-[0.24em] uppercase text-white-3 shrink-0">
-              Transição Internacional <span className="text-gold text-lg">·</span> 
-              Brasil para Portugal <span className="text-gold text-lg">·</span> 
-              Coordenação de Vida e Património <span className="text-gold text-lg">·</span> 
-              Strategic Assessment <span className="text-gold text-lg">·</span> 
-              Mandato Personalizado <span className="text-gold text-lg">·</span> 
-              90 dias Pós-chegada <span className="text-gold text-lg">·</span> 
-              School Matching <span className="text-gold text-lg">·</span> 
-              Fiscalidade Internacional <span className="text-gold text-lg">·</span>
+              Transição Internacional <span className="text-gold text-lg px-2">♦</span> 
+              Brasil para Portugal <span className="text-gold text-lg px-2">♦</span> 
+              Coordenação de Vida e Património <span className="text-gold text-lg px-2">♦</span> 
+              Strategic Assessment <span className="text-gold text-lg px-2">♦</span> 
+              Mandato Personalizado <span className="text-gold text-lg px-2">♦</span> 
+              90 dias Pós-chegada <span className="text-gold text-lg px-2">♦</span> 
+              School Matching <span className="text-gold text-lg px-2">♦</span> 
+              Fiscalidade Internacional <span className="text-gold text-lg px-2">♦</span>
             </div>
           ))}
         </div>
