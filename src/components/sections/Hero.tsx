@@ -33,7 +33,7 @@ export function Hero() {
   ];
 
   return (
-    <section className="relative min-h-[100svh] flex flex-col lg:flex-row items-center px-6 lg:px-20 py-clamp(110px,14vh,180px) overflow-hidden bg-navy">
+    <section className="relative min-h-[100svh] flex flex-col lg:flex-row items-center px-6 lg:px-20 py-clamp(110px,14vh,180px) overflow-hidden bg-navy-deep">
       {/* Background Layers */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Layer 1: Lisbon Image */}
