@@ -25,7 +25,7 @@ function Servicos() {
             <span className="w-6 h-px bg-gold" />
             Os pilares
           </p>
-          <h1 className="font-amotha text-[clamp(40px,6vw,72px)] font-extralight leading-[1.05] text-white">
+          <h1 className="font-sora text-[clamp(40px,6vw,72px)] font-[100] leading-[1.05] text-white">
             Quatro pilares.<br />Uma jornada completa.
           </h1>
         </div>
