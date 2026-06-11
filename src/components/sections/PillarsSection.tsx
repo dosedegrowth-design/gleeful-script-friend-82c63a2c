@@ -76,7 +76,7 @@ export function PillarsSection() {
                 </p>
                 <ul className="flex flex-wrap gap-2">
                   {pillar.services.map((service) => (
-                    <li key={service} className="font-urbanist text-[11px] tracking-[0.08em] uppercase font-normal text-white-3 px-3.5 py-1.5 border border-border transition-all duration-200 group-hover:border-border-2">
+                    <li key={service} className="font-sora text-[11px] tracking-[0.2em] uppercase font-normal text-white-3 px-3.5 py-1.5 border border-border transition-all duration-200 group-hover:border-border-2">
                       {service}
                     </li>
                   ))}
