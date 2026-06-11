@@ -64,7 +64,7 @@ export function PillarsSection() {
           {pillars.map((pillar, i) => (
             <Reveal key={pillar.n} delay={i * 120} distance={30} className="h-full">
               <div className="pillar bg-black-2 p-[60px] lg:p-[52px] relative overflow-hidden group transition-colors duration-400 hover:bg-black-3 h-full">
-                <div className="font-amotha text-[100px] font-thin text-gold/5 leading-none absolute top-5 right-8 tracking-[-0.06em] pointer-events-none">
+                <div className="font-urbanist text-[120px] font-thin text-gold/5 leading-none absolute top-5 right-8 tracking-[-0.06em] pointer-events-none group-hover:scale-110 transition-transform duration-700">
                   {pillar.n}
                 </div>
                 <h3 className="font-sora text-[16px] font-semibold text-gold-l leading-none mb-3 tracking-[0.1em] uppercase">
