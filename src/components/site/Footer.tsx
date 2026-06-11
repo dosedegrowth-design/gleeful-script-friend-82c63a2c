@@ -21,7 +21,7 @@ export function Footer() {
                 </p>
               </div>
             </Link>
-            <p className="font-urbanist text-[10px] tracking-[0.2em] uppercase text-white/10">
+            <p className="font-sora text-[10px] tracking-[0.34em] uppercase text-white/10">
               Planejar · Chegar · Ficar
             </p>
           </div>
