@@ -7,7 +7,7 @@ const teamMembers = [
     chips: ["Oracle", "SAP", "MBA FGV", "Tampa", "Lisboa, 2018"],
     bio: "29 anos em TI multinacional. MBA em Empreendedorismo FGV. Formação em Comunicação na University of Tampa. Em Lisboa desde 2018 com a família. Viveu a transição que hoje coordena e conduz pessoalmente cada mandato.",
     isLarge: true,
-    image: "/fred.png",
+    image: "/images/frederico.png",
   },
   {
     name: "João Gabriel Prado",

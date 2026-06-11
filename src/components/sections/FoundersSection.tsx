@@ -32,8 +32,9 @@ export function FoundersSection() {
               className="aspect-[4/5] w-full bg-white-5 border border-border relative overflow-hidden"
             >
               <img 
-                src="/fred.png" 
+                src="/images/frederico.png" 
                 alt="Frederico Prado" 
+
                 className="absolute inset-0 w-full h-full object-cover grayscale opacity-40"
               />
               <div className="absolute inset-0 flex items-end p-6">
