@@ -28,8 +28,8 @@ export function Nav() {
     >
       {/* LOGO */}
       <Link to="/" className="flex items-center gap-4 mr-auto group">
-        <div className="w-10 h-10 flex items-center justify-center border border-gold/20 rounded-lg bg-black/40 backdrop-blur-sm group-hover:border-gold transition-colors duration-500">
-          <img src="/mooviagold.png" alt="MOOVIA" className="w-6 h-6 object-contain" />
+        <div className="w-10 h-10 flex items-center justify-center border border-gold/20 rounded-lg bg-black/40 backdrop-blur-sm group-hover:border-gold transition-colors duration-500 overflow-hidden">
+          <img src="/mooviagold.png" alt="MOOVIA" className="w-6 h-6 object-contain group-hover:rotate-[360deg] transition-transform duration-1000 ease-in-out" />
         </div>
         <div className="flex flex-col items-start">
           <span className="font-sora font-[500] text-[22px] text-gold-l tracking-[0.04em] leading-none">MOOVIA</span>

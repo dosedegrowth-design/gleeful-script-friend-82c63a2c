@@ -80,8 +80,8 @@ export function ChatAssistant() {
           >
             <div className="p-6 border-b border-b35 flex items-center justify-between">
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-black flex items-center justify-center border border-b18 overflow-hidden">
-                   <img src="/mooviagold.png" alt="MOOVIA" className="w-6 h-6 object-contain" />
+                <div className="w-10 h-10 rounded-xl bg-black flex items-center justify-center border border-b18 overflow-hidden group-hover:border-gold transition-colors duration-500">
+                   <img src="/mooviagold.png" alt="MOOVIA" className="w-6 h-6 object-contain group-hover:rotate-[360deg] transition-transform duration-1000 ease-in-out" />
                 </div>
                 <div>
                   <h4 className="font-sora text-[13px] font-[500] text-white tracking-widest uppercase">MOOVIA</h4>
