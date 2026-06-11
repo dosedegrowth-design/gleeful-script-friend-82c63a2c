@@ -40,7 +40,7 @@ const teamMembers = [
     role: "Mobilidade Internacional",
     chips: ["Mestrado ULisboa", "Erasmus", "TJSC", "Imigração"],
     bio: "Mestre em Direito Penal e Ciências Criminais pela ULisboa, com Erasmus em Itália e na República Checa. Especialista em imigração, nacionalidade e regularização documental.",
-    image: "/laura.png",
+    image: "/images/laura.png",
   },
   {
     name: "Sara Russo",
