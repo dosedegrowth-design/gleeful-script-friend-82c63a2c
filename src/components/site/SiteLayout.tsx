@@ -3,6 +3,7 @@ import { useRouterState } from "@tanstack/react-router";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { WhatsAppFloat } from "./WhatsAppFloat";
+import { ChatAssistant } from "./ChatAssistant";
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -18,7 +19,9 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <main className="relative z-10 overflow-x-hidden">{children}</main>
       <Footer />
       <WhatsAppFloat />
+      <ChatAssistant />
     </>
   );
 }
+
 
