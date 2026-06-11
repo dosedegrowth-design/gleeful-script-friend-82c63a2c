@@ -10,24 +10,28 @@ import {
 import { useEffect, type ReactNode } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { AirplaneScene } from "@/components/AirplaneScene";
-
+import Lenis from "lenis";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
+gsap.registerPlugin(ScrollTrigger);
+
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4 text-white">
+    <div className="flex min-h-screen items-center justify-center bg-navy px-4 text-off">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-amotha font-extralight">404</h1>
-        <h2 className="mt-4 text-xl font-urbanist font-light uppercase tracking-widest text-gold">Page not found</h2>
-        <p className="mt-2 text-sm text-white/40 font-urbanist">
+        <h1 className="text-7xl font-sora font-extralight">404</h1>
+        <h2 className="mt-4 text-xl font-urbanist font-light uppercase tracking-widest text-cobre">Page not found</h2>
+        <p className="mt-2 text-sm text-mut font-urbanist">
           The page you're looking for doesn't exist or has been moved.
         </p>
         <div className="mt-6">
           <Link
             to="/"
-            className="inline-flex items-center justify-center bg-gold px-8 py-3 text-sm font-semibold text-black uppercase tracking-widest transition-colors hover:bg-gold-xl"
+            className="inline-flex items-center justify-center bg-cobre px-8 py-3 text-sm font-semibold text-navy-deep uppercase tracking-widest transition-colors hover:bg-latte"
           >
             Go home
           </Link>
@@ -45,12 +49,12 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   }, [error]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4 text-white">
+    <div className="flex min-h-screen items-center justify-center bg-navy px-4 text-off">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-amotha font-light tracking-tight">
+        <h1 className="text-xl font-sora font-light tracking-tight">
           This page didn't load
         </h1>
-        <p className="mt-2 text-sm text-white/40 font-urbanist">
+        <p className="mt-2 text-sm text-mut font-urbanist">
           Something went wrong on our end. You can try refreshing or head back home.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-4">
@@ -59,13 +63,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
               router.invalidate();
               reset();
             }}
-            className="bg-gold px-8 py-3 text-sm font-semibold text-black uppercase tracking-widest transition-colors hover:bg-gold-xl"
+            className="bg-cobre px-8 py-3 text-sm font-semibold text-navy-deep uppercase tracking-widest transition-colors hover:bg-latte"
           >
             Try again
           </button>
           <a
             href="/"
-            className="border border-border px-8 py-3 text-sm font-urbanist font-light text-white uppercase tracking-widest transition-colors hover:border-gold"
+            className="border border-line-gold px-8 py-3 text-sm font-urbanist font-light text-off uppercase tracking-widest transition-colors hover:border-cobre"
           >
             Go home
           </a>
@@ -86,31 +90,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "MOOVIA Portugal" },
       { property: "og:description", content: "Coordenação Internacional de Vida e Património" },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@MOOVIA" },
-      { name: "twitter:title", content: "MOOVIA Portugal" },
-      { name: "twitter:description", content: "Coordenação Internacional de Vida e Património" },
       { property: "og:image", content: "/mooviagold.svg" },
-      { name: "twitter:image", content: "/mooviagold.svg" },
     ],
     links: [
-      {
-        rel: "preconnect",
-        href: "https://fonts.googleapis.com",
-      },
-      {
-        rel: "preconnect",
-        href: "https://fonts.gstatic.com",
-        crossOrigin: "anonymous",
-      },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700&family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap",
       },
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
+      { rel: "stylesheet", href: appCss },
     ],
     link: [
       { rel: "icon", type: "image/png", href: "/favicon.png" },
@@ -124,49 +113,36 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  // Lenis Smooth Scroll
   useEffect(() => {
-    const handleUnhandledError = (event: ErrorEvent) => {
-      console.error("Caught unhandled error:", event.error);
-    };
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
-      console.error("Caught unhandled promise rejection:", event.reason);
-    };
+    const lenis = new Lenis({
+      lerp: 0.1,
+      smoothWheel: true,
+    });
 
-    window.addEventListener("error", handleUnhandledError);
-    window.addEventListener("unhandledrejection", handleUnhandledRejection);
+    lenis.on("scroll", ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
 
     return () => {
-      window.removeEventListener("error", handleUnhandledError);
-      window.removeEventListener("unhandledrejection", handleUnhandledRejection);
+      lenis.destroy();
+      gsap.ticker.remove(lenis.raf);
     };
   }, []);
 
+  // Custom Cursor
   useEffect(() => {
-    if (window.innerWidth < 1024) {
-      document.body.style.cursor = 'auto';
-      return;
-    }
+    if (window.innerWidth < 1024) return;
     
     const dot = document.getElementById('cursor-dot');
     const ring = document.getElementById('cursor-ring');
     if (!dot || !ring) return;
-
-    dot.style.width = '6px';
-    dot.style.height = '6px';
-    dot.style.backgroundColor = '#ad8957';
-    dot.style.borderRadius = '50%';
-    dot.style.position = 'fixed';
-    dot.style.pointerEvents = 'none';
-    dot.style.zIndex = '9999';
-
-    ring.style.width = '36px';
-    ring.style.height = '36px';
-    ring.style.border = '1px solid rgba(173,137,87,0.35)';
-    ring.style.borderRadius = '50%';
-    ring.style.position = 'fixed';
-    ring.style.pointerEvents = 'none';
-    ring.style.zIndex = '9998';
 
     let mx = 0, my = 0, rx = 0, ry = 0;
     const onMouseMove = (e: MouseEvent) => {
@@ -231,19 +207,17 @@ function RootShell({ children }: { children: ReactNode }) {
     };
   }, []);
 
-
   return (
     <html lang="pt">
       <head>
         <HeadContent />
       </head>
       <body>
-        <div id="cursor-dot" className="hidden lg:block fixed top-0 left-0 pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.2s_ease,opacity_0.2s]" />
-        <div id="cursor-ring" className="hidden lg:block fixed top-0 left-0 pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.2s_ease,width_0.25s,height_0.25s,opacity_0.2s]" />
+        <div id="cursor-dot" className="hidden lg:block fixed top-0 left-0 w-[6px] h-[6px] bg-cobre rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.2s_ease,opacity_0.2s]" />
+        <div id="cursor-ring" className="hidden lg:block fixed top-0 left-0 w-9 h-9 border border-line-gold rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.2s_ease,width_0.25s,height_0.25s,opacity_0.2s]" />
         <AirplaneScene />
         {children}
         <Toaster position="top-right" richColors />
-
         <Scripts />
       </body>
     </html>
