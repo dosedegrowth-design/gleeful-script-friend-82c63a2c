@@ -83,7 +83,7 @@ export function FoundersSection() {
             <p className="font-urbanist text-[11px] tracking-[0.18em] uppercase text-gold mt-1">Founder & CEO</p>
             
             <div className="flex flex-wrap gap-2 mt-6 mb-8">
-              {["Oracle", "SAP", "MBA FGV", "Tampa", "Lisboa, 2018"].map((chip) => (
+              {["Oracle", "SAP", "WeDo (SONAE)", "MBA FGV", "Tampa", "Lisboa, 2018"].map((chip) => (
                 <span key={chip} className="px-3 py-1 border border-b18 font-urbanist text-[11px] uppercase text-w35">
                   {chip}
                 </span>
@@ -91,7 +91,11 @@ export function FoundersSection() {
             </div>
 
             <p className="font-urbanist text-[16px] font-[300] text-w35 leading-[1.9] max-w-xl">
-              29 anos em TI multinacional. MBA em Empreendedorismo FGV. Formação em Comunicação na University of Tampa. Em Lisboa desde 2018 com a família. Viveu a transição que hoje coordena e conduz pessoalmente cada mandato.
+              29 anos em TI multinacional. Oracle, SAP, WeDo (SONAE), Cipher (Prosegur),
+              projetos enterprise de médio e grande porte. MBA em Empreendedorismo pela FGV.
+              Formação em Comunicação na University of Tampa, onde viveu 4 anos.
+              Em Lisboa desde 2018 com a família. Viveu a transição que hoje coordena
+              e conduz pessoalmente cada mandato.
             </p>
 
             <div className="mt-10 p-7 border-l-2 border-gold bg-[rgba(173,137,87,.04)]">

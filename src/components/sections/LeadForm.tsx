@@ -20,12 +20,12 @@ const selectFields = [
   { 
     name: "composition", 
     placeholder: "Quantas pessoas participam?", 
-    options: ["Apenas eu", "Casal sem filhos", "Família com filhos", "Família com filhos e pets"] 
+    options: ["Apenas eu", "Casal sem filhos", "Família com filhos", "Tenho animais de estimação", "Família com filhos e pets"] 
   },
   { 
     name: "decision_phase", 
     placeholder: "Em que fase da decisão está?", 
-    options: ["Apenas pesquisando", "Comparando Portugal", "Já decidi, planejando", "Tomei a decisão, preciso agir", "Proposta assinada"] 
+    options: ["Apenas pesquisando", "Comparando Portugal com outras opções", "Já decidi Portugal, planejando quando", "Tomei a decisão, preciso agir", "Já tenho proposta ou contrato assinado"] 
   },
 ];
 

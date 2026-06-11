@@ -54,8 +54,8 @@ function Home() {
       <ProcessSection />
       <AssessmentSection />
       <PillarsSection />
-      <ManifestoSection />
       <BlogTeaserSection />
+      <ManifestoSection />
       <FAQSection />
       <FormSection />
     </SiteLayout>

@@ -16,8 +16,9 @@ export function Footer() {
               <span className="font-urbanist text-[14px] font-[300] text-w35 tracking-[0.3em] uppercase -mt-1">Portugal</span>
             </div>
             <p className="font-urbanist text-[12px] tracking-[0.28em] uppercase text-w12 mb-6">Planejar · Chegar · Ficar</p>
-            <p className="font-urbanist text-[13px] font-[300] text-w35 max-w-[260px] leading-relaxed">
-              "Coordenação Internacional de Vida e Património. Brasil → Portugal · África Lusófona"
+            <p className="font-urbanist text-[13px] font-[300] text-w35 max-w-[260px] leading-relaxed mt-5">
+              Coordenação Internacional de Vida e Património.<br />
+              Brasil → Portugal · África Lusófona
             </p>
           </div>
 
