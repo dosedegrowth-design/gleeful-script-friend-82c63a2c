@@ -75,7 +75,7 @@ export function TeamSection() {
                   {member.chips.map((chip) => (
                     <span 
                       key={chip} 
-                      className="font-urbanist font-[400] text-[10px] tracking-[0.12em] uppercase text-white/35 px-2.5 py-1 border border-[#181818]"
+                      className="font-sora font-[400] text-[10px] tracking-[0.2em] uppercase text-white/35 px-2.5 py-1 border border-[#181818]"
                     >
                       {chip}
                     </span>
