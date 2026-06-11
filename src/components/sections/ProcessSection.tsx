@@ -75,7 +75,7 @@ export function ProcessSection() {
                     <p className="font-urbanist text-[10px] tracking-[0.2em] uppercase text-gold mb-2">{step.tag}</p>
                     <h3 className="font-amotha text-[20px] font-light text-white mb-2.5">{step.title}</h3>
                     <p className="font-urbanist text-[14px] font-light text-white-3 leading-[1.85]">{step.body}</p>
-                    <span className="inline-block font-urbanist text-[10px] tracking-[0.12em] uppercase text-black bg-gold px-3 py-1 mt-3">
+                    <span className="inline-block font-sora text-[10px] tracking-[0.2em] uppercase text-black bg-gold px-3 py-1 mt-3">
                       {step.badge}
                     </span>
                   </div>
