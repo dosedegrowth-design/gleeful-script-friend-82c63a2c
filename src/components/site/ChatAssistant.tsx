@@ -1,9 +1,10 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react';
-import { X, Send, Loader2 } from 'lucide-react';
+import { X, PaperPlaneTilt, CircleNotch, ChatCircleDots } from '@phosphor-icons/react';
 import { supabase } from '@/integrations/supabase/client';
 import { cn } from '@/lib/utils';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface Message {
   role: 'user' | 'assistant'
@@ -11,28 +12,14 @@ interface Message {
   timestamp: Date
 }
 
-interface LeadData {
-  name?: string
-  whatsapp?: string
-  email?: string
-  objective?: string
-  timing?: string
-  notes?: string
-}
-
 export function ChatAssistant() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
-  const [leadData, setLeadData] = useState<LeadData>({});
-  const [leadSaved, setLeadSaved] = useState(false);
-  const [phoneError, setPhoneError] = useState('');
-  const [sessionStart] = useState(Date.now());
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Saudação inicial ao abrir
   useEffect(() => {
     if (isOpen && messages.length === 0) {
       const greeting: Message = {
@@ -40,110 +27,25 @@ export function ChatAssistant() {
         content: 'Olá! Seja bem-vindo à MOOVIA Portugal.\n\nAntes de tudo — como posso te chamar?',
         timestamp: new Date()
       }
-      setMessages([greeting])
-      setTimeout(() => inputRef.current?.focus(), 300)
+      setTimeout(() => setMessages([greeting]), 400)
     }
   }, [isOpen]);
 
-  // Auto-scroll
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
-  }, [messages]);
-
-  // Extrai e limpa o JSON de captura de lead da resposta
-  function extractLeadCapture(text: string): { clean: string; data: LeadData | null } {
-    const match = text.match(/\[LEAD_CAPTURE\](.*?)\[\/LEAD_CAPTURE\]/s)
-    if (!match) return { clean: text, data: null }
-
-    try {
-      const data = JSON.parse(match[1])
-      const clean = text.replace(/\[LEAD_CAPTURE\].*?\[\/LEAD_CAPTURE\]/s, '').trim()
-      return { clean, data }
-    } catch {
-      return { clean: text, data: null }
-    }
-  }
-
-  // Salva lead no Supabase
-  async function saveLead(data: LeadData) {
-    if (leadSaved) return
-    
-    const { error } = await supabase.from('leads').insert({
-      name:         data.name,
-      whatsapp:     data.whatsapp,
-      email:        data.email,
-      objective:    data.objective,
-      timing:       data.timing,
-      message:      data.notes,
-      source:       'chat',
-      status:       'novo',
-      page_history: JSON.parse(localStorage.getItem('moovia_history') || '[]'),
-      session_id:   localStorage.getItem('moovia_session'),
-      utm_source:   JSON.parse(localStorage.getItem('moovia_utm') || '{}').source,
-      utm_medium:   JSON.parse(localStorage.getItem('moovia_utm') || '{}').medium,
-      utm_campaign: JSON.parse(localStorage.getItem('moovia_utm') || '{}').campaign,
-    })
-    
-    if (!error) {
-      setLeadSaved(true)
-      console.log('[MOOVIA] Lead salvo:', data.name)
-    }
-  }
-
-  // Salva conversa no Supabase ao fechar ou sair
-  async function saveConversation(msgs: Message[], currentLead: LeadData) {
-    if (msgs.length === 0) return;
-
-    await supabase.from('chat_logs').insert({
-      session_id:    localStorage.getItem('moovia_session'),
-      messages:      msgs.map(m => ({
-        role:      m.role,
-        content:   m.content,
-        timestamp: m.timestamp.toISOString()
-      })),
-      lead_captured: !!currentLead.whatsapp,
-      page_url:      window.location.href,
-      duration_secs: Math.floor((Date.now() - sessionStart) / 1000)
-    })
-  }
-
-  // Validação básica de telefone
-  function isValidPhone(phone: string): boolean {
-    const digits = phone.replace(/\D/g, '')
-    return digits.length >= 10 && (phone.startsWith('+') || digits.length >= 11)
-  }
-
-  function looksLikePhone(text: string): boolean {
-    return /[\d\s\-\+\(\)]{8,}/.test(text) && text.replace(/\D/g, '').length >= 8
-  }
-
-  function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const val = e.target.value
-    setInput(val)
-    setPhoneError('')
-
-    if (looksLikePhone(val) && val.length > 8) {
-      if (!val.startsWith('+')) {
-        setPhoneError('Inclua o código do país: +55 para Brasil, +351 para Portugal')
-      } else if (!isValidPhone(val)) {
-        setPhoneError('Número incompleto')
-      }
-    }
-  }
+  }, [messages, loading]);
 
   const sendMessage = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
-    
     const text = input.trim();
-    if (!text || loading || (phoneError && looksLikePhone(text))) return;
+    if (!text || loading) return;
 
-    const userMsg: Message = { role: 'user' as const, content: text, timestamp: new Date() };
+    const userMsg: Message = { role: 'user', content: text, timestamp: new Date() };
     const newMessages = [...messages, userMsg];
     setMessages(newMessages);
     setInput('');
-    setPhoneError('');
     setLoading(true);
 
     try {
@@ -156,136 +58,108 @@ export function ChatAssistant() {
 
       if (error) throw error;
 
-      if (data && data.content && data.content[0]) {
-        const raw = data.content[0].text;
-        const { clean, data: captured } = extractLeadCapture(raw);
-
-        if (captured) {
-          const updated = { ...leadData, ...captured };
-          setLeadData(updated);
-          await saveLead(updated);
-        }
-
-        setMessages([...newMessages, { 
-          role: 'assistant', 
-          content: clean,
-          timestamp: new Date() 
-        }]);
+      if (data?.content?.[0]) {
+        const reply = data.content[0].text.replace(/\[LEAD_CAPTURE\].*?\[\/LEAD_CAPTURE\]/s, '').trim();
+        setMessages([...newMessages, { role: 'assistant', content: reply, timestamp: new Date() }]);
       }
-    } catch (error) {
-      console.error('Chat error:', error);
-      setMessages([...newMessages, { 
-        role: 'assistant', 
-        content: 'Tive uma instabilidade aqui. Pode repetir a sua mensagem?',
-        timestamp: new Date() 
-      }]);
+    } catch (err) {
+      setMessages([...newMessages, { role: 'assistant', content: 'Tive uma instabilidade. Pode repetir?', timestamp: new Date() }]);
     } finally {
       setLoading(false);
-      setTimeout(() => inputRef.current?.focus(), 100);
     }
   };
 
-  useEffect(() => {
-    const handleUnload = () => {
-      saveConversation(messages, leadData);
-    };
-    window.addEventListener('beforeunload', handleUnload);
-    return () => {
-      window.removeEventListener('beforeunload', handleUnload);
-      if (messages.length > 0) handleUnload();
-    };
-  }, [messages, leadData]);
-
-  const MooviaIsotipo = ({ size }: { size: number }) => (
-    <img src="/mooviagold.svg" alt="MOOVIA" style={{ width: size, height: size }} className="object-contain" />
-  );
-
   return (
-    <div className="fixed bottom-8 right-8 z-[850] flex flex-col items-end pointer-events-none">
-      {isOpen && (
-        <div className="w-[calc(100vw-40px)] md:w-[380px] h-[560px] max-h-[calc(100vh-140px)] bg-[#12141a]/95 backdrop-blur-xl border border-gold/20 flex flex-col shadow-[0_20px_50px_rgba(0,0,0,0.5)] animate-[fadeUp_0.4s_ease_forwards] mb-6 pointer-events-auto rounded-none overflow-hidden">
-          <div className="p-4 border-b border-gold/15 flex items-center justify-between bg-black-3/50">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 flex items-center justify-center">
-                <img src="/mooviagold.svg" alt="MOOVIA" className="w-6 h-6 object-contain" />
-              </div>
-              <div>
-                <h4 className="font-urbanist text-[13px] font-[500] text-[#f9f5ec] tracking-[0.1em] uppercase">MOOVIA Assistente</h4>
-              </div>
-            </div>
-            <button onClick={() => setIsOpen(false)} className="text-white/35 hover:text-white transition-colors">
-              <X size={20} />
-            </button>
-          </div>
-
-          <div ref={scrollRef} className="flex-1 overflow-y-auto p-5 space-y-3 font-urbanist text-[14px]">
-            {messages.map((msg, i) => (
-              <div key={i} className={cn(
-                "flex items-start gap-2",
-                msg.role === 'user' ? "flex-row-reverse" : "flex-row"
-              )}>
-                {msg.role === 'assistant' && (
-                  <div className="w-6 h-6 flex-shrink-0 flex items-center justify-center overflow-hidden">
-                    <img src="/mooviagold.svg" alt="MOOVIA" className="w-4 h-4 object-contain" />
-                  </div>
-                )}
-                <div className={cn(
-                  "max-w-[82%] p-3 leading-relaxed", 
-                  msg.role === 'user' 
-                    ? "bg-gold/12 text-[#f9f5ec] font-normal" 
-                    : "bg-black-3 text-white/80 border-l-2 border-l-gold"
-                )}>
-                  {msg.content}
+    <div className="fixed bottom-8 right-8 z-[850] flex flex-col items-end">
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 200, damping: 25 }}
+            className="w-[calc(100vw-40px)] md:w-[380px] h-[560px] max-h-[calc(100vh-140px)] bg-navy-rich/95 backdrop-blur-xl border border-line-cool flex flex-col shadow-[0_30px_80px_-20px_rgba(0,0,0,0.5)] mb-6 rounded-[20px] overflow-hidden"
+          >
+            <div className="p-6 border-b border-line-cool flex items-center justify-between bg-navy-deep/40">
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-xl bg-navy-raise flex items-center justify-center border border-line-gold/20">
+                  <img src="/mooviagold.svg" alt="M" className="w-6 h-6 object-contain" />
+                </div>
+                <div>
+                  <h4 className="font-sora text-[13px] font-[300] text-off tracking-widest uppercase">MOOVIA</h4>
+                  <p className="font-urbanist text-[11px] text-cobre uppercase tracking-widest">Assistente</p>
                 </div>
               </div>
-            ))}
-            {loading && (
-              <div className="flex gap-1 p-3">
-                {[0,1,2].map(i => (
-                  <div key={i} className="w-1.5 h-1.5 rounded-full bg-gold/60 animate-bounce" style={{ animationDelay: `${i * 0.2}s` }} />
-                ))}
-              </div>
-            )}
-          </div>
-
-          <form onSubmit={sendMessage} className="p-4 border-t border-gold/15 bg-black-3/30">
-            {phoneError && (
-              <p className="font-urbanist text-[11px] text-[#ff4444] mb-2 tracking-[0.06em] flex items-center gap-1">
-                <span className="text-[14px]">⚠</span> {phoneError}
-              </p>
-            )}
-            <div className="flex gap-2">
-              <input
-                ref={inputRef}
-                value={input}
-                onChange={handleInputChange}
-                placeholder="Digite sua mensagem..."
-                className={cn(
-                  "flex-1 bg-[#0e0f12] border p-3 font-urbanist text-sm outline-none transition-colors text-[#f9f5ec]",
-                  phoneError ? "border-gold" : "border-gold/20 focus:border-gold"
-                )}
-              />
-              <button 
-                type="submit" 
-                disabled={loading || !input.trim() || !!phoneError}
-                className={cn(
-                  "w-10 flex items-center justify-center transition-all font-bold",
-                  input.trim() && !phoneError ? "bg-gold text-[#0e0f12]" : "bg-gold/20 text-[#0e0f12] cursor-not-allowed"
-                )}
-              >
-                <Send size={18} />
+              <button onClick={() => setIsOpen(false)} className="text-mut hover:text-off transition-colors">
+                <X size={20} weight="thin" />
               </button>
             </div>
-          </form>
-        </div>
-      )}
+
+            <div ref={scrollRef} className="flex-1 overflow-y-auto p-6 space-y-6 scrollbar-hide">
+              {messages.map((msg, i) => (
+                <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={cn("flex flex-col max-w-[85%]", msg.role === 'user' ? "ml-auto items-end" : "items-start")}
+                >
+                  <div className={cn(
+                    "p-4 text-[14px] leading-relaxed",
+                    msg.role === 'user' 
+                      ? "bg-cobre text-navy-deep rounded-2xl rounded-tr-none font-[500]" 
+                      : "bg-navy-raise/60 text-mut rounded-2xl rounded-tl-none border border-line-cool"
+                  )}>
+                    {msg.content}
+                  </div>
+                  <span className="text-[10px] text-mut-2 mt-2 uppercase tracking-widest">
+                    {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                  </span>
+                </motion.div>
+              ))}
+              {loading && (
+                <div className="flex gap-2 p-4 bg-navy-raise/30 rounded-2xl border border-line-cool w-fit animate-pulse">
+                  <div className="w-1.5 h-1.5 rounded-full bg-cobre/40" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-cobre/40" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-cobre/40" />
+                </div>
+              )}
+            </div>
+
+            <form onSubmit={sendMessage} className="p-6 bg-navy-deep/30 border-t border-line-cool">
+              <div className="relative">
+                <input
+                  ref={inputRef}
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  placeholder="Escreva sua mensagem..."
+                  className="w-full bg-navy-deep border border-line-cool p-4 pr-14 font-urbanist text-sm outline-none transition-all focus:border-cobre text-off rounded-xl placeholder:text-mut-2"
+                />
+                <button 
+                  type="submit" 
+                  disabled={loading || !input.trim()}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center transition-all text-cobre hover:scale-110 disabled:opacity-30"
+                >
+                  {loading ? <CircleNotch size={20} className="animate-spin" /> : <PaperPlaneTilt size={20} weight="thin" />}
+                </button>
+              </div>
+            </form>
+          </motion.div>
+        )}
+      </AnimatePresence>
       
-      <button
+      <motion.button
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(!isOpen)}
-        className="pointer-events-auto w-14 h-14 bg-black-3 border border-gold/35 rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(173,137,87,0.2)] hover:border-gold transition-all duration-300"
+        className="w-14 h-14 bg-navy-rich border border-line-gold/40 rounded-full flex items-center justify-center shadow-2xl transition-colors hover:border-cobre relative group"
       >
-        {isOpen ? <X size={24} className="text-gold" /> : <img src="/mooviagold.svg" alt="MOOVIA" className="w-7 h-7 object-contain" />}
-      </button>
+        <div className="absolute inset-0 bg-cobre opacity-0 group-hover:opacity-10 rounded-full transition-opacity" />
+        {isOpen ? (
+          <X size={24} weight="thin" className="text-cobre" />
+        ) : (
+          <ChatCircleDots size={28} weight="thin" className="text-cobre" />
+        )}
+      </motion.button>
     </div>
   );
 }
