@@ -35,7 +35,7 @@ export function FoundersSection() {
                 src="/images/frederico.png" 
                 alt="Frederico Prado" 
 
-                className="absolute inset-0 w-full h-full object-cover grayscale opacity-40"
+                className="absolute inset-0 w-full h-full object-cover opacity-80"
               />
               <div className="absolute inset-0 flex items-end p-6">
                 <span className="font-urbanist text-[10px] uppercase tracking-[0.22em] text-gold-l">

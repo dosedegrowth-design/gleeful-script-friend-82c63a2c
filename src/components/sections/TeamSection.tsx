@@ -82,7 +82,7 @@ export function TeamSection() {
                       <img 
                         src={member.image} 
                         alt={member.name} 
-                        className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
+                        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
                       />
                     </div>
                   )}
