@@ -16,10 +16,10 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "MOOVIA Portugal — Coordenação Internacional de Vida e Património" },
-      { name: "description", content: "A MOOVIA Portugal coordena a jornada completa de transição internacional, do diagnóstico estratégico à adaptação pós-chegada. Assessment a partir de €250." },
+      { name: "description", content: "A MOOVIA Portugal coordena a jornada completa de transição internacional de brasileiros para Portugal. Do diagnóstico estratégico à adaptação pós-chegada. Assessment a partir de €250." },
       { property: "og:title", content: "Você não precisa de mais informação. Precisa de alguém que coordene a decisão." },
-      { property: "og:description", content: "MOOVIA Portugal — coordenação boutique de transições internacionais. Brasil para Portugal." },
-      { property: "og:type", content: "website" },
+      { property: "og:description", content: "MOOVIA Portugal — Coordenação de transição internacional. Brasil para Portugal." },
+      { property: "og:image", content: "/og-image.jpg" },
     ],
   }),
   component: Home,
@@ -28,20 +28,21 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <SiteLayout>
-      <div id="grain" className="fixed inset-[-50%] w-[200%] h-[200%] pointer-events-none z-[1000] opacity-40 animate-[grain_8s_steps(10)_infinite] bg-[url('data:image/svg+xml,%3Csvg_viewBox=%220_0_256_256%22_xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter_id=%22noise%22%3E%3CfeTurbulence_type=%22fractalNoise%22_baseFrequency=%22.9%22_numOctaves=%224%22_stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect_width=%22100%25%22_height=%22100%25%22_filter=%22url(%23noise)%22_opacity=%22.04%22/%3E%3C/svg%3E')]" />
       <Hero />
-      <div className="marquee-wrap border-y border-border bg-black/80 backdrop-blur-sm overflow-hidden h-[46px] flex items-center relative z-10">
-        <div className="marquee-track flex whitespace-nowrap animate-[marquee_28s_linear_infinite]">
+      
+      {/* MARQUEE */}
+      <div className="bg-black/80 border-y border-b18 h-[46px] flex items-center overflow-hidden relative z-20">
+        <div className="flex whitespace-nowrap animate-[marquee_28s_linear_infinite]">
           {[1, 2].map((i) => (
-            <div key={i} className="marquee-item flex items-center gap-10 px-10 font-urbanist text-[11px] tracking-[0.24em] uppercase text-white-3 shrink-0">
-              Transição Internacional <span className="text-gold text-[10px] px-2">♦</span> 
-              Brasil para Portugal <span className="text-gold text-[10px] px-2">♦</span> 
-              Coordenação de Vida e Património <span className="text-gold text-[10px] px-2">♦</span> 
-              Strategic Assessment <span className="text-gold text-[10px] px-2">♦</span> 
-              Mandato Personalizado <span className="text-gold text-[10px] px-2">♦</span> 
-              90 dias Pós-chegada <span className="text-gold text-[10px] px-2">♦</span> 
-              School Matching <span className="text-gold text-[10px] px-2">♦</span> 
-              Fiscalidade Internacional <span className="text-gold text-[10px] px-2">♦</span>
+            <div key={i} className="flex items-center gap-10 px-10 font-urbanist text-[11px] tracking-[0.24em] uppercase text-w35">
+              Transição Internacional <span className="text-gold text-[10px]">♦</span> 
+              Brasil para Portugal <span className="text-gold text-[10px]">♦</span> 
+              Coordenação de Vida e Património <span className="text-gold text-[10px]">♦</span> 
+              Strategic Assessment <span className="text-gold text-[10px]">♦</span> 
+              Mandato Personalizado <span className="text-gold text-[10px]">♦</span> 
+              90 dias Pós-chegada <span className="text-gold text-[10px]">♦</span> 
+              School Matching <span className="text-gold text-[10px]">♦</span> 
+              Fiscalidade Internacional <span className="text-gold text-[10px]">♦</span>
             </div>
           ))}
         </div>
