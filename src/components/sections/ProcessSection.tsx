@@ -28,7 +28,7 @@ const steps = [
   {
     n: "90",
     tag: "Único no mercado",
-    title: "Os 90 dias após o pouso",
+    title: "Chegar é metade",
     body: "Os 90 dias após o pouso são os mais críticos. Adaptação familiar, rotina, integração. Nenhum concorrente acompanha este período de forma estruturada. Nós acompanhamos.",
     badge: "Único no mercado"
   }

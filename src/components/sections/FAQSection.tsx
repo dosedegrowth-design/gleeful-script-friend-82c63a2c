@@ -13,7 +13,7 @@ const faqs = [
   },
   { 
     q: "Qual a diferença entre a MOOVIA e uma empresa de imigração?", 
-    a: "Uma empresa de imigração resolve o visto. A MOOVIA coordena a decisão inteira, escola, imóvel, fiscalidade, integração familiar e os 90 dias depois da chegada. Você não nos contrata para resolver um problema. Nos contrata para que os problemas não apareçam." 
+    a: "Uma empresa de imigração resolve o visto. A MOOVIA coordena a decisão inteira: escola, imóvel, fiscalidade, integração familiar e os 90 dias depois da chegada. Você não nos contrata para resolver um problema. Nos contrata para que os problemas não apareçam." 
   },
   { 
     q: "A MOOVIA trabalha com pacotes ou planos de serviço?", 
@@ -21,7 +21,7 @@ const faqs = [
   },
   { 
     q: "Quanto tempo leva o processo de transição?", 
-    a: "Depende do perfil. Um profissional de TI com proposta de trabalho pode estar operacional em Portugal em 30 a 90 dias. Uma família em transição patrimonial pode levar de 3 a 12 meses. O cronograma real é definido no Assessment." 
+    a: "Depende do perfil. Um profissional de TI com proposta de trabalho pode estar operacional em Portugal em 30 a 90 dias. Uma família em transição patrimonial pode levar de 3 a 12 meses. O cronograma real é definido no Assessment, a primeira resposta concreta que você recebe." 
   },
   { 
     q: "Quanto custa a transição completa com a MOOVIA?", 
