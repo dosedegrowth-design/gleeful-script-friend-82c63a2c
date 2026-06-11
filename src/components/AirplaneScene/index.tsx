@@ -45,7 +45,6 @@ export function AirplaneScene() {
         gl={{ alpha: true, antialias: true, powerPreference: 'high-performance', preserveDrawingBuffer: true }}
         dpr={typeof window !== 'undefined' ? Math.min(window.devicePixelRatio, 1.5) : 1}
         style={{ background: 'transparent', pointerEvents: 'none' }}
-        eventSource={typeof document !== 'undefined' ? document.body : undefined}
       >
         <ambientLight    intensity={0.6}  color="#f9f5ec" />
         <directionalLight position={[ 5, 8, 5]} intensity={1.1} />
