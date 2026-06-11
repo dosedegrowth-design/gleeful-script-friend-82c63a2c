@@ -1,23 +1,21 @@
 import { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
 
 export function WhatsAppFloat() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 2000);
+    const timer = setTimeout(() => setVisible(true), 2000);
     return () => clearTimeout(timer);
   }, []);
+
+  if (!visible) return null;
 
   return (
     <a
       href="https://wa.me/351913000000?text=Olá! Vim pelo site da MOOVIA Portugal."
       target="_blank"
       rel="noopener noreferrer"
-      className={cn(
-        "fixed bottom-8 right-8 lg:right-32 z-[800] w-14 h-14 bg-gold rounded-full flex items-center justify-center shadow-[0_8px_32px_rgba(173,137,87,0.3)] transition-all duration-500 hover:scale-110 hover:bg-gold-l",
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
-      )}
+      className="fixed bottom-8 right-8 z-[800] w-[52px] h-[52px] bg-gold rounded-full flex items-center justify-center shadow-[0_8px_32px_rgba(173,137,87,.3)] hover:scale-110 hover:bg-gold-l transition-all duration-300"
     >
       <svg
         viewBox="0 0 24 24"
