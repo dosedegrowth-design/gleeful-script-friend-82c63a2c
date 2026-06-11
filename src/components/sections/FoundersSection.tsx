@@ -32,7 +32,7 @@ export function FoundersSection() {
               className="aspect-[4/5] w-full bg-white-5 border border-border relative overflow-hidden"
             >
               <img 
-                src="/mooviagold.png" 
+                src="/fred.png" 
                 alt="Frederico Prado" 
                 className="absolute inset-0 w-full h-full object-cover grayscale opacity-40"
               />

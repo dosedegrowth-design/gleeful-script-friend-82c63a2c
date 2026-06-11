@@ -127,6 +127,8 @@ button:hover i, button:hover svg,
 /* Rotação contínua do ícone do cursor (o dot) quando estiver em hover */
 #cursor-dot.cursor-hover img {
   animation: hoverSpin 1s linear infinite !important;
+  width: 40px !important;
+  height: 40px !important;
 }
 
 /* Giradinha rápida nos ícones da página quando em hover (Removido img) */

@@ -7,7 +7,7 @@ const teamMembers = [
     chips: ["Oracle", "SAP", "MBA FGV", "Tampa", "Lisboa, 2018"],
     bio: "29 anos em TI multinacional. MBA em Empreendedorismo FGV. Formação em Comunicação na University of Tampa. Em Lisboa desde 2018 com a família. Viveu a transição que hoje coordena e conduz pessoalmente cada mandato.",
     isLarge: true,
-    image: "/mooviagold.png",
+    image: "/fred.png",
   },
   {
     name: "João Gabriel Prado",
@@ -20,14 +20,14 @@ const teamMembers = [
     role: "Conselheiro Estratégico",
     chips: ["Deloitte", "Oracle", "IBM", "SAP", "Salesforce"],
     bio: "25+ anos em tecnologia corporativa nas maiores empresas do setor, com especialização na indústria seguradora. Liderou equipas de alta performance e operações C-Level globais.",
-    image: "/mooviagold.png",
+    image: "/moyses.png",
   },
   {
     name: "Eduardo Trindade",
     role: "Strategic Relocation Advisor",
     chips: ["ADLS", "MBA USP", "Live University", "SC Investor"],
     bio: "VP Global Sales na ADLS. MBA em Gestão Estratégica pela USP, professor de MBA e palestrante internacional. Investidor imobiliário em Santa Catarina. Fluente em PT, EN e ES.",
-    image: "/mooviagold.png",
+    image: "/eduardo.png",
   },
   {
     name: "Dany Zukerman",
@@ -40,14 +40,14 @@ const teamMembers = [
     role: "Mobilidade Internacional",
     chips: ["Mestrado ULisboa", "Erasmus", "TJSC", "Imigração"],
     bio: "Mestre em Direito Penal e Ciências Criminais pela ULisboa, com Erasmus em Itália e na República Checa. Especialista em imigração, nacionalidade e regularização documental.",
-    image: "/mooviagold.png",
+    image: "/laura.png",
   },
   {
     name: "Sara Russo",
     role: "Real Estate Specialist",
     chips: ["RE/MAX Collection", "Luxo", "10+ anos"],
     bio: "Mais de 10 anos no mercado imobiliário português. Premiada na RE/MAX e especialista RE/MAX Collection, o segmento de luxo. Foco em aquisição, investimento e habitação a partir de €1.500/mês.",
-    image: "/mooviagold.png",
+    image: "/sara.png",
   },
 ];
 

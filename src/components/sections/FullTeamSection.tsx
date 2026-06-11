@@ -17,6 +17,7 @@ const fullTeam = [
   },
   {
     id: "joao",
+    hasPhoto: true,
     name: "JOÃO GABRIEL PRADO",
     title: "Co-Founder",
     credentials: ["Abreu Advogados", "ULisboa", "CIDP", "Corporate & M&A", "ELSA"],
@@ -28,6 +29,7 @@ const fullTeam = [
   },
   {
     id: "moyses",
+    hasPhoto: true,
     name: "MOYSES FILIPE",
     title: "Conselheiro Estratégico",
     credentials: ["Deloitte", "Oracle", "IBM", "SAP", "Salesforce", "FIA", "FGV"],
@@ -39,6 +41,7 @@ const fullTeam = [
   },
   {
     id: "eduardo",
+    hasPhoto: true,
     name: "EDUARDO TRINDADE",
     title: "Strategic Relocation Advisor",
     credentials: ["ADLS", "MBA USP", "Live University", "VP Global Sales", "SC Investor"],
@@ -50,6 +53,7 @@ const fullTeam = [
   },
   {
     id: "dany",
+    hasPhoto: true,
     name: "DANY ZUKERMAN",
     title: "Education & Family Transition Advisor",
     credentials: ["Direito UCAM", "18 anos CLO", "CID Records"],
@@ -61,6 +65,7 @@ const fullTeam = [
   },
   {
     id: "laura",
+    hasPhoto: true,
     name: "LAURA COSTA",
     title: "Mobilidade Internacional",
     credentials: ["Mestrado ULisboa", "Erasmus", "TJSC", "Imigração", "Documentação"],
@@ -72,6 +77,7 @@ const fullTeam = [
   },
   {
     id: "sara",
+    hasPhoto: true,
     name: "SARA RUSSO",
     title: "Real Estate Specialist",
     credentials: ["RE/MAX Collection", "Luxo", "10+ anos", "Premiada RE/MAX Portugal"],
@@ -158,7 +164,13 @@ export function FullTeamSection() {
                 </div>
 
                 {member.hasPhoto && (
-                  <div className="mt-8 aspect-[4/5] w-full bg-[#181818] border border-[#181818] grayscale hover:grayscale-0 transition-all duration-700 overflow-hidden" />
+                  <div className="mt-8 aspect-[4/5] w-full bg-[#181818] border border-[#181818] grayscale hover:grayscale-0 transition-all duration-700 overflow-hidden">
+                    <img 
+                      src={`/${member.id}.png`} 
+                      alt={member.name} 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                 )}
               </Reveal>
             </div>
