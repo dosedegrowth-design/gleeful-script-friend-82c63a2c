@@ -61,7 +61,7 @@ export function TeamSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-cobre mb-4 flex items-center gap-4"
+            className="font-mono text-[11px] tracking-[0.32em] uppercase text-cobre mb-4 flex items-center gap-4"
           >
             <span className="w-6 h-px bg-cobre" />
             A equipa
@@ -71,7 +71,7 @@ export function TeamSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-sora text-[clamp(28px,4vw,44px)] font-[200] leading-[1.1] text-off mb-8"
+            className="font-display text-[clamp(28px,4vw,44px)] font-[200] leading-[1.1] text-off mb-8"
           >
             A equipa que coordena a sua jornada.
           </motion.h2>
@@ -80,7 +80,7 @@ export function TeamSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-urbanist text-[17px] font-[300] text-mut leading-relaxed"
+            className="font-body text-[17px] font-[300] text-mut leading-relaxed"
           >
             Cada membro da MOOVIA foi escolhido pela profundidade da experiência, não pelo tamanho do currículo.
           </motion.p>
@@ -105,7 +105,7 @@ export function TeamSection() {
                       className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center font-sora text-[24px] font-[200] text-cobre uppercase">
+                    <div className="w-full h-full flex items-center justify-center font-display text-[24px] font-[200] text-cobre uppercase">
                       {member.name.split(" ").map(n => n[0]).join("")}
                     </div>
                   )}
@@ -116,7 +116,7 @@ export function TeamSection() {
                   {member.chips.map((chip) => (
                     <span 
                       key={chip} 
-                      className="font-urbanist font-[400] text-[10px] tracking-[0.05em] uppercase text-mut-2 px-2.5 py-1 border border-line-cool rounded-full group-hover:border-cobre/20 transition-colors"
+                      className="font-mono font-[400] text-[10px] tracking-[0.05em] uppercase text-mut-2 px-2.5 py-1 border border-line-cool rounded-full group-hover:border-cobre/20 transition-colors"
                     >
                       {chip}
                     </span>
@@ -125,13 +125,13 @@ export function TeamSection() {
               </div>
 
               <div className="mt-auto">
-                <h3 className="font-sora text-[20px] font-[300] text-off mb-1 group-hover:text-latte transition-colors duration-500">
+                <h3 className="font-display text-[24px] font-[300] text-off mb-1 group-hover:text-latte transition-colors duration-500">
                   {member.name}
                 </h3>
-                <p className="font-urbanist text-[12px] tracking-[0.12em] uppercase text-cobre mb-6 font-[500]">
+                <p className="font-mono text-[12px] tracking-[0.12em] uppercase text-cobre mb-6 font-[500]">
                   {member.role}
                 </p>
-                <p className="font-urbanist text-[14px] font-[300] text-mut leading-[1.7] line-clamp-3 group-hover:text-off transition-colors duration-500">
+                <p className="font-body text-[14px] font-[300] text-mut leading-[1.7] line-clamp-3 group-hover:text-off transition-colors duration-500">
                   {member.bio}
                 </p>
               </div>

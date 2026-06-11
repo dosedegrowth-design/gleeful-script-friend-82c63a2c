@@ -104,10 +104,10 @@ export function LeadForm() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {selectFields.map((f) => (
                   <Select key={f.name} onValueChange={(v) => set(f.name, v)} value={form[f.name] || ""}>
-                    <SelectTrigger className="w-full bg-navy-deep/50 border-0 border-b border-line-cool text-off font-urbanist text-[14px] font-[300] h-[54px] px-0 outline-none transition-all duration-300 focus:border-cobre focus:ring-0 focus:bg-navy-raise/30 rounded-none">
+                    <SelectTrigger className="w-full bg-navy-deep/50 border-0 border-b border-line-cool text-off font-body text-[14px] font-[300] h-[54px] px-0 outline-none transition-all duration-300 focus:border-cobre focus:ring-0 focus:bg-navy-raise/30 rounded-none">
                       <SelectValue placeholder={f.placeholder} />
                     </SelectTrigger>
-                    <SelectContent className="bg-navy-rich border border-line-cool text-off font-urbanist">
+                    <SelectContent className="bg-navy-rich border border-line-cool text-off font-body">
                       {f.options.map((o) => (
                         <SelectItem key={o} value={o} className="focus:bg-cobre/10 focus:text-latte">{o}</SelectItem>
                       ))}
@@ -130,11 +130,11 @@ export function LeadForm() {
                       placeholder={input.label}
                       value={form[input.id] || ""} 
                       onChange={(e) => set(input.id, e.target.value)} 
-                      className="peer w-full bg-transparent border-0 border-b border-line-cool text-off font-urbanist text-[15px] font-[300] py-4 outline-none transition-all duration-300 focus:border-cobre placeholder:text-transparent" 
+                      className="peer w-full bg-transparent border-0 border-b border-line-cool text-off font-body text-[15px] font-[300] py-4 outline-none transition-all duration-300 focus:border-cobre placeholder:text-transparent" 
                     />
                     <label 
                       htmlFor={input.id}
-                      className="absolute left-0 top-4 text-mut font-urbanist text-[15px] font-[300] pointer-events-none transition-all duration-300 peer-focus:-top-4 peer-focus:text-[11px] peer-focus:text-cobre peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-[11px] peer-[:not(:placeholder-shown)]:text-cobre"
+                      className="absolute left-0 top-4 text-mut font-body text-[15px] font-[300] pointer-events-none transition-all duration-300 peer-focus:-top-4 peer-focus:text-[11px] peer-focus:text-cobre peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-[11px] peer-[:not(:placeholder-shown)]:text-cobre"
                     >
                       {input.label}
                     </label>
@@ -148,11 +148,11 @@ export function LeadForm() {
                     rows={2} 
                     value={form.message || ""} 
                     onChange={(e) => set("message", e.target.value)} 
-                    className="peer w-full bg-transparent border-0 border-b border-line-cool text-off font-urbanist text-[15px] font-[300] py-4 outline-none transition-all duration-300 focus:border-cobre placeholder:text-transparent resize-none min-h-[80px]" 
+                    className="peer w-full bg-transparent border-0 border-b border-line-cool text-off font-body text-[15px] font-[300] py-4 outline-none transition-all duration-300 focus:border-cobre placeholder:text-transparent resize-none min-h-[80px]" 
                   />
                   <label 
                     htmlFor="message"
-                    className="absolute left-0 top-6 text-mut font-urbanist text-[15px] font-[300] pointer-events-none transition-all duration-300 peer-focus:-top-4 peer-focus:text-[11px] peer-focus:text-cobre peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-[11px] peer-[:not(:placeholder-shown)]:text-cobre"
+                    className="absolute left-0 top-6 text-mut font-body text-[15px] font-[300] pointer-events-none transition-all duration-300 peer-focus:-top-4 peer-focus:text-[11px] peer-focus:text-cobre peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-[11px] peer-[:not(:placeholder-shown)]:text-cobre"
                   >
                     Conte brevemente o seu caso
                   </label>
@@ -164,13 +164,13 @@ export function LeadForm() {
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-cobre text-navy-deep font-urbanist text-[13px] font-[600] tracking-[0.22em] uppercase py-5 relative overflow-hidden group w-full mt-10 rounded-none transition-all duration-500 hover:shadow-[0_20px_40px_-10px_rgba(173,137,87,0.3)]"
+                className="bg-cobre text-navy-deep font-mono text-[11px] font-[600] tracking-[0.22em] uppercase py-5 relative overflow-hidden group w-full mt-10 rounded-none transition-all duration-500 hover:shadow-[0_20px_40px_-10px_rgba(173,137,87,0.3)]"
               >
                 <span className="relative z-10">{loading ? "Processando..." : "Enviar e aguardar retorno"}</span>
                 <div className="absolute inset-0 bg-latte origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100" />
               </button>
               
-              <p className="text-center mt-8 font-urbanist text-[12px] text-mut uppercase tracking-[0.1em]">
+              <p className="text-center mt-8 font-mono text-[10px] text-mut uppercase tracking-[0.1em]">
                 Já decidiu? <a href="https://calendly.com/moovia-portugal/conversa-gratuita" target="_blank" rel="noopener" className="text-cobre underline underline-offset-4 decoration-cobre/30 hover:text-latte transition-colors">Marcar Conversa diretamente</a>
               </p>
             </form>
@@ -182,10 +182,10 @@ export function LeadForm() {
             animate={{ opacity: 1, scale: 1 }}
             className="text-center py-10"
           >
-            <h3 className="font-sora text-[32px] font-[200] text-latte mb-6 leading-tight">
+            <h3 className="font-display text-[32px] font-[300] text-latte mb-6 leading-tight">
               Recebemos o seu caso,<br />{form.name?.split(" ")[0]}.
             </h3>
-            <p className="font-urbanist text-[17px] font-[300] text-mut leading-relaxed mb-10 max-w-[400px] mx-auto">
+            <p className="font-body text-[17px] font-[300] text-mut leading-relaxed mb-10 max-w-[400px] mx-auto">
               O Frederico vai analisar o seu perfil pessoalmente. Enquanto isso, agende sua Conversa Gratuita:
             </p>
             
@@ -201,7 +201,7 @@ export function LeadForm() {
               href="https://wa.me/351913000000" 
               target="_blank" 
               rel="noopener" 
-              className="inline-flex items-center gap-3 text-cobre font-urbanist text-[13px] font-[500] uppercase tracking-[0.2em] hover:text-latte transition-colors"
+              className="inline-flex items-center gap-3 text-cobre font-mono text-[11px] font-[500] uppercase tracking-[0.2em] hover:text-latte transition-colors"
             >
               <WhatsappLogo size={20} weight="thin" />
               Prefere WhatsApp?

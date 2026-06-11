@@ -17,14 +17,14 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-4">
-           <h4 className="font-sora text-[12px] font-[400] tracking-[0.2em] uppercase text-cobre mb-4">A Jornada</h4>
+           <h4 className="font-mono text-[10px] font-[400] tracking-[0.2em] uppercase text-cobre mb-4">A Jornada</h4>
            {["Assessment", "Como funciona", "Serviços", "Blog"].map(l => (
              <Link key={l} to="/" className="font-urbanist text-[13px] text-mut hover:text-off transition-colors">{l}</Link>
            ))}
         </div>
 
         <div className="flex flex-col gap-4">
-           <h4 className="font-sora text-[12px] font-[400] tracking-[0.2em] uppercase text-cobre mb-4">Legal</h4>
+           <h4 className="font-mono text-[10px] font-[400] tracking-[0.2em] uppercase text-cobre mb-4">Legal</h4>
            {["Termos", "Privacidade", "Compliance"].map(l => (
              <Link key={l} to="/" className="font-urbanist text-[13px] text-mut hover:text-off transition-colors">{l}</Link>
            ))}

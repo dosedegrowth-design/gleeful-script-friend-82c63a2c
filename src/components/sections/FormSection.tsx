@@ -174,7 +174,7 @@ export function FormSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-sora text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre mb-4 flex items-center gap-3"
+            className="font-mono text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre mb-4 flex items-center gap-3"
           >
             <span className="w-6 h-px bg-cobre" />
             O primeiro passo
@@ -184,7 +184,7 @@ export function FormSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-sora text-[clamp(32px,4vw,60px)] font-[200] leading-[1.06] text-off mb-8"
+            className="font-display text-[clamp(32px,4vw,60px)] font-[200] leading-[1.02] text-off mb-8"
           >
             "A conversa certa."
           </motion.h2>
@@ -193,7 +193,7 @@ export function FormSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="font-urbanist text-[17px] font-[300] text-mut leading-[1.7] max-w-lg mb-10"
+            className="font-body text-[17px] font-[300] text-mut leading-[1.7] max-w-lg mb-10"
           >
             Não é um formulário de contato. É o início de um diagnóstico.
             Quanto mais você nos contar, mais preciso será o nosso retorno.
@@ -205,7 +205,7 @@ export function FormSection() {
             viewport={{ once: true }}
             className="p-8 border-l-2 border-cobre glass rounded-r-2xl mb-12"
           >
-            <p className="font-urbanist text-[16px] font-[300] text-mut italic">
+            <p className="font-body text-[16px] font-[300] text-mut italic">
               "Cada contato é respondido pessoalmente pelo Frederico, sem chatbot, sem script."
             </p>
           </motion.div>
@@ -223,7 +223,7 @@ export function FormSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.3 + (i * 0.1) }}
-                  className="flex items-center gap-4 font-urbanist text-[14px] font-[300] text-mut"
+                  className="flex items-center gap-4 font-body text-[14px] font-[300] text-mut"
                 >
                    <CheckCircle weight="thin" size={20} className="text-cobre" />
                    {d}

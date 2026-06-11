@@ -23,8 +23,8 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-black px-4 text-white">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-sora font-[100]">404</h1>
-        <h2 className="mt-4 text-xl font-urbanist font-light uppercase tracking-widest text-gold">Page not found</h2>
+        <h1 className="text-7xl font-display font-[100]">404</h1>
+        <h2 className="mt-4 text-xl font-mono font-light uppercase tracking-widest text-gold">Page not found</h2>
         <div className="mt-6">
           <Link
             to="/"
@@ -48,7 +48,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-black px-4 text-white">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-sora font-light tracking-tight">
+        <h1 className="text-xl font-display font-light tracking-tight">
           This page didn't load
         </h1>
         <div className="mt-6 flex flex-wrap justify-center gap-4">
@@ -84,7 +84,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700&family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap",
+        href: "https://api.fontshare.com/v2/css?f[]=boska@200,300,400&f[]=general-sans@300,400,500&display=swap",
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400&display=swap",
       },
       { rel: "stylesheet", href: appCss },
     ],

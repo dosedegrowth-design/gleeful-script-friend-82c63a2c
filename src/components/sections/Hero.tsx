@@ -57,27 +57,26 @@ export function Hero() {
           className="flex flex-col gap-3 mb-12"
         >
           <div className="w-8 h-px bg-cobre" />
-          <span className="font-urbanist text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre">
+          <span className="font-mono text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre">
             Coordenação Internacional de Vida e Património
           </span>
         </motion.div>
 
         <h1 
           ref={headlineRef}
-          className="font-sora text-[clamp(44px,5.6rem,82px)] leading-[1.04] tracking-[-0.02em] text-off mb-12 overflow-hidden"
+          className="font-display text-[clamp(48px,9vw,82px)] leading-[0.98] tracking-[-0.02em] text-off mb-12 overflow-hidden"
         >
-          <span className="font-[100] block">Você não precisa</span>
-          <span className="font-[100] block">de mais informação.</span>
-          <span className="font-[200] block">Precisa de alguém</span>
-          <span className="font-[200] block">que coordene</span>
-          <span className="font-[200] text-[#cead84] italic block">coordene a decisão.</span>
+          <span className="font-[200] block">Você não precisa</span>
+          <span className="font-[200] block">de mais informação.</span>
+          <span className="font-[300] block">Precisa de alguém</span>
+          <span className="font-[300] text-latte italic block">que coordene a decisão.</span>
         </h1>
 
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.3 }}
-          className="font-urbanist text-[17px] font-[300] text-mut leading-[1.7] max-w-[460px] mb-12"
+          className="font-body text-[17px] font-[300] text-mut leading-[1.7] max-w-[460px] mb-12"
         >
           A MOOVIA Portugal não resolve tarefas isoladas.
           Coordenação completa, do primeiro diagnóstico
@@ -92,13 +91,13 @@ export function Hero() {
         >
           <Link
             to="/contacto"
-            className="wipe-btn bg-cobre text-navy-deep font-urbanist text-[12px] font-[600] tracking-[0.2em] uppercase px-8 py-3 rounded-sm transition-transform active:scale-95"
+            className="wipe-btn bg-cobre text-navy-deep font-mono text-[10px] font-[600] tracking-[0.2em] uppercase px-8 py-3 rounded-sm transition-transform active:scale-95"
           >
             <span className="relative z-10">Avaliar meu caso</span>
           </Link>
           <a
             href="#processo"
-            className="border border-line-gold text-mut font-urbanist text-[12px] font-[400] tracking-[0.2em] uppercase px-8 py-3 hover:border-cobre transition-all rounded-sm"
+            className="border border-line-gold text-mut font-mono text-[10px] font-[400] tracking-[0.2em] uppercase px-8 py-3 hover:border-cobre transition-all rounded-sm"
           >
             Ver como funciona
           </a>
@@ -114,20 +113,20 @@ export function Hero() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: stat.delay, ease: [0.16, 1, 0.3, 1] }}
-            className="p-8 lg:px-10 lg:py-8 min-w-[320px] glass-hover transition-colors"
+            className="p-8 lg:px-10 lg:py-8 min-w-[320px] glass-hover transition-colors border-b border-line-cool last:border-0"
           >
-            <div className="font-sora text-[48px] font-[200] text-latte leading-none mb-3 tracking-[-0.03em] flex items-baseline">
+            <div className="font-display text-[48px] font-[200] text-latte leading-none mb-3 tracking-[-0.03em] flex items-baseline">
               {stat.prefix && <span className="text-[28px] mr-1 font-[100]">{stat.prefix}</span>}
               <NumberFlow value={stat.num} />
               {stat.suffix && <span className="text-[28px] ml-1 font-[100]">{stat.suffix}</span>}
             </div>
-            <div className="font-sora text-[11px] font-[400] tracking-[0.14em] uppercase text-mut">{stat.label}</div>
+            <div className="font-mono text-[10px] font-[400] tracking-[0.14em] uppercase text-mut">{stat.label}</div>
           </motion.div>
         ))}
       </div>
 
       {/* SCROLL INDICATOR */}
-      <div className="absolute bottom-12 left-8 lg:left-20 flex items-center gap-12 font-urbanist text-[11px] tracking-[0.2em] uppercase text-w35">
+      <div className="absolute bottom-12 left-8 lg:left-20 flex items-center gap-12 font-mono text-[10px] tracking-[0.2em] uppercase text-w35">
         <div className="w-10 h-px bg-gold relative overflow-hidden">
           <motion.div 
             animate={{ x: ["-100%", "100%"] }}

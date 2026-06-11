@@ -43,7 +43,7 @@ export function FAQSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-sora text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre mb-6 flex items-center gap-4"
+          className="font-mono text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre mb-6 flex items-center gap-4"
         >
           <span className="w-6 h-px bg-cobre" />
           Perguntas frequentes
@@ -54,7 +54,7 @@ export function FAQSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-sora text-[clamp(28px,4vw,44px)] font-[200] leading-[1.15] text-off mb-16"
+          className="font-display text-[clamp(28px,4vw,44px)] font-[200] leading-[1.02] text-off mb-16"
         >
           O que as pessoas perguntam<br />antes de decidir.
         </motion.h2>
@@ -68,7 +68,7 @@ export function FAQSection() {
                   className={`w-full py-7 px-8 flex justify-between items-center text-left transition-colors ${isOpen ? 'bg-navy-raise' : 'hover:bg-navy-rich'}`}
                   onClick={() => setOpen(isOpen ? null : i)}
                 >
-                  <span className="font-urbanist text-[17px] text-off font-[400] pr-8">{f.q}</span>
+                  <span className="font-body text-[17px] text-off font-[400] pr-8">{f.q}</span>
                   <div className="shrink-0 text-cobre">
                     {isOpen ? <X weight="thin" size={20} /> : <Plus weight="thin" size={20} />}
                   </div>
@@ -83,7 +83,7 @@ export function FAQSection() {
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                     >
                       <div className="px-8 pb-8">
-                        <p className="font-urbanist text-[16px] font-[300] text-mut leading-[1.7] border-t border-line-cool pt-6">
+                        <p className="font-body text-[16px] font-[300] text-mut leading-[1.7] border-t border-line-cool pt-6">
                           {f.a}
                         </p>
                       </div>

@@ -41,7 +41,7 @@ export function ProblemSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-sora text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre mb-4 flex items-center gap-3"
+            className="font-mono text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre mb-4 flex items-center gap-3"
           >
             <span className="w-6 h-px bg-cobre" />
             O mercado resolve tarefas
@@ -52,7 +52,7 @@ export function ProblemSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-sora text-[clamp(32px,4vw,60px)] font-[200] leading-[1.06] tracking-[-0.02em] mb-6 text-off max-w-4xl"
+            className="font-display text-[clamp(32px,5vw,60px)] font-[200] leading-[1.02] tracking-[-0.02em] mb-6 text-off max-w-4xl"
           >
             "O problema não é a burocracia.<br/>
             É que ninguém coordena o todo."
@@ -63,7 +63,7 @@ export function ProblemSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="font-urbanist text-[18px] font-[300] text-mut leading-[1.7] max-w-[640px]"
+            className="font-body text-[18px] font-[300] text-mut leading-[1.7] max-w-[640px]"
           >
             Você tem um advogado para o visto, um corretor para o imóvel, uma escola para os filhos, um contador para o NIF. Cada um no seu quadrado. E você no meio tentando fazer tudo encaixar numa das decisões mais complexas da sua família.
           </motion.p>
@@ -77,20 +77,20 @@ export function ProblemSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="glass p-10 lg:p-12 relative overflow-hidden group hover:bg-navy-rich transition-colors rounded-2xl"
+              className="glass p-10 lg:p-12 relative overflow-hidden group hover:bg-navy-rich transition-all duration-700 rounded-2xl border-line-gold/10 hover:border-line-gold/30"
             >
-              <div className="w-10 h-10 glass rounded-lg flex items-center justify-center mb-8 border-line-cool group-hover:border-cobre/40 transition-colors">
-                <card.icon weight="thin" size={20} className="text-cobre" />
+              <div className="w-12 h-12 glass rounded-xl flex items-center justify-center mb-8 border-line-gold group-hover:border-cobre/40 transition-colors shadow-lg shadow-cobre/5">
+                <card.icon weight="thin" size={24} className="text-cobre" />
               </div>
               
-              <div className="font-sora text-[44px] font-[100] text-cobre opacity-[0.05] absolute top-4 right-8 leading-none select-none pointer-events-none group-hover:-translate-y-1 transition-transform">
+              <div className="font-display text-[64px] font-[100] text-cobre opacity-[0.06] absolute top-2 right-8 leading-none select-none pointer-events-none group-hover:-translate-y-2 transition-transform duration-700">
                 {card.n}
               </div>
 
-              <h3 className="font-sora text-[19px] font-[300] text-off mb-4 leading-snug">
+              <h3 className="font-display text-[24px] font-[300] text-off mb-4 leading-snug">
                 {card.title}
               </h3>
-              <p className="font-urbanist text-[15px] font-[300] text-mut leading-[1.7]">
+              <p className="font-body text-[15px] font-[300] text-mut leading-[1.7]">
                 {card.body}
               </p>
             </motion.div>
@@ -103,7 +103,7 @@ export function ProblemSection() {
           viewport={{ once: true }}
           className="mt-4 flex flex-col items-center justify-center text-center glass py-24 px-12 rounded-2xl border-line-gold/20"
         >
-          <p className="font-sora text-[clamp(26px,4vw,52px)] font-[200] leading-tight text-off">
+          <p className="font-display text-[clamp(26px,4vw,52px)] font-[200] leading-[1.02] text-off">
             "O mercado resolve tarefas."<br/>
             <span className="text-latte italic font-[200]">A MOOVIA resolve a decisão.</span>
           </p>
