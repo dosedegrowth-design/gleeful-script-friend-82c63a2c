@@ -49,7 +49,7 @@ export function FoundersSection() {
               </p>
               <div className="mt-8 flex flex-wrap gap-2">
                 {["Oracle", "SAP", "Lisboa, 2018", "TI · 29 anos"].map((t) => (
-                  <span key={t} className="px-3 py-1 font-urbanist text-[11px] tracking-[0.12em] uppercase border border-border text-white-3">{t}</span>
+                  <span key={t} className="px-3 py-1 font-sora text-[11px] tracking-[0.2em] uppercase border border-border text-white-3">{t}</span>
                 ))}
               </div>
             </div>
