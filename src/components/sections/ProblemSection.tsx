@@ -29,7 +29,7 @@ const cards = [
 
 export function ProblemSection() {
   return (
-    <section className="bg-black py-[120px] px-6 lg:px-[80px] relative z-[1] pointer-events-none">
+    <section className="bg-black py-[120px] px-6 lg:px-[80px] relative z-[1]">
       <div className="mx-auto max-w-[1400px] pointer-events-auto">
         <Reveal>
           <div className="font-sora text-[11px] tracking-[0.34em] uppercase text-gold mb-4 flex items-center gap-3">
