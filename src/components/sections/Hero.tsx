@@ -1,12 +1,8 @@
 import { useEffect, useRef } from "react";
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import NumberFlow from "@number-flow/react";
 import SplitType from "split-type";
 import { gsap } from "gsap";
-import { ChevronDown } from "lucide-react";
-import { Icon } from "@/components/ui/Icon";
-
 
 export function Hero() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
@@ -27,13 +23,6 @@ export function Hero() {
     );
     return () => split.revert();
   }, []);
-
-  const stats = [
-    { num: 250, prefix: "€", label: "Strategic Assessment", delay: 0.6 },
-    { num: 90, suffix: "'", label: "Sessão com o founder", delay: 0.75 },
-    { num: 4, prefix: "0", label: "Pilares de coordenação", delay: 0.9 },
-    { num: 90, suffix: "d", label: "Acompanhamento pós-chegada", delay: 1.05 },
-  ];
 
   return (
     <section className="relative min-h-[100svh] grid lg:grid-cols-2 align-items-stretch px-0 overflow-hidden bg-[#06091a] transition-all duration-300">
@@ -134,8 +123,6 @@ export function Hero() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#06091a] via-transparent to-transparent opacity-40" />
         </motion.div>
       </div>
-    </section>
-  );
     </section>
   );
 }
