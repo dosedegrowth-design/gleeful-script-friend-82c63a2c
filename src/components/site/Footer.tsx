@@ -6,16 +6,16 @@ export function Footer() {
       <div className="mx-auto max-w-[1400px]">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_auto] gap-20 mb-[56px]">
           <div className="footer-brand">
-            <Link to="/" className="flex items-center group mb-6">
+            <Link to="/" className="flex flex-col group gap-1">
               <img 
                 src="/mooviagold.svg" 
                 alt="MOOVIA Logo" 
-                className="h-10 w-auto object-contain"
+                className="h-12 w-auto object-contain self-start"
               />
+              <p className="font-sora text-[10px] tracking-[0.34em] uppercase text-white/20 transition-colors group-hover:text-white/40">
+                Planejar · Chegar · Ficar
+              </p>
             </Link>
-            <p className="font-sora text-[10px] tracking-[0.34em] uppercase text-white/10 ml-1">
-              Planejar · Chegar · Ficar
-            </p>
           </div>
 
           
