@@ -53,44 +53,39 @@ const teamMembers = [
 
 export function TeamSection() {
   return (
-    <section className="bg-black pt-[80px] px-6 lg:px-[80px] relative z-[1]">
+    <section className="bg-black py-[120px] px-6 lg:px-[80px] relative z-[1]">
       <div className="mx-auto max-w-[1400px] pointer-events-auto">
         <div className="max-w-[580px] mb-20">
           <Reveal>
+            <div className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-gold mb-4 flex items-center gap-3">
+              <span className="w-6 h-px bg-gold" />
+              A equipa
+            </div>
+          </Reveal>
+          <Reveal delay={100}>
             <h2 className="font-sora font-[200] text-[clamp(28px,3vw,44px)] leading-[1.1] text-white">
               A equipa que coordena a sua jornada.
             </h2>
           </Reveal>
-          <Reveal delay={100}>
+          <Reveal delay={200}>
             <p className="mt-6 font-urbanist font-[300] text-[17px] text-white/35 leading-relaxed">
               Cada membro da MOOVIA foi escolhido pela profundidade da experiência, não pelo tamanho do currículo. São as pessoas certas para as decisões que importam.
             </p>
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-[#181818] relative z-[100] isolate pointer-events-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border relative z-[100] isolate pointer-events-auto">
           {teamMembers.map((member, i) => (
-            <Reveal key={member.name} delay={i * 50} className={member.isLarge ? "lg:col-span-2" : ""}>
+            <Reveal key={member.name} delay={i * 50} className={member.name === 'Frederico Prado' ? "hidden" : ""}>
               <div 
-                className={`group h-full p-8 md:p-9 transition-all duration-500 border-l-2 border-transparent hover:border-gold flex flex-col ${
-                  member.isLarge ? "bg-[#0A0A0A]" : "bg-[#0E0E0E] hover:bg-[#0A0A0A]"
-                }`}
+                className="group h-full p-8 md:p-9 transition-all duration-500 border-l-2 border-transparent hover:border-gold flex flex-col bg-black-2 hover:bg-black-3"
               >
                 <div className="flex flex-col mb-5">
-                  {member.image && (
-                    <div className="w-full aspect-square mb-6 overflow-hidden bg-[#181818] rounded-none">
-                      <img 
-                        src={member.image} 
-                        alt={member.name} 
-                        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-                      />
-                    </div>
-                  )}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 mb-6">
                     {member.chips.map((chip) => (
                       <span 
                         key={chip} 
-                        className="font-sora font-[400] text-[10px] tracking-[0.2em] uppercase text-white/35 px-2.5 py-1 border border-[#181818]"
+                        className="font-urbanist font-[400] text-[10px] tracking-[0.1em] uppercase text-white/35 px-2.5 py-1 border border-border group-hover:border-gold/30 transition-colors"
                       >
                         {chip}
                       </span>
@@ -98,10 +93,10 @@ export function TeamSection() {
                   </div>
                 </div>
 
-                <h3 className="font-sora font-[300] text-[18px] text-white mt-auto">
+                <h3 className="font-sora font-[300] text-[18px] text-white">
                   {member.name}
                 </h3>
-                <p className="font-sora text-[11px] tracking-[0.2em] uppercase text-gold mt-1">
+                <p className="font-urbanist text-[11px] tracking-[0.18em] uppercase text-gold mt-1 font-[400]">
                   {member.role}
                 </p>
                 <p className="font-urbanist font-[300] text-[14px] text-white/35 leading-[1.7] mt-3.5 line-clamp-2">
