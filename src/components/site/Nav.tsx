@@ -51,7 +51,7 @@ export function Nav() {
           <Link
             key={l.label}
             to={l.to}
-            className="font-urbanist text-[13px] font-normal tracking-[0.12em] uppercase text-white/40 hover:text-white relative transition-colors group"
+            className="font-sora text-[13px] font-normal tracking-[0.2em] uppercase text-white/40 hover:text-white relative transition-colors group"
           >
             {l.label}
             <span className="absolute -bottom-[4px] left-0 w-0 h-px bg-gold transition-all duration-300 group-hover:w-full" />
