@@ -11,15 +11,15 @@ export function Hero() {
 
   return (
     <section
-      className="relative min-h-[100svh] flex flex-col lg:flex-row items-center overflow-hidden z-[1]"
+      className="relative min-h-[100svh] flex flex-col lg:flex-row items-center overflow-hidden z-[1] pointer-events-none"
 
     >
       <div className="absolute inset-0 z-0 bg-black">
         <div 
           className="absolute inset-0 opacity-40"
           style={{
-            background: `radial-gradient(ellipse 80% 60% at 70% 50%, rgba(15,31,65,0.7) 0%, transparent 70%),
-                         radial-gradient(ellipse 40% 60% at 20% 80%, rgba(173,137,87,0.06) 0%, transparent 60%)`
+            background: `radial-gradient(ellipse 60% 50% at 75% 20%, rgba(173,137,87,0.15) 0%, transparent 70%),
+                         radial-gradient(ellipse 40% 60% at 20% 80%, rgba(15,31,65,0.4) 0%, transparent 60%)`
           }}
         />
       </div>
@@ -38,8 +38,8 @@ export function Hero() {
         />
       </div>
 
-      <div className="relative z-[100] px-8 lg:px-[100px] pt-[160px] pb-[120px] flex-1 isolate">
-        <p className="font-urbanist text-[11px] tracking-[0.4em] uppercase text-gold mb-10 flex items-center gap-12 animate-[fadeUp_0.8s_ease_0.3s_forwards] opacity-0 will-change-transform">
+      <div className="relative z-[100] px-8 lg:px-[100px] pt-[160px] pb-[120px] flex-1 isolate pointer-events-auto">
+        <p className="font-sora text-[11px] tracking-[0.4em] uppercase text-gold mb-10 flex items-center gap-12 animate-[fadeUp_0.8s_ease_0.3s_forwards] opacity-0 will-change-transform">
           <span className="w-10 h-px bg-gold" />
           Coordenação Internacional de Vida e Património
         </p>
@@ -55,7 +55,7 @@ export function Hero() {
             <span className="inline-block animate-[slideUp_1.1s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.3s]">Precisa de alguém que</span>
           </span>
           <span className="block overflow-hidden h-[1.1em]">
-            <span className="inline-block text-gold-l animate-[slideUp_1.1s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.45s] italic">coordene a decisão.</span>
+            <span className="inline-block text-gold animate-[slideUp_1.1s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.45s] italic">coordene a decisão.</span>
           </span>
         </h1>
 
@@ -80,7 +80,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="hidden xl:flex flex-col gap-px bg-border/20 relative z-[100] ml-auto mr-[100px] border border-border/20 isolate">
+      <div className="hidden xl:flex flex-col gap-px bg-border/20 relative z-[100] ml-auto mr-[100px] border border-border/20 isolate pointer-events-auto">
         {[
           { num: "€250", label: "Strategic Assessment", delay: "0.6s" },
           { num: "90'", label: "Sessão com o founder", delay: "0.75s" },
@@ -92,13 +92,15 @@ export function Hero() {
             className="p-10 border border-border/10 bg-black/40 backdrop-blur-sm animate-[fadeUp_0.8s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 translate-x-10 will-change-transform min-w-[300px]"
             style={{ animationDelay: stat.delay }}
           >
-            <div className="font-amotha text-[52px] font-extralight text-gold-l leading-none mb-3 tracking-[-0.04em]">{stat.num}</div>
-            <div className="font-urbanist text-[11px] tracking-[0.18em] uppercase text-white/40">{stat.label}</div>
+            <div className="font-amotha text-[52px] font-extralight text-gold leading-none mb-3 tracking-[-0.04em]">
+              {stat.num}
+            </div>
+            <div className="font-sora text-[11px] tracking-[0.3em] uppercase text-white/40">{stat.label}</div>
           </div>
         ))}
       </div>
 
-      <div className="absolute bottom-12 left-8 lg:left-[100px] z-[2] flex items-center gap-16 font-urbanist text-[11px] tracking-[0.25em] uppercase text-white/30 animate-[fadeUp_0.6s_ease_1.8s_forwards] opacity-0">
+      <div className="absolute bottom-12 left-8 lg:left-[100px] z-[2] flex items-center gap-16 font-sora text-[11px] tracking-[0.34em] uppercase text-white/30 animate-[fadeUp_0.6s_ease_1.8s_forwards] opacity-0 pointer-events-none">
         <div className="w-12 h-px bg-border/30 relative overflow-hidden">
           <div className="absolute inset-0 bg-gold -translate-x-full animate-[scrollLine_2s_ease_infinite]" />
         </div>

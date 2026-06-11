@@ -10,25 +10,25 @@ export function Footer() {
               <img 
                 src="/mooviagold.svg" 
                 alt="MOOVIA Logo" 
-                className="w-10 h-10 object-contain drop-shadow-[0_0_8px_rgba(173,137,87,0.2)]"
+                className="w-10 h-10 object-contain"
               />
               <div className="flex flex-col">
-                <div className="font-amotha text-[28px] tracking-[0.04em] text-white leading-none">
-                  MO<span className="text-[#cead84]">O</span>VIA
+                <div className="font-amotha text-[28px] tracking-[0.14em] text-white leading-none uppercase">
+                  MO<span className="text-gold">O</span>VIA
                 </div>
-                <p className="font-urbanist text-[11px] tracking-[0.3em] uppercase text-white/40 mt-1">
-                  Portugal
+                <p className="font-sora text-[11px] tracking-[0.3em] uppercase text-white/40 mt-1">
+                  PORTUGAL
                 </p>
               </div>
             </Link>
-            <p className="font-urbanist text-[10px] tracking-[0.2em] uppercase text-white/10">
+            <p className="font-sora text-[10px] tracking-[0.34em] uppercase text-white/10">
               Planejar · Chegar · Ficar
             </p>
           </div>
 
           
           <div className="footer-col">
-            <h5 className="font-urbanist text-[11px] tracking-[0.2em] uppercase text-gold mb-5 font-medium">Serviços</h5>
+            <h5 className="font-sora text-[11px] tracking-[0.3em] uppercase text-gold mb-5 font-medium">Serviços</h5>
             <div className="flex flex-col gap-2.5">
               <Link to="/assessment" className="font-urbanist text-[14px] font-light text-white-3 hover:text-gold-l transition-colors">Assessment</Link>
               <Link to="/servicos" className="font-urbanist text-[14px] font-light text-white-3 hover:text-gold-l transition-colors">Pilares</Link>
@@ -38,7 +38,7 @@ export function Footer() {
           </div>
           
           <div className="footer-col">
-            <h5 className="font-urbanist text-[11px] tracking-[0.2em] uppercase text-gold mb-5 font-medium">Contacto</h5>
+            <h5 className="font-sora text-[11px] tracking-[0.3em] uppercase text-gold mb-5 font-medium">Contacto</h5>
             <div className="flex flex-col gap-2.5">
               <a href="https://mooviaportugal.com" className="font-urbanist text-[14px] font-light text-white-3 hover:text-gold-l transition-colors">mooviaportugal.com</a>
               <a href="https://wa.me/351913000000" className="font-urbanist text-[14px] font-light text-white-3 hover:text-gold-l transition-colors">WhatsApp</a>

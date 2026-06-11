@@ -11,7 +11,7 @@ export const FLIGHT_PATH = new THREE.CatmullRomCurve3([
   new THREE.Vector3( 0.2, -1.5, -0.6),   // cross para direita — fundadores
   new THREE.Vector3( 3.4, -2.4,  0.6),
   new THREE.Vector3( 3.0, -3.4, -0.2),
-  new THREE.Vector3( 1.2, -4.6,  0.7),   // processo — passa por trás do card
+  new THREE.Vector3( 1.2, -4.6,  0.7),   // assessment - dive toward center
   new THREE.Vector3(-1.0, -5.8, -0.5),
   new THREE.Vector3(-3.0, -6.8,  0.4),   // pilares — grande curva esquerda
   new THREE.Vector3(-2.6, -7.8,  0.1),
@@ -20,7 +20,7 @@ export const FLIGHT_PATH = new THREE.CatmullRomCurve3([
   new THREE.Vector3( 1.5,-11.8, -0.2),
   new THREE.Vector3( 0.0,-13.5,  0.3),   // form
   new THREE.Vector3(-2.8,-15.5,  0.0),
-  new THREE.Vector3(-4.0,-17.0,  0.0),   // pouso — footer
+  new THREE.Vector3(-4.0,-17.0,  0.0),   // final descent into the footer
 ], false, 'catmullrom', 0.5)
 
 export function getTangent(t: number) {

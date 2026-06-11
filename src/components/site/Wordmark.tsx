@@ -7,15 +7,15 @@ export function Wordmark() {
         <img 
           src="/mooviagold.svg" 
           alt="MOOVIA Logo" 
-          className="w-full h-full object-contain drop-shadow-[0_0_8px_rgba(173,137,87,0.2)]"
+          className="w-full h-full object-contain"
         />
       </div>
       <div className="flex flex-col gap-0">
-        <div className="font-amotha text-[26px] tracking-[0.04em] text-white leading-none">
-          MO<span className="text-[#cead84]">O</span>VIA
+        <div className="font-amotha text-[26px] tracking-[0.14em] text-white leading-none uppercase">
+          MO<span className="text-gold">O</span>VIA
         </div>
-        <span className="font-urbanist text-[10px] tracking-[0.35em] uppercase text-white/30 mt-[3px]">
-          Portugal
+        <span className="font-sora text-[10px] tracking-[0.5em] uppercase text-white/30 mt-[3px]">
+          PORTUGAL
         </span>
       </div>
     </Link>

@@ -9,22 +9,22 @@ const selectFields = [
   { 
     name: "objective", 
     placeholder: "Qual o seu objetivo principal?", 
-    options: ["Trabalhar em Portugal", "Estudar", "Mudar com a família", "Investir", "Outro"] 
+    options: ["Mudar com a família", "Investir e estruturar património", "Estudo dos filhos", "Aposentadoria em Portugal"] 
   },
   { 
     name: "timing", 
     placeholder: "Quando pretende mudar?", 
-    options: ["Menos de 3 meses", "3 a 6 meses", "6 a 12 meses", "Ainda estou pesquisando"] 
+    options: ["Nos próximos 3 meses", "3 a 6 meses", "6 a 12 meses", "Ainda pesquisando"] 
   },
   { 
     name: "composition", 
     placeholder: "Quantas pessoas participam da mudança?", 
-    options: ["Apenas eu", "Casal", "Família com filhos", "Tenho animais de estimação"] 
+    options: ["Apenas eu", "Casal", "Família com filhos"] 
   },
   { 
     name: "decision_phase", 
-    placeholder: "Em que fase da sua decisão está?", 
-    options: ["Apenas pesquisando", "Comparando alternativas", "Já tomei a decisão", "Já tenho proposta confirmada"] 
+    placeholder: "Em que fase da decisão está?", 
+    options: ["Só começando a pensar", "Decidido, organizando", "Pronto para executar"] 
   },
 ];
 
@@ -109,7 +109,7 @@ export function LeadForm() {
         <div className="aspect-[4/5] md:aspect-[16/10] border border-border bg-black/40">
           <iframe src={calendlyUrl} className="w-full h-full" title="Calendly" />
         </div>
-        <a href="https://wa.me/351913000000" target="_blank" rel="noopener noreferrer" className="mt-10 block text-center font-urbanist text-[13px] uppercase tracking-[0.14em] text-gold-l hover:text-gold transition-colors font-medium">
+        <a href="https://wa.me/351913000000" target="_blank" rel="noopener noreferrer" className="mt-10 block text-center font-sora text-[13px] uppercase tracking-[0.2em] text-gold-l hover:text-gold transition-colors font-medium">
           Prefere WhatsApp? →
         </a>
       </div>
@@ -166,7 +166,7 @@ export function LeadForm() {
       <button
         type="submit"
         disabled={loading}
-        className="bg-gold text-black font-urbanist text-[13px] font-bold tracking-[0.22em] uppercase px-10 py-5 relative overflow-hidden group transition-all duration-300 mt-2 disabled:opacity-60"
+        className="bg-gold text-black font-sora text-[13px] font-bold tracking-[0.22em] uppercase px-10 py-5 relative overflow-hidden group transition-all duration-300 mt-2 disabled:opacity-60"
       >
         <span className="relative z-10">{loading ? "A enviar…" : "Enviar e aguardar retorno"}</span>
         <div className="absolute inset-0 bg-gold-xl origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100" />

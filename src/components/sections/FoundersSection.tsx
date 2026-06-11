@@ -3,18 +3,18 @@ import { Reveal } from "@/components/site/Reveal";
 
 export function FoundersSection() {
   return (
-    <section id="sobre" className="bg-black py-[120px] px-6 lg:px-[80px] relative z-[1]">
-      <div className="mx-auto max-w-[1400px]">
+    <section id="sobre" className="bg-black py-[120px] px-6 lg:px-[80px] relative z-[1] pointer-events-none">
+      <div className="mx-auto max-w-[1400px] pointer-events-auto">
         <div className="max-w-3xl">
           <Reveal>
-            <div className="font-urbanist text-[11px] tracking-[0.28em] uppercase text-gold mb-4 flex items-center gap-3">
+            <div className="font-sora text-[11px] tracking-[0.34em] uppercase text-gold mb-4 flex items-center gap-3">
               <span className="w-6 h-px bg-gold" />
               Os fundadores são o produto
             </div>
           </Reveal>
           <Reveal delay={100}>
             <h2 className="font-amotha text-[clamp(32px,4vw,60px)] font-extralight leading-[1.1] text-white">
-              Antes de coordenar transições internacionais,<br />vivemos as nossas.
+              Antes de coordenar transições internacionais,<br />vivemos as <span className="text-gold italic">nossas.</span>
             </h2>
           </Reveal>
           <Reveal delay={200}>
@@ -40,7 +40,7 @@ export function FoundersSection() {
           </Reveal>
           <Reveal delay={140}>
             <div>
-              <p className="font-urbanist text-[11px] tracking-[0.2em] uppercase text-gold mb-4">Founder & Senior Advisor</p>
+              <p className="font-sora text-[11px] tracking-[0.34em] uppercase text-gold mb-4">Founder & Senior Advisor</p>
               <h3 className="font-amotha text-4xl font-extralight text-white">Frederico Prado</h3>
               <p className="mt-6 font-urbanist text-[17px] font-light text-white-3 leading-relaxed">
                 29 anos em TI. Oracle, SAP, projetos enterprise de médio e grande porte. Veio para
@@ -49,7 +49,7 @@ export function FoundersSection() {
               </p>
               <div className="mt-8 flex flex-wrap gap-2">
                 {["Oracle", "SAP", "Lisboa, 2018", "TI · 29 anos"].map((t) => (
-                  <span key={t} className="px-3 py-1 font-urbanist text-[11px] tracking-[0.12em] uppercase border border-border text-white-3">{t}</span>
+                  <span key={t} className="px-3 py-1 font-sora text-[11px] tracking-[0.2em] uppercase border border-border text-white-3">{t}</span>
                 ))}
               </div>
             </div>

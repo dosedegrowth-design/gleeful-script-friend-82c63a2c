@@ -196,11 +196,8 @@ export function ChatAssistant() {
     };
   }, [messages, leadData]);
 
-  const MooviaIsotipo = ({ size, color }: { size: number, color: string }) => (
-    <svg width={size} height={size} viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M50 10L90 35V65L50 90L10 65V35L50 10Z" stroke={color} strokeWidth="4" />
-      <path d="M30 45L50 35L70 45V55L50 65L30 55V45Z" fill={color} />
-    </svg>
+  const MooviaIsotipo = ({ size }: { size: number }) => (
+    <img src="/mooviagold.svg" alt="MOOVIA" style={{ width: size, height: size }} className="object-contain" />
   );
 
   return (
@@ -213,8 +210,8 @@ export function ChatAssistant() {
                 <img src="/mooviagold.svg" alt="MOOVIA" className="w-5 h-5 object-contain" />
               </div>
               <div>
-                <h4 className="font-sora text-[13px] font-normal text-[#f9f5ec]">MOOVIA</h4>
-                <p className="font-urbanist text-[11px] text-white/35 uppercase tracking-[0.12em]">
+                <h4 className="font-sora text-[13px] font-normal text-[#f9f5ec] tracking-[0.1em] uppercase">MOOVIA</h4>
+                <p className="font-sora text-[11px] text-white/35 uppercase tracking-[0.2em]">
                   {leadData.name ? `Olá, ${leadData.name}` : 'Assistente'}
                 </p>
               </div>

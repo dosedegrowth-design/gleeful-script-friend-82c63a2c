@@ -5,22 +5,22 @@ import { cn } from "@/lib/utils";
 
 
 const faqs = [
-  { q: "O que exatamente a MOOVIA Portugal faz?", a: "A MOOVIA Portugal coordena a jornada completa de transição internacional, do diagnóstico estratégico até os 90 dias após a chegada. Não somos uma empresa de imigração, não somos uma imobiliária, não somos uma escola. Somos o único ponto de responsabilidade para uma decisão que normalmente exige coordenar dez fornecedores diferentes ao mesmo tempo." },
-  { q: "O que é o Strategic Assessment de €250?", a: "É o primeiro produto da MOOVIA: não uma consulta, mas um trabalho estratégico real com entregável físico. 90 minutos com o founder, mapeamento completo de perfil, riscos, estratégias e cronograma. Os €250 são abatidos integralmente no mandato se decidir seguir com a MOOVIA." },
-  { q: "Qual a diferença entre a MOOVIA e uma empresa de imigração?", a: "Uma empresa de imigração resolve o visto. A MOOVIA coordena a decisão inteira, escola, imóvel, fiscalidade, integração familiar e os 90 dias depois da chegada. Você não nos contrata para resolver um problema. Nos contrata para que os problemas não apareçam." },
-  { q: "A MOOVIA trabalha com pacotes ou planos de serviço?", a: "Não. Cada cliente recebe uma proposta construída a partir do seu diagnóstico. Não existe plano A, B ou C. Existe um mandato personalizado. Um alfaiate não tem prateleira. Nós também não." },
-  { q: "Quanto tempo leva o processo de transição?", a: "Depende do perfil. Um profissional de TI com proposta de trabalho pode estar operacional em Portugal em 30 a 90 dias. Uma família em transição patrimonial pode levar de 3 a 12 meses. O cronograma real é definido no Assessment, a primeira resposta concreta que você recebe." },
-  { q: "Quanto custa a transição completa com a MOOVIA?", a: "Não publicamos tabela de preços porque não existem pacotes. O Assessment custa €250, abatidos no mandato. O mandato completo varia entre €3.000 e €10.000 dependendo do perfil, do corredor e da complexidade." },
-  { q: "A MOOVIA atende apenas brasileiros?", a: "O foco principal é o corredor Brasil para Portugal. Atendemos também clientes de África lusófona. Se o seu caso está fora desses corredores, a conversa de qualificação define se temos o perfil certo." },
+  { q: "O que exatamente a MOOVIA Portugal faz?", a: "A MOOVIA Portugal coordena a jornada completa de transição internacional, do diagnóstico estratégico até 90 dias após a chegada. Não somos uma empresa de imigração, não somos uma imobiliária, não somos uma escola. Somos o único ponto de responsabilidade para uma decisão que normalmente exige coordenar dez fornecedores diferentes ao mesmo tempo." },
+  { q: "O que é o Strategic Assessment de €250?", a: "O Strategic Assessment é o primeiro trabalho estratégico da MOOVIA. São 90 minutos com entregável físico: um mapeamento completo de perfil, riscos, estratégias e cronograma da sua transição. Não é uma consulta, é um diagnóstico. Os €250 são abatidos integralmente caso decida seguir com o mandato." },
+  { q: "Qual a diferença entre a MOOVIA e uma empresa de imigração?", a: "Uma empresa de imigração resolve o seu visto. A MOOVIA coordena a decisão inteira, da habitação à escola, do banco à estrutura fiscal, da chegada à adaptação da família. O visto é uma das dezenas de peças que organizamos, não o produto final." },
+  { q: "A MOOVIA trabalha com pacotes ou planos de serviço?", a: "Não trabalhamos com pacotes ou planos prontos. Cada mandato é desenhado sob medida a partir do seu Assessment, porque duas famílias nunca chegam a Portugal pelo mesmo caminho. O escopo nasce do diagnóstico, não de uma prateleira." },
+  { q: "Quanto tempo leva o processo de transição?", a: "Depende da complexidade do seu caso, mas a maioria das transições se estrutura ao longo de alguns meses de planeamento e execução, seguidos dos 90 dias de acompanhamento pós-chegada. O cronograma exato faz parte do que entregamos no Assessment." },
+  { q: "Quanto custa a transição completa com a MOOVIA?", a: "O Assessment é €250, abatidos no mandato. O mandato varia entre €3.000 e €10.000 conforme o escopo definido no diagnóstico. Não cobramos por tarefa avulsa, cobramos pela coordenação completa da decisão." },
+  { q: "A MOOVIA atende apenas brasileiros?", a: "O corredor principal é Brasil para Portugal, mas também coordenamos transições da África Lusófona. O que define o nosso trabalho não é a nacionalidade, é a complexidade da decisão de reconstruir uma vida noutro país." },
 ];
 
 export function FAQSection() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section className="bg-black-2 py-[120px] px-6 lg:px-[80px] relative z-[1]">
-      <div className="mx-auto max-w-3xl">
+    <section className="bg-black-2 py-[120px] px-6 lg:px-[80px] relative z-[1] pointer-events-none">
+      <div className="mx-auto max-w-3xl pointer-events-auto">
         <Reveal>
-          <div className="font-urbanist text-[11px] tracking-[0.28em] uppercase text-gold mb-6 flex items-center gap-3">
+          <div className="font-sora text-[11px] tracking-[0.34em] uppercase text-gold mb-6 flex items-center gap-3">
             <span className="w-6 h-px bg-gold" />
             Perguntas frequentes
           </div>
@@ -39,7 +39,7 @@ export function FAQSection() {
                   className="w-full py-7 flex justify-between items-center gap-6 text-left group"
                   onClick={() => setOpen(isOpen ? null : i)}
                 >
-                  <span className="font-urbanist text-[16px] font-normal text-white group-hover:text-gold transition-colors">{f.q}</span>
+                  <span className="font-sora text-[16px] font-normal text-white group-hover:text-gold transition-colors">{f.q}</span>
                   <Plus
                     size={20}
                     className="text-gold shrink-0 transition-transform duration-400"

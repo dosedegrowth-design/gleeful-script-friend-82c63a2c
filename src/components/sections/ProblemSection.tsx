@@ -29,10 +29,10 @@ const cards = [
 
 export function ProblemSection() {
   return (
-    <section className="bg-black-2 py-[120px] px-6 lg:px-[80px] relative z-[1]">
-      <div className="mx-auto max-w-[1400px]">
+    <section className="bg-black py-[120px] px-6 lg:px-[80px] relative z-[1] pointer-events-none">
+      <div className="mx-auto max-w-[1400px] pointer-events-auto">
         <Reveal>
-          <div className="font-urbanist text-[11px] tracking-[0.28em] uppercase text-gold mb-4 flex items-center gap-3">
+          <div className="font-sora text-[11px] tracking-[0.34em] uppercase text-gold mb-4 flex items-center gap-3">
             <span className="w-6 h-px bg-gold" />
             O mercado resolve tarefas
           </div>
@@ -40,7 +40,7 @@ export function ProblemSection() {
         <Reveal delay={100}>
           <h2 className="font-amotha text-[clamp(32px,4vw,60px)] font-extralight leading-[1.06] tracking-[-0.02em] mb-6 text-white">
             O problema não é a burocracia.<br/>
-            <em className="text-gold-l not-italic">É que ninguém coordena o todo.</em>
+            <span className="text-gold italic">É que ninguém coordena o todo.</span>
           </h2>
         </Reveal>
         <Reveal delay={200}>
@@ -49,7 +49,7 @@ export function ProblemSection() {
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px border border-border mt-[72px] relative z-[100] isolate">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px border border-border mt-[72px] relative z-[100] isolate pointer-events-auto">
           {cards.map((card, i) => (
             <Reveal key={card.n} delay={i * 80} distance={30}>
               <div className="inside-card p-10 lg:p-[48px] bg-black-2 relative overflow-hidden group transition-colors duration-400 hover:bg-black-3 h-full">
@@ -57,7 +57,7 @@ export function ProblemSection() {
                 <div className="font-amotha text-[72px] font-thin text-gold/10 leading-none mb-1 tracking-[-0.04em]">
                   {card.n}
                 </div>
-                <p className="font-urbanist text-[10px] tracking-[0.22em] uppercase text-gold mb-4 font-medium">
+                <p className="font-sora text-[10px] tracking-[0.3em] uppercase text-gold mb-4 font-medium">
                   {card.tag}
                 </p>
                 <h3 className="font-amotha text-[20px] font-light text-white mb-4 leading-tight">
@@ -71,10 +71,10 @@ export function ProblemSection() {
           ))}
         </div>
 
-        <Reveal delay={400} className="mt-20 text-center bg-black p-12">
+        <Reveal delay={400} className="mt-20 text-center bg-black p-12 pointer-events-auto">
           <p className="font-amotha text-[clamp(28px,4vw,52px)] font-extralight leading-snug text-white">
             "O mercado resolve tarefas."<br/>
-            <span className="text-gold-l italic">"A MOOVIA resolve a decisão."</span>
+            <span className="text-gold italic">A MOOVIA resolve a decisão.</span>
           </p>
         </Reveal>
 

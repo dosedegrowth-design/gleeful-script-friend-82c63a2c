@@ -13,11 +13,11 @@ const deliverables = [
 
 export function AssessmentSection() {
   return (
-    <section id="assessment" className="bg-black py-[120px] px-6 lg:px-[80px] relative z-[1]">
-      <div className="mx-auto max-w-[1400px] grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+    <section id="assessment" className="bg-black py-[120px] px-6 lg:px-[80px] relative z-[1] pointer-events-none">
+      <div className="mx-auto max-w-[1400px] grid grid-cols-1 lg:grid-cols-2 gap-20 items-start pointer-events-auto">
         <div>
           <Reveal>
-            <div className="font-urbanist text-[11px] tracking-[0.28em] uppercase text-gold mb-4 flex items-center gap-3">
+            <div className="font-sora text-[11px] tracking-[0.34em] uppercase text-gold mb-4 flex items-center gap-3">
               <span className="w-6 h-px bg-gold" />
               Strategic Relocation Assessment
             </div>
@@ -38,19 +38,18 @@ export function AssessmentSection() {
           </Reveal>
         </div>
 
-        <Reveal delay={140} className="relative z-[100] isolate">
+        <Reveal delay={140} className="relative z-[100] isolate pointer-events-auto">
           <div
-
-            className="p-10 md:p-12 border border-border bg-black-3 relative overflow-hidden"
+            className="p-10 md:p-12 border border-border bg-[#0f1f41]/20 backdrop-blur-sm relative overflow-hidden"
           >
-            <div className="absolute top-0 left-0 right-0 h-[3px] bg-[linear-gradient(90deg,var(--gold),var(--teal),var(--gold))] bg-[length:200%] animate-[gradientSlide_4s_ease_infinite]" />
-            <div className="font-amotha text-[88px] font-thin text-gold-l leading-none tracking-[-0.04em]">
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gold" />
+            <div className="font-amotha text-[88px] font-thin text-gold leading-none tracking-[-0.04em]">
               €250
             </div>
-            <p className="mt-3 font-urbanist text-[11px] tracking-[0.18em] uppercase text-white-3">
+            <p className="mt-3 font-sora text-[11px] tracking-[0.3em] uppercase text-white-3">
               Strategic Relocation Assessment · 90 minutos
             </p>
-            <div className="mt-12 font-urbanist text-[11px] tracking-[0.2em] uppercase text-gold mb-4">Entregáveis:</div>
+            <div className="mt-12 font-sora text-[11px] tracking-[0.3em] uppercase text-gold mb-4">Entregáveis:</div>
             <ul className="mt-0 space-y-0">
               {deliverables.map((d) => (
                 <li key={d} className="flex items-start gap-3 font-urbanist text-[14px] font-light text-white-3 py-3 border-b border-border last:border-0 leading-relaxed">

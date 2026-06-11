@@ -4,29 +4,29 @@ import { Link } from "@tanstack/react-router";
 const steps = [
   {
     n: "01",
-    tag: "Conversa Gratuita",
+    tag: "Passo 01 · Conversa Gratuita",
     title: "Entendemos o seu contexto",
     body: "Uma conversa direta com o founder, sem script, sem chatbot. Validamos o fit e mostramos como a MOOVIA pensa o seu caso. Não entregamos a solução aqui. Mostramos a profundidade do que é necessário resolver.",
     badge: "Sem custo · Agendamento via Calendly",
   },
   {
     n: "02",
-    tag: "Strategic Assessment · €250",
+    tag: "Passo 02 · €250 · Strategic Assessment",
     title: "O primeiro trabalho real",
     body: "90 minutos com entregável físico. Mapeamento completo de perfil, riscos, estratégias e cronograma. Não é consulta: é diagnóstico.",
     badge: "€250 abatidos no mandato",
   },
   {
     n: "03",
-    tag: "Mandato Personalizado",
+    tag: "Passo 03 · Mandato Personalizado",
     title: "Coordenação completa",
     body: "Do visto ao apartamento, da escola ao banco. Um único ponto de responsabilidade para a decisão mais importante da sua família.",
     badge: "€3.000 a €10.000",
   },
   {
     n: "90",
-    tag: "Pós-chegada",
-    title: "Chegar é metade",
+    tag: "Passo 90 · Pós-chegada",
+    title: "Os 90 dias após o pouso",
     body: "Os 90 dias após o pouso são os mais críticos. Adaptação familiar, rotina, integração. Nenhum concorrente acompanha este período de forma estruturada. Nós acompanhamos.",
     badge: "Único no mercado",
   },
@@ -45,11 +45,11 @@ const deliverables = [
 
 export function ProcessSection() {
   return (
-    <section id="processo" className="bg-black py-[120px] px-6 lg:px-[80px] relative z-[1]">
-      <div className="mx-auto max-w-[1400px] grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+    <section id="processo" className="bg-black py-[120px] px-6 lg:px-[80px] relative z-[1] pointer-events-none">
+      <div className="mx-auto max-w-[1400px] grid grid-cols-1 lg:grid-cols-2 gap-20 items-start pointer-events-auto">
         <div>
           <Reveal>
-            <div className="font-urbanist text-[11px] tracking-[0.28em] uppercase text-gold mb-4 flex items-center gap-3">
+            <div className="font-sora text-[11px] tracking-[0.34em] uppercase text-gold mb-4 flex items-center gap-3">
               <span className="w-6 h-px bg-gold" />
               Como trabalhamos
             </div>
@@ -57,7 +57,7 @@ export function ProcessSection() {
           <Reveal delay={100}>
             <h2 className="font-amotha text-[clamp(32px,4vw,60px)] font-extralight leading-[1.06] tracking-[-0.02em] mb-12 text-white">
               Um processo.<br/>
-              <em className="text-gold-l not-italic italic">Do diagnóstico<br/>ao destino.</em>
+              <span className="text-gold italic">Do diagnóstico ao destino.</span>
             </h2>
           </Reveal>
 
@@ -72,10 +72,10 @@ export function ProcessSection() {
                     {i < steps.length - 1 && <div className="w-px flex-1 min-h-[20px] bg-border" />}
                   </div>
                   <div className="pl-6 pb-8">
-                    <p className="font-urbanist text-[10px] tracking-[0.2em] uppercase text-gold mb-2">{step.tag}</p>
+                    <p className="font-sora text-[10px] tracking-[0.3em] uppercase text-gold mb-2">{step.tag}</p>
                     <h3 className="font-amotha text-[20px] font-light text-white mb-2.5">{step.title}</h3>
                     <p className="font-urbanist text-[14px] font-light text-white-3 leading-[1.85]">{step.body}</p>
-                    <span className="inline-block font-urbanist text-[10px] tracking-[0.12em] uppercase text-black bg-gold px-3 py-1 mt-3">
+                    <span className="inline-block font-sora text-[10px] tracking-[0.2em] uppercase text-black bg-gold px-3 py-1 mt-3">
                       {step.badge}
                     </span>
                   </div>
@@ -89,9 +89,9 @@ export function ProcessSection() {
           <Reveal delay={200}>
             <div className="bg-black-3 border border-border p-[52px] relative overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-[3px] bg-[linear-gradient(90deg,var(--gold),var(--teal),var(--gold))] bg-[length:200%] animate-[gradientSlide_4s_ease_infinite]" />
-              <p className="font-urbanist text-[11px] tracking-[0.24em] uppercase text-gold mb-6">Strategic Relocation Assessment</p>
-              <div className="font-amotha text-[88px] font-thin text-gold-l leading-none tracking-[-0.04em] mb-1">€250</div>
-              <p className="font-urbanist text-[11px] tracking-[0.24em] uppercase text-white-3 mb-9">90 minutos · Entregável físico</p>
+              <p className="font-sora text-[11px] tracking-[0.34em] uppercase text-gold mb-6">Strategic Relocation Assessment</p>
+              <div className="font-amotha text-[88px] font-thin text-gold leading-none tracking-[-0.04em] mb-1">€250</div>
+              <p className="font-sora text-[11px] tracking-[0.34em] uppercase text-white-3 mb-9">90 minutos · Entregável físico</p>
               <ul className="space-y-0">
                 {deliverables.map((item) => (
                   <li key={item} className="flex items-start gap-3 font-urbanist text-[14px] font-light text-white-3 py-3 border-b border-border last:border-0 leading-relaxed">

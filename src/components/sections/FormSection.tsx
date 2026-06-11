@@ -3,11 +3,11 @@ import { LeadForm } from "./LeadForm";
 
 export function FormSection() {
   return (
-    <section id="contacto" className="bg-black-2 py-[120px] px-6 lg:px-[80px] relative z-[1]">
-      <div className="mx-auto max-w-[1400px] grid grid-cols-1 lg:grid-cols-2 gap-20">
+    <section id="contacto" className="bg-black-2 py-[120px] px-6 lg:px-[80px] relative z-[1] pointer-events-none">
+      <div className="mx-auto max-w-[1400px] grid grid-cols-1 lg:grid-cols-2 gap-20 pointer-events-auto">
         <div className="pt-2">
           <Reveal>
-            <div className="font-urbanist text-[11px] tracking-[0.28em] uppercase text-gold mb-4 flex items-center gap-3">
+            <div className="font-sora text-[11px] tracking-[0.34em] uppercase text-gold mb-4 flex items-center gap-3">
               <span className="w-6 h-px bg-gold" />
               O primeiro passo
             </div>
@@ -15,7 +15,7 @@ export function FormSection() {
           <Reveal delay={100}>
             <h2 className="font-amotha text-[clamp(32px,4vw,60px)] font-extralight leading-[1.06] tracking-[-0.02em] mb-6 text-white">
               A conversa<br/>
-              <em className="text-gold-l not-italic italic">certa.</em>
+              <span className="text-gold italic">certa.</span>
             </h2>
           </Reveal>
           <Reveal delay={200}>
@@ -33,7 +33,7 @@ export function FormSection() {
           </Reveal>
         </div>
         
-        <Reveal delay={200} distance={20} className="relative z-[100] isolate">
+        <Reveal delay={200} distance={20} className="relative z-[100] isolate pointer-events-auto">
           <LeadForm />
         </Reveal>
       </div>
