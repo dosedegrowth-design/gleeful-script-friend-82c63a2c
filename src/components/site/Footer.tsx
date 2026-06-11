@@ -38,7 +38,7 @@ export function Footer() {
           </div>
           
           <div className="footer-col">
-            <h5 className="font-urbanist text-[11px] tracking-[0.2em] uppercase text-gold mb-5 font-medium">Contacto</h5>
+            <h5 className="font-sora text-[11px] tracking-[0.3em] uppercase text-gold mb-5 font-medium">Contacto</h5>
             <div className="flex flex-col gap-2.5">
               <a href="https://mooviaportugal.com" className="font-urbanist text-[14px] font-light text-white-3 hover:text-gold-l transition-colors">mooviaportugal.com</a>
               <a href="https://wa.me/351913000000" className="font-urbanist text-[14px] font-light text-white-3 hover:text-gold-l transition-colors">WhatsApp</a>
