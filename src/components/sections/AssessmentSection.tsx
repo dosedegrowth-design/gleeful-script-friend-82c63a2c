@@ -49,7 +49,7 @@ export function AssessmentSection() {
             <p className="mt-3 font-sora text-[11px] tracking-[0.3em] uppercase text-white-3">
               Strategic Relocation Assessment · 90 minutos
             </p>
-            <div className="mt-12 font-urbanist text-[11px] tracking-[0.2em] uppercase text-gold mb-4">Entregáveis:</div>
+            <div className="mt-12 font-sora text-[11px] tracking-[0.3em] uppercase text-gold mb-4">Entregáveis:</div>
             <ul className="mt-0 space-y-0">
               {deliverables.map((d) => (
                 <li key={d} className="flex items-start gap-3 font-urbanist text-[14px] font-light text-white-3 py-3 border-b border-border last:border-0 leading-relaxed">
