@@ -224,14 +224,14 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <div id="cursor-dot" className="hidden lg:block fixed top-0 left-0 w-8 h-8 pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.6s_cubic-bezier(0.4,0,0.2,1),opacity_0.2s]">
+        <div id="cursor-dot" className="hidden lg:block fixed top-0 left-0 w-10 h-10 pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.6s_cubic-bezier(0.4,0,0.2,1),opacity_0.2s]">
           <img 
-            src="/navicon.png" 
+            src="/custom-cursor.png" 
             alt="Cursor" 
             className="w-full h-full drop-shadow-[0_0_8px_rgba(173,137,87,0.4)]"
           />
         </div>
-        <div id="cursor-ring" className="hidden lg:block fixed top-0 left-0 w-9 h-9 border border-[#cead84]/40 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.2s_ease,width_0.25s,height_0.25s,opacity_0.2s]" />
+        <div id="cursor-ring" className="hidden lg:block fixed top-0 left-0 w-11 h-11 border border-[#cead84]/40 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.2s_ease,width_0.25s,height_0.25s,opacity_0.2s]" />
         <AirplaneScene />
         {children}
         <Toaster position="top-right" richColors />
