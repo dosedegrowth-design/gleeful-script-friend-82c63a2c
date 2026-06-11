@@ -54,13 +54,10 @@ export function ProblemSection() {
             <Reveal key={card.n} delay={i * 80} distance={30}>
               <div className="inside-card p-10 lg:p-[48px] bg-black-2 relative overflow-hidden group transition-colors duration-400 hover:bg-black-3 h-full">
                 <div className="absolute top-0 left-0 w-[3px] h-0 bg-gold transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:h-full" />
-                <div className="font-amotha text-[72px] font-thin text-gold/10 leading-none mb-1 tracking-[-0.04em]">
+                <div className="font-sora text-[60px] font-[100] text-gold/7 leading-none mb-1 tracking-[-0.04em] absolute top-8 right-10 pointer-events-none">
                   {card.n}
                 </div>
-                <p className="font-sora text-[10px] tracking-[0.3em] uppercase text-gold mb-4 font-medium">
-                  {card.tag}
-                </p>
-                <h3 className="font-amotha text-[20px] font-light text-white mb-4 leading-tight">
+                <h3 className="font-sora text-[19px] font-[300] text-white mb-4 leading-tight">
                   {card.title}
                 </h3>
                 <p className="font-urbanist text-[14px] font-light text-white-3 leading-[1.85]">
