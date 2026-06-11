@@ -1,57 +1,42 @@
+import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
+import { WhatsAppLogo, LinkedinLogo, Globe } from "@phosphor-icons/react";
 
 export function Footer() {
   return (
-    <footer className="bg-black-2 border-t border-b18 pt-20 px-6 lg:px-20 pb-10">
-      <div className="mx-auto max-w-[1400px]">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-20 mb-20">
-          {/* Coluna 1: Logo */}
-          <div>
-            <div className="flex flex-col group mb-8">
-              <div className="flex items-baseline">
-                <span className="font-sora text-[28px] font-[500] text-gold-l tracking-[0.04em] uppercase">MO</span>
-                <span className="font-sora text-[28px] font-[500] text-gold tracking-[0.04em] uppercase">O</span>
-                <span className="font-sora text-[28px] font-[500] text-gold-l tracking-[0.04em] uppercase">VIA</span>
-              </div>
-              <span className="font-urbanist text-[14px] font-[300] text-w35 tracking-[0.3em] uppercase -mt-1">Portugal</span>
-            </div>
-            <p className="font-urbanist text-[12px] tracking-[0.28em] uppercase text-w12 mb-6">Planejar · Chegar · Ficar</p>
-            <p className="font-urbanist text-[13px] font-[300] text-w35 max-w-[260px] leading-relaxed mt-5">
-              Coordenação Internacional de Vida e Património.<br />
-              Brasil → Portugal · África Lusófona
-            </p>
-          </div>
-
-          {/* Coluna 2: Serviços */}
-          <div>
-            <h5 className="font-urbanist text-[11px] font-[500] tracking-[0.2em] uppercase text-gold mb-8">Serviços</h5>
-            <div className="flex flex-col gap-3">
-               {["Como funciona", "Assessment", "4 Pilares", "Blog", "Sobre", "Contacto"].map(l => (
-                 <a key={l} href={`#${l.toLowerCase().replace(" ", "-")}`} className="font-urbanist text-[14px] font-[300] text-w35 hover:text-gold-l transition-colors w-fit">{l}</a>
-               ))}
-            </div>
-          </div>
-
-          {/* Coluna 3: Contacto */}
-          <div>
-            <h5 className="font-urbanist text-[11px] font-[500] tracking-[0.2em] uppercase text-gold mb-8">Contacto</h5>
-            <div className="flex flex-col gap-3">
-               <a href="https://mooviaportugal.com" className="font-urbanist text-[14px] font-[300] text-w35 hover:text-gold-l transition-colors w-fit">mooviaportugal.com</a>
-               <a href="https://wa.me/351913000000" className="font-urbanist text-[14px] font-[300] text-w35 hover:text-gold-l transition-colors w-fit">WhatsApp</a>
-               <a href="https://linkedin.com" className="font-urbanist text-[14px] font-[300] text-w35 hover:text-gold-l transition-colors w-fit">LinkedIn</a>
-               <a href="mailto:contato@mooviaportugal.com" className="font-urbanist text-[14px] font-[300] text-w35 hover:text-gold-l transition-colors w-fit">E-mail</a>
-            </div>
-          </div>
+    <footer className="bg-navy-deep py-24 px-6 lg:px-20 border-t border-line-gold">
+      <div className="mx-auto max-w-[1400px] grid lg:grid-cols-4 gap-16">
+        <div className="lg:col-span-2">
+           <div className="flex items-center gap-2 mb-8">
+              <img src="/mooviagold.svg" alt="MOOVIA" className="h-8" />
+           </div>
+           <p className="font-urbanist text-[14px] font-[300] text-mut leading-[1.8] max-w-sm">
+             Coordenação Internacional de Vida e Património. Não apenas uma transição, mas a estruturação da sua nova jornada em Portugal. Um único mandato, uma vida inteira coordenada.
+           </p>
         </div>
 
-        <div className="pt-8 border-t border-b18 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="font-urbanist text-[12px] font-[300] text-w12">© 2026 MOOVIA Portugal · Todos os direitos reservados</p>
-          <p className="font-urbanist text-[12px] font-[300] text-w12 hidden md:block">Brasil → Portugal · África Lusófona</p>
-          <div className="flex gap-6 font-urbanist text-[12px] font-[300] text-w12">
-            <a href="#" className="hover:text-white transition-colors">Privacidade</a>
-            <a href="#" className="hover:text-white transition-colors">Cookies</a>
-          </div>
+        <div className="flex flex-col gap-4">
+           <h4 className="font-sora text-[12px] font-[400] tracking-[0.2em] uppercase text-cobre mb-4">A Jornada</h4>
+           {["Assessment", "Como funciona", "Serviços", "Blog"].map(l => (
+             <Link key={l} to="/" className="font-urbanist text-[13px] text-mut hover:text-off transition-colors">{l}</Link>
+           ))}
         </div>
+
+        <div className="flex flex-col gap-4">
+           <h4 className="font-sora text-[12px] font-[400] tracking-[0.2em] uppercase text-cobre mb-4">Legal</h4>
+           {["Termos", "Privacidade", "Compliance"].map(l => (
+             <Link key={l} to="/" className="font-urbanist text-[13px] text-mut hover:text-off transition-colors">{l}</Link>
+           ))}
+        </div>
+      </div>
+
+      <div className="mx-auto max-w-[1400px] mt-24 pt-12 border-t border-line-cool flex flex-col md:flex-row justify-between items-center gap-8">
+         <p className="font-urbanist text-[11px] text-mut">© 2026 MOOVIA Portugal. Todos os direitos reservados.</p>
+         <div className="flex gap-6">
+            <a href="#" className="text-mut hover:text-cobre transition-colors"><WhatsAppLogo size={20} weight="thin"/></a>
+            <a href="#" className="text-mut hover:text-cobre transition-colors"><LinkedinLogo size={20} weight="thin"/></a>
+            <a href="#" className="text-mut hover:text-cobre transition-colors"><Globe size={20} weight="thin"/></a>
+         </div>
       </div>
     </footer>
   );
