@@ -57,7 +57,7 @@ export function PillarsSection() {
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border mt-[72px] relative z-[100] isolate">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border mt-[72px] relative z-[100] isolate pointer-events-auto">
           {pillars.map((pillar, i) => (
             <Reveal key={pillar.n} delay={i * 120} distance={30} className="h-full">
               <div className="pillar bg-black-2 p-[60px] lg:p-[52px] relative overflow-hidden group transition-colors duration-400 hover:bg-black-3 h-full">
