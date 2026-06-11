@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Reveal } from "@/components/site/Reveal";
 import { motion, AnimatePresence } from "framer-motion";
+import { Plus, X } from "@phosphor-icons/react";
 
 const faqs = [
   { 
@@ -37,32 +37,40 @@ export function FAQSection() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="bg-black py-32 px-6 lg:px-20 relative z-10">
+    <section className="bg-navy-deep py-[clamp(110px,14vh,180px)] px-6 lg:px-20 relative z-10">
       <div className="mx-auto max-w-3xl">
-        <Reveal>
-          <div className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-gold mb-6 flex items-center gap-3">
-            <span className="w-6 h-px bg-gold" />
-            Perguntas frequentes
-          </div>
-        </Reveal>
-        <Reveal delay={100}>
-          <h2 className="font-sora text-[clamp(28px,4vw,44px)] font-[200] leading-[1.15] text-white mb-16">
-            O que as pessoas perguntam<br />antes de decidir.
-          </h2>
-        </Reveal>
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="font-sora text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre mb-6 flex items-center gap-4"
+        >
+          <span className="w-6 h-px bg-cobre" />
+          Perguntas frequentes
+        </motion.div>
+        
+        <motion.h2 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="font-sora text-[clamp(28px,4vw,44px)] font-[200] leading-[1.15] text-off mb-16"
+        >
+          O que as pessoas perguntam<br />antes de decidir.
+        </motion.h2>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
           {faqs.map((f, i) => {
             const isOpen = open === i;
             return (
-              <div key={i} className="border-b border-b18">
+              <div key={i} className="glass rounded-2xl overflow-hidden border-line-cool">
                 <button
-                  className={`w-full py-7 px-8 flex justify-between items-center text-left transition-colors ${isOpen ? 'bg-black-3' : 'bg-black-2 hover:bg-black-3'}`}
+                  className={`w-full py-7 px-8 flex justify-between items-center text-left transition-colors ${isOpen ? 'bg-navy-raise' : 'hover:bg-navy-rich'}`}
                   onClick={() => setOpen(isOpen ? null : i)}
                 >
-                  <span className="font-urbanist text-[16px] text-white font-[400]">{f.q}</span>
-                  <div className={`font-sora text-[24px] text-gold transition-transform duration-300 ${isOpen ? 'rotate-45' : 'rotate-0'}`}>
-                    +
+                  <span className="font-urbanist text-[17px] text-off font-[400] pr-8">{f.q}</span>
+                  <div className="shrink-0 text-cobre">
+                    {isOpen ? <X weight="thin" size={20} /> : <Plus weight="thin" size={20} />}
                   </div>
                 </button>
                 
@@ -72,10 +80,10 @@ export function FAQSection() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      className="overflow-hidden bg-[rgba(173,137,87,.04)] border-l-2 border-gold"
+                      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                     >
-                      <div className="p-8">
-                        <p className="font-urbanist text-[15px] font-[300] text-w35 leading-[1.85]">
+                      <div className="px-8 pb-8">
+                        <p className="font-urbanist text-[16px] font-[300] text-mut leading-[1.7] border-t border-line-cool pt-6">
                           {f.a}
                         </p>
                       </div>

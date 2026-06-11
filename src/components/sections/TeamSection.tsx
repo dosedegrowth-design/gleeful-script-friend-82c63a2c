@@ -92,7 +92,7 @@ export function TeamSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="bento-card p-10 lg:p-12 flex flex-col group h-full"
+              className="glass p-10 lg:p-12 flex flex-col group h-full rounded-2xl border-line-gold/10"
             >
               <div className="flex flex-col mb-10">
                 <div className="w-20 h-20 rounded-2xl bg-navy-deep border border-line-cool overflow-hidden mb-8 group-hover:border-cobre/40 transition-colors duration-500 relative">

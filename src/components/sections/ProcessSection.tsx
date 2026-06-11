@@ -2,6 +2,11 @@ import { useEffect, useRef } from "react";
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import NumberFlow from "@number-flow/react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ChatCircle, FileText, Compass, MapPin, CheckCircle } from "@phosphor-icons/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const steps = [
   {
@@ -9,28 +14,32 @@ const steps = [
     tag: "Sem custo · Calendly",
     title: "Entendemos o seu contexto",
     body: "Uma conversa direta com o founder, sem script, sem chatbot. Validamos o fit e mostramos como a MOOVIA pensa o seu caso. Não entregamos a solução aqui. Mostramos a profundidade do que é necessário resolver.",
-    badge: "Sem custo · Agendamento via Calendly"
+    badge: "Sem custo · Agendamento via Calendly",
+    icon: ChatCircle
   },
   {
     n: "02",
     tag: "€250 abatidos no mandato",
     title: "O primeiro trabalho real",
     body: "90 minutos com entregável físico. Mapeamento completo de perfil, riscos, estratégias e cronograma. Não é consulta: é diagnóstico.",
-    badge: "€250 abatidos no mandato"
+    badge: "€250 abatidos no mandato",
+    icon: FileText
   },
   {
     n: "03",
     tag: "Sob medida",
     title: "Coordenação completa",
     body: "Do visto ao apartamento, da escola ao banco. Um único ponto de responsabilidade para a decisão mais importante da sua família.",
-    badge: "€3.000 a €10.000"
+    badge: "€3.000 a €10.000",
+    icon: Compass
   },
   {
     n: "90",
     tag: "Único no mercado",
     title: "Chegar é metade",
     body: "Os 90 dias após o pouso são os mais críticos. Adaptação familiar, rotina, integração. Nenhum concorrente acompanha este período de forma estruturada. Nós acompanhamos.",
-    badge: "Único no mercado"
+    badge: "Acompanhamento 90 dias",
+    icon: MapPin
   }
 ];
 
@@ -45,76 +54,129 @@ const deliverables = [
 ];
 
 export function ProcessSection() {
+  const spineRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!spineRef.current || !containerRef.current) return;
+
+    gsap.fromTo(spineRef.current, 
+      { scaleY: 0 },
+      { 
+        scaleY: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 60%",
+          end: "bottom 60%",
+          scrub: true,
+        }
+      }
+    );
+  }, []);
+
   return (
-    <section id="processo" className="bg-black py-32 px-6 lg:px-20 relative z-10">
+    <section id="processo" ref={containerRef} className="bg-navy py-clamp(110px,14vh,180px) px-6 lg:px-20 relative z-10">
       <div className="mx-auto max-w-[1400px] grid lg:grid-cols-2 gap-20 items-start">
         {/* Timeline */}
-        <div>
-          <div className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-gold mb-4 flex items-center gap-3">
-            <span className="w-6 h-px bg-gold" />
+        <div className="relative">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="font-sora text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre mb-4 flex items-center gap-3"
+          >
+            <span className="w-6 h-px bg-cobre" />
             Como trabalhamos
-          </div>
-          <h2 className="font-sora text-[clamp(32px,4vw,60px)] font-[200] leading-[1.06] tracking-[-0.02em] text-white mb-16">
+          </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="font-sora text-[clamp(32px,4vw,60px)] font-[200] leading-[1.06] tracking-[-0.02em] text-off mb-20"
+          >
             "Um processo.<br/>Do diagnóstico ao destino."
-          </h2>
+          </motion.h2>
 
-          <div className="relative">
+          <div className="relative pl-12">
+             {/* The Spine */}
+             <div className="absolute left-[23px] top-2 bottom-8 w-px bg-line-gold" />
+             <div 
+               ref={spineRef}
+               className="absolute left-[23px] top-2 bottom-8 w-px bg-cobre origin-top z-10" 
+             />
+
              {steps.map((step, i) => (
-                <div key={step.n} className="flex gap-8 group mb-12 last:mb-0 relative">
-                  <div className="flex flex-col items-center shrink-0">
-                    <div className="w-12 h-12 border border-b18 bg-w05 flex items-center justify-center font-sora text-[14px] text-gold group-hover:bg-gold group-hover:text-black transition-all">
-                      {step.n}
-                    </div>
-                    {i < steps.length - 1 && <div className="w-px h-full bg-b18 mt-4" />}
-                  </div>
-                  <div className="pb-8">
-                     <p className="font-urbanist text-[11px] tracking-[0.14em] uppercase text-gold-m mb-2">{step.tag}</p>
-                     <h3 className="font-sora text-[20px] font-[300] text-white mb-3">{step.title}</h3>
-                     <p className="font-urbanist text-[14px] font-[300] text-w35 leading-[1.85] mb-4">{step.body}</p>
-                     <span className="inline-block px-3 py-1 bg-gold/10 text-gold text-[10px] uppercase tracking-wider border border-gold/20">
-                        {step.badge}
-                     </span>
-                  </div>
+                <div key={step.n} className="flex gap-10 group mb-20 last:mb-0 relative">
+                   {/* Node */}
+                   <div className="absolute -left-[12px] top-0 z-20">
+                      <div className="w-12 h-12 glass rounded-xl flex items-center justify-center border-line-cool group-hover:border-cobre transition-all group-hover:scale-110 duration-500">
+                         <step.icon weight="thin" size={20} className="text-cobre" />
+                      </div>
+                      <div className="absolute -top-1 -right-1 w-5 h-5 bg-navy-rich border border-line-gold flex items-center justify-center rounded-full text-[9px] font-sora text-latte">
+                         {step.n}
+                      </div>
+                   </div>
+
+                   <motion.div 
+                     initial={{ opacity: 0, x: 20 }}
+                     whileInView={{ opacity: 1, x: 0 }}
+                     viewport={{ once: true }}
+                     transition={{ duration: 0.6, delay: 0.2 }}
+                     className="pb-4"
+                   >
+                      <p className="font-sora text-[10px] tracking-[0.14em] uppercase text-beige mb-2">{step.tag}</p>
+                      <h3 className="font-sora text-[22px] font-[200] text-off mb-4 group-hover:text-latte transition-colors">{step.title}</h3>
+                      <p className="font-urbanist text-[15px] font-[300] text-mut leading-[1.7] mb-6 max-w-md">{step.body}</p>
+                      <span className="inline-block px-4 py-1.5 glass rounded-full text-cobre text-[10px] uppercase tracking-widest border-cobre/20">
+                         {step.badge}
+                      </span>
+                   </motion.div>
                 </div>
              ))}
           </div>
         </div>
 
         {/* Assessment Card */}
-        <div className="sticky top-32 lg:ml-10">
-          <div className="bg-black-3 border border-b18 p-12 relative overflow-hidden group">
-            <div className="absolute top-0 left-0 right-0 h-[3px] bg-[linear-gradient(90deg,var(--gold),var(--teal),var(--gold))] bg-[length:200%] animate-[gradient_4s_linear_infinite]" />
-            <style>{`@keyframes gradient { 0%{background-position:0%} 100%{background-position:200%} }`}</style>
+        <div className="sticky top-32 lg:pl-10">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="glass p-10 lg:p-12 relative overflow-hidden group rounded-2xl border-line-gold/20"
+          >
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-cobre opacity-30 group-hover:opacity-100 transition-opacity" />
             
-            <p className="font-urbanist text-[11px] tracking-[0.24em] uppercase text-gold mb-10">Strategic Relocation Assessment</p>
+            <p className="font-sora text-[11px] font-[400] tracking-[0.24em] uppercase text-cobre mb-10">Strategic Relocation Assessment</p>
             
-            <div className="font-sora text-[88px] font-[100] text-gold-l leading-none tracking-[-0.04em] flex items-baseline">
+            <div className="font-sora text-[88px] font-[100] text-latte leading-none tracking-[-0.04em] flex items-baseline">
               <span className="text-[40px] mr-2">€</span>
               <NumberFlow value={250} />
             </div>
             
-            <p className="font-urbanist text-[11px] font-[300] text-w35 tracking-[0.1em] uppercase mt-2 mb-10">90 minutos · Entregável físico</p>
+            <p className="font-urbanist text-[11px] font-[300] text-mut-2 tracking-[0.1em] uppercase mt-2 mb-10">90 minutos · Entregável físico</p>
 
             <ul className="space-y-4 mb-12">
-              {deliverables.map(d => (
-                <li key={d} className="flex gap-4 font-urbanist text-[14px] font-[300] text-w35">
-                  <span className="text-gold shrink-0">→</span>
+              {deliverables.map((d, i) => (
+                <li key={d} className="flex gap-4 font-urbanist text-[15px] font-[300] text-mut">
+                  <CheckCircle weight="thin" size={20} className="text-cobre shrink-0" />
                   {d}
                 </li>
               ))}
             </ul>
 
-            <p className="font-urbanist text-[13px] italic text-[rgba(173,137,87,.6)] mb-10 pt-6 border-t border-b18">
+            <p className="font-urbanist text-[13px] italic text-cobre/60 mb-10 pt-8 border-t border-line-cool">
               "Os €250 são abatidos integralmente no mandato se decidir seguir com a MOOVIA."
             </p>
 
             <Link
               to="/contacto"
-              className="wipe-btn block w-full text-center bg-gold text-black font-urbanist text-[12px] font-[600] tracking-[0.2em] uppercase py-5 rounded-none"
+              className="wipe-btn block w-full text-center bg-cobre text-navy-deep font-urbanist text-[12px] font-[600] tracking-[0.2em] uppercase py-5 rounded-sm"
             >
               <span className="relative z-10">Solicitar Assessment</span>
             </Link>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

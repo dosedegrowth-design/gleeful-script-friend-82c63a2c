@@ -13,50 +13,80 @@
   --font-urbanist: "Urbanist", sans-serif;
   --font-amotha: "Amotha", serif;
 
-  /* DEFINITIVO COLORS */
-  --color-black: #0e0f12;
-  --color-black-2: #12141a;
-  --color-black-3: #1a1d26;
-  --color-gold: #ad8957;
-  --color-gold-m: #a58d67;
-  --color-gold-l: #cead84;
-  --color-gold-xl: #e8d5b0;
-  --color-navy: #0f1f41;
-  --color-teal: #407e8d;
-  --color-white: #f9f5ec;
-  
-  --color-w70: rgba(249,245,236,.7);
-  --color-w35: rgba(249,245,236,.35);
+  /* REDESIGN v4 COLORS — Navy Base */
+  --color-navy: #16243F;   /* primary background, the logo's navy */
+  --color-navy-deep: #0E1A30;   /* deepest wells, footer, section voids */
+  --color-navy-rich: #1B2C4C;   /* elevated card surface */
+  --color-navy-raise: #233A61;   /* hover / raised surface */
+  --color-navy-glass: rgba(27, 44, 76, 0.55);   /* frosted panels, used WITH backdrop-blur */
+
+  --color-cobre: #ad8957;   /* PRIMARY accent (copper / Limed Oak) */
+  --color-latte: #cead84;   /* bright highlight, hover, key words */
+  --color-beige: #a58d67;   /* muted gold labels */
+
+  --color-off: #f9f5ec;   /* primary text */
+  --color-mut: rgba(249,245,236,.58);   /* muted text */
+  --color-mut-2: rgba(249,245,236,.36);
+  --color-line-gold: rgba(173,137,87,.16);    /* copper hairline */
+  --color-line-cool: rgba(214,224,247,.09);   /* cool hairline alt */
+  --color-harbour: #407e8d;   /* tertiary, faint atmospheric glow ONLY */
+
+  /* Legacy compatibility / common names */
+  --color-black: var(--color-navy-deep);
+  --color-black-2: var(--color-navy-deep);
+  --color-black-3: var(--color-navy-rich);
+  --color-gold: var(--color-cobre);
+  --color-gold-m: var(--color-beige);
+  --color-gold-l: var(--color-latte);
+  --color-gold-xl: var(--color-latte);
+  --color-white: var(--color-off);
+  --color-w70: var(--color-mut);
+  --color-w35: var(--color-mut-2);
   --color-w12: rgba(249,245,236,.12);
   --color-w05: rgba(249,245,236,.05);
-  --color-b18: rgba(173,137,87,.18);
-  --color-b35: rgba(173,137,87,.35);
-
-  /* Compatibility Aliases */
-  --color-border: var(--color-b18);
-  --color-border-2: var(--color-b35);
-  --color-navy-deep: var(--color-black-2);
-  --color-navy-rich: var(--color-black-3);
-  --color-off: var(--color-white);
-  --color-mut: var(--color-w70);
-  --color-mut-2: var(--color-w35);
-  --color-cobre: var(--color-gold);
-  --color-latte: var(--color-gold-l);
-  --color-beige: var(--color-gold-m);
+  --color-b18: var(--color-line-gold);
+  --color-b35: var(--color-line-cool);
+  --color-border: var(--color-line-gold);
+  --color-border-2: var(--color-line-cool);
+  --color-teal: var(--color-harbour);
 }
 
 @layer base {
   body {
-    background-color: var(--color-black);
-    color: var(--color-white);
+    background-color: var(--color-navy);
+    color: var(--color-off);
     font-family: var(--font-urbanist);
     font-weight: 300;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    line-height: 1.6;
+    line-height: 1.7; /* Increased for v4 */
     cursor: none;
   }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sora);
+    font-weight: 200;
+  }
+}
+
+.bg-mesh {
+  background: 
+    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(173,137,87,.12) 0%, transparent 100%),
+    radial-gradient(ellipse 60% 40% at 20% 80%, rgba(64,126,141,.10) 0%, transparent 100%);
+}
+
+.glass {
+  background: var(--color-navy-glass);
+  backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid var(--color-line-cool);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+.glass-hover:hover {
+  background: var(--color-navy-raise);
+  box-shadow: 0 30px 80px -30px rgba(173,137,87,.25), inset 0 1px 0 rgba(255,255,255,.06);
+}
   
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-sora);
@@ -107,7 +137,7 @@
   background: var(--color-gold-xl);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.5s cubic-bezier(.16,1,.3,1);
+  transition: transform 0.6s cubic-bezier(.16,1,.3,1);
   z-index: -1;
 }
 

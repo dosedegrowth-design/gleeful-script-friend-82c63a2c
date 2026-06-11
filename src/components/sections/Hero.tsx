@@ -33,7 +33,7 @@ export function Hero() {
   ];
 
   return (
-    <section className="relative min-h-[100svh] flex flex-col lg:flex-row items-center px-6 lg:px-20 py-32 overflow-hidden bg-black">
+    <section className="relative min-h-[100svh] flex flex-col lg:flex-row items-center px-6 lg:px-20 py-clamp(110px,14vh,180px) overflow-hidden bg-navy">
       {/* Background Layers */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Layer 1: Lisbon Image */}
@@ -45,16 +45,8 @@ export function Hero() {
             backgroundPosition: 'center'
           }}
         />
-        {/* Layer 2: Navy Radial */}
-        <div 
-          className="absolute inset-0"
-          style={{ background: 'radial-gradient(ellipse 80% 60% at 70% 50%, rgba(15,31,65,.7) 0%, transparent 70%)' }}
-        />
-        {/* Layer 3: Gold Radial */}
-        <div 
-          className="absolute inset-0"
-          style={{ background: 'radial-gradient(ellipse 40% 60% at 15% 80%, rgba(173,137,87,.08) 0%, transparent 60%)' }}
-        />
+        {/* Cinematic Mesh Layers */}
+        <div className="absolute inset-0 bg-mesh opacity-70" />
       </div>
 
       <div className="relative z-10 flex-1 flex flex-col items-start max-w-4xl">
@@ -62,30 +54,30 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex items-center gap-6 mb-10"
+          className="flex items-center gap-6 mb-12"
         >
-          <div className="w-8 h-px bg-gold" />
-          <span className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-gold">
+          <div className="w-8 h-px bg-cobre" />
+          <span className="font-sora text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre">
             Coordenação Internacional de Vida e Património
           </span>
         </motion.div>
 
         <h1 
           ref={headlineRef}
-          className="font-sora text-[clamp(44px,5.5vw,82px)] leading-[1.04] tracking-[-0.02em] text-white mb-12"
+          className="font-sora text-[clamp(44px,5.6rem,82px)] leading-[1.04] tracking-[-0.02em] text-off mb-12 overflow-hidden"
         >
           <span className="font-[100] block">Você não precisa</span>
           <span className="font-[100] block">de mais informação.</span>
           <span className="font-[200] block">Precisa de alguém</span>
           <span className="font-[200] block">que coordene</span>
-          <span className="font-[200] text-gold-l italic block">coordene a decisão.</span>
+          <span className="font-[200] text-latte italic block">a decisão.</span>
         </h1>
 
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.3 }}
-          className="font-urbanist text-[17px] font-[300] text-w35 leading-[1.85] max-w-[460px] mb-12"
+          className="font-urbanist text-[17px] font-[300] text-mut leading-[1.7] max-w-[460px] mb-12"
         >
           A MOOVIA Portugal não resolve tarefas isoladas.
           Coordenação completa, do primeiro diagnóstico
@@ -100,35 +92,36 @@ export function Hero() {
         >
           <Link
             to="/contacto"
-            className="wipe-btn bg-gold text-black font-urbanist text-[12px] font-[600] tracking-[0.2em] uppercase px-6 py-2.5 rounded-none"
+            className="wipe-btn bg-cobre text-navy-deep font-urbanist text-[12px] font-[600] tracking-[0.2em] uppercase px-8 py-3 rounded-sm transition-transform active:scale-95"
           >
             <span className="relative z-10">Avaliar meu caso</span>
           </Link>
           <a
             href="#processo"
-            className="border border-b18 text-w35 font-urbanist text-[12px] font-[400] tracking-[0.2em] uppercase px-6 py-2.5 hover:border-gold-m transition-all"
+            className="border border-line-gold text-mut font-urbanist text-[12px] font-[400] tracking-[0.2em] uppercase px-8 py-3 hover:border-cobre transition-all rounded-sm"
           >
             Ver como funciona
           </a>
         </motion.div>
       </div>
 
-      {/* STATS PANEL */}
-      <div className="relative z-10 hidden lg:flex flex-col gap-px bg-b18 ml-auto border border-b18">
+      {/* STATS PANEL — Frosted Glass */}
+      <div className="relative z-10 hidden lg:flex flex-col gap-px glass ml-auto rounded-xl overflow-hidden">
         {stats.map((stat, i) => (
           <motion.div 
             key={stat.label}
             initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: stat.delay }}
-            className="p-8 lg:px-10 lg:py-8 bg-w05 min-w-[280px]"
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: stat.delay, ease: [0.16, 1, 0.3, 1] }}
+            className="p-8 lg:px-10 lg:py-8 min-w-[320px] glass-hover transition-colors"
           >
-            <div className="font-sora text-[48px] font-[200] text-gold-l leading-none mb-3 tracking-[-0.03em] flex items-baseline">
-              {stat.prefix && <span className="text-[28px] mr-1">{stat.prefix}</span>}
+            <div className="font-sora text-[48px] font-[200] text-latte leading-none mb-3 tracking-[-0.03em] flex items-baseline">
+              {stat.prefix && <span className="text-[28px] mr-1 font-[100]">{stat.prefix}</span>}
               <NumberFlow value={stat.num} />
-              {stat.suffix && <span className="text-[28px] ml-1">{stat.suffix}</span>}
+              {stat.suffix && <span className="text-[28px] ml-1 font-[100]">{stat.suffix}</span>}
             </div>
-            <div className="font-urbanist text-[11px] tracking-[0.14em] uppercase text-w35">{stat.label}</div>
+            <div className="font-sora text-[11px] font-[400] tracking-[0.14em] uppercase text-mut">{stat.label}</div>
           </motion.div>
         ))}
       </div>
