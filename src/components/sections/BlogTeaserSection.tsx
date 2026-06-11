@@ -1,114 +1,84 @@
+import { Reveal } from "@/components/site/Reveal";
 import { Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
-import { ArrowRight } from "@phosphor-icons/react";
 
 const posts = [
   {
     category: "Visto",
     title: "Visto D3, D2 ou D7: qual é o certo para o seu perfil?",
-    excerpt: "A escolha do visto define o cronograma inteiro da sua mudança. Entender a diferença é o primeiro passo.",
+    excerpt: "A escolha do visto define o cronograma inteiro da sua mudança. Entender a diferença antes de contratar qualquer advogado é o primeiro passo para não perder tempo e dinheiro.",
     date: "12 Jun 2026",
-    readTime: "6 min",
-    id: 1
+    readTime: "6 min"
   },
   {
     category: "Fiscalidade",
     title: "Como funciona a tributação para brasileiros em Portugal em 2025",
-    excerpt: "O RNH acabou. O IFICI chegou. O que muda para quem pretende se mudar em 2025.",
+    excerpt: "O RNH acabou. O IFICI chegou. O que muda para quem pretende se mudar em 2025 e como estruturar a chegada para pagar menos imposto legalmente.",
     date: "10 Jun 2026",
-    readTime: "8 min",
-    id: 2
+    readTime: "8 min"
   },
   {
     category: "Habitação",
     title: "Quanto custa morar em Lisboa em 2025: bairro por bairro",
-    excerpt: "Os preços mudaram. Parque das Nações, Cascais, Almada: onde fica o melhor custo-benefício.",
+    excerpt: "Os preços mudaram. Parque das Nações, Cascais, Almada: onde fica o melhor custo-benefício para quem chega com família.",
     date: "05 Jun 2026",
-    readTime: "10 min",
-    id: 3
+    readTime: "10 min"
   }
 ];
 
 export function BlogTeaserSection() {
   return (
-    <section className="bg-navy-deep py-[clamp(110px,14vh,180px)] px-6 lg:px-[80px] relative z-[1]">
+    <section className="bg-black-2 py-32 px-6 lg:px-20 relative z-10">
       <div className="mx-auto max-w-[1400px]">
-        <div className="max-w-[700px] mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-cobre mb-4 flex items-center gap-4"
-          >
-            <span className="w-6 h-px bg-cobre" />
-            Conteúdo estratégico
-          </motion.div>
-          
-          <motion.h2 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-sora text-[clamp(28px,4vw,44px)] font-[200] leading-[1.1] text-off mb-8"
-          >
-            O que você precisa entender<br />antes de decidir.
-          </motion.h2>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-urbanist text-[17px] font-[300] text-mut leading-relaxed"
-          >
-            Artigos escritos pela equipa da MOOVIA sobre os temas que mais impactam a jornada.
-          </motion.p>
+        <div className="mb-20">
+          <Reveal>
+            <div className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-gold mb-4 flex items-center gap-3">
+              <span className="w-6 h-px bg-gold" />
+              Conteúdo estratégico
+            </div>
+          </Reveal>
+          <Reveal delay={100}>
+            <h2 className="font-sora text-[clamp(28px,4vw,44px)] font-[200] leading-[1.1] text-white max-w-2xl">
+              "O que você precisa entender antes de decidir."
+            </h2>
+          </Reveal>
+          <Reveal delay={200}>
+            <p className="mt-8 font-urbanist text-[17px] font-[300] text-w35 leading-relaxed max-w-xl">
+              Artigos escritos pela equipa da MOOVIA sobre os temas que mais impactam a jornada de transição internacional.
+            </p>
+          </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map((post, i) => (
-            <motion.div 
-              key={post.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="bento-card p-10 lg:p-12 flex flex-col group h-full"
-            >
-              <div className="bg-navy-raise/50 px-4 py-1.5 rounded-full w-fit font-urbanist font-[500] text-[10px] tracking-widest uppercase text-cobre mb-10 border border-line-cool">
-                {post.category}
-              </div>
-              <h3 className="font-sora text-[22px] font-[300] text-off leading-tight mb-6 group-hover:text-latte transition-colors duration-500 line-clamp-2">
-                {post.title}
-              </h3>
-              <p className="font-urbanist text-[15px] font-[300] text-mut leading-[1.7] mb-10 line-clamp-3">
-                {post.excerpt}
-              </p>
-              
-              <div className="mt-auto pt-8 border-t border-line-cool flex items-center justify-between font-urbanist text-[12px] text-mut-2 uppercase tracking-widest">
-                <div className="flex gap-4">
-                  <span>{post.readTime}</span>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+           {posts.map((post, i) => (
+             <div key={post.title} className="bg-black-3 border border-b18 p-10 flex flex-col group hover:border-gold/30 transition-all duration-500">
+                <div className="px-3 py-1 bg-gold/10 w-fit text-gold font-urbanist text-[10px] uppercase tracking-widest mb-10">
+                  {post.category}
                 </div>
-                <div className="w-8 h-8 rounded-full border border-line-gold flex items-center justify-center group-hover:bg-cobre group-hover:text-navy-deep transition-all duration-500">
-                  <ArrowRight size={14} weight="thin" />
+                <h3 className="font-sora text-[20px] font-[300] text-white mb-4 leading-tight line-clamp-2">
+                  {post.title}
+                </h3>
+                <p className="font-urbanist text-[14px] font-[300] text-w35 leading-relaxed mb-10 line-clamp-3">
+                  {post.excerpt}
+                </p>
+                <div className="mt-auto pt-6 border-t border-b18 flex items-center justify-between text-[11px] font-urbanist text-w35 uppercase tracking-widest">
+                   <div className="flex gap-4">
+                     <span>{post.date}</span>
+                     <span>{post.readTime}</span>
+                   </div>
+                   <span className="text-gold text-lg transition-transform group-hover:translate-x-1">→</span>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+             </div>
+           ))}
         </div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-20 text-center"
-        >
-          <Link
-            to="/blog"
-            className="inline-flex items-center gap-4 border border-line-gold px-12 py-5 font-urbanist text-[12px] font-[600] tracking-[0.2em] uppercase text-off hover:bg-navy-rich hover:border-cobre transition-all duration-500"
-          >
-            Ver todos os artigos
-            <ArrowRight size={16} weight="thin" className="text-cobre" />
-          </Link>
-        </motion.div>
+        <div className="mt-20 text-center">
+           <Link 
+             to="/blog"
+             className="inline-block py-4 px-10 border border-b18 font-urbanist text-[12px] uppercase tracking-[0.2em] text-w35 hover:text-white hover:border-gold transition-all"
+           >
+             Ver todos os artigos
+           </Link>
+        </div>
       </div>
     </section>
   );
