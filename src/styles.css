@@ -1,21 +1,36 @@
 :root {
-  --black:    #0e0f12;
-  --black-2:  #12141a;
-  --black-3:  #1a1d26;
+  /* ── FUNDOS PRINCIPAIS ─────────────────────────── */
+  --black:    #06091a;
+  --black-2:  #0b1225;
+  --black-3:  #111d36;
+
+  /* ── ACENTOS DOURADOS ─────────────────────────── */
   --gold:     #ad8957;
   --gold-m:   #a58d67;
   --gold-l:   #cead84;
   --gold-xl:  #e8d5b0;
+
+  /* ── AZUIS ───────────────────────────────────── */
   --navy:     #0f1f41;
-  --teal:     #407e8d;
+  --teal:     #4a90a0;
+
+  /* ── TEXTO ───────────────────────────────────── */
   --white:    #f9f5ec;
   --w70:      rgba(249,245,236,.7);
   --w35:      rgba(249,245,236,.35);
   --w12:      rgba(249,245,236,.12);
   --w05:      rgba(249,245,236,.05);
-  --b18:      rgba(173,137,87,.18);
-  --b35:      rgba(173,137,87,.35);
+
+  /* ── BORDAS ──────────────────────────────────── */
+  --b18:      rgba(173,137,87,.12);
+  --b35:      rgba(173,137,87,.30);
+  --navy-border: rgba(79,130,180,.12);
+
+  /* ── TRANSIÇÕES ──────────────────────────────── */
+  --ease-apple: cubic-bezier(0.25, 0.1, 0.25, 1.0);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
+
 
 @import "tailwindcss";
 
@@ -60,7 +75,7 @@
   height: 100%;
   pointer-events: none;
   z-index: 1000;
-  opacity: 0.55;
+  opacity: 0.45;
   animation: grain 8s steps(10) infinite;
   background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%22.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22 opacity=%22.04%22/%3E%3C/svg%3E');
 }

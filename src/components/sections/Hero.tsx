@@ -4,6 +4,9 @@ import { motion } from "framer-motion";
 import NumberFlow from "@number-flow/react";
 import SplitType from "split-type";
 import { gsap } from "gsap";
+import { ChevronDown } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
+
 
 export function Hero() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
@@ -33,7 +36,7 @@ export function Hero() {
   ];
 
   return (
-    <section className="relative min-h-[100svh] grid lg:grid-cols-2 align-items-center px-6 lg:px-20 overflow-hidden bg-black">
+    <section className="relative min-h-[100svh] grid lg:grid-cols-2 align-items-center px-6 lg:px-20 overflow-hidden bg-black transition-all duration-300">
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -41,8 +44,10 @@ export function Hero() {
           className="w-full h-full object-cover opacity-[0.15] grayscale brightness-[0.15] sepia-[0.3]"
           alt="Lisboa"
         />
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 60% at 70% 50%, rgba(15,31,65,.7) 0%, transparent 70%)' }} />
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 40% 60% at 15% 80%, rgba(173,137,87,.08) 0%, transparent 60%)' }} />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 90% 70% at 70% 40%, rgba(15,31,65,.85) 0%, transparent 65%)' }} />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 50% 50% at 10% 90%, rgba(173,137,87,.08) 0%, transparent 55%)' }} />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(79,130,180,.06) 0%, transparent 70%)' }} />
+
       </div>
 
       <div className="relative z-10 flex flex-col justify-center py-20">
@@ -60,7 +65,7 @@ export function Hero() {
 
         <h1 
           ref={headlineRef}
-          className="font-sora text-[clamp(44px,5.5vw,82px)] text-white leading-[1.04] tracking-[-0.02em] mb-12"
+          className="font-sora text-[clamp(44px,5.5vw,82px)] text-white leading-[1.04] tracking-[-0.025em] mb-12"
         >
           <span className="font-[100] block">Você não precisa</span>
           <span className="font-[100] block">de mais informação.</span>
@@ -88,13 +93,13 @@ export function Hero() {
         >
           <Link
             to="/#contacto"
-            className="bg-gold text-black font-urbanist font-[600] text-[12px] tracking-[0.2em] uppercase px-10 py-4 transition-all hover:bg-gold-xl"
+            className="bg-gold text-black font-urbanist font-[600] text-[12px] tracking-[0.2em] uppercase px-10 py-4 transition-all hover:bg-gold-xl rounded-[2px]"
           >
             Avaliar meu caso
           </Link>
           <a
             href="#processo"
-            className="border border-b18 text-w35 font-urbanist font-[400] text-[12px] tracking-[0.2em] uppercase px-10 py-4 hover:border-gold transition-all"
+            className="border border-b18 text-w35 font-urbanist font-[400] text-[12px] tracking-[0.2em] uppercase px-10 py-4 hover:border-gold transition-all rounded-[2px]"
           >
             Ver como funciona
           </a>
@@ -105,17 +110,27 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.8 }}
-          className="absolute bottom-12 flex items-center gap-10 font-urbanist text-[11px] tracking-[0.2em] uppercase text-w35"
+          className="absolute bottom-12 flex flex-col items-center gap-4 font-urbanist text-[11px] tracking-[0.2em] uppercase text-w35"
         >
-          <div className="w-10 h-px bg-gold relative overflow-hidden">
-            <motion.div 
-              animate={{ x: ["-100%", "100%"] }}
-              transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
-              className="absolute inset-0 bg-gold-l"
-            />
+          <div className="flex items-center gap-10">
+            <div className="w-10 h-px bg-gold relative overflow-hidden">
+              <motion.div 
+                animate={{ x: ["-100%", "100%"] }}
+                transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+                className="absolute inset-0 bg-gold-l"
+              />
+            </div>
+            Planejar · Chegar · Ficar
           </div>
-          Planejar · Chegar · Ficar
+          <motion.div 
+            animate={{ y: [0, 4, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            className="mt-2"
+          >
+            <Icon icon={ChevronDown} size={16} color="var(--gold)" />
+          </motion.div>
         </motion.div>
+
       </div>
 
       {/* STATS */}
@@ -126,7 +141,7 @@ export function Hero() {
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: stat.delay }}
-            className="p-8 border border-b18 bg-w05 min-w-[320px] backdrop-blur-sm"
+            className="p-[30px_32px] border border-b18 bg-w05 min-w-[320px] backdrop-blur-sm rounded-[2px] transition-all duration-300 hover:shadow-[0_4px_24px_rgba(0,0,0,0.25),0_0_0_1px_rgba(173,137,87,0.2)]"
           >
             <div className="font-sora text-[48px] font-[200] text-gold-l leading-none mb-2 tracking-[-0.03em] flex items-baseline">
               {stat.prefix && <span className="text-[28px] mr-1">{stat.prefix}</span>}
