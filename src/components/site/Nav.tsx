@@ -32,8 +32,8 @@ export function Nav() {
           <img src="/mooviagold.png" alt="MOOVIA" className="w-6 h-6 object-contain group-hover:rotate-[360deg] transition-transform duration-1000 ease-in-out" />
         </div>
         <div className="flex flex-col items-start">
-          <span className="font-sora font-[500] text-[22px] text-gold-l tracking-[0.04em] leading-none">MOOVIA</span>
-          <span className="font-urbanist font-[300] text-[11px] text-w35 tracking-[0.32em] uppercase leading-none mt-1">Portugal</span>
+          <span className="font-display font-[500] text-[22px] text-gold-l tracking-[0.04em] leading-none">MOOVIA</span>
+          <span className="font-body font-[300] text-[11px] text-w35 tracking-[0.32em] uppercase leading-none mt-1">Portugal</span>
         </div>
       </Link>
 
@@ -43,7 +43,7 @@ export function Nav() {
           <Link 
             key={link.name} 
             to={link.to} 
-            className="font-urbanist font-[400] text-[12px] tracking-[0.12em] uppercase text-w35 hover:text-white transition-colors relative group"
+            className="font-body font-[400] text-[12px] tracking-[0.12em] uppercase text-w35 hover:text-white transition-colors relative group"
           >
             {link.name}
             <span className="absolute -bottom-1 left-0 w-0 h-px bg-gold transition-all duration-300 group-hover:w-full" />
@@ -54,7 +54,7 @@ export function Nav() {
       {/* CTA (Desktop) */}
       <Link 
         to="/#contacto" 
-        className="hidden lg:block border border-b35 text-gold-l font-urbanist font-[600] text-[12px] tracking-[0.18em] uppercase px-6 py-2.5 hover:bg-gold hover:text-black hover:border-gold transition-all"
+        className="hidden lg:block border border-b35 text-gold-l font-body font-[600] text-[12px] tracking-[0.18em] uppercase px-6 py-2.5 hover:bg-gold hover:text-black hover:border-gold transition-all"
       >
         Avaliar meu caso
       </Link>
@@ -84,7 +84,7 @@ export function Nav() {
                 key={link.name} 
                 to={link.to} 
                 onClick={() => setMobileOpen(false)}
-                className="font-sora font-[200] text-[36px] text-white hover:text-gold transition-colors"
+                className="font-display font-[200] text-[36px] text-white hover:text-gold transition-colors"
               >
                 {link.name}
               </Link>
@@ -92,7 +92,7 @@ export function Nav() {
             <Link 
               to="/#contacto" 
               onClick={() => setMobileOpen(false)}
-              className="mt-4 border border-gold text-gold font-urbanist font-[600] text-[14px] tracking-[0.2em] uppercase px-10 py-4"
+              className="mt-4 border border-gold text-gold font-body font-[600] text-[14px] tracking-[0.2em] uppercase px-10 py-4"
             >
               Avaliar meu caso
             </Link>
