@@ -8,9 +8,9 @@ export function Footer() {
           <div className="footer-brand">
             <Link to="/" className="flex flex-col group gap-1">
               <img 
-                src="/mooviagold.png" 
+                src="/moovia-logo-full.png" 
                 alt="MOOVIA Logo" 
-                className="h-12 w-auto object-contain self-start"
+                className="h-16 w-auto object-contain self-start"
               />
               <p className="font-sora text-[10px] tracking-[0.34em] uppercase text-white/20 transition-colors group-hover:text-white/40">
                 Planejar · Chegar · Ficar
