@@ -28,7 +28,7 @@ export function Footer() {
 
           
           <div className="footer-col">
-            <h5 className="font-urbanist text-[11px] tracking-[0.2em] uppercase text-gold mb-5 font-medium">Serviços</h5>
+            <h5 className="font-sora text-[11px] tracking-[0.3em] uppercase text-gold mb-5 font-medium">Serviços</h5>
             <div className="flex flex-col gap-2.5">
               <Link to="/assessment" className="font-urbanist text-[14px] font-light text-white-3 hover:text-gold-l transition-colors">Assessment</Link>
               <Link to="/servicos" className="font-urbanist text-[14px] font-light text-white-3 hover:text-gold-l transition-colors">Pilares</Link>
