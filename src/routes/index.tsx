@@ -16,9 +16,9 @@ import { motion } from "framer-motion";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "MOOVIA Portugal — Coordenação Internacional de Vida e Património" },
+      { title: "MOOVIA Portugal — Awwwards-Caliber Art Direction (v5)" },
       { name: "description", content: "A MOOVIA Portugal coordena a jornada completa de transição internacional de brasileiros para Portugal. Do diagnóstico estratégico à adaptação pós-chegada. Assessment a partir de €250." },
-      { property: "og:title", content: "Você não precisa de mais informação. Precisa de alguém que coordene a decisão." },
+      { property: "og:title", content: "Precisa de alguém que coordene a decisão." },
       { property: "og:description", content: "MOOVIA Portugal — Coordenação de transição internacional. Brasil para Portugal." },
       { property: "og:image", content: "/og-image.jpg" },
     ],
@@ -39,7 +39,7 @@ function Home() {
           className="flex whitespace-nowrap"
         >
           {[1, 2].map((i) => (
-            <div key={i} className="flex items-center gap-16 px-16 font-urbanist text-[11px] font-[400] tracking-[0.3em] uppercase text-mut/60">
+            <div key={i} className="flex items-center gap-16 px-16 font-mono text-[10px] font-[400] tracking-[0.3em] uppercase text-mut/60">
               Transição Internacional <span className="text-cobre text-[12px] opacity-20">♦</span> 
               Brasil para Portugal <span className="text-cobre text-[12px] opacity-20">♦</span> 
               Coordenação de Vida e Património <span className="text-cobre text-[12px] opacity-20">♦</span> 

@@ -23,8 +23,8 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-black px-4 text-white">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-sora font-[100]">404</h1>
-        <h2 className="mt-4 text-xl font-urbanist font-light uppercase tracking-widest text-gold">Page not found</h2>
+        <h1 className="text-7xl font-display font-[100]">404</h1>
+        <h2 className="mt-4 text-xl font-mono font-light uppercase tracking-widest text-gold">Page not found</h2>
         <div className="mt-6">
           <Link
             to="/"
@@ -48,7 +48,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-black px-4 text-white">
       <div className="max-w-md text-center">
-        <h1 className="text-xl font-sora font-light tracking-tight">
+        <h1 className="text-xl font-display font-light tracking-tight">
           This page didn't load
         </h1>
         <div className="mt-6 flex flex-wrap justify-center gap-4">
