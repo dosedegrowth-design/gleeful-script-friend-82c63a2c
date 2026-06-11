@@ -91,7 +91,7 @@ export function ProcessSection() {
               <div className="absolute top-0 left-0 right-0 h-[3px] bg-[linear-gradient(90deg,var(--gold),var(--teal),var(--gold))] bg-[length:200%] animate-[gradientSlide_4s_ease_infinite]" />
               <p className="font-sora text-[11px] tracking-[0.34em] uppercase text-gold mb-6">Strategic Relocation Assessment</p>
               <div className="font-amotha text-[88px] font-thin text-gold-l leading-none tracking-[-0.04em] mb-1">€250</div>
-              <p className="font-urbanist text-[11px] tracking-[0.24em] uppercase text-white-3 mb-9">90 minutos · Entregável físico</p>
+              <p className="font-sora text-[11px] tracking-[0.34em] uppercase text-white-3 mb-9">90 minutos · Entregável físico</p>
               <ul className="space-y-0">
                 {deliverables.map((item) => (
                   <li key={item} className="flex items-start gap-3 font-urbanist text-[14px] font-light text-white-3 py-3 border-b border-border last:border-0 leading-relaxed">
