@@ -2,14 +2,11 @@ import { Link } from "@tanstack/react-router";
 
 export function Wordmark() {
   return (
-    <Link to="/" className="flex flex-col gap-0.5">
-      <div className="h-24">
-        <img 
-          src="/moovia-logo-full.png" 
-          alt="MOOVIA Logo" 
-          className="h-full w-auto object-contain"
-        />
+    <Link to="/" className="flex flex-col group">
+      <div className="flex items-baseline gap-2">
+        <span className="font-sora text-[22px] font-[500] text-gold-l tracking-[0.04em] uppercase">MOOVIA</span>
       </div>
+      <span className="font-urbanist text-[11px] font-[300] text-white-3 tracking-[0.32em] uppercase">Portugal</span>
     </Link>
   );
 }

@@ -39,34 +39,37 @@ export function Hero() {
       </div>
 
       <div className="relative z-[100] px-8 lg:px-[100px] pt-[160px] pb-[120px] flex-1 isolate">
-        <p className="font-sora text-[11px] tracking-[0.4em] uppercase text-gold mb-10 flex items-center gap-12 animate-[fadeUp_0.8s_ease_0.3s_forwards] opacity-0 will-change-transform">
-          <span className="w-10 h-px bg-gold" />
+        <p className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-gold mb-10 flex items-center gap-8 animate-[fadeUp_0.8s_ease_0.3s_forwards] opacity-0 will-change-transform">
+          <span className="w-8 h-px bg-gold" />
           Coordenação Internacional de Vida e Património
         </p>
         
-        <h1 className="font-amotha text-[clamp(48px,6vw,92px)] font-extralight leading-[1.02] tracking-[-0.03em] mb-12 text-white will-change-transform max-w-[900px]">
-          <span className="block overflow-hidden h-[1.1em]">
-            <span className="inline-block animate-[slideUp_1.1s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0">Você não precisa</span>
+        <h1 className="font-sora text-[clamp(44px,5.5vw,82px)] font-[100] leading-[1.04] tracking-[-0.02em] mb-12 text-white will-change-transform max-w-[900px]">
+          <span className="block overflow-hidden h-[1.15em]">
+            <span className="inline-block animate-[slideUp_1.1s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.5s]">Você não precisa</span>
           </span>
-          <span className="block overflow-hidden h-[1.1em]">
-            <span className="inline-block animate-[slideUp_1.1s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.15s]">de mais informação.</span>
+          <span className="block overflow-hidden h-[1.15em]">
+            <span className="inline-block animate-[slideUp_1.1s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.7s]">de mais informação.</span>
           </span>
-          <span className="block overflow-hidden h-[1.1em]">
-            <span className="inline-block animate-[slideUp_1.1s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.3s]">Precisa de alguém que</span>
+          <span className="block overflow-hidden h-[1.15em]">
+            <span className="inline-block font-[200] animate-[slideUp_1.1s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.9s]">Precisa de alguém</span>
           </span>
-          <span className="block overflow-hidden h-[1.1em]">
-            <span className="inline-block text-gold animate-[slideUp_1.1s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.45s] italic">coordene a decisão.</span>
+          <span className="block overflow-hidden h-[1.15em]">
+            <span className="inline-block font-[200] animate-[slideUp_1.1s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:1.1s]">que coordene</span>
+          </span>
+          <span className="block overflow-hidden h-[1.15em]">
+            <span className="inline-block font-[200] text-gold-l animate-[slideUp_1.1s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:1.3s] italic">a decisão.</span>
           </span>
         </h1>
 
-        <p className="font-urbanist text-[18px] font-light text-white/50 leading-[1.8] max-w-[520px] mb-[64px] animate-[fadeUp_0.8s_ease_1.3s_forwards] opacity-0">
-          A MOOVIA Portugal não resolve tarefas isoladas. Coordenação completa, <strong className="text-white-2 font-normal">do primeiro diagnóstico aos 90 dias depois da chegada.</strong>
+        <p className="font-urbanist text-[17px] font-[300] text-white/35 leading-[1.85] max-w-[460px] mb-[64px] animate-[fadeUp_0.8s_ease_1.3s_forwards] opacity-0">
+          A MOOVIA Portugal não resolve tarefas isoladas. Coordenação completa, do primeiro diagnóstico aos 90 dias depois da chegada.
         </p>
 
         <div className="flex flex-wrap gap-5 animate-[fadeUp_0.8s_ease_1.5s_forwards] opacity-0">
           <Link
             to="/contacto"
-            className="bg-gold text-black font-urbanist text-[12px] font-semibold tracking-[0.24em] uppercase px-12 py-5 relative overflow-hidden group transition-all duration-300"
+            className="bg-gold text-black font-urbanist text-[12px] font-[600] tracking-[0.2em] uppercase px-10 py-4 relative overflow-hidden group transition-all duration-300"
           >
             <span className="relative z-10">Avaliar meu caso</span>
             <div className="absolute inset-0 bg-gold-xl origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100 pointer-events-none" />
@@ -100,8 +103,8 @@ export function Hero() {
         ))}
       </div>
 
-      <div className="absolute bottom-12 left-8 lg:left-[100px] z-[2] flex items-center gap-16 font-sora text-[11px] tracking-[0.34em] uppercase text-white/30 animate-[fadeUp_0.6s_ease_1.8s_forwards] opacity-0 pointer-events-none">
-        <div className="w-12 h-px bg-border/30 relative overflow-hidden">
+      <div className="absolute bottom-12 left-8 lg:left-[100px] z-[2] flex items-center gap-16 font-urbanist text-[11px] tracking-[0.2em] uppercase text-white/35 animate-[fadeUp_0.6s_ease_1.8s_forwards] opacity-0 pointer-events-none">
+        <div className="w-10 h-px bg-white/12 relative overflow-hidden">
           <div className="absolute inset-0 bg-gold -translate-x-full animate-[scrollLine_2s_ease_infinite]" />
         </div>
         Planejar · Chegar · Ficar
