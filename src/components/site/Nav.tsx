@@ -94,7 +94,7 @@ export function Nav() {
             <Link
               to="/contacto"
               onClick={() => setOpen(false)}
-              className="bg-gold text-black text-center py-5 font-urbanist text-sm font-semibold tracking-[0.25em] uppercase mt-6"
+              className="bg-gold text-black text-center py-5 font-sora text-sm font-semibold tracking-[0.25em] uppercase mt-6"
             >
               Avaliar meu caso
             </Link>
