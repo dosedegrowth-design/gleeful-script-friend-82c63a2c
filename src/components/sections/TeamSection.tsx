@@ -85,7 +85,7 @@ export function TeamSection() {
                 <h3 className="font-sora font-[300] text-[18px] text-white mt-auto">
                   {member.name}
                 </h3>
-                <p className="font-urbanist font-[400] text-[11px] tracking-[0.18em] uppercase text-gold mt-1">
+                <p className="font-sora text-[11px] tracking-[0.2em] uppercase text-gold mt-1">
                   {member.role}
                 </p>
                 <p className="font-urbanist font-[300] text-[14px] text-white/35 leading-[1.7] mt-3.5 line-clamp-2">
