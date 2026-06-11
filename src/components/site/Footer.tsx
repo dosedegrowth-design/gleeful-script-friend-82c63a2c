@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
-import { WhatsAppLogo, LinkedinLogo, Globe } from "@phosphor-icons/react";
+import { WhatsappLogo, LinkedinLogo, Globe } from "@phosphor-icons/react";
 
 export function Footer() {
   return (
@@ -33,7 +33,7 @@ export function Footer() {
       <div className="mx-auto max-w-[1400px] mt-24 pt-12 border-t border-line-cool flex flex-col md:flex-row justify-between items-center gap-8">
          <p className="font-urbanist text-[11px] text-mut">© 2026 MOOVIA Portugal. Todos os direitos reservados.</p>
          <div className="flex gap-6">
-            <a href="#" className="text-mut hover:text-cobre transition-colors"><WhatsAppLogo size={20} weight="thin"/></a>
+            <a href="#" className="text-mut hover:text-cobre transition-colors"><WhatsappLogo size={20} weight="thin"/></a>
             <a href="#" className="text-mut hover:text-cobre transition-colors"><LinkedinLogo size={20} weight="thin"/></a>
             <a href="#" className="text-mut hover:text-cobre transition-colors"><Globe size={20} weight="thin"/></a>
          </div>
