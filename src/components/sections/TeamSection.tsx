@@ -7,6 +7,7 @@ const teamMembers = [
     chips: ["Oracle", "SAP", "MBA FGV", "Tampa", "Lisboa, 2018"],
     bio: "29 anos em TI multinacional. MBA em Empreendedorismo FGV. Formação em Comunicação na University of Tampa. Em Lisboa desde 2018 com a família. Viveu a transição que hoje coordena e conduz pessoalmente cada mandato.",
     isLarge: true,
+    image: "/team/frederico.png",
   },
   {
     name: "João Gabriel Prado",
@@ -19,12 +20,14 @@ const teamMembers = [
     role: "Conselheiro Estratégico",
     chips: ["Deloitte", "Oracle", "IBM", "SAP", "Salesforce"],
     bio: "25+ anos em tecnologia corporativa nas maiores empresas do setor, com especialização na indústria seguradora. Liderou equipas de alta performance e operações C-Level globais.",
+    image: "/team/moyses.png",
   },
   {
     name: "Eduardo Trindade",
     role: "Strategic Relocation Advisor",
     chips: ["ADLS", "MBA USP", "Live University", "SC Investor"],
     bio: "VP Global Sales na ADLS. MBA em Gestão Estratégica pela USP, professor de MBA e palestrante internacional. Investidor imobiliário em Santa Catarina. Fluente em PT, EN e ES.",
+    image: "/team/eduardo.png",
   },
   {
     name: "Dany Zukerman",
@@ -37,12 +40,14 @@ const teamMembers = [
     role: "Mobilidade Internacional",
     chips: ["Mestrado ULisboa", "Erasmus", "TJSC", "Imigração"],
     bio: "Mestre em Direito Penal e Ciências Criminais pela ULisboa, com Erasmus em Itália e na República Checa. Especialista em imigração, nacionalidade e regularização documental.",
+    image: "/team/laura.png",
   },
   {
     name: "Sara Russo",
     role: "Real Estate Specialist",
     chips: ["RE/MAX Collection", "Luxo", "10+ anos"],
     bio: "Mais de 10 anos no mercado imobiliário português. Premiada na RE/MAX e especialista RE/MAX Collection, o segmento de luxo. Foco em aquisição, investimento e habitação a partir de €1.500/mês.",
+    image: "/team/sara.png",
   },
 ];
 
@@ -71,15 +76,26 @@ export function TeamSection() {
                   member.isLarge ? "bg-[#0A0A0A]" : "bg-[#0E0E0E] hover:bg-[#0A0A0A]"
                 }`}
               >
-                <div className="flex flex-wrap gap-2 mb-5">
-                  {member.chips.map((chip) => (
-                    <span 
-                      key={chip} 
-                      className="font-sora font-[400] text-[10px] tracking-[0.2em] uppercase text-white/35 px-2.5 py-1 border border-[#181818]"
-                    >
-                      {chip}
-                    </span>
-                  ))}
+                <div className="flex flex-col mb-5">
+                  {member.image && (
+                    <div className="w-full aspect-square mb-6 overflow-hidden bg-[#181818] rounded-none">
+                      <img 
+                        src={member.image} 
+                        alt={member.name} 
+                        className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
+                      />
+                    </div>
+                  )}
+                  <div className="flex flex-wrap gap-2">
+                    {member.chips.map((chip) => (
+                      <span 
+                        key={chip} 
+                        className="font-sora font-[400] text-[10px] tracking-[0.2em] uppercase text-white/35 px-2.5 py-1 border border-[#181818]"
+                      >
+                        {chip}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
                 <h3 className="font-sora font-[300] text-[18px] text-white mt-auto">
