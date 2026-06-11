@@ -6,33 +6,36 @@ const pillars = [
     verb: "PLANEJAMOS",
     tagline: '"Tomar as decisões certas antes de mudar."',
     services: [
-      "Strategic Relocation Assessment", "Diagnósticos", "Mapa de Decisão", "Estratégia Migratória", "Planeamento Fiscal", "City Experience", "Planeamento Habitacional", "Avaliação de Crédito"
+      "Strategic Assessment", "Diagnósticos", "Mapa de Decisão", "Estratégia Migratória", "Planeamento Fiscal", "City Experience", "Planeamento Habitacional", "Avaliação de Crédito"
     ],
     deliverable: "Plano Estratégico de Transição Internacional"
   },
   {
     n: "02",
     verb: "INSTALAMOS",
-    tagline: '"Tudo o que precisa para chegar e ficar legalmente instalado."',
+    tagline: '"Tudo que precisa para chegar e ficar legalmente instalado."',
     services: [
-      "Habitação (Busca Ativa, Airbnb Hunting, Visitas, Negociação)", "Documentação (NIF, NISS, Utente, PB4, Conta Bancária, Carta, Passe Navegante, Abertura de Atividade, Recibos Verdes, Estatuto de Igualdade)", "Concierge (Airport Pick-up, Compras, Água, Gás, Eletricidade, Internet, Ginásio)", "Traduções e Equivalências"
-    ]
+      "Habitação (Busca Ativa, Airbnb Hunting, Visitas, Negociação)", "NIF", "NISS", "Utente", "PB4", "Conta Bancária", "Carta", "Passe Navegante", "Abertura de Atividade", "Recibos Verdes", "Concierge completo", "Ativações (Água, Gás, Luz, Internet)", "Traduções e Equivalências"
+    ],
+    deliverable: "Família legalmente instalada e operando"
   },
   {
     n: "03",
     verb: "INTEGRAMOS",
-    tagline: '"Transformando uma mudança de país numa transição de vida."',
+    tagline: '"Transformando uma mudança numa transição de vida."',
     services: [
-      "Educação Nacional (School Matching, Busca, Matrícula)", "Educação Internacional", "Adaptação Familiar (Programa 30/60/90 dias)", "Pet Relocation", "Lisboa Experience Premium", "Integração Cultural"
-    ]
+      "School Matching Nacional", "School Matching Internacional", "Gestão de Matrículas", "Adaptação Familiar (30/60/90 dias)", "Pet Relocation (TAP/Lufthansa, CVI, VIGIAGRO)", "Lisboa Experience Premium", "Integração Cultural"
+    ],
+    deliverable: "Uma mudança que vira transição de vida"
   },
   {
     n: "04",
     verb: "ESTRUTURAMOS",
-    tagline: '"Para investidores, empresários e profissionais que querem estruturar sua vida financeira em Portugal."',
+    tagline: '"Para quem quer estruturar a vida financeira em Portugal."',
     services: [
-      "Fiscalidade (Enquadramento, Simulação de Rendimentos, Abertura/Encerramento de Atividade, IRS, Segurança Social)", "Empresas (Constituição, Contabilidade Mensal ENI e Lda., Processamento Salarial, Estruturação Societária)", "Investidores (Estruturação Patrimonial, Planeamento de Investimentos)"
-    ]
+      "Enquadramento Fiscal", "Simulação de Rendimentos", "Abertura e Encerramento de Atividade", "Declaração IRS", "Dupla Tributação", "IVA", "Constituição de Empresa", "NIPC", "Contabilidade Mensal ENI e Lda", "Estruturação Societária e Patrimonial"
+    ],
+    deliverable: "Vida financeira estruturada e em conformidade"
   }
 ];
 
