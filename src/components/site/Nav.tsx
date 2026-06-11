@@ -1,103 +1,96 @@
+import { useState, useEffect } from "react";
 import { Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
-import { List, X } from "@phosphor-icons/react";
-import { cn } from "@/lib/utils";
-import { Wordmark } from "./Wordmark";
 import { motion, AnimatePresence } from "framer-motion";
-
-const links = [
-  { to: "/", label: "Como funciona", hash: "#processo" },
-  { to: "/", label: "Serviços", hash: "#servicos" },
-  { to: "/", label: "Assessment", hash: "#assessment" },
-  { to: "/blog", label: "Blog" },
-  { to: "/contacto", label: "Contacto" },
-];
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 60);
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  return (
-    <nav
-      id="nav"
-      className={cn(
-        "fixed top-0 left-0 right-0 z-[900] px-6 lg:px-20 h-[80px] flex items-center justify-between transition-all duration-500",
-        scrolled ? "glass h-[68px]" : "bg-transparent"
-      )}
-    >
-      <Wordmark />
+  const links = [
+    { name: "Como funciona", to: "/#processo" },
+    { name: "Serviços", to: "/#servicos" },
+    { name: "Assessment", to: "/#assessment" },
+    { name: "Blog", to: "/blog" },
+    { name: "Contacto", to: "/#contacto" },
+  ];
 
-      <div className="hidden lg:flex items-center gap-10">
-        {links.map((l) => (
-          <Link
-            key={l.label}
-            to={l.to}
-            hash={l.hash}
-            className="font-mono text-[10px] font-[400] tracking-[0.2em] uppercase text-mut hover:text-off relative transition-colors group"
+  return (
+    <nav 
+      className={`fixed top-0 left-0 w-full z-[900] h-[68px] flex items-center px-6 lg:px-20 transition-all duration-300 ${
+        scrolled ? "bg-[#0e0f12]/92 backdrop-blur-[20px] border-b border-b18" : "bg-transparent"
+      }`}
+    >
+      {/* LOGO */}
+      <Link to="/" className="flex flex-col items-start mr-auto">
+        <span className="font-sora font-[500] text-[22px] text-gold-l tracking-[0.04em] leading-none">MOOVIA</span>
+        <span className="font-urbanist font-[300] text-[11px] text-w35 tracking-[0.32em] uppercase leading-none mt-1">Portugal</span>
+      </Link>
+
+      {/* LINKS (Desktop) */}
+      <div className="hidden lg:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
+        {links.map(link => (
+          <Link 
+            key={link.name} 
+            to={link.to} 
+            className="font-urbanist font-[400] text-[12px] tracking-[0.12em] uppercase text-w35 hover:text-white transition-colors relative group"
           >
-            {l.label}
-            <span className="absolute -bottom-[4px] left-0 w-0 h-px bg-cobre transition-all duration-300 group-hover:w-full" />
+            {link.name}
+            <span className="absolute -bottom-1 left-0 w-0 h-px bg-gold transition-all duration-300 group-hover:w-full" />
           </Link>
         ))}
-        
-        <Link
-          to="/contacto"
-          className="wipe-btn bg-cobre text-navy-deep px-6 py-2.5 font-mono text-[10px] font-[600] tracking-[0.2em] uppercase transition-all duration-300 rounded-sm active:scale-95"
-        >
-          Avaliar meu caso
-        </Link>
       </div>
 
-      <button
-        className="lg:hidden p-2 text-mut hover:text-off transition-colors"
-        onClick={() => setOpen(true)}
+      {/* CTA (Desktop) */}
+      <Link 
+        to="/#contacto" 
+        className="hidden lg:block border border-b35 text-gold-l font-urbanist font-[600] text-[12px] tracking-[0.18em] uppercase px-6 py-2.5 hover:bg-gold hover:text-black hover:border-gold transition-all"
       >
-        <List size={28} weight="thin" />
+        Avaliar meu caso
+      </Link>
+
+      {/* Hamburger */}
+      <button 
+        className="lg:hidden flex flex-col gap-1.5 z-[1001]"
+        onClick={() => setMobileOpen(!mobileOpen)}
+      >
+        <div className={`w-6 h-px bg-gold transition-transform ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
+        <div className={`w-6 h-px bg-gold transition-opacity ${mobileOpen ? "opacity-0" : ""}`} />
+        <div className={`w-6 h-px bg-gold transition-transform ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
       </button>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
-        {open && (
+        {mobileOpen && (
           <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-[1000] bg-navy flex flex-col p-8"
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "tween", duration: 0.4 }}
+            className="fixed inset-0 bg-[#0e0f12] z-[1000] flex flex-col items-center justify-center gap-8"
           >
-            <div className="flex items-center justify-between h-[80px] mb-12">
-              <Wordmark />
-              <button onClick={() => setOpen(false)} className="text-mut">
-                <X size={32} weight="thin" />
-              </button>
-            </div>
-            <div className="flex flex-col gap-10">
-              {links.map((l) => (
-                <Link
-                  key={l.label}
-                  to={l.to}
-                  hash={l.hash}
-                  onClick={() => setOpen(false)}
-                  className="font-display text-[36px] font-[200] text-off tracking-tight"
-                >
-                  {l.label}
-                </Link>
-              ))}
-              <Link
-                to="/contacto"
-                onClick={() => setOpen(false)}
-                className="wipe-btn bg-cobre text-navy-deep text-center py-5 font-urbanist text-[13px] font-[600] tracking-[0.25em] uppercase mt-6"
+            {links.map(link => (
+              <Link 
+                key={link.name} 
+                to={link.to} 
+                onClick={() => setMobileOpen(false)}
+                className="font-sora font-[200] text-[36px] text-white hover:text-gold transition-colors"
               >
-                Avaliar meu caso
+                {link.name}
               </Link>
-            </div>
+            ))}
+            <Link 
+              to="/#contacto" 
+              onClick={() => setMobileOpen(false)}
+              className="mt-4 border border-gold text-gold font-urbanist font-[600] text-[14px] tracking-[0.2em] uppercase px-10 py-4"
+            >
+              Avaliar meu caso
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>

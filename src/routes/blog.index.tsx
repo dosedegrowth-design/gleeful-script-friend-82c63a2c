@@ -42,8 +42,8 @@ function Blog() {
       <SiteLayout>
         <div className="bg-black pt-[120px]">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10 py-16 text-center">
-            <h1 className="text-white text-2xl font-light">Não foi possível carregar o blog.</h1>
-            <p className="text-white-3 mt-4">Por favor, tente novamente mais tarde.</p>
+            <h1 className="text-white text-2xl font-[200]">Não foi possível carregar o blog.</h1>
+            <p className="text-white/35 mt-4">Por favor, tente novamente mais tarde.</p>
           </div>
         </div>
       </SiteLayout>
@@ -58,10 +58,10 @@ function Blog() {
             <span className="w-6 h-px bg-gold" />
             Blog
           </p>
-          <h1 className="font-amotha text-[clamp(40px,6vw,68px)] font-extralight leading-[1.05] max-w-3xl text-white">
+          <h1 className="font-sora text-[clamp(40px,6vw,68px)] font-[100] leading-[1.05] max-w-3xl text-white">
             Estratégia, não dicas.
           </h1>
-          <p className="mt-8 max-w-2xl font-urbanist text-[17px] font-light text-white-3 leading-relaxed">
+          <p className="mt-8 max-w-2xl font-urbanist text-[17px] font-[300] text-w35 leading-relaxed">
             Conteúdo para quem está a coordenar uma decisão real, não a colecionar informação.
           </p>
         </div>
@@ -69,9 +69,9 @@ function Blog() {
       <section className="py-20 px-6 md:px-[80px] bg-black-2">
         <div className="mx-auto max-w-[1400px]">
           {isLoading ? (
-            <p className="text-white-3 font-urbanist">A carregar…</p>
+            <p className="text-w35 font-urbanist">A carregar…</p>
           ) : posts && posts.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-b18">
               {posts.map((p: any, i: number) => (
                 <Reveal key={p.id} delay={i * 60} className="h-full">
                   <Link
@@ -82,11 +82,11 @@ function Blog() {
                     {p.category && (
                       <div className="font-urbanist text-[11px] uppercase tracking-[0.18em] text-gold">{p.category}</div>
                     )}
-                    <h2 className="mt-4 font-amotha text-2xl font-light text-white leading-tight">{p.title}</h2>
+                    <h2 className="mt-4 font-sora text-2xl font-[200] text-white leading-tight">{p.title}</h2>
                     {p.excerpt && (
-                      <p className="mt-4 font-urbanist text-[15px] font-light text-white-3 leading-relaxed line-clamp-3">{p.excerpt}</p>
+                      <p className="mt-4 font-urbanist text-[15px] font-[300] text-w35 leading-relaxed line-clamp-3">{p.excerpt}</p>
                     )}
-                    <div className="mt-6 font-urbanist text-[11px] uppercase tracking-[0.16em] text-white-4">
+                    <div className="mt-6 font-urbanist text-[11px] uppercase tracking-[0.16em] text-w35">
                       {p.read_time ? `${p.read_time} min de leitura` : "Ler artigo"} →
                     </div>
                   </Link>
@@ -94,8 +94,8 @@ function Blog() {
               ))}
             </div>
           ) : (
-            <div className="py-32 text-center bg-black-2 border border-border">
-              <p className="font-amotha text-2xl font-extralight text-white-3">
+            <div className="py-32 text-center bg-black-2 border border-b18">
+              <p className="font-sora text-2xl font-[100] text-w35">
                 Primeiros artigos em breve.
               </p>
             </div>
@@ -103,6 +103,5 @@ function Blog() {
         </div>
       </section>
     </SiteLayout>
-
   );
 }

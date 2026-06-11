@@ -1,111 +1,98 @@
 import { motion } from "framer-motion";
-import { Clock, StackSimple, Warning, House } from "@phosphor-icons/react";
-
-const cards = [
-  {
-    n: "01",
-    title: "O tempo não é o maior problema",
-    body: "É tomar dez decisões simultâneas sem ter feito nenhuma delas antes. O tempo é apenas o sintoma.",
-    icon: Clock,
-    className: "lg:col-span-1"
-  },
-  {
-    n: "02",
-    title: "Informação demais, clareza de menos",
-    body: "Grupos, advogados e corretores dizem coisas diferentes. O volume de informação não resolve a decisão, cria paralisia.",
-    icon: StackSimple,
-    className: "lg:col-span-1"
-  },
-  {
-    n: "03",
-    title: "Erros que custam o futuro",
-    body: "Apartamento no bairro errado. Escola sem vaga. Uma rotina mal estruturada. Cada erro custa dinheiro e energia que a família não tem.",
-    icon: Warning,
-    className: "lg:col-span-1"
-  },
-  {
-    n: "04",
-    title: "O depois que ninguém resolve",
-    body: "Chegar é metade do processo. A adaptação, do cônjuge e das crianças, exige acompanhamento real. Nós acompanhamos.",
-    icon: House,
-    className: "lg:col-span-1"
-  },
-];
 
 export function ProblemSection() {
+  const cards = [
+    {
+      n: "01",
+      title: "Decisões simultâneas",
+      body: "O tempo não é o maior problema. É tomar dez decisões simultâneas sem ter feito nenhuma delas antes.",
+      fullBody: "O tempo não é o maior problema. É tomar dez decisões simultâneas sem ter feito nenhuma delas antes."
+    },
+    {
+      n: "02",
+      title: "Volume de informação",
+      body: "Informação demais, clareza de menos",
+      fullBody: "Grupos de WhatsApp, YouTube, advogados e corretores dizem coisas diferentes. O volume de informação não resolve a decisão, cria mais dúvida."
+    },
+    {
+      n: "03",
+      title: "Riscos invisíveis",
+      body: "Erros que custam",
+      fullBody: "Apartamento no bairro errado. Escola sem vaga. Uma rotina mal estruturada para a família. Cada erro custa dinheiro, tempo e energia que a família não tem."
+    },
+    {
+      n: "04",
+      title: "Adaptação estruturada",
+      body: "O depois que ninguém resolve",
+      fullBody: "Chegar é metade do processo. A adaptação, do cônjuge que largou a carreira, das crianças na nova escola, da rotina reconstruída, exige acompanhamento real."
+    }
+  ];
+
   return (
-    <section className="bg-navy py-clamp(110px,14vh,180px) px-6 lg:px-20 relative z-10">
+    <section className="bg-black-2 py-32 px-6 lg:px-20 overflow-hidden">
       <div className="mx-auto max-w-[1400px]">
         <div className="mb-20">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="font-mono text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre mb-4 flex items-center gap-3"
-          >
-            <span className="w-6 h-px bg-cobre" />
-            O mercado resolve tarefas
-          </motion.div>
-          
-          <motion.h2 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="font-display text-[clamp(32px,5vw,60px)] font-[200] leading-[1.02] tracking-[-0.02em] mb-6 text-off max-w-4xl"
-          >
-            "O problema não é a burocracia.<br/>
-            É que ninguém coordena o todo."
-          </motion.h2>
-
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="font-body text-[18px] font-[300] text-mut leading-[1.7] max-w-[640px]"
+            className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-gold mb-6"
           >
-            Você tem um advogado para o visto, um corretor para o imóvel, uma escola para os filhos, um contador para o NIF. Cada um no seu quadrado. E você no meio tentando fazer tudo encaixar numa das decisões mais complexas da sua família.
+            O mercado resolve tarefas
+          </motion.p>
+          <motion.h2 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="font-sora text-[clamp(32px,4vw,60px)] font-[200] text-white leading-tight mb-8"
+          >
+            "O problema não é a burocracia.<br/>É que ninguém coordena o todo."
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="font-urbanist text-[18px] font-[300] text-w35 leading-[1.85] max-w-[640px]"
+          >
+            Você tem um advogado para o visto, um corretor para o imóvel, uma escola para os filhos, um contador para o NIF. Cada um no seu quadrado. E você no meio tentando fazer tudo encaixar numa das decisões mais complexas da sua vida.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-b18">
           {cards.map((card, i) => (
             <motion.div 
-              key={card.n} 
-              initial={{ opacity: 0, y: 20 }}
+              key={card.n}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="glass p-10 lg:p-12 relative overflow-hidden group hover:bg-navy-rich transition-all duration-700 rounded-2xl border-line-gold/10 hover:border-line-gold/30"
+              transition={{ delay: i * 0.1 }}
+              className="bg-black-2 p-12 relative group overflow-hidden"
             >
-              <div className="w-12 h-12 glass rounded-xl flex items-center justify-center mb-8 border-line-gold group-hover:border-cobre/40 transition-colors shadow-lg shadow-cobre/5">
-                <card.icon weight="thin" size={24} className="text-cobre" />
-              </div>
+              {/* Hover line */}
+              <div className="absolute left-0 top-0 w-[3px] h-0 bg-gold transition-all duration-500 group-hover:h-full" />
               
-              <div className="font-display text-[64px] font-[100] text-cobre opacity-[0.06] absolute top-2 right-8 leading-none select-none pointer-events-none group-hover:-translate-y-2 transition-transform duration-700">
+              <div className="font-sora text-[60px] font-[100] text-gold opacity-[0.07] mb-8 leading-none">
                 {card.n}
               </div>
-
-              <h3 className="font-display text-[24px] font-[300] text-off mb-4 leading-snug">
+              <h3 className="font-sora text-[19px] font-[300] text-white mb-4">
                 {card.title}
               </h3>
-              <p className="font-body text-[15px] font-[300] text-mut leading-[1.7]">
-                {card.body}
+              <p className="font-urbanist text-[14px] font-[300] text-w35 leading-[1.7]">
+                {card.fullBody}
               </p>
             </motion.div>
           ))}
         </div>
 
         <motion.div 
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-4 flex flex-col items-center justify-center text-center glass py-24 px-12 rounded-2xl border-line-gold/20"
+          className="mt-1 bg-black p-20 text-center"
         >
-          <p className="font-display text-[clamp(26px,4vw,52px)] font-[200] leading-[1.02] text-off">
+          <p className="font-sora text-[clamp(26px,4vw,52px)] font-[200] text-white leading-tight">
             "O mercado resolve tarefas."<br/>
-            <span className="text-latte italic font-[200]">A MOOVIA resolve a decisão.</span>
+            <span className="text-gold-l italic font-[200]">"A MOOVIA resolve a decisão."</span>
           </p>
         </motion.div>
       </div>

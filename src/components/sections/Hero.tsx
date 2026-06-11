@@ -1,23 +1,23 @@
 import { useEffect, useRef } from "react";
 import { Link } from "@tanstack/react-router";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import NumberFlow from "@number-flow/react";
 import SplitType from "split-type";
 import { gsap } from "gsap";
 
 export function Hero() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
-  const { scrollY } = useScroll();
   
   useEffect(() => {
     if (!headlineRef.current) return;
-    const split = new SplitType(headlineRef.current, { types: 'lines' });
-    gsap.fromTo(split.lines, 
+    const split = new SplitType(headlineRef.current, { types: 'lines,words' });
+    
+    gsap.fromTo(split.words, 
       { y: '110%' },
       { 
         y: 0, 
-        stagger: 0.15, 
-        duration: 1.1, 
+        stagger: 0.05, 
+        duration: 0.8, 
         ease: "power4.out",
         delay: 0.5
       }
@@ -33,50 +33,47 @@ export function Hero() {
   ];
 
   return (
-    <section className="relative min-h-[100svh] flex flex-col lg:flex-row items-center px-6 lg:px-20 py-clamp(110px,14vh,180px) overflow-hidden bg-navy">
-      {/* Background Layers */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {/* Layer 1: Lisbon Image */}
-        <div 
-          className="absolute inset-0 opacity-15 grayscale brightness-[0.15] sepia-[0.3]"
-          style={{
-            backgroundImage: 'url("https://images.unsplash.com/photo-1548120231-1d6f891ad49c?auto=format&fit=crop&q=80")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center'
-          }}
+    <section className="relative min-h-[100svh] grid lg:grid-cols-2 align-items-center px-6 lg:px-20 overflow-hidden bg-black">
+      {/* Background */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1548120231-1d6f891ad49c?auto=format&fit=crop&q=80" 
+          className="w-full h-full object-cover opacity-[0.15] grayscale brightness-[0.15] sepia-[0.3]"
+          alt="Lisboa"
         />
-        {/* Cinematic Mesh Layers */}
-        <div className="absolute inset-0 bg-mesh opacity-70" />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 60% at 70% 50%, rgba(15,31,65,.7) 0%, transparent 70%)' }} />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 40% 60% at 15% 80%, rgba(173,137,87,.08) 0%, transparent 60%)' }} />
       </div>
 
-      <div className="relative z-10 flex-1 flex flex-col items-start max-w-4xl">
+      <div className="relative z-10 flex flex-col justify-center py-20">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex flex-col gap-3 mb-12"
+          className="flex items-center gap-8 mb-8"
         >
-          <div className="w-8 h-px bg-cobre" />
-          <span className="font-mono text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre">
+          <div className="w-8 h-px bg-gold" />
+          <span className="font-urbanist text-[11px] font-[400] tracking-[0.32em] uppercase text-gold">
             Coordenação Internacional de Vida e Património
           </span>
         </motion.div>
 
         <h1 
           ref={headlineRef}
-          className="font-display text-[clamp(48px,9vw,82px)] leading-[0.98] tracking-[-0.02em] text-off mb-12 overflow-hidden"
+          className="font-sora text-[clamp(44px,5.5vw,82px)] text-white leading-[1.04] tracking-[-0.02em] mb-12"
         >
-          <span className="font-[200] block">Você não precisa</span>
-          <span className="font-[200] block">de mais informação.</span>
-          <span className="font-[300] block">Precisa de alguém</span>
-          <span className="font-[300] text-latte italic block">que coordene a decisão.</span>
+          <span className="font-[100] block">Você não precisa</span>
+          <span className="font-[100] block">de mais informação.</span>
+          <span className="font-[200] block">Precisa de alguém</span>
+          <span className="font-[200] block">que coordene</span>
+          <span className="font-[200] text-gold-l italic block">a decisão.</span>
         </h1>
 
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.3 }}
-          className="font-body text-[17px] font-[300] text-mut leading-[1.7] max-w-[460px] mb-12"
+          className="font-urbanist text-[17px] font-[300] text-w35 leading-[1.85] max-w-[460px] mb-12"
         >
           A MOOVIA Portugal não resolve tarefas isoladas.
           Coordenação completa, do primeiro diagnóstico
@@ -90,51 +87,55 @@ export function Hero() {
           className="flex flex-wrap gap-4"
         >
           <Link
-            to="/contacto"
-            className="wipe-btn bg-cobre text-navy-deep font-mono text-[10px] font-[600] tracking-[0.2em] uppercase px-8 py-3 rounded-sm transition-transform active:scale-95"
+            to="/#contacto"
+            className="bg-gold text-black font-urbanist font-[600] text-[12px] tracking-[0.2em] uppercase px-10 py-4 transition-all hover:bg-gold-xl"
           >
-            <span className="relative z-10">Avaliar meu caso</span>
+            Avaliar meu caso
           </Link>
           <a
             href="#processo"
-            className="border border-line-gold text-mut font-mono text-[10px] font-[400] tracking-[0.2em] uppercase px-8 py-3 hover:border-cobre transition-all rounded-sm"
+            className="border border-b18 text-w35 font-urbanist font-[400] text-[12px] tracking-[0.2em] uppercase px-10 py-4 hover:border-gold transition-all"
           >
             Ver como funciona
           </a>
         </motion.div>
+
+        {/* SCROLL INDICATOR */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.8 }}
+          className="absolute bottom-12 flex items-center gap-10 font-urbanist text-[11px] tracking-[0.2em] uppercase text-w35"
+        >
+          <div className="w-10 h-px bg-gold relative overflow-hidden">
+            <motion.div 
+              animate={{ x: ["-100%", "100%"] }}
+              transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+              className="absolute inset-0 bg-gold-l"
+            />
+          </div>
+          Planejar · Chegar · Ficar
+        </motion.div>
       </div>
 
-      {/* STATS PANEL — Frosted Glass */}
-      <div className="relative z-10 hidden lg:flex flex-col gap-px glass ml-auto rounded-xl overflow-hidden">
+      {/* STATS */}
+      <div className="relative z-10 hidden lg:flex flex-col justify-center items-end gap-4">
         {stats.map((stat, i) => (
           <motion.div 
             key={stat.label}
             initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: stat.delay, ease: [0.16, 1, 0.3, 1] }}
-            className="p-8 lg:px-10 lg:py-8 min-w-[320px] glass-hover transition-colors border-b border-line-cool last:border-0"
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: stat.delay }}
+            className="p-8 border border-b18 bg-w05 min-w-[320px] backdrop-blur-sm"
           >
-            <div className="font-display text-[48px] font-[200] text-latte leading-none mb-3 tracking-[-0.03em] flex items-baseline">
-              {stat.prefix && <span className="text-[28px] mr-1 font-[100]">{stat.prefix}</span>}
+            <div className="font-sora text-[48px] font-[200] text-gold-l leading-none mb-2 tracking-[-0.03em] flex items-baseline">
+              {stat.prefix && <span className="text-[28px] mr-1">{stat.prefix}</span>}
               <NumberFlow value={stat.num} />
-              {stat.suffix && <span className="text-[28px] ml-1 font-[100]">{stat.suffix}</span>}
+              {stat.suffix && <span className="text-[28px] ml-1">{stat.suffix}</span>}
             </div>
-            <div className="font-mono text-[10px] font-[400] tracking-[0.14em] uppercase text-mut">{stat.label}</div>
+            <div className="font-urbanist text-[11px] font-[400] tracking-[0.14em] uppercase text-w35">{stat.label}</div>
           </motion.div>
         ))}
-      </div>
-
-      {/* SCROLL INDICATOR */}
-      <div className="absolute bottom-12 left-8 lg:left-20 flex items-center gap-12 font-mono text-[10px] tracking-[0.2em] uppercase text-w35">
-        <div className="w-10 h-px bg-gold relative overflow-hidden">
-          <motion.div 
-            animate={{ x: ["-100%", "100%"] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
-            className="absolute inset-0 bg-gold w-full"
-          />
-        </div>
-        Planejar · Chegar · Ficar
       </div>
     </section>
   );

@@ -23,7 +23,7 @@ function Contacto() {
             <span className="w-6 h-px bg-gold" />
             Contacto
           </p>
-          <h1 className="font-amotha text-[clamp(40px,6vw,68px)] font-extralight leading-[1.05] max-w-3xl text-white">
+          <h1 className="font-sora text-[clamp(40px,6vw,68px)] font-[100] leading-[1.05] max-w-3xl text-white">
             Avalie o seu caso<br />com a MOOVIA.
           </h1>
         </div>

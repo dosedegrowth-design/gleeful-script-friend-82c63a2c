@@ -26,8 +26,12 @@ export function AirplaneScene() {
 
   const [isMobile, setIsMobile] = useState(false)
   useEffect(() => {
-    setIsMobile(window.innerWidth < 768)
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, [])
+
   if (isMobile) return null
 
   return (
@@ -38,7 +42,7 @@ export function AirplaneScene() {
         left: 0,
         width: '100vw',
         height: '100vh',
-        zIndex:        10,
+        zIndex:        50,
         pointerEvents: 'none',
       }}
     >

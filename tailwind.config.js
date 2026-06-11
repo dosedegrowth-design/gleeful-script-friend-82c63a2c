@@ -4,11 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        black: {
-          DEFAULT: "#0e0f12",
-          2: "#12141a",
-          3: "#1a1d26",
-        },
+        black: "#0e0f12",
+        "black-2": "#12141a",
+        "black-3": "#1a1d26",
         gold: {
           DEFAULT: "#ad8957",
           m: "#a58d67",
@@ -25,12 +23,9 @@ export default {
           05: "rgba(249,245,236,.05)",
         },
         border: {
-          DEFAULT: "rgba(173,137,87,.18)",
-          2: "rgba(173,137,87,.35)",
+          b18: "rgba(173,137,87,.18)",
+          b35: "rgba(173,137,87,.35)",
         },
-      },
-      zIndex: {
-        'above-plane': '100',
       },
       fontFamily: {
         sora: ["Sora", "sans-serif"],
@@ -38,24 +33,11 @@ export default {
       },
       animation: {
         marquee: "marquee 30s linear infinite",
-        grain: "grain 8s steps(10) infinite",
       },
       keyframes: {
         marquee: {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
-        },
-        grain: {
-          "0%, 100%": { transform: "translate(0, 0)" },
-          "10%": { transform: "translate(-2%, -2%)" },
-          "20%": { transform: "translate(2%, -2%)" },
-          "30%": { transform: "translate(-2%, 2%)" },
-          "40%": { transform: "translate(2%, 2%)" },
-          "50%": { transform: "translate(-2%, -2%)" },
-          "60%": { transform: "translate(2%, -2%)" },
-          "70%": { transform: "translate(-2%, 2%)" },
-          "80%": { transform: "translate(2%, 2%)" },
-          "90%": { transform: "translate(-2%, -2%)" },
         },
       },
     },
