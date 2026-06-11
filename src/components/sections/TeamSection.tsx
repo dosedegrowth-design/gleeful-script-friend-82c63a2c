@@ -47,7 +47,7 @@ const teamMembers = [
     role: "Real Estate Specialist",
     chips: ["RE/MAX Collection", "Luxo", "10+ anos"],
     bio: "Mais de 10 anos no mercado imobiliário português. Premiada na RE/MAX e especialista RE/MAX Collection, o segmento de luxo. Foco em aquisição, investimento e habitação a partir de €1.500/mês.",
-    image: "/sara.png",
+    image: "/images/sara.png",
   },
 ];
 
