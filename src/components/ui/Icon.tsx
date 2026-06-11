@@ -1,7 +1,7 @@
-import { LucideProps } from "lucide-react";
+import { LucideIcon, LucideProps } from "lucide-react";
 
 export interface IconProps extends LucideProps {
-  icon: React.ElementType;
+  icon: LucideIcon;
 }
 
 export function Icon({
@@ -19,9 +19,9 @@ export function Icon({
       strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
-      fill="none"
       className={className}
       {...props}
     />
   );
 }
+
