@@ -14,7 +14,7 @@
   --font-amotha: "Amotha", serif;
 
   /* REDESIGN v4 COLORS — Navy Base */
-  --color-navy: #1a2c4d;   /* primary background, slightly lighter navy */
+  --color-navy: #1a2c4d;   /* primary background */
   --color-navy-deep: #0f1a2e;   /* deepest wells, footer, section voids */
   --color-navy-rich: #1f3357;   /* elevated card surface */
   --color-navy-raise: #28426f;   /* hover / raised surface */
