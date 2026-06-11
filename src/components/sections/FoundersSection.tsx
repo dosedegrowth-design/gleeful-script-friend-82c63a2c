@@ -51,7 +51,7 @@ export function FoundersSection() {
             />
             <div className="absolute inset-0 bg-navy/0 group-hover:bg-transparent transition-all duration-700" />
             <div className="absolute bottom-6 left-8 z-10">
-               <p className="font-sora text-[12px] font-[400] text-off tracking-widest uppercase bg-navy/60 backdrop-blur-md px-4 py-2 rounded-full">Frederico Prado · Lisboa</p>
+               <p className="font-mono text-[11px] font-[400] text-off tracking-widest uppercase bg-navy/60 backdrop-blur-md px-4 py-2 rounded-full">Frederico Prado · Lisboa</p>
             </div>
           </motion.div>
 
@@ -60,7 +60,7 @@ export function FoundersSection() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="font-sora text-[40px] font-[100] text-off mb-2"
+              className="font-display text-[48px] font-[200] text-off mb-2"
             >
               Frederico Prado
             </motion.h3>
@@ -69,7 +69,7 @@ export function FoundersSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="font-sora text-[12px] font-[400] tracking-[0.2em] uppercase text-cobre mb-8"
+              className="font-mono text-[11px] font-[400] tracking-[0.2em] uppercase text-cobre mb-8"
             >
               Founder & CEO
             </motion.p>
@@ -109,7 +109,7 @@ export function FoundersSection() {
               transition={{ delay: 0.4 }}
               className="p-10 border-l-2 border-cobre glass rounded-r-2xl bg-navy-raise/30"
             >
-              <p className="font-sora text-[22px] font-[100] leading-snug text-latte italic">
+              <p className="font-display text-[26px] font-[300] leading-tight text-latte italic">
                 "Vamos coordenar a sua transição internacional com o mesmo nível de cuidado, estrutura e atenção que gostaríamos de ter recebido na nossa."
               </p>
             </motion.div>

@@ -85,9 +85,9 @@ export function AssessmentSection() {
            >
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-cobre opacity-30 group-hover:opacity-100 transition-opacity" />
             
-            <p className="font-sora text-[11px] font-[400] tracking-[0.24em] uppercase text-cobre mb-10">Strategic Relocation Assessment</p>
+            <p className="font-mono text-[11px] font-[400] tracking-[0.24em] uppercase text-cobre mb-10">Strategic Relocation Assessment</p>
             
-            <div className="font-sora text-[88px] font-[100] text-latte leading-none tracking-[-0.04em] flex items-baseline">
+            <div className="font-display text-[88px] font-[100] text-latte leading-none tracking-[-0.04em] flex items-baseline">
               <span className="text-[40px] mr-2">€</span>
               <NumberFlow value={250} />
             </div>

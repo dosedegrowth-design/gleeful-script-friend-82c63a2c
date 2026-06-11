@@ -122,7 +122,7 @@ export function PillarsSection() {
               className={`glass glass-hover p-10 lg:p-12 relative overflow-hidden group cursor-pointer transition-all rounded-2xl flex flex-col ${pillar.className}`}
             >
               {/* Ghosted Parallax Number */}
-              <div className="font-sora text-[120px] font-[100] text-cobre opacity-[0.03] absolute top-2 right-8 leading-none select-none pointer-events-none group-hover:-translate-y-2 transition-transform duration-1000">
+              <div className="font-display text-[140px] font-[100] text-cobre opacity-[0.04] absolute top-2 right-8 leading-none select-none pointer-events-none group-hover:-translate-y-2 transition-transform duration-1000">
                 {pillar.n}
               </div>
 
@@ -130,16 +130,16 @@ export function PillarsSection() {
                 <pillar.icon weight="thin" size={24} className="text-cobre" />
               </div>
 
-              <h3 className="font-sora text-[32px] font-[200] text-latte leading-none tracking-[-0.02em] mb-4">
+              <h3 className="font-display text-[32px] font-[300] text-latte leading-none tracking-[-0.02em] mb-4">
                 {pillar.verb}
               </h3>
-              <p className="font-urbanist text-[14px] italic text-mut mb-8 max-w-[280px]">
+              <p className="font-body text-[14px] italic text-mut mb-8 max-w-[280px]">
                 {pillar.tagline}
               </p>
               
               <div className="flex flex-wrap gap-2 mb-8">
                  {pillar.services.slice(0, 5).map(s => (
-                    <span key={s} className="px-3 py-1.5 glass rounded-full font-urbanist text-[10px] uppercase tracking-widest text-mut group-hover:border-cobre/30 transition-colors">
+                    <span key={s} className="px-3 py-1.5 glass rounded-full font-mono text-[10px] uppercase tracking-widest text-mut group-hover:border-cobre/30 transition-colors">
                        {s}
                     </span>
                  ))}
