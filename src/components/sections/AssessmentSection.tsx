@@ -43,7 +43,7 @@ export function AssessmentSection() {
             className="p-10 md:p-12 border border-border bg-[#0f1f41]/20 backdrop-blur-sm relative overflow-hidden"
           >
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gold" />
-            <div className="font-amotha text-[88px] font-thin text-gold-l leading-none tracking-[-0.04em]">
+            <div className="font-amotha text-[88px] font-thin text-gold leading-none tracking-[-0.04em]">
               €250
             </div>
             <p className="mt-3 font-sora text-[11px] tracking-[0.3em] uppercase text-white-3">
