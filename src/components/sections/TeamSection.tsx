@@ -7,6 +7,7 @@ const teamMembers = [
     role: "Co-Founder",
     chips: ["Abreu Advogados", "ULisboa", "CIDP", "Corporate & M&A"],
     bio: "Advogado na Abreu Advogados em Corporate e M&A. Pós-graduações CIDP em Corporate Finance e M&A.",
+    image: "/images/joao.png",
     id: "joao"
   },
   {
@@ -30,6 +31,7 @@ const teamMembers = [
     role: "Education & Family Transition Advisor",
     chips: ["Direito UCAM", "18 anos CLO", "CID Records"],
     bio: "18 anos como Chief Legal Officer da CID Records. Especialista no acompanhamento de estudantes.",
+    image: "/images/dany.png",
     id: "dany"
   },
   {
