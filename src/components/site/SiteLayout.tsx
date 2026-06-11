@@ -3,6 +3,7 @@ import { useRouterState } from "@tanstack/react-router";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
 import { ChatAssistant } from "./ChatAssistant";
+import { WhatsAppFloat } from "./WhatsAppFloat";
 
 
 function useMooviaTracking() {
@@ -41,6 +42,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
       <Nav />
       <main>{children}</main>
       <Footer />
+      <WhatsAppFloat />
       <ChatAssistant />
     </>
   );
