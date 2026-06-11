@@ -20,13 +20,13 @@ export function FAQSection() {
     <section className="bg-black-2 py-[120px] px-6 lg:px-[80px] relative z-[1]">
       <div className="mx-auto max-w-3xl">
         <Reveal>
-          <div className="font-sora text-[11px] tracking-[0.34em] uppercase text-gold mb-6 flex items-center gap-3">
+          <div className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-gold mb-6 flex items-center gap-3">
             <span className="w-6 h-px bg-gold" />
             Perguntas frequentes
           </div>
         </Reveal>
         <Reveal delay={100}>
-          <h2 className="font-amotha text-[clamp(28px,4vw,44px)] font-extralight leading-[1.15] text-white">
+          <h2 className="font-sora text-[clamp(28px,4vw,44px)] font-[200] leading-[1.15] text-white">
             O que as pessoas perguntam<br />antes de decidir.
           </h2>
         </Reveal>
@@ -36,20 +36,18 @@ export function FAQSection() {
             return (
               <div key={i} className="border-b border-border">
                 <button
-                  className="w-full py-7 flex justify-between items-center gap-6 text-left group"
+                  className="w-full py-7 px-8 flex justify-between items-center gap-6 text-left group bg-black-2 hover:bg-black-3 transition-colors duration-300"
                   onClick={() => setOpen(isOpen ? null : i)}
                 >
-                  <span className="font-sora text-[16px] font-normal text-white group-hover:text-gold transition-colors">{f.q}</span>
-                  <Plus
-                    size={20}
-                    className="text-gold shrink-0 transition-transform duration-400"
-                    style={{ transform: isOpen ? "rotate(45deg)" : "rotate(0)" }}
-                  />
+                  <span className="font-urbanist text-[16px] font-[400] text-white transition-colors">{f.q}</span>
+                  <div className="w-8 h-8 flex items-center justify-center font-sora text-[20px] text-gold transition-transform duration-300" style={{ transform: isOpen ? "rotate(45deg)" : "rotate(0)" }}>
+                    +
+                  </div>
                 </button>
                 {isOpen && (
                   <div className="overflow-hidden animate-[fadeUp_0.4s_ease_forwards]">
                     <div className="pb-8 pr-10 border-l-2 border-gold bg-gold/5 p-6 mb-6">
-                      <p className="font-urbanist text-[15px] font-light text-white-3 leading-[1.85]">
+                      <p className="font-urbanist text-[15px] font-[300] text-white/35 leading-[1.85]">
                         {f.a}
                       </p>
                     </div>

@@ -12,15 +12,21 @@ export function ManifestoSection() {
       
       <div className="max-w-[900px] relative z-[100] isolate">
         <Reveal>
-          <div className="font-sora text-[11px] tracking-[0.34em] uppercase text-gold mb-4 flex items-center justify-center gap-3">
+          <div className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-gold mb-4 flex items-center justify-center gap-3">
             <span className="w-6 h-px bg-gold" />
-            Boutique Manifesto
+            A posição da marca
             <span className="w-6 h-px bg-gold" />
+          </div>
+        </Reveal>
+
+        <Reveal delay={60}>
+          <div className="font-sora text-[200px] font-[100] text-gold/3 leading-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none">
+            ∞
           </div>
         </Reveal>
         
         <Reveal delay={120}>
-          <h2 className="font-amotha text-[clamp(26px,4vw,56px)] font-extralight leading-[1.2] tracking-[-0.02em] text-white mb-10">
+          <h2 className="font-sora text-[clamp(26px,4vw,56px)] font-[200] leading-[1.2] tracking-[-0.02em] text-white mb-10">
             Acompanhamos um número limitado de mandatos em simultâneo.
           </h2>
         </Reveal>
@@ -30,10 +36,10 @@ export function ManifestoSection() {
         </Reveal>
         
         <Reveal delay={360}>
-          <p className="font-urbanist text-[17px] font-light text-white-3 leading-[1.9] max-w-[620px] mx-auto">
+          <p className="font-urbanist text-[17px] font-[300] text-white/35 leading-[1.9] max-w-[560px] mx-auto">
             Não por limitação operacional, porque acreditamos que decisões desta importância exigem acompanhamento próximo, coordenação ativa e atenção individual. Para preservar este nível, aceitamos apenas o número de novos mandatos que conseguimos coordenar com a qualidade que a decisão exige.
           </p>
-          <p className="mt-8 font-sora text-[15px] font-medium tracking-[0.34em] text-gold uppercase">
+          <p className="mt-8 font-urbanist text-[16px] font-[300] tracking-[0.1em] text-white/35">
             Se o seu caso merece isso, este é o lugar.
           </p>
         </Reveal>
