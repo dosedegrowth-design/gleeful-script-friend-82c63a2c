@@ -63,7 +63,7 @@ export function ProblemSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="font-urbanist text-[18px] font-[300] text-mut leading-[1.7] max-w-[640px]"
+            className="font-body text-[18px] font-[300] text-mut leading-[1.7] max-w-[640px]"
           >
             Você tem um advogado para o visto, um corretor para o imóvel, uma escola para os filhos, um contador para o NIF. Cada um no seu quadrado. E você no meio tentando fazer tudo encaixar numa das decisões mais complexas da sua família.
           </motion.p>
@@ -90,7 +90,7 @@ export function ProblemSection() {
               <h3 className="font-display text-[24px] font-[300] text-off mb-4 leading-snug">
                 {card.title}
               </h3>
-              <p className="font-urbanist text-[15px] font-[300] text-mut leading-[1.7]">
+              <p className="font-body text-[15px] font-[300] text-mut leading-[1.7]">
                 {card.body}
               </p>
             </motion.div>

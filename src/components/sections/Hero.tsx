@@ -76,7 +76,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.3 }}
-          className="font-urbanist text-[17px] font-[300] text-mut leading-[1.7] max-w-[460px] mb-12"
+          className="font-body text-[17px] font-[300] text-mut leading-[1.7] max-w-[460px] mb-12"
         >
           A MOOVIA Portugal não resolve tarefas isoladas.
           Coordenação completa, do primeiro diagnóstico
@@ -91,13 +91,13 @@ export function Hero() {
         >
           <Link
             to="/contacto"
-            className="wipe-btn bg-cobre text-navy-deep font-urbanist text-[12px] font-[600] tracking-[0.2em] uppercase px-8 py-3 rounded-sm transition-transform active:scale-95"
+            className="wipe-btn bg-cobre text-navy-deep font-mono text-[10px] font-[600] tracking-[0.2em] uppercase px-8 py-3 rounded-sm transition-transform active:scale-95"
           >
             <span className="relative z-10">Avaliar meu caso</span>
           </Link>
           <a
             href="#processo"
-            className="border border-line-gold text-mut font-urbanist text-[12px] font-[400] tracking-[0.2em] uppercase px-8 py-3 hover:border-cobre transition-all rounded-sm"
+            className="border border-line-gold text-mut font-mono text-[10px] font-[400] tracking-[0.2em] uppercase px-8 py-3 hover:border-cobre transition-all rounded-sm"
           >
             Ver como funciona
           </a>
@@ -126,7 +126,7 @@ export function Hero() {
       </div>
 
       {/* SCROLL INDICATOR */}
-      <div className="absolute bottom-12 left-8 lg:left-20 flex items-center gap-12 font-urbanist text-[11px] tracking-[0.2em] uppercase text-w35">
+      <div className="absolute bottom-12 left-8 lg:left-20 flex items-center gap-12 font-mono text-[10px] tracking-[0.2em] uppercase text-w35">
         <div className="w-10 h-px bg-gold relative overflow-hidden">
           <motion.div 
             animate={{ x: ["-100%", "100%"] }}

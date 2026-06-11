@@ -128,7 +128,7 @@ export function ProcessSection() {
                    >
                       <p className="font-mono text-[10px] tracking-[0.14em] uppercase text-beige mb-2">{step.tag}</p>
                       <h3 className="font-display text-[26px] font-[200] text-off mb-4 group-hover:text-latte transition-colors">{step.title}</h3>
-                      <p className="font-urbanist text-[15px] font-[300] text-mut leading-[1.7] mb-6 max-w-md">{step.body}</p>
+                      <p className="font-body text-[15px] font-[300] text-mut leading-[1.7] mb-6 max-w-md">{step.body}</p>
                       <span className="inline-block px-4 py-1.5 glass rounded-full text-cobre text-[10px] font-mono uppercase tracking-widest border-cobre/20">
                          {step.badge}
                       </span>
@@ -155,24 +155,24 @@ export function ProcessSection() {
               <NumberFlow value={250} />
             </div>
             
-            <p className="font-urbanist text-[11px] font-[300] text-mut-2 tracking-[0.1em] uppercase mt-2 mb-10">90 minutos · Entregável físico</p>
+            <p className="font-mono text-[10px] font-[300] text-mut-2 tracking-[0.1em] uppercase mt-2 mb-10">90 minutos · Entregável físico</p>
 
             <ul className="space-y-4 mb-12">
               {deliverables.map((d, i) => (
-                <li key={d} className="flex gap-4 font-urbanist text-[15px] font-[300] text-mut">
+                <li key={d} className="flex gap-4 font-body text-[15px] font-[300] text-mut">
                   <CheckCircle weight="thin" size={20} className="text-cobre shrink-0" />
                   {d}
                 </li>
               ))}
             </ul>
 
-            <p className="font-urbanist text-[13px] italic text-cobre/60 mb-10 pt-8 border-t border-line-cool">
+            <p className="font-body text-[13px] italic text-cobre/60 mb-10 pt-8 border-t border-line-cool">
               "Os €250 são abatidos integralmente no mandato se decidir seguir com a MOOVIA."
             </p>
 
             <Link
               to="/contacto"
-              className="wipe-btn block w-full text-center bg-cobre text-navy-deep font-urbanist text-[12px] font-[600] tracking-[0.2em] uppercase py-5 rounded-sm"
+              className="wipe-btn block w-full text-center bg-cobre text-navy-deep font-mono text-[10px] font-[600] tracking-[0.2em] uppercase py-5 rounded-sm"
             >
               <span className="relative z-10">Solicitar Assessment</span>
             </Link>
