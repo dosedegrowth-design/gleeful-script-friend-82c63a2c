@@ -224,12 +224,22 @@ export function ChatAssistant() {
           <div ref={scrollRef} className="flex-1 overflow-y-auto p-5 space-y-3 font-urbanist text-[14px]">
             {messages.map((msg, i) => (
               <div key={i} className={cn(
-                "max-w-[82%] p-3 leading-relaxed", 
-                msg.role === 'user' 
-                  ? "ml-auto bg-gold/15 text-[#f9f5ec] font-normal" 
-                  : "mr-auto bg-black-3 text-white/80 border-l-2 border-l-gold"
+                "flex items-start gap-2",
+                msg.role === 'user' ? "flex-row-reverse" : "flex-row"
               )}>
-                {msg.content}
+                {msg.role === 'assistant' && (
+                  <div className="w-6 h-6 flex-shrink-0 bg-gold/10 border border-gold/20 flex items-center justify-center overflow-hidden">
+                    <img src="/mooviagold.svg" alt="MOOVIA" className="w-4 h-4 object-contain" />
+                  </div>
+                )}
+                <div className={cn(
+                  "max-w-[82%] p-3 leading-relaxed", 
+                  msg.role === 'user' 
+                    ? "bg-gold/15 text-[#f9f5ec] font-normal" 
+                    : "bg-black-3 text-white/80 border-l-2 border-l-gold"
+                )}>
+                  {msg.content}
+                </div>
               </div>
             ))}
             {loading && (
