@@ -39,20 +39,18 @@ export function SiteLayout({ children }: { children: ReactNode }) {
     <>
       <div className="grain" />
       
-      {/* V4 BACKGROUND MESH */}
-      <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none bg-navy-deep">
+      {/* V4 BACKGROUND MESH — Global fallback */}
+      <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none bg-navy">
         <div 
-          className="absolute top-0 right-0 w-[80vw] h-[80vh] opacity-20"
+          className="absolute top-0 right-0 w-[100vw] h-[100vh] opacity-100"
           style={{
-            background: 'radial-gradient(circle at center, rgba(173,137,87,0.12) 0%, transparent 70%)',
-            filter: 'blur(80px)'
+            background: 'radial-gradient(ellipse 80% 60% at 70% 50%, rgba(173,137,87,0.12) 0%, transparent 100%)',
           }}
         />
         <div 
-          className="absolute bottom-0 left-0 w-[60vw] h-[60vh] opacity-15"
+          className="absolute bottom-0 left-0 w-[100vw] h-[100vh] opacity-100"
           style={{
-            background: 'radial-gradient(circle at center, rgba(64,126,141,0.10) 0%, transparent 70%)',
-            filter: 'blur(60px)'
+            background: 'radial-gradient(ellipse 60% 40% at 20% 80%, rgba(64,126,141,0.10) 0%, transparent 100%)',
           }}
         />
       </div>

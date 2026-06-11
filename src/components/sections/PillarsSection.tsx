@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { Reveal } from "@/components/site/Reveal";
 import { motion, AnimatePresence } from "framer-motion";
+import { Compass, Key, UsersThree, Buildings, CaretDown, CaretUp } from "@phosphor-icons/react";
 
 const pillars = [
   {
     n: "01",
     verb: "Planejamos",
     tagline: "Tomar as decisões certas antes de mudar.",
+    icon: Compass,
+    className: "lg:col-span-7 lg:row-span-2",
     services: [
       "Strategic Assessment", "Diagnóstico Habitacional", "Diagnóstico Educacional",
       "Diagnóstico Documental", "Diagnóstico Fiscal Inicial", "Mapa de Decisão",
@@ -19,48 +21,37 @@ const pillars = [
   {
     n: "02",
     verb: "Instalamos",
-    tagline: "Tudo que precisa para chegar e ficar legalmente instalado.",
+    tagline: "Tudo que precisa para chegar legalmente instalado.",
+    icon: Key,
+    className: "lg:col-span-5 lg:row-span-1",
     services: [
-      "Habitação (Busca Ativa, Airbnb Hunting, Visitas, Negociação)",
-      "NIF", "NISS", "Número de Utente", "PB4", "Conta Bancária",
-      "Carta de Condução", "Passe Navegante", "Abertura de Atividade",
-      "Recibos Verdes", "Estatuto de Igualdade", "Airport Pick-up",
-      "Airport Pick-up Executivo", "Concierge completo", "Ativação de Água",
-      "Ativação de Gás", "Ativação de Luz", "Ativação de Internet",
-      "Inscrição em Ginásio", "Traduções Certificadas", "Equivalências de Diplomas"
+      "Habitação (Busca, Visitas, Negociação)",
+      "NIF", "NISS", "Utente", "Conta Bancária",
+      "Carta Condução", "Vistos", "Legalização"
     ],
     result: "Família legalmente instalada e operando"
   },
   {
     n: "03",
     verb: "Integramos",
-    tagline: "Transformando uma mudança numa transição de vida.",
+    tagline: "Mudança que vira transição de vida.",
+    icon: UsersThree,
+    className: "lg:col-span-5 lg:row-span-1",
     services: [
-      "School Matching Nacional", "School Matching Internacional",
-      "Gestão de Matrículas", "Adaptação Familiar — Programa 30 dias",
-      "Adaptação Familiar — Programa 60 dias", "Adaptação Familiar — Programa 90 dias",
-      "Pet Relocation (Lufthansa/TAP)", "Documentação Veterinária (CVI, VIGIAGRO)",
-      "Recepção do Animal no Aeroporto", "Lisboa Experience Premium",
-      "City Tour Estratégico (4h e dia inteiro)", "Integração Cultural"
+      "School Matching", "Adaptação Familiar",
+      "Pet Relocation", "City Tour Estratégico"
     ],
     result: "Uma mudança que vira transição de vida"
   },
   {
     n: "04",
     verb: "Estruturamos",
-    tagline: "Para quem quer estruturar a vida financeira em Portugal.",
+    tagline: "Para quem quer estruturar a vida financeira.",
+    icon: Buildings,
+    className: "lg:col-span-12 lg:row-span-1",
     services: [
-      "Enquadramento Fiscal", "Simulação de Rendimentos Líquidos",
-      "Abertura de Atividade (Recibos Verdes)", "Encerramento de Atividade",
-      "Primeira Declaração de IRS em Portugal", "Declaração Anual de IRS",
-      "Regularização Fiscal", "Representação Fiscal para Não Residentes",
-      "Transferência de Residência Fiscal", "Planeamento Fiscal Internacional",
-      "Análise de Dupla Tributação", "Declarações de IVA", "Segurança Social",
-      "Constituição de Empresa", "NIPC", "Início de Atividade Empresarial",
-      "Contabilidade Mensal ENI", "Contabilidade Mensal Lda",
-      "Processamento Salarial", "Estruturação Societária",
-      "Consultoria Fiscal Empresarial", "Estruturação Patrimonial",
-      "Planeamento de Investimentos", "Apoio à Instalação Empresarial"
+      "Enquadramento Fiscal", "Recibos Verdes", "Contabilidade ENI/Lda",
+      "Planeamento Fiscal Internacional", "IRS em Portugal"
     ],
     result: "Vida financeira estruturada e em conformidade"
   }
@@ -70,81 +61,106 @@ export function PillarsSection() {
   const [expanded, setExpanded] = useState<string | null>(null);
 
   return (
-    <section id="servicos" className="bg-black-2 py-32 px-6 lg:px-20 relative z-10">
+    <section id="servicos" className="bg-navy-deep py-clamp(110px,14vh,180px) px-6 lg:px-20 relative z-10">
       <div className="mx-auto max-w-[1400px]">
         <div className="mb-20">
-          <Reveal>
-            <div className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-gold mb-4 flex items-center gap-3">
-              <span className="w-6 h-px bg-gold" />
-              Quatro pilares
-            </div>
-          </Reveal>
-          <Reveal delay={100}>
-            <h2 className="font-sora text-[clamp(32px,4vw,60px)] font-[200] leading-[1.06] text-white">
-              "Uma jornada completa."
-            </h2>
-          </Reveal>
-          <Reveal delay={200}>
-            <p className="font-urbanist text-[18px] font-[300] text-w35 leading-[1.9] max-w-2xl mt-6">
-              Não resolvemos tarefas isoladas. Coordenamos a jornada inteira,
-              do planejamento à estruturação da vida em Portugal.
-            </p>
-          </Reveal>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="font-sora text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre mb-4 flex items-center gap-3"
+          >
+            <span className="w-6 h-px bg-cobre" />
+            Quatro pilares
+          </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="font-sora text-[clamp(32px,4vw,60px)] font-[200] leading-[1.06] text-off"
+          >
+            "Uma jornada completa."
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="font-urbanist text-[18px] font-[300] text-mut leading-[1.7] max-w-2xl mt-6"
+          >
+            Não resolvemos tarefas isoladas. Coordenamos a jornada inteira,
+            do planejamento à estruturação da vida em Portugal.
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-b18 border border-b18 relative overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-12 grid-rows-auto gap-4">
           {pillars.map((pillar) => (
-            <div 
+            <motion.div 
               key={pillar.n} 
-              className="bg-black-2 p-12 lg:p-14 relative overflow-hidden group hover:bg-black-3 cursor-pointer transition-colors"
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
               onClick={() => setExpanded(expanded === pillar.n ? null : pillar.n)}
+              className={`glass glass-hover p-10 lg:p-12 relative overflow-hidden group cursor-pointer transition-all rounded-2xl flex flex-col ${pillar.className}`}
             >
-              <div className="font-sora text-[100px] font-[100] text-gold opacity-[0.05] absolute top-5 right-8 leading-none select-none pointer-events-none">
+              {/* Ghosted Parallax Number */}
+              <div className="font-sora text-[120px] font-[100] text-cobre opacity-[0.03] absolute top-2 right-8 leading-none select-none pointer-events-none group-hover:-translate-y-2 transition-transform duration-1000">
                 {pillar.n}
               </div>
-              <h3 className="font-sora text-[40px] font-[200] text-gold-l leading-none tracking-[-0.02em] mb-4">
+
+              <div className="w-12 h-12 glass rounded-xl flex items-center justify-center mb-8 border-line-cool group-hover:border-cobre transition-colors">
+                <pillar.icon weight="thin" size={24} className="text-cobre" />
+              </div>
+
+              <h3 className="font-sora text-[32px] font-[200] text-latte leading-none tracking-[-0.02em] mb-4">
                 {pillar.verb}
               </h3>
-              <p className="font-urbanist text-[14px] italic text-w35 mb-8">
+              <p className="font-urbanist text-[14px] italic text-mut mb-8 max-w-[280px]">
                 {pillar.tagline}
               </p>
               
               <div className="flex flex-wrap gap-2 mb-8">
-                 {pillar.services.slice(0, 6).map(s => (
-                    <span key={s} className="px-3 py-1.5 border border-b18 font-urbanist text-[10px] uppercase tracking-widest text-w35 group-hover:border-b35">
+                 {pillar.services.slice(0, 5).map(s => (
+                    <span key={s} className="px-3 py-1.5 glass rounded-full font-urbanist text-[10px] uppercase tracking-widest text-mut group-hover:border-cobre/30 transition-colors">
                        {s}
                     </span>
                  ))}
-                 {pillar.services.length > 6 && (
-                    <span className="px-3 py-1.5 border border-b18 font-urbanist text-[10px] uppercase tracking-widest text-gold opacity-60">
-                       + {pillar.services.length - 6} serviços
+                 {pillar.services.length > 5 && (
+                    <span className="px-3 py-1.5 glass rounded-full font-urbanist text-[10px] uppercase tracking-widest text-cobre opacity-60">
+                       + {pillar.services.length - 5} serviços
                     </span>
                  )}
               </div>
 
-              <div className="mt-auto">
-                 <p className="font-urbanist text-[11px] uppercase tracking-widest text-gold mb-1 font-[500]">Resultado:</p>
-                 <p className="font-urbanist text-[13px] font-[300] text-w35">{pillar.result}</p>
+              <div className="mt-auto pt-6 border-t border-line-gold flex justify-between items-end">
+                 <div>
+                   <p className="font-sora text-[10px] font-[400] uppercase tracking-widest text-cobre mb-1">Resultado:</p>
+                   <p className="font-urbanist text-[14px] font-[300] text-mut">{pillar.result}</p>
+                 </div>
+                 {expanded === pillar.n ? <CaretUp weight="thin" size={20} className="text-cobre" /> : <CaretDown weight="thin" size={20} className="text-mut" />}
               </div>
 
-              {/* Bottom Border Glow on Hover */}
-              <div className="absolute bottom-0 left-0 h-[2px] bg-[linear-gradient(90deg,var(--gold),var(--teal))] w-0 group-hover:w-full transition-all duration-700" />
-            
               <AnimatePresence>
                 {expanded === pillar.n && (
                    <motion.div 
-                     initial={{ height: 0, opacity: 0 }}
-                     animate={{ height: "auto", opacity: 1 }}
-                     exit={{ height: 0, opacity: 0 }}
-                     className="absolute inset-0 z-50 bg-black-3 p-12 overflow-y-auto"
+                     initial={{ opacity: 0, y: 10 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     exit={{ opacity: 0, y: 10 }}
+                     className="absolute inset-0 z-50 glass p-10 lg:p-12 overflow-y-auto"
                    >
                      <div className="flex justify-between items-start mb-10">
-                        <h4 className="font-sora text-[32px] font-[200] text-gold-l">{pillar.verb}</h4>
-                        <button className="text-w35 hover:text-white">Fechar ×</button>
+                        <div className="flex items-center gap-4">
+                           <div className="w-10 h-10 glass rounded-lg flex items-center justify-center border-cobre/40">
+                              <pillar.icon weight="thin" size={20} className="text-cobre" />
+                           </div>
+                           <h4 className="font-sora text-[28px] font-[200] text-latte">{pillar.verb}</h4>
+                        </div>
+                        <button className="text-mut hover:text-off glass px-4 py-2 rounded-full text-[11px] uppercase tracking-widest transition-colors">Fechar ×</button>
                      </div>
-                     <div className="flex flex-wrap gap-2">
+                     <div className="flex flex-wrap gap-3">
                         {pillar.services.map(s => (
-                           <span key={s} className="px-4 py-2 border border-b35 font-urbanist text-[11px] uppercase tracking-widest text-off">
+                           <span key={s} className="px-5 py-3 glass rounded-xl font-urbanist text-[12px] uppercase tracking-widest text-off border-line-cool hover:border-cobre/50 transition-colors">
                               {s}
                            </span>
                         ))}
@@ -152,7 +168,7 @@ export function PillarsSection() {
                    </motion.div>
                 )}
               </AnimatePresence>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
