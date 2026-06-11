@@ -39,14 +39,14 @@ export function Nav() {
     <nav
       id="nav"
       className={cn(
-        "fixed top-0 left-0 right-0 z-[900] px-6 md:px-[80px] h-[88px] flex items-center justify-between transition-all duration-500 ease-in-out",
+        "fixed top-0 left-0 right-0 z-[900] px-6 md:px-[80px] h-[88px] flex items-center justify-between transition-all duration-500 ease-in-out pointer-events-none",
         scrolled ? "bg-black/95 backdrop-blur-[24px] border-b border-white/05 h-[72px]" : "bg-transparent",
         !isVisible && "translate-y-[-100%] opacity-0"
       )}
     >
-      <Wordmark />
+      <div className="pointer-events-auto"><Wordmark /></div>
 
-      <div className="hidden lg:flex items-center gap-12">
+      <div className="hidden lg:flex items-center gap-12 pointer-events-auto">
         {links.map((l) => (
           <Link
             key={l.label}
@@ -66,14 +66,14 @@ export function Nav() {
       </div>
 
       <button
-        className="lg:hidden p-2 text-white/60 hover:text-white transition-colors"
+        className="lg:hidden p-2 text-white/60 hover:text-white transition-colors pointer-events-auto"
         onClick={() => setOpen(true)}
       >
         <Menu size={28} />
       </button>
 
       {open && (
-        <div className="fixed inset-0 z-[1000] bg-black flex flex-col p-8 animate-[fadeUp_0.4s_ease_forwards]">
+        <div className="fixed inset-0 z-[1000] bg-black flex flex-col p-8 animate-[fadeUp_0.4s_ease_forwards] pointer-events-auto">
           <div className="flex items-center justify-between h-[88px] mb-12">
             <Wordmark />
             <button onClick={() => setOpen(false)} className="text-white/60">
