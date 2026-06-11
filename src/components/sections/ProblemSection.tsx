@@ -1,28 +1,35 @@
 import { motion } from "framer-motion";
+import { Layers, Search, AlertTriangle, Clock } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
+
 
 export function ProblemSection() {
   const cards = [
     {
-      n: "01",
+      icon: Layers,
       title: "Decisões simultâneas",
+
       body: "O tempo não é o maior problema. É tomar dez decisões simultâneas sem ter feito nenhuma delas antes.",
       fullBody: "O tempo não é o maior problema. É tomar dez decisões simultâneas sem ter feito nenhuma delas antes."
     },
     {
-      n: "02",
+      icon: Search,
       title: "Volume de informação",
+
       body: "Informação demais, clareza de menos",
       fullBody: "Grupos de WhatsApp, YouTube, advogados e corretores dizem coisas diferentes. O volume de informação não resolve a decisão, cria mais dúvida."
     },
     {
-      n: "03",
+      icon: AlertTriangle,
       title: "Riscos invisíveis",
+
       body: "Erros que custam",
       fullBody: "Apartamento no bairro errado. Escola sem vaga. Uma rotina mal estruturada para a família. Cada erro custa dinheiro, tempo e energia que a família não tem."
     },
     {
-      n: "04",
+      icon: Clock,
       title: "Adaptação estruturada",
+
       body: "O depois que ninguém resolve",
       fullBody: "Chegar é metade do processo. A adaptação, do cônjuge que largou a carreira, das crianças na nova escola, da rotina reconstruída, exige acompanhamento real."
     }
@@ -61,19 +68,20 @@ export function ProblemSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-b18">
           {cards.map((card, i) => (
             <motion.div 
-              key={card.n}
+              key={card.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-black-2 p-12 relative group overflow-hidden"
+              className="bg-black-2 p-[52px_44px] relative group overflow-hidden rounded-[2px] transition-all duration-300 hover:shadow-[0_4px_24px_rgba(0,0,0,0.25),0_0_0_1px_rgba(173,137,87,0.2)]"
             >
               {/* Hover line */}
               <div className="absolute left-0 top-0 w-[3px] h-0 bg-gold transition-all duration-500 group-hover:h-full" />
               
-              <div className="font-sora text-[60px] font-[100] text-gold opacity-[0.07] mb-8 leading-none">
-                {card.n}
+              <div className="mb-8">
+                <Icon icon={card.icon} size={20} color="var(--gold)" />
               </div>
+
               <h3 className="font-sora text-[19px] font-[300] text-white mb-4">
                 {card.title}
               </h3>
