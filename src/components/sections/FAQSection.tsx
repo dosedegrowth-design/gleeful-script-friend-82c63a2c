@@ -39,7 +39,7 @@ export function FAQSection() {
                   className="w-full py-7 flex justify-between items-center gap-6 text-left group"
                   onClick={() => setOpen(isOpen ? null : i)}
                 >
-                  <span className="font-urbanist text-[16px] font-normal text-white group-hover:text-gold transition-colors">{f.q}</span>
+                  <span className="font-sora text-[16px] font-normal text-white group-hover:text-gold transition-colors">{f.q}</span>
                   <Plus
                     size={20}
                     className="text-gold shrink-0 transition-transform duration-400"
