@@ -87,12 +87,6 @@
   background: var(--color-navy-raise);
   box-shadow: 0 30px 80px -30px rgba(173,137,87,.25), inset 0 1px 0 rgba(255,255,255,.06);
 }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-sora);
-    font-weight: 200;
-  }
-}
 
 /* ═══════════════════════════════════════════════════════
    EFFECTS - DEFINITIVO
