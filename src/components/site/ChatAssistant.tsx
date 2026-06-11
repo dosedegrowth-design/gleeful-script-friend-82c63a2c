@@ -206,14 +206,11 @@ export function ChatAssistant() {
         <div className="w-[calc(100vw-40px)] md:w-[380px] h-[560px] max-h-[calc(100vh-140px)] bg-[#12141a]/95 backdrop-blur-xl border border-gold/20 flex flex-col shadow-[0_20px_50px_rgba(0,0,0,0.5)] animate-[fadeUp_0.4s_ease_forwards] mb-6 pointer-events-auto rounded-none overflow-hidden">
           <div className="p-4 border-b border-gold/15 flex items-center justify-between bg-black-3/50">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-gold/12 border border-gold/30 flex items-center justify-center">
-                <img src="/mooviagold.svg" alt="MOOVIA" className="w-5 h-5 object-contain" style={{ filter: 'brightness(0)' }} />
+              <div className="w-8 h-8 flex items-center justify-center">
+                <img src="/mooviagold.svg" alt="MOOVIA" className="w-6 h-6 object-contain" />
               </div>
               <div>
-                <h4 className="font-sora text-[13px] font-normal text-[#f9f5ec] tracking-[0.1em] uppercase">MOOVIA</h4>
-                <p className="font-sora text-[11px] text-white/35 uppercase tracking-[0.2em]">
-                  {leadData.name ? `Olá, ${leadData.name}` : 'Assistente'}
-                </p>
+                <h4 className="font-urbanist text-[13px] font-[500] text-[#f9f5ec] tracking-[0.1em] uppercase">MOOVIA Assistente</h4>
               </div>
             </div>
             <button onClick={() => setIsOpen(false)} className="text-white/35 hover:text-white transition-colors">
@@ -228,15 +225,14 @@ export function ChatAssistant() {
                 msg.role === 'user' ? "flex-row-reverse" : "flex-row"
               )}>
                 {msg.role === 'assistant' && (
-                  <div className="w-6 h-6 flex-shrink-0 bg-gold/10 border border-gold/20 flex items-center justify-center overflow-hidden">
-                    <img src="/mooviagold.svg" alt="MOOVIA" className="w-4 h-4 object-contain" style={{ filter: 'brightness(0)' }} />
-
+                  <div className="w-6 h-6 flex-shrink-0 flex items-center justify-center overflow-hidden">
+                    <img src="/mooviagold.svg" alt="MOOVIA" className="w-4 h-4 object-contain" />
                   </div>
                 )}
                 <div className={cn(
                   "max-w-[82%] p-3 leading-relaxed", 
                   msg.role === 'user' 
-                    ? "bg-gold/15 text-[#f9f5ec] font-normal" 
+                    ? "bg-gold/12 text-[#f9f5ec] font-normal" 
                     : "bg-black-3 text-white/80 border-l-2 border-l-gold"
                 )}>
                   {msg.content}
@@ -286,9 +282,9 @@ export function ChatAssistant() {
       
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="pointer-events-auto w-14 h-14 bg-gold rounded-full flex items-center justify-center shadow-[0_8px_32px_rgba(173,137,87,0.35)] hover:scale-105 transition-all duration-300"
+        className="pointer-events-auto w-14 h-14 bg-black-3 border border-gold/35 rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(173,137,87,0.2)] hover:border-gold transition-all duration-300"
       >
-        {isOpen ? <X size={24} className="text-[#0e0f12]" /> : <img src="/mooviagold.svg" alt="MOOVIA" className="w-7 h-7 object-contain" style={{ filter: 'brightness(0)' }} />}
+        {isOpen ? <X size={24} className="text-gold" /> : <img src="/mooviagold.svg" alt="MOOVIA" className="w-7 h-7 object-contain" />}
       </button>
     </div>
   );

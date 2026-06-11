@@ -44,10 +44,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     line-height: 1.6;
+    cursor: none;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-amotha);
+    font-family: var(--font-sora);
     font-weight: 200;
   }
 }
@@ -109,19 +110,29 @@
 /* ═══════════════════════════════════════════════════════
    HOVER SPIN ANIMATION
    ═══════════════════════════════════════════════════════ */
-@keyframes hoverSpin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+/* BOTÕES WIPE */
+.group:hover .group-hover\:wipe {
+  transform: scaleX(1);
 }
 
-/* Ícones dentro de botões/links (Removido img do hover geral para não girar logos) */
-a:hover i, a:hover svg,
-button:hover i, button:hover svg,
-[role="button"]:hover i, [role="button"]:hover svg,
-.group:hover .group-hover\:hover-spin,
-.hover-spin:hover i, .hover-spin:hover svg,
-.interactive:hover i, .interactive:hover svg {
-  animation: hoverSpin 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
+.wipe-before::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-gold-xl);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 0;
+}
+
+.wipe-before:hover::before {
+  transform: scaleX(1);
+}
+
+.wipe-before span {
+  position: relative;
+  z-index: 10;
 }
 
 /* Rotação contínua do ícone do cursor (o dot) quando estiver em hover */

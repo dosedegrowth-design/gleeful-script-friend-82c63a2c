@@ -152,6 +152,22 @@ function RootShell({ children }: { children: ReactNode }) {
     const ring = document.getElementById('cursor-ring');
     if (!dot || !ring) return;
 
+    dot.style.width = '6px';
+    dot.style.height = '6px';
+    dot.style.backgroundColor = '#ad8957';
+    dot.style.borderRadius = '50%';
+    dot.style.position = 'fixed';
+    dot.style.pointerEvents = 'none';
+    dot.style.zIndex = '9999';
+
+    ring.style.width = '36px';
+    ring.style.height = '36px';
+    ring.style.border = '1px solid rgba(173,137,87,0.35)';
+    ring.style.borderRadius = '50%';
+    ring.style.position = 'fixed';
+    ring.style.pointerEvents = 'none';
+    ring.style.zIndex = '9998';
+
     let mx = 0, my = 0, rx = 0, ry = 0;
     const onMouseMove = (e: MouseEvent) => {
       mx = e.clientX;
@@ -172,18 +188,16 @@ function RootShell({ children }: { children: ReactNode }) {
     const rafId = requestAnimationFrame(animateCursor);
 
     const onMouseEnter = () => {
-      ring.style.width = '64px';
-      ring.style.height = '64px';
-      ring.style.borderColor = 'rgba(206,173,132,0.8)';
+      ring.style.width = '52px';
+      ring.style.height = '52px';
+      ring.style.borderColor = 'rgba(173,137,87,0.8)';
       dot.style.transform = 'translate(-50%,-50%) scale(1.5)';
-      dot.classList.add('cursor-hover');
     };
     const onMouseLeave = () => {
       ring.style.width = '36px';
       ring.style.height = '36px';
-      ring.style.borderColor = 'rgba(206,173,132,0.4)';
+      ring.style.borderColor = 'rgba(173,137,87,0.35)';
       dot.style.transform = 'translate(-50%,-50%) scale(1)';
-      dot.classList.remove('cursor-hover');
     };
 
     const updateInteractiveElements = () => {
@@ -224,14 +238,8 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <div id="cursor-dot" className="hidden lg:block fixed top-0 left-0 w-10 h-10 pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.6s_cubic-bezier(0.4,0,0.2,1),opacity_0.2s]">
-          <img 
-            src="/custom-cursor.png" 
-            alt="Cursor" 
-            className="w-full h-full drop-shadow-[0_0_8px_rgba(173,137,87,0.4)]"
-          />
-        </div>
-        <div id="cursor-ring" className="hidden lg:block fixed top-0 left-0 w-11 h-11 border border-[#cead84]/40 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.2s_ease,width_0.25s,height_0.25s,opacity_0.2s]" />
+        <div id="cursor-dot" className="hidden lg:block fixed top-0 left-0 pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.2s_ease,opacity_0.2s]" />
+        <div id="cursor-ring" className="hidden lg:block fixed top-0 left-0 pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.2s_ease,width_0.25s,height_0.25s,opacity_0.2s]" />
         <AirplaneScene />
         {children}
         <Toaster position="top-right" richColors />

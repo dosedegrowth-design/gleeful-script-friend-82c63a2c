@@ -4,15 +4,13 @@ import { useEffect, useState } from "react";
 const fullTeam = [
   {
     id: "frederico",
-    name: "FREDERICO PRADO",
-    title: "Founder & CEO",
-    credentials: ["Oracle", "WeDo (SONAE)", "Cipher (Prosegur)", "MBA FGV", "Tampa", "Lisboa, 2018"],
+    name: "Frederico Prado",
+    title: "Founder & Senior Advisor",
+    credentials: ["Oracle", "SAP", "MBA FGV", "Tampa", "Lisboa, 2018"],
     hasPhoto: true,
     bio: [
-      { text: "Tem 29 anos de experiência como executivo em empresas multinacionais de tecnologia: Oracle, WeDo (SONAE), Cipher (Prosegur), Choice Technologies, Link Consulting.", isStrong: true },
-      { text: "Liderou projetos estratégicos e relações de alto nível entre América Latina, Europa e África. Formado em Comunicação pela University of Tampa, onde viveu 4 anos e iniciou a sua trajetória internacional. MBA em Empreendedorismo e Desenvolvimento de Novos Negócios pela Fundação Getulio Vargas." },
-      { text: "Veio para Portugal em 2018 com a família e passou pela mesma jornada que hoje coordena para os seus clientes: documentação, imóvel, escola, fiscalidade, adaptação, os 90 dias depois de chegar. Foi essa experiência vivida de dentro, somada a décadas de vendas consultivas e desenvolvimento de negócios em ambiente corporativo global, que motivou a criação da MOOVIA." },
-      { text: "Na MOOVIA, coordena pessoalmente cada mandato. É ele quem conduz a Conversa Gratuita, o Assessment e a relação com cada família ao longo de toda a jornada.", isAccent: true },
+      { text: "29 anos em TI multinacional. MBA em Empreendedorismo FGV. Formação em Comunicação na University of Tampa. Em Lisboa desde 2018 com a família.", isStrong: true },
+      { text: "Viveu a transição que hoje coordena e conduz pessoalmente cada mandato.", isAccent: true },
     ]
   },
   {
@@ -22,9 +20,8 @@ const fullTeam = [
     title: "Co-Founder",
     credentials: ["Abreu Advogados", "ULisboa", "CIDP", "Corporate & M&A", "ELSA"],
     bio: [
-      { text: "Licenciado pela Faculdade de Direito da Universidade de Lisboa, com duas pós-graduações pelo CIDP nas áreas de Corporate Finance, M&A e Corporate Litigation.", isStrong: true },
-      { text: "Atua na Abreu Advogados em Direito Empresarial, operações societárias e assessoria a clientes nacionais e internacionais. Vice-Presidente da ELSA U.Lisboa, Diretor Pedagógico do NELB e membro do Conselho Lusófono da Conexão Lusófona." },
-      { text: "Na MOOVIA, contribui com a dimensão jurídica e a credibilidade que só o conhecimento do ecossistema legal português de dentro pode oferecer.", isAccent: true },
+      { text: "Advogado na Abreu Advogados em Corporate e M&A. Pós-graduações CIDP em Corporate Finance e M&A.", isStrong: true },
+      { text: "O braço jurídico da MOOVIA no ecossistema português.", isAccent: true },
     ]
   },
   {
@@ -34,9 +31,8 @@ const fullTeam = [
     title: "Conselheiro Estratégico",
     credentials: ["Deloitte", "Oracle", "IBM", "SAP", "Salesforce", "FIA", "FGV"],
     bio: [
-      { text: "Mais de 25 anos de experiência internacional em tecnologia, transformação digital e desenvolvimento de negócios nas maiores empresas do setor: Deloitte, Oracle, IBM, SAP, Guidewire e Salesforce.", isStrong: true },
-      { text: "Apoiou grandes organizações na criação de valor tangível, modernização operacional e relacionamento executivo de longo prazo. Especialização na indústria seguradora. Formação em Administração Estratégica pela FIA e em Seguros pela FGV." },
-      { text: "Na MOOVIA, garante o posicionamento institucional, o desenvolvimento da operação e os padrões internacionais de confiança e excelência que a marca boutique exige.", isAccent: true },
+      { text: "25+ anos em tecnologia corporativa. Especialista na indústria seguradora.", isStrong: true },
+      { text: "Liderou equipas de alta performance e operações C-Level globais.", isAccent: true },
     ]
   },
   {
@@ -46,9 +42,7 @@ const fullTeam = [
     title: "Strategic Relocation Advisor",
     credentials: ["ADLS", "MBA USP", "Live University", "VP Global Sales", "SC Investor"],
     bio: [
-      { text: "Mais de 25 anos de experiência em desenvolvimento de negócios, educação executiva e relações comerciais internacionais. Vice-President of Global Sales na Advantages Digital Learning Solutions (ADLS).", isStrong: true },
-      { text: "Liderou negociações internacionais de alto impacto com grandes grupos editoriais globais. Professor em programas de MBA da Live University. Palestrante internacional. MBA pela USP. Investidor imobiliário em Itapema e Porto Belo, SC." },
-      { text: "Na MOOVIA, apoia clientes brasileiros com abordagem consultiva, humana e estratégica nos momentos de planeamento internacional, investimento e transição de vida.", isAccent: true },
+      { text: "VP Global Sales na ADLS. Professor de MBA, palestrante e investidor imobiliário em Santa Catarina. Fluente em PT, EN e ES.", isStrong: true },
     ]
   },
   {
@@ -58,9 +52,8 @@ const fullTeam = [
     title: "Education & Family Transition Advisor",
     credentials: ["Direito UCAM", "18 anos CLO", "CID Records"],
     bio: [
-      { text: "Formado em Direito pela Universidade Candido Mendes. 18 anos como Chief Legal Officer da CID Records, com experiência em gestão, relações institucionais e acompanhamento estratégico de projetos e pessoas.", isStrong: true },
-      { text: "Com forte capacidade relacional e visão humana sobre os desafios da mobilidade internacional, atua como ponte entre o Brasil e Portugal, apoiando estudantes e famílias nas etapas de preparação, organização e adaptação à nova realidade académica e cultural portuguesa.", isAccent: true },
-      { text: "Na MOOVIA, lidera o suporte a famílias e estudantes brasileiros em transição, com foco em continuidade educacional, integração familiar e construção de redes de apoio em Portugal.", isAccent: true },
+      { text: "18 anos como Chief Legal Officer da CID Records.", isStrong: true },
+      { text: "Especialista no acompanhamento de estudantes e famílias brasileiras na transição.", isAccent: true },
     ]
   },
   {
@@ -70,9 +63,8 @@ const fullTeam = [
     title: "Mobilidade Internacional",
     credentials: ["Mestrado ULisboa", "Erasmus", "TJSC", "Imigração", "Documentação"],
     bio: [
-      { text: "Mestre em Direito Penal e Ciências Criminais pela Faculdade de Direito da Universidade de Lisboa. Formação internacional pelo programa Erasmus na Itália e na República Tcheca.", isStrong: true },
-      { text: "Experiência junto ao Tribunal de Justiça de Santa Catarina em organização documental e produção de textos formais no âmbito jurídico. Radicada em Lisboa, consolidou atuação em imigração e mobilidade internacional, com foco em processos migratórios, nacionalidade portuguesa e regularização documental de clientes brasileiros e estrangeiros.", isAccent: true },
-      { text: "Na MOOVIA, contribui para uma experiência de transição mais segura, estruturada e humanizada, apoiando clientes em processos documentais, imigração e integração em Portugal.", isAccent: true },
+      { text: "Mestre em Direito pela ULisboa. Erasmus em Itália e Rep. Tcheca.", isStrong: true },
+      { text: "Especialista em imigração, nacionalidade e documentação transfronteiriça.", isAccent: true },
     ]
   },
   {
@@ -82,9 +74,8 @@ const fullTeam = [
     title: "Real Estate Specialist",
     credentials: ["RE/MAX Collection", "Luxo", "10+ anos", "Premiada RE/MAX Portugal"],
     bio: [
-      { text: "Mais de 10 anos de experiência no mercado imobiliário português. Trajetória reconhecida e premiada pela RE/MAX Portugal. Especialista em RE/MAX Collection, o segmento de luxo e investimento da RE/MAX em Portugal.", isStrong: true },
-      { text: "Especializada no atendimento a clientes nacionais e internacionais em aquisição imobiliária, investimento, relocation residencial e oportunidades de património em Portugal. Acompanhamento próximo ao longo de todo o processo, com comunicação constante e transparente.", isAccent: true },
-      { text: "Na MOOVIA, lidera a frente de real estate e investimento imobiliário. Atua com housing acima de €1.500/mês.", isAccent: true },
+      { text: "Mais de 10 anos no mercado imobiliário português. Premiada RE/MAX Portugal.", isStrong: true },
+      { text: "Housing acima de €1.500/mês exclusivamente.", isAccent: true },
     ]
   }
 ];
@@ -145,7 +136,7 @@ export function FullTeamSection() {
 
             <div className="lg:sticky lg:top-[120px]">
               <Reveal>
-                <h3 className="font-sora font-[200] text-[28px] text-white leading-tight">
+                <h3 className="font-sora font-[200] text-[28px] text-white leading-tight uppercase">
                   {member.name}
                 </h3>
                 <p className="font-urbanist font-[400] text-[11px] tracking-[0.2em] uppercase text-gold mt-2">
@@ -166,7 +157,8 @@ export function FullTeamSection() {
                 {member.hasPhoto && (
                   <div className="mt-8 aspect-[4/5] w-full bg-[#181818] border border-[#181818] transition-all duration-700 overflow-hidden">
                     <img 
-                      src={member.id === 'frederico' ? '/images/frederico.png' : `/images/${member.id}.png`} 
+                      src={`/images/${member.id === 'frederico' ? 'frederico' : member.id}.png`} 
+                      style={{ filter: 'grayscale(1) sepia(0.2) contrast(1.1)' }}
                       alt={member.name} 
 
                       className="w-full h-full object-cover"
@@ -189,9 +181,8 @@ export function FullTeamSection() {
                         : ""
                     }`}
                     style={para.isAccent ? { borderLeft: '2px solid #AD8957' } : {}}
-                  >
-                    {para.text}
-                  </p>
+                    dangerouslySetInnerHTML={{ __html: para.text }}
+                  />
                 ))}
               </Reveal>
             </div>

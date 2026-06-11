@@ -9,22 +9,22 @@ const selectFields = [
   { 
     name: "objective", 
     placeholder: "Qual o seu objetivo principal?", 
-    options: ["Mudar com a família", "Investir e estruturar património", "Estudo dos filhos", "Aposentadoria em Portugal"] 
+    options: ["Trabalhar em Portugal", "Estudar em Portugal", "Mudar com a família", "Investir em imóveis", "Aposentadoria em Portugal", "Outro"] 
   },
   { 
     name: "timing", 
     placeholder: "Quando pretende mudar?", 
-    options: ["Nos próximos 3 meses", "3 a 6 meses", "6 a 12 meses", "Ainda pesquisando"] 
+    options: ["Menos de 3 meses (urgente)", "3 a 6 meses", "6 a 12 meses", "Mais de 1 ano", "Ainda estou pesquisando"] 
   },
   { 
     name: "composition", 
     placeholder: "Quantas pessoas participam da mudança?", 
-    options: ["Apenas eu", "Casal", "Família com filhos"] 
+    options: ["Apenas eu", "Casal sem filhos", "Família com filhos", "Tenho animais de estimação", "Família com filhos e pets"] 
   },
   { 
     name: "decision_phase", 
     placeholder: "Em que fase da decisão está?", 
-    options: ["Só começando a pensar", "Decidido, organizando", "Pronto para executar"] 
+    options: ["Apenas pesquisando", "Comparando Portugal com outras opções", "Já decidi Portugal, planejando quando", "Tomei a decisão, preciso agir", "Já tenho proposta/contrato assinado"] 
   },
 ];
 
@@ -98,8 +98,7 @@ export function LeadForm() {
     const calendlyUrl = `https://calendly.com/moovia-portugal/conversa-gratuita?name=${encodeURIComponent(form.name || "")}&email=${encodeURIComponent(form.email || "")}`;
     return (
       <div className="p-10 md:p-14 bg-black-3 border border-border animate-[fadeUp_0.8s_ease_forwards]">
-        <p className="font-urbanist text-[11px] tracking-[0.22em] uppercase text-gold mb-4">Recebido</p>
-        <h3 className="font-amotha text-4xl font-extralight text-gold-l mb-5 leading-tight tracking-tight">
+        <h3 className="font-sora text-[32px] font-[200] text-gold-l mb-5 leading-tight tracking-tight">
           Recebemos o seu caso, {form.name?.split(" ")[0] || "obrigado"}.
         </h3>
         <p className="font-urbanist text-[16px] font-light text-white-3 leading-relaxed mb-8">
@@ -117,13 +116,13 @@ export function LeadForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="flex flex-col gap-1.5">
+    <form onSubmit={onSubmit} className="flex flex-col gap-0">
       {selectFields.map((f) => (
         <Select key={f.name} onValueChange={(v) => set(f.name, v)} value={form[f.name] || ""}>
-          <SelectTrigger className="w-full bg-black-3 border border-border text-white-2 font-urbanist text-[15px] font-light h-[58px] px-5 outline-none transition-all duration-300 focus:border-gold focus:ring-0 focus:ring-offset-0">
+          <SelectTrigger className="w-full bg-black-3 border-0 border-b border-border text-white/70 font-urbanist text-[15px] font-[300] h-[58px] px-0 outline-none transition-all duration-300 focus:border-gold focus:ring-0 focus:ring-offset-0 focus:bg-black/60 rounded-none">
             <SelectValue placeholder={f.placeholder} />
           </SelectTrigger>
-          <SelectContent className="bg-black-3 border border-border text-white-2 font-urbanist">
+          <SelectContent className="bg-black-3 border border-border text-white/70 font-urbanist">
             {f.options.map((o) => (
               <SelectItem key={o} value={o} className="focus:bg-gold/10 focus:text-gold transition-colors">{o}</SelectItem>
             ))}
@@ -135,7 +134,7 @@ export function LeadForm() {
         placeholder="Seu nome completo"
         value={form.name || ""} 
         onChange={(e) => set("name", e.target.value)} 
-        className="w-full bg-black-3 border border-border text-white-2 font-urbanist text-[15px] font-light p-[18px_20px] outline-none transition-all duration-300 focus:border-gold focus:bg-black/80" 
+        className="w-full bg-black-3 border-0 border-b border-border text-white/70 font-urbanist text-[15px] font-[300] p-[18px_0] outline-none transition-all duration-300 focus:border-gold focus:bg-black/60 rounded-none placeholder:text-white/35" 
       />
       <input 
         required 
@@ -143,7 +142,7 @@ export function LeadForm() {
         placeholder="WhatsApp com código do país — ex: +55 11 99999-9999" 
         value={form.whatsapp || ""} 
         onChange={(e) => set("whatsapp", e.target.value)} 
-        className="w-full bg-black-3 border border-border text-white-2 font-urbanist text-[15px] font-light p-[18px_20px] outline-none transition-all duration-300 focus:border-gold focus:bg-black/80" 
+        className="w-full bg-black-3 border-0 border-b border-border text-white/70 font-urbanist text-[15px] font-[300] p-[18px_0] outline-none transition-all duration-300 focus:border-gold focus:bg-black/60 rounded-none placeholder:text-white/35" 
       />
       <input 
         required 
@@ -151,14 +150,14 @@ export function LeadForm() {
         placeholder="E-mail"
         value={form.email || ""} 
         onChange={(e) => set("email", e.target.value)} 
-        className="w-full bg-black-3 border border-border text-white-2 font-urbanist text-[15px] font-light p-[18px_20px] outline-none transition-all duration-300 focus:border-gold focus:bg-black/80" 
+        className="w-full bg-black-3 border-0 border-b border-border text-white/70 font-urbanist text-[15px] font-[300] p-[18px_0] outline-none transition-all duration-300 focus:border-gold focus:bg-black/60 rounded-none placeholder:text-white/35" 
       />
       <textarea 
         placeholder="Conte brevemente o seu caso (opcional)"
         rows={3} 
         value={form.message || ""} 
         onChange={(e) => set("message", e.target.value)} 
-        className="w-full bg-black-3 border border-border text-white-2 font-urbanist text-[15px] font-light p-[18px_20px] outline-none transition-all duration-300 focus:border-gold focus:bg-black/80 resize-none min-h-[100px]" 
+        className="w-full bg-black-3 border-0 border-b border-border text-white/70 font-urbanist text-[15px] font-[300] p-[18px_0] outline-none transition-all duration-300 focus:border-gold focus:bg-black/60 rounded-none placeholder:text-white/35 resize-none min-h-[100px]" 
       />
 
       {err && <p className="text-sm text-red-500 mt-2">{err}</p>}
@@ -166,7 +165,7 @@ export function LeadForm() {
       <button
         type="submit"
         disabled={loading}
-        className="bg-gold text-black font-sora text-[13px] font-bold tracking-[0.22em] uppercase px-10 py-5 relative overflow-hidden group transition-all duration-300 mt-2 disabled:opacity-60"
+        className="bg-gold text-black font-urbanist text-[13px] font-[600] tracking-[0.22em] uppercase px-10 py-5 relative overflow-hidden group transition-all duration-300 mt-6 disabled:opacity-60"
       >
         <span className="relative z-10">{loading ? "A enviar…" : "Enviar e aguardar retorno"}</span>
         <div className="absolute inset-0 bg-gold-xl origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100 pointer-events-none" />

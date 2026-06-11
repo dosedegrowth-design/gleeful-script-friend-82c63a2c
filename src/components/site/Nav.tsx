@@ -51,7 +51,7 @@ export function Nav() {
           <Link
             key={l.label}
             to={l.to}
-            className="font-sora text-[13px] font-normal tracking-[0.2em] uppercase text-white/40 hover:text-white relative transition-colors group"
+            className="font-urbanist text-[12px] font-normal tracking-[0.12em] uppercase text-white/35 hover:text-white relative transition-colors group"
           >
             {l.label}
             <span className="absolute -bottom-[4px] left-0 w-0 h-px bg-gold transition-all duration-300 group-hover:w-full" />
@@ -59,7 +59,7 @@ export function Nav() {
         ))}
         <Link
           to="/contacto"
-          className="bg-transparent border border-border/40 text-gold-l px-8 py-[12px] font-sora text-[12px] tracking-[0.2em] uppercase transition-all duration-300 hover:bg-gold hover:text-black hover:border-gold"
+          className="bg-transparent border border-gold/35 text-gold-l px-6 py-2.5 font-urbanist text-[12px] font-semibold tracking-[0.18em] uppercase transition-all duration-300 hover:bg-gold hover:text-black hover:border-gold"
         >
           Avaliar meu caso
         </Link>
@@ -86,7 +86,7 @@ export function Nav() {
                 key={l.label}
                 to={l.to}
                 onClick={() => setOpen(false)}
-                className="font-amotha text-4xl font-light text-white tracking-tight"
+                className="font-sora text-[36px] font-[200] text-white tracking-tight"
               >
                 {l.label}
               </Link>
