@@ -32,9 +32,9 @@ export function Hero() {
         }}
       >
         <img 
-          src="/mooviagold.svg" 
+          src="/mooviagold.png" 
           alt="Decorative Logo" 
-          className="w-full h-full opacity-40 animate-[slowspin_180s_linear_infinite] pointer-events-none select-none"
+          className="w-full h-full opacity-40 animate-[slowspin_180s_linear_infinite] pointer-events-none select-none object-contain"
         />
       </div>
 
