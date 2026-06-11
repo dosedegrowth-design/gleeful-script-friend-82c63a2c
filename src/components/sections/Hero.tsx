@@ -70,7 +70,7 @@ export function Hero() {
           <span className="font-[100] block">de mais informação.</span>
           <span className="font-[200] block">Precisa de alguém</span>
           <span className="font-[200] block">que coordene</span>
-          <span className="font-[200] text-latte italic block">a decisão.</span>
+          <span className="font-[200] text-[#cead84] italic block">coordene a decisão.</span>
         </h1>
 
         <motion.p 

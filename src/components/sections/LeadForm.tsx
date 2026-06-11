@@ -19,7 +19,7 @@ const selectFields = [
   },
   { 
     name: "composition", 
-    placeholder: "Quantas pessoas participam?", 
+    placeholder: "Quantas pessoas participam da mudança?", 
     options: ["Apenas eu", "Casal sem filhos", "Família com filhos", "Tenho animais de estimação", "Família com filhos e pets"] 
   },
   { 
