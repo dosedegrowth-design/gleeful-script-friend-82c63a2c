@@ -48,7 +48,7 @@ const teamMembers = [
 
 export function TeamSection() {
   return (
-    <section className="bg-black pt-[80px] px-6 lg:px-[80px] relative z-[1] pointer-events-none">
+    <section className="bg-black pt-[80px] px-6 lg:px-[80px] relative z-[1]">
       <div className="mx-auto max-w-[1400px] pointer-events-auto">
         <div className="max-w-[580px] mb-20">
           <Reveal>

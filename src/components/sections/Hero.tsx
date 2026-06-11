@@ -69,7 +69,7 @@ export function Hero() {
             className="bg-gold text-black font-urbanist text-[12px] font-semibold tracking-[0.24em] uppercase px-12 py-5 relative overflow-hidden group transition-all duration-300"
           >
             <span className="relative z-10">Avaliar meu caso</span>
-            <div className="absolute inset-0 bg-gold-xl origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100" />
+            <div className="absolute inset-0 bg-gold-xl origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100 pointer-events-none" />
           </Link>
           <a
             href="#processo"
