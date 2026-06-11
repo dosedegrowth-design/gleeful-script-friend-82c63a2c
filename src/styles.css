@@ -114,13 +114,13 @@
   100% { transform: rotate(360deg); }
 }
 
-/* Ícones dentro de botões/links */
-a:hover i, a:hover svg, a:hover img,
-button:hover i, button:hover svg, button:hover img,
-[role="button"]:hover i, [role="button"]:hover svg, [role="button"]:hover img,
+/* Ícones dentro de botões/links (Removido img do hover geral para não girar logos) */
+a:hover i, a:hover svg,
+button:hover i, button:hover svg,
+[role="button"]:hover i, [role="button"]:hover svg,
 .group:hover .group-hover\:hover-spin,
-.hover-spin:hover i, .hover-spin:hover svg, .hover-spin:hover img,
-.interactive:hover i, .interactive:hover svg, .interactive:hover img {
+.hover-spin:hover i, .hover-spin:hover svg,
+.interactive:hover i, .interactive:hover svg {
   animation: hoverSpin 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
 }
 
@@ -129,12 +129,12 @@ button:hover i, button:hover svg, button:hover img,
   animation: hoverSpin 1s linear infinite !important;
 }
 
-/* Giradinha rápida nos ícones da página quando em hover */
-a:hover i, a:hover svg, a:hover img,
-button:hover i, button:hover svg, button:hover img,
-[role="button"]:hover i, [role="button"]:hover svg, [role="button"]:hover img,
+/* Giradinha rápida nos ícones da página quando em hover (Removido img) */
+a:hover i, a:hover svg,
+button:hover i, button:hover svg,
+[role="button"]:hover i, [role="button"]:hover svg,
 .group:hover .group-hover\:hover-spin,
-.hover-spin:hover i, .hover-spin:hover svg, .hover-spin:hover img {
+.hover-spin:hover i, .hover-spin:hover svg {
   animation: hoverSpin 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
