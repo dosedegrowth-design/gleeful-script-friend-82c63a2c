@@ -57,20 +57,19 @@ export function Hero() {
           className="flex flex-col gap-3 mb-12"
         >
           <div className="w-8 h-px bg-cobre" />
-          <span className="font-urbanist text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre">
+          <span className="font-mono text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre">
             Coordenação Internacional de Vida e Património
           </span>
         </motion.div>
 
         <h1 
           ref={headlineRef}
-          className="font-sora text-[clamp(44px,5.6rem,82px)] leading-[1.04] tracking-[-0.02em] text-off mb-12 overflow-hidden"
+          className="font-display text-[clamp(48px,9vw,82px)] leading-[0.98] tracking-[-0.02em] text-off mb-12 overflow-hidden"
         >
-          <span className="font-[100] block">Você não precisa</span>
-          <span className="font-[100] block">de mais informação.</span>
-          <span className="font-[200] block">Precisa de alguém</span>
-          <span className="font-[200] block">que coordene</span>
-          <span className="font-[200] text-[#cead84] italic block">coordene a decisão.</span>
+          <span className="font-[200] block">Você não precisa</span>
+          <span className="font-[200] block">de mais informação.</span>
+          <span className="font-[300] block">Precisa de alguém</span>
+          <span className="font-[300] text-latte italic block">que coordene a decisão.</span>
         </h1>
 
         <motion.p 

@@ -61,7 +61,7 @@ export function TeamSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-cobre mb-4 flex items-center gap-4"
+            className="font-mono text-[11px] tracking-[0.32em] uppercase text-cobre mb-4 flex items-center gap-4"
           >
             <span className="w-6 h-px bg-cobre" />
             A equipa
