@@ -8,7 +8,7 @@ export function Footer() {
           <div className="footer-brand">
             <Link to="/" className="flex flex-col group gap-1">
               <img 
-                src="/mooviagold.svg" 
+                src="/mooviagold.png" 
                 alt="MOOVIA Logo" 
                 className="h-12 w-auto object-contain self-start"
               />
