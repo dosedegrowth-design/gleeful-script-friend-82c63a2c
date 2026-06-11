@@ -141,7 +141,7 @@ export function Hero() {
           >
             <div className="font-sora text-[48px] font-[100] text-latte leading-none mb-2 tracking-[-0.03em] flex items-baseline">
               {stat.prefix && <span className="text-[28px] mr-1">{stat.prefix}</span>}
-              <NumberFlow value={stat.num} duration={1.5} />
+              <NumberFlow value={stat.num} />
               {stat.suffix && <span className="text-[28px] ml-1">{stat.suffix}</span>}
             </div>
             <div className="font-urbanist text-[11px] tracking-[0.14em] uppercase text-mut">{stat.label}</div>
