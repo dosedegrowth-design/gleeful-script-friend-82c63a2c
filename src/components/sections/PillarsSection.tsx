@@ -83,7 +83,7 @@ export function PillarsSection() {
                 </ul>
                 {pillar.deliverable && (
                   <div className="mt-8 pt-6 border-t border-border">
-                    <p className="font-sora text-[10px] uppercase tracking-widest text-gold-l mb-1">Resultado:</p>
+                    <p className="font-sora text-[10px] uppercase tracking-widest text-gold mb-1">Resultado:</p>
                     <p className="font-urbanist text-[13px] text-white-3 italic">{pillar.deliverable}</p>
                   </div>
                 )}
