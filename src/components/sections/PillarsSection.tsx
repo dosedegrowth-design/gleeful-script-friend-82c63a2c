@@ -38,8 +38,8 @@ const pillars = [
 
 export function PillarsSection() {
   return (
-    <section id="servicos" className="bg-black-2 py-[120px] px-6 lg:px-[80px] relative z-[1]">
-      <div className="mx-auto max-w-[1400px]">
+    <section id="servicos" className="bg-black-2 py-[120px] px-6 lg:px-[80px] relative z-[1] pointer-events-none">
+      <div className="mx-auto max-w-[1400px] pointer-events-auto">
         <Reveal>
           <div className="font-urbanist text-[11px] tracking-[0.28em] uppercase text-gold mb-4 flex items-center gap-3">
             <span className="w-6 h-px bg-gold" />

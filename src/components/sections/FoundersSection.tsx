@@ -3,8 +3,8 @@ import { Reveal } from "@/components/site/Reveal";
 
 export function FoundersSection() {
   return (
-    <section id="sobre" className="bg-black py-[120px] px-6 lg:px-[80px] relative z-[1]">
-      <div className="mx-auto max-w-[1400px]">
+    <section id="sobre" className="bg-black py-[120px] px-6 lg:px-[80px] relative z-[1] pointer-events-none">
+      <div className="mx-auto max-w-[1400px] pointer-events-auto">
         <div className="max-w-3xl">
           <Reveal>
             <div className="font-urbanist text-[11px] tracking-[0.28em] uppercase text-gold mb-4 flex items-center gap-3">

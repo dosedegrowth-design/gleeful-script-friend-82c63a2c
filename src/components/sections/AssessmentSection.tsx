@@ -13,8 +13,8 @@ const deliverables = [
 
 export function AssessmentSection() {
   return (
-    <section id="assessment" className="bg-black py-[120px] px-6 lg:px-[80px] relative z-[1]">
-      <div className="mx-auto max-w-[1400px] grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+    <section id="assessment" className="bg-black py-[120px] px-6 lg:px-[80px] relative z-[1] pointer-events-none">
+      <div className="mx-auto max-w-[1400px] grid grid-cols-1 lg:grid-cols-2 gap-20 items-start pointer-events-auto">
         <div>
           <Reveal>
             <div className="font-urbanist text-[11px] tracking-[0.28em] uppercase text-gold mb-4 flex items-center gap-3">
@@ -38,7 +38,7 @@ export function AssessmentSection() {
           </Reveal>
         </div>
 
-        <Reveal delay={140} className="relative z-[100] isolate">
+        <Reveal delay={140} className="relative z-[100] isolate pointer-events-auto">
           <div
 
             className="p-10 md:p-12 border border-border bg-black-3 relative overflow-hidden"
