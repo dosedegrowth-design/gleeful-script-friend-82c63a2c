@@ -27,7 +27,7 @@ const teamMembers = [
     role: "Strategic Relocation Advisor",
     chips: ["ADLS", "MBA USP", "Live University", "SC Investor"],
     bio: "VP Global Sales na ADLS. MBA em Gestão Estratégica pela USP, professor de MBA e palestrante internacional. Investidor imobiliário em Santa Catarina. Fluente em PT, EN e ES.",
-    image: "/eduardo.png",
+    image: "/images/eduardo.png",
   },
   {
     name: "Dany Zukerman",
