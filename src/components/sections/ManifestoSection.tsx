@@ -2,7 +2,7 @@ import { Reveal } from "@/components/site/Reveal";
 
 export function ManifestoSection() {
   return (
-    <section className="bg-black py-[160px] px-6 lg:px-[80px] flex items-center justify-center text-center relative overflow-hidden pointer-events-none">
+    <section className="bg-black py-[160px] px-6 lg:px-[80px] flex items-center justify-center text-center relative overflow-hidden">
       <div 
         className="absolute inset-0 pointer-events-none z-0"
         style={{
@@ -10,7 +10,7 @@ export function ManifestoSection() {
         }}
       />
       
-      <div className="max-w-[900px] relative z-[100] isolate pointer-events-auto">
+      <div className="max-w-[900px] relative z-[100] isolate">
         <Reveal>
           <div className="font-sora text-[11px] tracking-[0.34em] uppercase text-gold mb-4 flex items-center justify-center gap-3">
             <span className="w-6 h-px bg-gold" />

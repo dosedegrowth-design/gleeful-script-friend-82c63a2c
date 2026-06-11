@@ -17,8 +17,8 @@ const faqs = [
 export function FAQSection() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section className="bg-black-2 py-[120px] px-6 lg:px-[80px] relative z-[1] pointer-events-none">
-      <div className="mx-auto max-w-3xl pointer-events-auto">
+    <section className="bg-black-2 py-[120px] px-6 lg:px-[80px] relative z-[1]">
+      <div className="mx-auto max-w-3xl">
         <Reveal>
           <div className="font-sora text-[11px] tracking-[0.34em] uppercase text-gold mb-6 flex items-center gap-3">
             <span className="w-6 h-px bg-gold" />
