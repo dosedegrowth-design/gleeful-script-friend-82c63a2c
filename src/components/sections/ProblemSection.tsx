@@ -74,7 +74,7 @@ export function ProblemSection() {
         <Reveal delay={400} className="mt-20 text-center bg-black p-12 pointer-events-auto">
           <p className="font-amotha text-[clamp(28px,4vw,52px)] font-extralight leading-snug text-white">
             "O mercado resolve tarefas."<br/>
-            <span className="text-gold-l italic">A MOOVIA resolve a decisão.</span>
+            <span className="text-gold italic">A MOOVIA resolve a decisão.</span>
           </p>
         </Reveal>
 
