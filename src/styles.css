@@ -35,8 +35,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Sora", sans-serif;
-  --font-body: "Urbanist", sans-serif;
+  --font-display: "Boska", serif;
+  --font-body: "General Sans", sans-serif;
   
   --color-black: var(--black);
   --color-black-2: var(--black-2);
@@ -57,7 +57,7 @@
 }
 
 @layer base {
-  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700&family=Urbanist:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
+  @import url('https://api.fontshare.com/v2/css?f[]=boska@200,300,400,500&f[]=general-sans@200,300,400,500,600&display=swap');
 
   body {
     background-color: var(--black);
