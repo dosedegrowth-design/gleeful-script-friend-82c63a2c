@@ -211,7 +211,7 @@ export function FormSection() {
           </motion.div>
 
           <div className="space-y-4">
-             [
+             {[
                "Resposta em até 2 horas em dias úteis",
                "Conversa direta com o founder",
                "Sem pitch, sem script",
