@@ -229,7 +229,8 @@ export function ChatAssistant() {
               )}>
                 {msg.role === 'assistant' && (
                   <div className="w-6 h-6 flex-shrink-0 bg-gold/10 border border-gold/20 flex items-center justify-center overflow-hidden">
-                    <img src="/mooviagold.svg" alt="MOOVIA" className="w-4 h-4 object-contain" />
+                    <img src="/mooviagold.svg" alt="MOOVIA" className="w-4 h-4 object-contain brightness-0" />
+
                   </div>
                 )}
                 <div className={cn(
