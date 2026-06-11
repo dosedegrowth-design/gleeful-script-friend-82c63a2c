@@ -169,7 +169,7 @@ export function LeadForm() {
         className="bg-gold text-black font-sora text-[13px] font-bold tracking-[0.22em] uppercase px-10 py-5 relative overflow-hidden group transition-all duration-300 mt-2 disabled:opacity-60"
       >
         <span className="relative z-10">{loading ? "A enviar…" : "Enviar e aguardar retorno"}</span>
-        <div className="absolute inset-0 bg-gold-xl origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100" />
+        <div className="absolute inset-0 bg-gold-xl origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100 pointer-events-none" />
       </button>
       <div className="mt-8 text-center">
         <a 
