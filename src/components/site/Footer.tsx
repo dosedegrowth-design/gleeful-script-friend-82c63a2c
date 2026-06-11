@@ -6,7 +6,7 @@ export function Footer() {
       <div className="mx-auto max-w-[1400px]">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_auto] gap-20 mb-[56px]">
           <div className="footer-brand">
-            <Link to="/" className="flex flex-col group gap-1">
+            <Link to="/" className="flex flex-col gap-1">
               <img 
                 src="/moovia-logo-full.png" 
                 alt="MOOVIA Logo" 
