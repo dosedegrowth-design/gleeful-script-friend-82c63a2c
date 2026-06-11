@@ -29,27 +29,27 @@ const cards = [
 
 export function ProblemSection() {
   return (
-    <section className="bg-black py-[120px] px-6 lg:px-[80px] relative z-[1]">
+    <section className="bg-black-2 py-[120px] px-6 lg:px-[80px] relative z-[1]">
       <div className="mx-auto max-w-[1400px] pointer-events-auto">
         <Reveal>
-          <div className="font-sora text-[11px] tracking-[0.34em] uppercase text-gold mb-4 flex items-center gap-3">
+          <div className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-gold mb-4 flex items-center gap-3">
             <span className="w-6 h-px bg-gold" />
             O mercado resolve tarefas
           </div>
         </Reveal>
         <Reveal delay={100}>
-          <h2 className="font-amotha text-[clamp(32px,4vw,60px)] font-extralight leading-[1.06] tracking-[-0.02em] mb-6 text-white">
+          <h2 className="font-sora text-[clamp(32px,4vw,60px)] font-[200] leading-[1.06] tracking-[-0.02em] mb-6 text-white">
             O problema não é a burocracia.<br/>
-            <span className="text-gold italic">É que ninguém coordena o todo.</span>
+            <span className="text-gold-l italic">É que ninguém coordena o todo.</span>
           </h2>
         </Reveal>
         <Reveal delay={200}>
-          <p className="font-urbanist text-[17px] font-light text-white-3 leading-[1.9] max-w-[720px] mb-12">
+          <p className="font-urbanist text-[18px] font-[300] text-white/35 leading-[1.9] max-w-[640px] mb-12">
             Você tem um advogado para o visto, um corretor para o imóvel, uma escola para os filhos, um contador para o NIF. Cada um no seu quadrado. E você no meio tentando fazer tudo encaixar numa das decisões mais complexas da sua vida.
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px border border-border mt-[72px] relative z-[100] isolate pointer-events-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px border border-border mt-[72px] relative z-[100] isolate pointer-events-auto bg-black-2">
           {cards.map((card, i) => (
             <Reveal key={card.n} delay={i * 80} distance={30}>
               <div className="inside-card p-10 lg:p-[48px] bg-black-2 relative overflow-hidden group transition-colors duration-400 hover:bg-black-3 h-full">
@@ -71,10 +71,10 @@ export function ProblemSection() {
           ))}
         </div>
 
-        <Reveal delay={400} className="mt-20 text-center bg-black p-12 pointer-events-auto">
-          <p className="font-amotha text-[clamp(28px,4vw,52px)] font-extralight leading-snug text-white">
+        <Reveal delay={400} className="mt-1 text-center bg-black py-16 px-12 pointer-events-auto">
+          <p className="font-sora text-[clamp(26px,4vw,52px)] font-[200] leading-snug text-white">
             "O mercado resolve tarefas."<br/>
-            <span className="text-gold italic">A MOOVIA resolve a decisão.</span>
+            <span className="text-gold-l italic">A MOOVIA resolve a decisão.</span>
           </p>
         </Reveal>
 
