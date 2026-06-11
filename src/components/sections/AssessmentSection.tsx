@@ -46,7 +46,7 @@ export function AssessmentSection() {
             <div className="font-amotha text-[88px] font-thin text-gold-l leading-none tracking-[-0.04em]">
               €250
             </div>
-            <p className="mt-3 font-urbanist text-[11px] tracking-[0.18em] uppercase text-white-3">
+            <p className="mt-3 font-sora text-[11px] tracking-[0.3em] uppercase text-white-3">
               Strategic Relocation Assessment · 90 minutos
             </p>
             <div className="mt-12 font-urbanist text-[11px] tracking-[0.2em] uppercase text-gold mb-4">Entregáveis:</div>
