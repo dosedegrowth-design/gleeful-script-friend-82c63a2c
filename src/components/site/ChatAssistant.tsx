@@ -286,7 +286,7 @@ export function ChatAssistant() {
       
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-14 h-14 bg-gold rounded-full flex items-center justify-center shadow-[0_8px_32px_rgba(173,137,87,0.35)] hover:scale-105 transition-all duration-300"
+        className="pointer-events-auto w-14 h-14 bg-gold rounded-full flex items-center justify-center shadow-[0_8px_32px_rgba(173,137,87,0.35)] hover:scale-105 transition-all duration-300"
       >
         {isOpen ? <X size={24} className="text-[#0e0f12]" /> : <img src="/mooviagold.svg" alt="MOOVIA" className="w-7 h-7 object-contain" style={{ filter: 'brightness(0)' }} />}
       </button>
