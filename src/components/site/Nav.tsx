@@ -4,6 +4,7 @@ import { List, X } from "@phosphor-icons/react";
 import { cn } from "@/lib/utils";
 import { Wordmark } from "./Wordmark";
 import { motion, AnimatePresence } from "framer-motion";
+import { List, X } from "@phosphor-icons/react";
 
 const links = [
   { to: "/", label: "Como funciona", hash: "#processo" },
