@@ -101,7 +101,6 @@ export function TeamSection() {
                       src={member.image} 
                       alt={member.name} 
                       className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
-                      style={{ filter: 'grayscale(1) contrast(1.1)' }}
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center font-sora text-[24px] font-[200] text-cobre uppercase">

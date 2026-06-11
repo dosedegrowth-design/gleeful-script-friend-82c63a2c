@@ -47,7 +47,7 @@ export function FoundersSection() {
             <img 
               src="/images/frederico.png" 
               alt="Frederico Prado" 
-              className="w-full h-full object-cover transition-all duration-1000 grayscale group-hover:grayscale-0 group-hover:scale-105"
+              className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-navy/20 group-hover:bg-transparent transition-all duration-700" />
             <div className="absolute bottom-6 left-8 z-10">
