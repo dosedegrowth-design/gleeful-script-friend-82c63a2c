@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Error><Code>PermanentRedirect</Code><Message>The bucket you are attempting to access must be addressed using the specified endpoint. Please send all future requests to this endpoint.</Message><Endpoint>s3.amazonaws.com</Endpoint><Bucket>lovable-uploads</Bucket><RequestId>6C2RWB6VGKCZTYWX</RequestId><HostId>93nc71MhjGKhSJr1tJ2vtDuT5sNNp7U1ko4uarOxQC1FkI00FT26tdz/4Z0LrKJqr3R0tCVnXfRDnZziLgVB4QPJmHjdP5sB</HostId></Error>
+<Error><Code>AccessDenied</Code><Message>Access Denied</Message><RequestId>7DXZY5CAR22Q4D5B</RequestId><HostId>NVGxo2bqbL7dbJLWwotcuyYrmWjoFMpK4ESqkvtT4MePt3LD98DBs5tCs9JVM2efcp9vcHGH1NXyEe1CX4u3sLssXgz/cuNH</HostId></Error>
