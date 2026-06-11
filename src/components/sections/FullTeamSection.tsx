@@ -74,9 +74,8 @@ const fullTeam = [
     title: "Real Estate Specialist",
     credentials: ["RE/MAX Collection", "Luxo", "10+ anos", "Premiada RE/MAX Portugal"],
     bio: [
-      { text: "Mais de 10 anos de experiência no mercado imobiliário português. Trajetória reconhecida e premiada pela RE/MAX Portugal. Especialista em RE/MAX Collection, o segmento de luxo e investimento da RE/MAX em Portugal.", isStrong: true },
-      { text: "Especializada no atendimento a clientes nacionais e internacionais em aquisição imobiliária, investimento, relocation residencial e oportunidades de património em Portugal. Acompanhamento próximo ao longo de todo o processo, com comunicação constante e transparente.", isAccent: true },
-      { text: "Na MOOVIA, lidera a frente de real estate e investimento imobiliário. Atua com housing acima de €1.500/mês.", isAccent: true },
+      { text: "Mais de 10 anos no mercado imobiliário português. Premiada RE/MAX Portugal.", isStrong: true },
+      { text: "Housing acima de €1.500/mês exclusivamente.", isAccent: true },
     ]
   }
 ];
