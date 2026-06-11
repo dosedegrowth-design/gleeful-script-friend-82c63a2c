@@ -104,7 +104,7 @@ export function FullTeamSection() {
   }, []);
 
   return (
-    <section className="bg-navy-deep relative">
+    <section className="bg-navy relative">
       {/* Sticky Navigation */}
       <div className="hidden lg:block fixed right-10 top-1/2 -translate-y-1/2 z-50">
         <div className="flex flex-col gap-4">
@@ -128,7 +128,7 @@ export function FullTeamSection() {
             key={member.id}
             id={member.id}
             className={`group py-[80px] px-6 lg:px-[80px] grid lg:grid-cols-[320px_1fr] gap-12 lg:gap-24 items-start transition-all duration-700 relative overflow-hidden ${
-              i % 2 === 0 ? "bg-navy-deep" : "bg-navy"
+              i % 2 === 0 ? "bg-navy" : "bg-navy-deep"
             }`}
           >
             {/* Hover border animation */}

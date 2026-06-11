@@ -49,7 +49,7 @@ export function FoundersSection() {
               alt="Frederico Prado" 
               className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-navy/20 group-hover:bg-transparent transition-all duration-700" />
+            <div className="absolute inset-0 bg-navy/0 group-hover:bg-transparent transition-all duration-700" />
             <div className="absolute bottom-6 left-8 z-10">
                <p className="font-sora text-[12px] font-[400] text-off tracking-widest uppercase bg-navy/60 backdrop-blur-md px-4 py-2 rounded-full">Frederico Prado · Lisboa</p>
             </div>
@@ -107,7 +107,7 @@ export function FoundersSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="p-10 border-l-2 border-cobre glass rounded-r-2xl bg-navy-rich/30"
+              className="p-10 border-l-2 border-cobre glass rounded-r-2xl bg-navy-raise/30"
             >
               <p className="font-sora text-[22px] font-[100] leading-snug text-latte italic">
                 "Vamos coordenar a sua transição internacional com o mesmo nível de cuidado, estrutura e atenção que gostaríamos de ter recebido na nossa."
