@@ -166,8 +166,9 @@ export function FullTeamSection() {
                 {member.hasPhoto && (
                   <div className="mt-8 aspect-[4/5] w-full bg-[#181818] border border-[#181818] grayscale hover:grayscale-0 transition-all duration-700 overflow-hidden">
                     <img 
-                      src={`/${member.id}.png`} 
+                      src={member.id === 'frederico' ? '/images/frederico.png' : `/images/${member.id}.png`} 
                       alt={member.name} 
+
                       className="w-full h-full object-cover"
                     />
                   </div>
