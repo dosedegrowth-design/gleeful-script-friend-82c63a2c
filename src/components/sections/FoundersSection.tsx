@@ -29,8 +29,13 @@ export function FoundersSection() {
         <div className="mt-20 grid lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20 items-start">
           <Reveal>
             <div
-              className="aspect-[4/5] w-full bg-white-5 border border-border relative"
+              className="aspect-[4/5] w-full bg-white-5 border border-border relative overflow-hidden"
             >
+              <img 
+                src="/mooviagold.png" 
+                alt="Frederico Prado" 
+                className="absolute inset-0 w-full h-full object-cover grayscale opacity-40"
+              />
               <div className="absolute inset-0 flex items-end p-6">
                 <span className="font-urbanist text-[10px] uppercase tracking-[0.22em] text-gold-l">
                   Frederico Prado · Lisboa
