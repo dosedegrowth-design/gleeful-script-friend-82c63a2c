@@ -70,7 +70,7 @@ export function AssessmentSection() {
                   className="flex items-center gap-3 p-5 glass rounded-xl"
                 >
                    <span className="text-lg">{b.icon}</span>
-                   <span className="font-urbanist text-[12px] uppercase tracking-wide text-mut leading-tight">{b.t}</span>
+                   <span className="font-mono text-[10px] uppercase tracking-wide text-mut leading-tight">{b.t}</span>
                 </motion.div>
              ))}
           </div>
@@ -92,7 +92,7 @@ export function AssessmentSection() {
               <NumberFlow value={250} />
             </div>
             
-            <p className="font-urbanist text-[11px] font-[300] text-mut-2 tracking-[0.1em] uppercase mt-2 mb-10">90 minutos · Entregável físico</p>
+            <p className="font-mono text-[10px] font-[300] text-mut-2 tracking-[0.1em] uppercase mt-2 mb-10">90 minutos · Entregável físico</p>
             
             <ul className="space-y-4 mb-12">
               {deliverables.map((d, i) => (
@@ -102,7 +102,7 @@ export function AssessmentSection() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.1 * i }}
-                  className="flex gap-4 font-urbanist text-[15px] font-[300] text-mut"
+                  className="flex gap-4 font-body text-[15px] font-[300] text-mut"
                 >
                   <CheckCircle weight="thin" size={20} className="text-cobre shrink-0" />
                   {d}
@@ -112,12 +112,12 @@ export function AssessmentSection() {
             
             <Link
               to="/contacto"
-              className="wipe-btn block w-full text-center bg-cobre text-navy-deep font-urbanist text-[12px] font-[600] tracking-[0.2em] uppercase py-5 rounded-none active:scale-[0.98] transition-transform"
+              className="wipe-btn block w-full text-center bg-cobre text-navy-deep font-mono text-[10px] font-[600] tracking-[0.2em] uppercase py-5 rounded-none active:scale-[0.98] transition-transform"
             >
               <span className="relative z-10">Solicitar Assessment</span>
             </Link>
 
-            <p className="font-urbanist text-[13px] italic text-cobre/60 mt-10 text-center">
+            <p className="font-body text-[13px] italic text-cobre/60 mt-10 text-center">
               "Os €250 são abatidos integralmente no mandato se decidir seguir com a MOOVIA."
             </p>
           </motion.div>
