@@ -9,22 +9,22 @@ const selectFields = [
   { 
     name: "objective", 
     placeholder: "Qual o seu objetivo principal?", 
-    options: ["Trabalhar em Portugal", "Estudar", "Mudar com a família", "Investir", "Outro"] 
+    options: ["Mudar com a família", "Investir e estruturar património", "Estudo dos filhos", "Aposentadoria em Portugal"] 
   },
   { 
     name: "timing", 
     placeholder: "Quando pretende mudar?", 
-    options: ["Menos de 3 meses", "3 a 6 meses", "6 a 12 meses", "Ainda estou pesquisando"] 
+    options: ["Nos próximos 3 meses", "3 a 6 meses", "6 a 12 meses", "Ainda pesquisando"] 
   },
   { 
     name: "composition", 
     placeholder: "Quantas pessoas participam da mudança?", 
-    options: ["Apenas eu", "Casal", "Família com filhos", "Tenho animais de estimação"] 
+    options: ["Apenas eu", "Casal", "Família com filhos"] 
   },
   { 
     name: "decision_phase", 
-    placeholder: "Em que fase da sua decisão está?", 
-    options: ["Apenas pesquisando", "Comparando alternativas", "Já tomei a decisão", "Já tenho proposta confirmada"] 
+    placeholder: "Em que fase da decisão está?", 
+    options: ["Só começando a pensar", "Decidido, organizando", "Pronto para executar"] 
   },
 ];
 
