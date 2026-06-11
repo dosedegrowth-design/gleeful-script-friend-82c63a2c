@@ -14,7 +14,7 @@ export function FoundersSection() {
           </Reveal>
           <Reveal delay={100}>
             <h2 className="font-amotha text-[clamp(32px,4vw,60px)] font-extralight leading-[1.1] text-white">
-              Antes de coordenar transições internacionais,<br />vivemos as nossas.
+              Antes de coordenar transições internacionais,<br />vivemos as nossas. (nossas in <span className="text-gold">cobre</span>)
             </h2>
           </Reveal>
           <Reveal delay={200}>
