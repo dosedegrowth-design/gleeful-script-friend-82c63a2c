@@ -40,10 +40,9 @@ export function AssessmentSection() {
 
         <Reveal delay={140} className="relative z-[100] isolate pointer-events-auto">
           <div
-
-            className="p-10 md:p-12 border border-border bg-black-3 relative overflow-hidden"
+            className="p-10 md:p-12 border border-border bg-[#0f1f41]/20 backdrop-blur-sm relative overflow-hidden"
           >
-            <div className="absolute top-0 left-0 right-0 h-[3px] bg-[linear-gradient(90deg,var(--gold),var(--teal),var(--gold))] bg-[length:200%] animate-[gradientSlide_4s_ease_infinite]" />
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-gold" />
             <div className="font-amotha text-[88px] font-thin text-gold-l leading-none tracking-[-0.04em]">
               €250
             </div>
