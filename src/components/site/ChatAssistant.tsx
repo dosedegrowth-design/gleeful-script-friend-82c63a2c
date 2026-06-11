@@ -207,7 +207,7 @@ export function ChatAssistant() {
           <div className="p-4 border-b border-gold/15 flex items-center justify-between bg-black-3/50">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 bg-gold/12 border border-gold/30 flex items-center justify-center">
-                <img src="/mooviagold.svg" alt="MOOVIA" className="w-5 h-5 object-contain" />
+                <img src="/mooviagold.svg" alt="MOOVIA" className="w-5 h-5 object-contain" style={{ filter: 'brightness(0)' }} />
               </div>
               <div>
                 <h4 className="font-sora text-[13px] font-normal text-[#f9f5ec] tracking-[0.1em] uppercase">MOOVIA</h4>
