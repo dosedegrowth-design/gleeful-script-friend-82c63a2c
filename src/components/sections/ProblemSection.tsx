@@ -57,7 +57,7 @@ export function ProblemSection() {
                 <div className="font-amotha text-[72px] font-thin text-gold/10 leading-none mb-1 tracking-[-0.04em]">
                   {card.n}
                 </div>
-                <p className="font-urbanist text-[10px] tracking-[0.22em] uppercase text-gold mb-4 font-medium">
+                <p className="font-sora text-[10px] tracking-[0.3em] uppercase text-gold mb-4 font-medium">
                   {card.tag}
                 </p>
                 <h3 className="font-amotha text-[20px] font-light text-white mb-4 leading-tight">
