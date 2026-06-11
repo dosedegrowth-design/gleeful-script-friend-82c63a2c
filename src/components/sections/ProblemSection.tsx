@@ -43,7 +43,7 @@ export function ProblemSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-gold mb-6"
+            className="font-body text-[11px] tracking-[0.32em] uppercase text-gold mb-6"
           >
             O mercado resolve tarefas
           </motion.p>
@@ -51,7 +51,7 @@ export function ProblemSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-sora text-[clamp(32px,4vw,60px)] font-[200] text-white leading-tight mb-8"
+            className="font-display text-[clamp(32px,4vw,60px)] font-[200] text-white leading-tight mb-8"
           >
             "O problema não é a burocracia.<br/>É que ninguém coordena o todo."
           </motion.h2>
@@ -59,7 +59,7 @@ export function ProblemSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-urbanist text-[18px] font-[300] text-w35 leading-[1.85] max-w-[640px]"
+            className="font-body text-[18px] font-[300] text-w35 leading-[1.85] max-w-[640px]"
           >
             Você tem um advogado para o visto, um corretor para o imóvel, uma escola para os filhos, um contador para o NIF. Cada um no seu quadrado. E você no meio tentando fazer tudo encaixar numa das decisões mais complexas da sua vida.
           </motion.p>
@@ -82,7 +82,7 @@ export function ProblemSection() {
                 <Icon icon={card.icon} size={20} color="var(--gold)" />
               </div>
 
-              <h3 className="font-sora text-[19px] font-[300] text-white mb-4">
+              <h3 className="font-display text-[19px] font-[300] text-white mb-4">
                 {card.title}
               </h3>
               <p className="font-urbanist text-[14px] font-[300] text-w35 leading-[1.7]">
@@ -98,7 +98,7 @@ export function ProblemSection() {
           viewport={{ once: true }}
           className="mt-1 bg-black p-20 text-center"
         >
-          <p className="font-sora text-[clamp(26px,4vw,52px)] font-[200] text-white leading-tight">
+          <p className="font-display text-[clamp(26px,4vw,52px)] font-[200] text-white leading-tight">
             "O mercado resolve tarefas."<br/>
             <span className="text-gold-l italic font-[200]">"A MOOVIA resolve a decisão."</span>
           </p>

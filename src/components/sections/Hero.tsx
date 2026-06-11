@@ -3,6 +3,8 @@ import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import SplitType from "split-type";
 import { gsap } from "gsap";
+import { Icon } from "@/components/ui/Icon";
+import { ChevronDown } from "lucide-react";
 
 export function Hero() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
@@ -48,7 +50,7 @@ export function Hero() {
 
         <h1 
           ref={headlineRef}
-          className="font-sora text-[clamp(42px,5.2vw,78px)] text-white leading-[1.05] tracking-[-0.03em] mb-12"
+          className="font-display text-[clamp(42px,5.2vw,78px)] text-white leading-[1.05] tracking-[-0.03em] mb-12"
         >
           <span className="font-[100] block opacity-85">Você não precisa</span>
           <span className="font-[100] block opacity-85">de mais informação.</span>

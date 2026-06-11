@@ -71,7 +71,7 @@ export function PillarsSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-gold mb-6"
+            className="font-body text-[11px] tracking-[0.32em] uppercase text-gold mb-6"
           >
             Quatro pilares
           </motion.p>
@@ -79,7 +79,7 @@ export function PillarsSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-sora text-[clamp(28px,4vw,48px)] font-[200] text-white leading-tight mb-8"
+            className="font-display text-[clamp(28px,4vw,48px)] font-[200] text-white leading-tight mb-8"
           >
             "Uma jornada completa."
           </motion.h2>
@@ -87,7 +87,7 @@ export function PillarsSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-urbanist text-[17px] font-[300] text-w35 leading-[1.85] max-w-2xl"
+            className="font-body text-[17px] font-[300] text-w35 leading-[1.85] max-w-2xl"
           >
             Não resolvemos tarefas isoladas. Coordenamos a jornada inteira, do planejamento à estruturação da vida em Portugal.
           </motion.p>
@@ -104,11 +104,11 @@ export function PillarsSection() {
               className="bg-black-2 p-12 relative group cursor-pointer overflow-hidden flex flex-col min-h-[480px]"
             >
               {/* Ghost number */}
-              <div className="absolute top-4 right-8 font-sora text-[100px] font-[100] text-gold opacity-[0.05] pointer-events-none group-hover:-translate-y-2 transition-transform duration-700">
+              <div className="absolute top-4 right-8 font-display text-[100px] font-[100] text-gold opacity-[0.05] pointer-events-none group-hover:-translate-y-2 transition-transform duration-700">
                 {pillar.n}
               </div>
 
-              <h3 className="font-sora text-[40px] font-[200] text-gold-l leading-none tracking-[-0.02em] mb-4">
+              <h3 className="font-display text-[40px] font-[200] text-gold-l leading-none tracking-[-0.02em] mb-4">
                 {pillar.verb}
               </h3>
               <p className="font-urbanist text-[14px] font-[300] italic text-w35 mb-8">
@@ -119,7 +119,7 @@ export function PillarsSection() {
                 {pillar.services.slice(0, active === pillar.n ? undefined : 6).map((service) => (
                   <span 
                     key={service} 
-                    className="border border-b18 px-3 py-1.5 font-urbanist text-[10px] uppercase tracking-widest text-w35 group-hover:border-b35 transition-colors"
+                    className="border border-b18 px-3 py-1.5 font-body text-[10px] uppercase tracking-widest text-w35 group-hover:border-b35 transition-colors"
                   >
                     {service}
                   </span>
