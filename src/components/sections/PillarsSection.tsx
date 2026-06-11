@@ -77,6 +77,7 @@ export function PillarsSection() {
             className="font-sora text-[clamp(32px,4vw,60px)] font-[200] leading-[1.06] tracking-[-0.02em] text-off mb-8"
           >
             Uma jornada <span className="text-latte italic">completa.</span>
+          </motion.h2>
           </h2>
           
           <motion.p 
