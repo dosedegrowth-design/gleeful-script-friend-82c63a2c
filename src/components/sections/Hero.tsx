@@ -54,10 +54,10 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex items-center gap-6 mb-12"
+          className="flex flex-col gap-3 mb-12"
         >
           <div className="w-8 h-px bg-cobre" />
-          <span className="font-sora text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre">
+          <span className="font-urbanist text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre">
             Coordenação Internacional de Vida e Património
           </span>
         </motion.div>

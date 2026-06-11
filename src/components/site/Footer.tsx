@@ -10,8 +10,9 @@ export function Footer() {
            <div className="flex items-center gap-2 mb-8">
               <img src="/mooviagold.svg" alt="MOOVIA" className="h-8" />
            </div>
-           <p className="font-urbanist text-[14px] font-[300] text-mut leading-[1.8] max-w-sm">
-             Coordenação Internacional de Vida e Património. Não apenas uma transição, mas a estruturação da sua nova jornada em Portugal. Um único mandato, uma vida inteira coordenada.
+           <p className="font-urbanist text-[13px] font-[300] text-mut leading-[1.8] max-w-[260px] mt-5">
+             Coordenação Internacional de Vida e Património.<br />
+             Brasil → Portugal · África Lusófona
            </p>
         </div>
 
