@@ -92,7 +92,7 @@ export function Hero() {
             className="p-10 border border-border/10 bg-black/40 backdrop-blur-sm animate-[fadeUp_0.8s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 translate-x-10 will-change-transform min-w-[300px]"
             style={{ animationDelay: stat.delay }}
           >
-            <div className="font-amotha text-[52px] font-extralight text-gold-l leading-none mb-3 tracking-[-0.04em]">
+            <div className="font-amotha text-[52px] font-extralight text-gold leading-none mb-3 tracking-[-0.04em]">
               {stat.num}
             </div>
             <div className="font-sora text-[11px] tracking-[0.3em] uppercase text-white/40">{stat.label}</div>
