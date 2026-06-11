@@ -68,7 +68,7 @@ export function FAQSection() {
                   className={`w-full py-7 px-8 flex justify-between items-center text-left transition-colors ${isOpen ? 'bg-navy-raise' : 'hover:bg-navy-rich'}`}
                   onClick={() => setOpen(isOpen ? null : i)}
                 >
-                  <span className="font-urbanist text-[17px] text-off font-[400] pr-8">{f.q}</span>
+                  <span className="font-body text-[17px] text-off font-[400] pr-8">{f.q}</span>
                   <div className="shrink-0 text-cobre">
                     {isOpen ? <X weight="thin" size={20} /> : <Plus weight="thin" size={20} />}
                   </div>
@@ -83,7 +83,7 @@ export function FAQSection() {
                       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                     >
                       <div className="px-8 pb-8">
-                        <p className="font-urbanist text-[16px] font-[300] text-mut leading-[1.7] border-t border-line-cool pt-6">
+                        <p className="font-body text-[16px] font-[300] text-mut leading-[1.7] border-t border-line-cool pt-6">
                           {f.a}
                         </p>
                       </div>
