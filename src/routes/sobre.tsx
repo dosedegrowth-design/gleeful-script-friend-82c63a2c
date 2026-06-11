@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { FoundersSection } from "@/components/sections/FoundersSection";
 import { ManifestoSection } from "@/components/sections/ManifestoSection";
-import { FullTeamSection } from "@/components/sections/FullTeamSection";
+import { TeamSection } from "@/components/sections/TeamSection";
 
 export const Route = createFileRoute("/sobre")({
   head: () => ({
@@ -25,17 +25,18 @@ function Sobre() {
             <span className="w-6 h-px bg-gold" />
             A MOOVIA Portugal
           </p>
-          <h1 className="font-amotha text-[clamp(40px,6vw,72px)] font-extralight leading-[1.05] text-white">
+          <h1 className="font-sora text-[clamp(40px,6vw,72px)] font-[100] leading-[1.05] text-white">
             Uma consultoria boutique<br />de coordenação internacional.
           </h1>
-          <p className="mt-10 max-w-2xl font-urbanist text-[17px] font-light text-white-3 leading-relaxed">
+          <p className="mt-10 max-w-2xl font-urbanist text-[17px] font-[300] text-w35 leading-relaxed">
             Nascemos da experiência prática de quem fez o caminho. O mercado vende tarefas; nós
             coordenamos a decisão completa, do primeiro diagnóstico aos 90 dias depois da chegada.
           </p>
         </div>
       </div>
 
-      <FullTeamSection />
+      <FoundersSection />
+      <TeamSection />
       <ManifestoSection />
     </SiteLayout>
   );
