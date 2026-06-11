@@ -54,7 +54,7 @@ export function ProcessSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-gold mb-6"
+            className="font-body text-[11px] tracking-[0.32em] uppercase text-gold mb-6"
           >
             Como trabalhamos
           </motion.p>
@@ -62,7 +62,7 @@ export function ProcessSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-sora text-[clamp(28px,4vw,48px)] font-[200] text-white leading-tight mb-20"
+            className="font-display text-[clamp(28px,4vw,48px)] font-[200] text-white leading-tight mb-20"
           >
             "Um processo.<br/>Do diagnóstico ao destino."
           </motion.h2>
@@ -80,7 +80,7 @@ export function ProcessSection() {
                 transition={{ delay: i * 0.1 }}
                 className="grid grid-cols-[48px_1fr] gap-12 group"
               >
-                <div className="w-12 h-12 border border-b18 bg-w05 flex items-center justify-center font-sora text-[14px] text-gold group-hover:bg-gold group-hover:text-black transition-all duration-300">
+                <div className="w-12 h-12 border border-b18 bg-w05 flex items-center justify-center font-display text-[14px] text-gold group-hover:bg-gold group-hover:text-black transition-all duration-300">
                   {step.id}
                 </div>
                 <div className="flex flex-col">
@@ -114,9 +114,9 @@ export function ProcessSection() {
               }
             ` }} />
 
-            <p className="font-urbanist text-[11px] font-[400] tracking-[0.24em] uppercase text-gold mb-12">Strategic Relocation Assessment</p>
+            <p className="font-body text-[11px] font-[400] tracking-[0.24em] uppercase text-gold mb-12">Strategic Relocation Assessment</p>
             
-            <div className="font-sora text-[88px] font-[100] text-gold-l leading-none tracking-[-0.04em] mb-4">
+            <div className="font-display text-[88px] font-[100] text-gold-l leading-none tracking-[-0.04em] mb-4">
               <span className="text-[40px] mr-2">€</span>
               <NumberFlow value={250} />
             </div>

@@ -3,6 +3,8 @@ import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import SplitType from "split-type";
 import { gsap } from "gsap";
+import { Icon } from "@/components/ui/Icon";
+import { ChevronDown } from "lucide-react";
 
 export function Hero() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
@@ -41,14 +43,14 @@ export function Hero() {
           className="flex items-center gap-4 mb-10"
         >
           <div className="w-8 h-px bg-gold" />
-          <span className="font-urbanist text-[11px] font-[400] tracking-[0.32em] uppercase text-gold">
+          <span className="font-body text-[11px] font-[400] tracking-[0.32em] uppercase text-gold">
             Coordenação Internacional de Vida e Património
           </span>
         </motion.div>
 
         <h1 
           ref={headlineRef}
-          className="font-sora text-[clamp(42px,5.2vw,78px)] text-white leading-[1.05] tracking-[-0.03em] mb-12"
+          className="font-display text-[clamp(42px,5.2vw,78px)] text-white leading-[1.05] tracking-[-0.03em] mb-12"
         >
           <span className="font-[100] block opacity-85">Você não precisa</span>
           <span className="font-[100] block opacity-85">de mais informação.</span>
@@ -61,7 +63,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.3 }}
-          className="font-urbanist text-[16px] font-[300] text-w35 leading-[1.7] max-w-[440px] mb-14"
+          className="font-body text-[16px] font-[300] text-w35 leading-[1.7] max-w-[440px] mb-14"
         >
           A MOOVIA Portugal coordena a sua transição completa, unindo estratégia fiscal, imobiliária e adaptação familiar em um único mandato personalizado.
         </motion.p>
@@ -74,13 +76,13 @@ export function Hero() {
         >
           <Link
             to="/#contacto"
-            className="bg-gold text-black font-urbanist font-[600] text-[12px] tracking-[0.2em] uppercase px-10 py-4 transition-all hover:bg-gold-xl rounded-[2px] shadow-[0_8px_24px_rgba(173,137,87,0.15)]"
+            className="bg-gold text-black font-body font-[600] text-[12px] tracking-[0.2em] uppercase px-10 py-4 transition-all hover:bg-gold-xl rounded-[2px] shadow-[0_8px_24px_rgba(173,137,87,0.15)]"
           >
             Avaliar meu caso
           </Link>
           <a
             href="#processo"
-            className="border border-b35 text-gold font-urbanist font-[500] text-[12px] tracking-[0.2em] uppercase px-10 py-4 hover:border-gold hover:text-white transition-all rounded-[2px]"
+            className="border border-b35 text-gold font-body font-[500] text-[12px] tracking-[0.2em] uppercase px-10 py-4 hover:border-gold hover:text-white transition-all rounded-[2px]"
           >
             Ver como funciona
           </a>
@@ -91,7 +93,7 @@ export function Hero() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 1.8 }}
-          className="absolute bottom-10 left-6 lg:left-20 flex items-center gap-6 font-urbanist text-[10px] tracking-[0.25em] uppercase text-w35"
+          className="absolute bottom-10 left-6 lg:left-20 flex items-center gap-6 font-body text-[10px] tracking-[0.25em] uppercase text-w35"
         >
           <div className="w-12 h-px bg-gold/30 relative overflow-hidden">
             <motion.div 
