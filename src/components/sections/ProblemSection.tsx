@@ -52,7 +52,7 @@ export function ProblemSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-sora text-[clamp(32px,4vw,60px)] font-[200] leading-[1.06] tracking-[-0.02em] mb-6 text-off max-w-4xl"
+            className="font-display text-[clamp(32px,5vw,60px)] font-[200] leading-[1.02] tracking-[-0.02em] mb-6 text-off max-w-4xl"
           >
             "O problema não é a burocracia.<br/>
             É que ninguém coordena o todo."
