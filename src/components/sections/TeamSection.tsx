@@ -7,7 +7,7 @@ const teamMembers = [
     chips: ["Oracle", "SAP", "MBA FGV", "Tampa", "Lisboa, 2018"],
     bio: "29 anos em TI multinacional. MBA em Empreendedorismo FGV. Formação em Comunicação na University of Tampa. Em Lisboa desde 2018 com a família. Viveu a transição que hoje coordena e conduz pessoalmente cada mandato.",
     isLarge: true,
-    image: "/team/frederico.png",
+    image: "https://lovable-uploads.s3.us-west-2.amazonaws.com/85c65a5f-b0b1-4ae4-b05e-091880ad3d0c.png",
   },
   {
     name: "João Gabriel Prado",
@@ -20,14 +20,14 @@ const teamMembers = [
     role: "Conselheiro Estratégico",
     chips: ["Deloitte", "Oracle", "IBM", "SAP", "Salesforce"],
     bio: "25+ anos em tecnologia corporativa nas maiores empresas do setor, com especialização na indústria seguradora. Liderou equipas de alta performance e operações C-Level globais.",
-    image: "/team/moyses.png",
+    image: "https://lovable-uploads.s3.us-west-2.amazonaws.com/15884efd-826d-4193-8956-8ced7de051dc.png",
   },
   {
     name: "Eduardo Trindade",
     role: "Strategic Relocation Advisor",
     chips: ["ADLS", "MBA USP", "Live University", "SC Investor"],
     bio: "VP Global Sales na ADLS. MBA em Gestão Estratégica pela USP, professor de MBA e palestrante internacional. Investidor imobiliário em Santa Catarina. Fluente em PT, EN e ES.",
-    image: "/team/eduardo.png",
+    image: "https://lovable-uploads.s3.us-west-2.amazonaws.com/9bb8720f-5b88-447f-8549-36940a6b7d27.png",
   },
   {
     name: "Dany Zukerman",
@@ -40,14 +40,14 @@ const teamMembers = [
     role: "Mobilidade Internacional",
     chips: ["Mestrado ULisboa", "Erasmus", "TJSC", "Imigração"],
     bio: "Mestre em Direito Penal e Ciências Criminais pela ULisboa, com Erasmus em Itália e na República Checa. Especialista em imigração, nacionalidade e regularização documental.",
-    image: "/team/laura.png",
+    image: "https://lovable-uploads.s3.us-west-2.amazonaws.com/97828df5-3a05-4c07-96a1-077f5255e1c0.png",
   },
   {
     name: "Sara Russo",
     role: "Real Estate Specialist",
     chips: ["RE/MAX Collection", "Luxo", "10+ anos"],
     bio: "Mais de 10 anos no mercado imobiliário português. Premiada na RE/MAX e especialista RE/MAX Collection, o segmento de luxo. Foco em aquisição, investimento e habitação a partir de €1.500/mês.",
-    image: "/team/sara.png",
+    image: "https://lovable-uploads.s3.us-west-2.amazonaws.com/71e7e449-74e8-422f-923c-f4509745c928.png",
   },
 ];
 
