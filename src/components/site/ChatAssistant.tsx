@@ -85,7 +85,7 @@ export function ChatAssistant() {
                 </div>
                 <div>
                   <h4 className="font-sora text-[13px] font-[500] text-white tracking-widest uppercase">MOOVIA</h4>
-                  <p className="font-urbanist text-[11px] text-gold uppercase tracking-widest">Assistente</p>
+                  <p className="font-body text-[11px] text-gold uppercase tracking-widest">Assistente</p>
                 </div>
               </div>
               <button onClick={() => setIsOpen(false)} className="text-w35 hover:text-white transition-colors">
@@ -118,7 +118,7 @@ export function ChatAssistant() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Escreva sua mensagem..."
-                  className="w-full bg-black-3 border border-b18 p-4 pr-14 font-urbanist text-sm outline-none focus:border-gold text-white rounded-xl"
+                  className="w-full bg-black-3 border border-b18 p-4 pr-14 font-body text-sm outline-none focus:border-gold text-white rounded-xl"
                 />
                 <button 
                   type="submit" 
@@ -143,7 +143,7 @@ export function ChatAssistant() {
               transition={{ delay: 1 }}
               className="bg-black-3/90 backdrop-blur-md border border-b35 px-4 py-2 rounded-full mb-0 shadow-xl pointer-events-none"
             >
-              <p className="font-urbanist text-[11px] text-white/80 uppercase tracking-widest whitespace-nowrap">
+              <p className="font-body text-[11px] text-white/80 uppercase tracking-widest whitespace-nowrap">
                 Convidando para iniciar uma conversa
               </p>
             </motion.div>
