@@ -104,7 +104,7 @@ export function FullTeamSection() {
   }, []);
 
   return (
-    <section className="bg-black relative">
+    <section className="bg-navy-deep relative">
       {/* Sticky Navigation */}
       <div className="hidden lg:block fixed right-10 top-1/2 -translate-y-1/2 z-50">
         <div className="flex flex-col gap-4">
@@ -128,7 +128,7 @@ export function FullTeamSection() {
             key={member.id}
             id={member.id}
             className={`group py-[80px] px-6 lg:px-[80px] grid lg:grid-cols-[320px_1fr] gap-12 lg:gap-24 items-start transition-all duration-700 relative overflow-hidden ${
-              i % 2 === 0 ? "bg-black" : "bg-[#0A0A0A]"
+              i % 2 === 0 ? "bg-navy-deep" : "bg-navy"
             }`}
           >
             {/* Hover border animation */}
@@ -158,7 +158,7 @@ export function FullTeamSection() {
                   <div className="mt-8 aspect-[4/5] w-full bg-[#181818] border border-[#181818] transition-all duration-700 overflow-hidden">
                     <img 
                       src={`/images/${member.id === 'frederico' ? 'frederico' : member.id}.png`} 
-                      style={{ filter: 'grayscale(1) sepia(0.2) contrast(1.1)' }}
+                      style={{ filter: 'none' }}
                       alt={member.name} 
 
                       className="w-full h-full object-cover"
