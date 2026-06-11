@@ -147,7 +147,7 @@
 
 /* NAV SCROLL */
 .nav-glass {
-  background: rgba(14,15,18,.92);
+  background: rgba(14, 26, 48, .92);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--color-b18);
 }
