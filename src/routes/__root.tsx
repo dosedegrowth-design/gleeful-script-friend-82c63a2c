@@ -21,17 +21,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-navy px-4 text-off">
+    <div className="flex min-h-screen items-center justify-center bg-black px-4 text-white">
       <div className="max-w-md text-center">
-        <h1 className="text-7xl font-sora font-extralight">404</h1>
-        <h2 className="mt-4 text-xl font-urbanist font-light uppercase tracking-widest text-cobre">Page not found</h2>
-        <p className="mt-2 text-sm text-mut font-urbanist">
-          The page you're looking for doesn't exist or has been moved.
-        </p>
+        <h1 className="text-7xl font-sora font-[100]">404</h1>
+        <h2 className="mt-4 text-xl font-urbanist font-light uppercase tracking-widest text-gold">Page not found</h2>
         <div className="mt-6">
           <Link
             to="/"
-            className="inline-flex items-center justify-center bg-cobre px-8 py-3 text-sm font-semibold text-navy-deep uppercase tracking-widest transition-colors hover:bg-latte"
+            className="inline-flex items-center justify-center bg-gold px-8 py-3 text-sm font-semibold text-black uppercase tracking-widest transition-colors"
           >
             Go home
           </Link>
@@ -49,30 +46,21 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   }, [error]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-navy px-4 text-off">
+    <div className="flex min-h-screen items-center justify-center bg-black px-4 text-white">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-sora font-light tracking-tight">
           This page didn't load
         </h1>
-        <p className="mt-2 text-sm text-mut font-urbanist">
-          Something went wrong on our end. You can try refreshing or head back home.
-        </p>
         <div className="mt-6 flex flex-wrap justify-center gap-4">
           <button
             onClick={() => {
               router.invalidate();
               reset();
             }}
-            className="bg-cobre px-8 py-3 text-sm font-semibold text-navy-deep uppercase tracking-widest transition-colors hover:bg-latte"
+            className="bg-gold px-8 py-3 text-sm font-semibold text-black uppercase tracking-widest"
           >
             Try again
           </button>
-          <a
-            href="/"
-            className="border border-line-gold px-8 py-3 text-sm font-urbanist font-light text-off uppercase tracking-widest transition-colors hover:border-cobre"
-          >
-            Go home
-          </a>
         </div>
       </div>
     </div>
@@ -86,7 +74,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "MOOVIA Portugal" },
       { name: "description", content: "Coordenação Internacional de Vida e Património" },
-      { name: "author", content: "MOOVIA" },
       { property: "og:title", content: "MOOVIA Portugal" },
       { property: "og:description", content: "Coordenação Internacional de Vida e Património" },
       { property: "og:type", content: "website" },
@@ -136,7 +123,7 @@ function RootShell({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  // Custom Cursor
+  // DEFINITIVO CUSTOM CURSOR
   useEffect(() => {
     if (window.innerWidth < 1024) return;
     
@@ -213,8 +200,8 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <div id="cursor-dot" className="hidden lg:block fixed top-0 left-0 w-[6px] h-[6px] bg-cobre rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.2s_ease,opacity_0.2s]" />
-        <div id="cursor-ring" className="hidden lg:block fixed top-0 left-0 w-9 h-9 border border-line-gold rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.2s_ease,width_0.25s,height_0.25s,opacity_0.2s]" />
+        <div id="cursor-dot" className="hidden lg:block fixed top-0 left-0 w-[6px] h-[6px] bg-gold rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.2s_ease,opacity_0.2s]" />
+        <div id="cursor-ring" className="hidden lg:block fixed top-0 left-0 w-9 h-9 border border-b35 rounded-full pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-[transform_0.2s_ease,width_0.25s,height_0.25s,opacity_0.2s]" />
         <AirplaneScene />
         {children}
         <Toaster position="top-right" richColors />
