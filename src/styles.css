@@ -65,6 +65,11 @@
     font-family: var(--font-body);
     font-weight: 300;
     overflow-x: hidden;
+    cursor: none !important;
+  }
+
+  a, button, input, select, textarea {
+    cursor: none !important;
   }
 }
 
