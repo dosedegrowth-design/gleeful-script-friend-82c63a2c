@@ -100,7 +100,7 @@ export function Hero() {
         ))}
       </div>
 
-      <div className="absolute bottom-12 left-8 lg:left-[100px] z-[2] flex items-center gap-16 font-urbanist text-[11px] tracking-[0.25em] uppercase text-white/30 animate-[fadeUp_0.6s_ease_1.8s_forwards] opacity-0 pointer-events-none">
+      <div className="absolute bottom-12 left-8 lg:left-[100px] z-[2] flex items-center gap-16 font-sora text-[11px] tracking-[0.3em] uppercase text-white/30 animate-[fadeUp_0.6s_ease_1.8s_forwards] opacity-0 pointer-events-none">
         <div className="w-12 h-px bg-border/30 relative overflow-hidden">
           <div className="absolute inset-0 bg-gold -translate-x-full animate-[scrollLine_2s_ease_infinite]" />
         </div>
