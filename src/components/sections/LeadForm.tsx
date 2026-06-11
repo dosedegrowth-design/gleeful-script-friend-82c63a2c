@@ -109,7 +109,7 @@ export function LeadForm() {
         <div className="aspect-[4/5] md:aspect-[16/10] border border-border bg-black/40">
           <iframe src={calendlyUrl} className="w-full h-full" title="Calendly" />
         </div>
-        <a href="https://wa.me/351913000000" target="_blank" rel="noopener noreferrer" className="mt-10 block text-center font-urbanist text-[13px] uppercase tracking-[0.14em] text-gold-l hover:text-gold transition-colors font-medium">
+        <a href="https://wa.me/351913000000" target="_blank" rel="noopener noreferrer" className="mt-10 block text-center font-sora text-[13px] uppercase tracking-[0.2em] text-gold-l hover:text-gold transition-colors font-medium">
           Prefere WhatsApp? →
         </a>
       </div>
