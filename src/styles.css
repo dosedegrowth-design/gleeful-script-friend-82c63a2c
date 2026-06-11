@@ -1,82 +1,58 @@
-@import "tailwindcss";
-
-@font-face {
-  font-family: 'Amotha';
-  src: url('/fonts/Amotha.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+:root {
+  --black:    #0e0f12;
+  --black-2:  #12141a;
+  --black-3:  #1a1d26;
+  --gold:     #ad8957;
+  --gold-m:   #a58d67;
+  --gold-l:   #cead84;
+  --gold-xl:  #e8d5b0;
+  --navy:     #0f1f41;
+  --teal:     #407e8d;
+  --white:    #f9f5ec;
+  --w70:      rgba(249,245,236,.7);
+  --w35:      rgba(249,245,236,.35);
+  --w12:      rgba(249,245,236,.12);
+  --w05:      rgba(249,245,236,.05);
+  --b18:      rgba(173,137,87,.18);
+  --b35:      rgba(173,137,87,.35);
 }
 
-@theme {
-  --font-display: "Boska", serif;
-  --font-body: "General Sans", sans-serif;
-  --font-mono: "Geist Mono", monospace;
+@import "tailwindcss";
 
-  /* Redefined cinematic palette */
-  --color-navy: #16243F;        /* base (logo navy) */
-  --color-navy-deep: #0E1A30;   /* deeper wells, footer, voids */
-  --color-navy-rich: #1B2C4C;   /* card surfaces */
-  --color-ink: #0A1326;         /* deepest shadow falloff */
-  --color-cobre: #ad8957;       /* copper accent (jewel / foil) */
-  --color-latte: #cead84;       /* highlight / hover / key words */
-  --color-off: #f9f5ec;         /* text */
-  --color-mut: rgba(249,245,236,.60);
-  --color-mut-2: rgba(249,245,236,.36);
-  --color-line-gold: rgba(173,137,87,.16);
-  --color-line-cool: rgba(214,224,247,.09);
+@theme {
+  --font-display: "Sora", sans-serif;
+  --font-body: "Urbanist", sans-serif;
   
-  /* Legacy compatibility */
-  --color-black: var(--color-navy-deep);
-  --color-gold: var(--color-cobre);
+  --color-black: var(--black);
+  --color-black-2: var(--black-2);
+  --color-black-3: var(--black-3);
+  --color-gold: var(--gold);
+  --color-gold-m: var(--gold-m);
+  --color-gold-l: var(--gold-l);
+  --color-gold-xl: var(--gold-xl);
+  --color-navy: var(--navy);
+  --color-teal: var(--teal);
+  --color-white: var(--white);
+  --color-w70: var(--w70);
+  --color-w35: var(--w35);
+  --color-w12: var(--w12);
+  --color-w05: var(--w05);
+  --color-b18: var(--b18);
+  --color-b35: var(--b35);
 }
 
 @layer base {
-  @import url('https://api.fontshare.com/v2/css?f[]=boska@200,300,400&f[]=general-sans@300,400,500&display=swap');
-  @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700&family=Urbanist:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
 
   body {
-    background-color: var(--color-navy);
-    color: var(--color-off);
+    background-color: var(--black);
+    color: var(--white);
     font-family: var(--font-body);
     font-weight: 300;
     overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    line-height: 1.7;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
-    font-weight: 300;
-    text-wrap: balance;
-    letter-spacing: -0.02em;
   }
 }
 
-.bg-mesh {
-  background: 
-    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(173,137,87,.12) 0%, transparent 100%),
-    radial-gradient(ellipse 60% 40% at 20% 80%, rgba(64,126,141,.10) 0%, transparent 100%);
-}
-
-.glass {
-  background: var(--color-navy-glass);
-  backdrop-filter: blur(16px) saturate(120%);
-  border: 1px solid var(--color-line-cool);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
-}
-
-.glass-hover:hover {
-  background: var(--color-navy-raise);
-  box-shadow: 0 30px 80px -30px rgba(173,137,87,.25), inset 0 1px 0 rgba(255,255,255,.06);
-}
-
-/* ═══════════════════════════════════════════════════════
-   EFFECTS - DEFINITIVO
-   ═══════════════════════════════════════════════════════ */
-
-/* GRAIN OVERLAY */
 .grain {
   position: fixed;
   inset: 0;
@@ -86,53 +62,9 @@
   z-index: 1000;
   opacity: 0.55;
   animation: grain 8s steps(10) infinite;
-  background-image: url('data:image/svg+xml,%3Csvg_viewBox=%220_0_256_256%22_xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter_id=%22noise%22%3E%3CfeTurbulence_type=%22fractalNoise%22_baseFrequency=%22.9%22_numOctaves=%224%22_stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect_width=%22100%25%22_height=%22100%25%22_filter=%22url(%23noise)%22_opacity=%22.04%22/%3E%3C/svg%3E');
+  background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 256 256%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%22.9%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22 opacity=%22.04%22/%3E%3C/svg%3E');
 }
 
-/* SCROLL REVEAL */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.9s cubic-bezier(.16,1,.3,1), transform 0.9s cubic-bezier(.16,1,.3,1);
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* BUTTON WIPE */
-.wipe-btn {
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.wipe-btn::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--color-gold-xl);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.6s cubic-bezier(.16,1,.3,1);
-  z-index: -1;
-}
-
-.wipe-btn:hover::before {
-  transform: scaleX(1);
-}
-
-/* NAV SCROLL */
-.nav-glass {
-  background: rgba(14, 26, 48, .92);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--color-b18);
-}
-
-/* ═══════════════════════════════════════════════════════
-   ANIMATIONS
-   ═══════════════════════════════════════════════════════ */
 @keyframes grain {
   0%,100%{transform:translate(0,0)}
   10%{transform:translate(-2%,-2%)}
@@ -144,20 +76,4 @@
   70%{transform:translate(-2%,2%)}
   80%{transform:translate(2%,2%)}
   90%{transform:translate(-2%,-2%)}
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideUp {
-  from { transform: translateY(110%); }
-  to { transform: translateY(0); }
-}
-
-#lovable-badge-cta {
-  display: none !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
 }
