@@ -7,7 +7,7 @@ export function FoundersSection() {
       <div className="mx-auto max-w-[1400px] pointer-events-auto">
         <div className="max-w-3xl">
           <Reveal>
-            <div className="font-urbanist text-[11px] tracking-[0.28em] uppercase text-gold mb-4 flex items-center gap-3">
+            <div className="font-sora text-[11px] tracking-[0.34em] uppercase text-gold mb-4 flex items-center gap-3">
               <span className="w-6 h-px bg-gold" />
               Os fundadores são o produto
             </div>
