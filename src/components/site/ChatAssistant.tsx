@@ -69,7 +69,7 @@ export function ChatAssistant() {
   };
 
   return (
-    <div className="fixed bottom-8 left-8 z-[800] flex flex-col items-start">
+    <div className="fixed bottom-8 right-28 z-[800] flex flex-col items-end">
       <AnimatePresence>
         {isOpen && (
           <motion.div 
@@ -133,16 +133,34 @@ export function ChatAssistant() {
         )}
       </AnimatePresence>
       
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-14 h-14 bg-black-3 border border-b35 rounded-full flex items-center justify-center shadow-2xl transition-all hover:border-gold group relative"
-      >
-        {isOpen ? (
-          <X size={24} weight="thin" className="text-gold" />
-        ) : (
-          <ChatCircleDots size={28} weight="thin" className="text-gold" />
-        )}
-      </button>
+      <div className="flex items-center gap-4">
+        <AnimatePresence>
+          {!isOpen && (
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 20 }}
+              transition={{ delay: 1 }}
+              className="bg-black-3/90 backdrop-blur-md border border-b35 px-4 py-2 rounded-full mb-0 shadow-xl pointer-events-none"
+            >
+              <p className="font-urbanist text-[11px] text-white/80 uppercase tracking-widest whitespace-nowrap">
+                Convidando para iniciar uma conversa
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="w-14 h-14 bg-black-3 border border-b35 rounded-full flex items-center justify-center shadow-2xl transition-all hover:border-gold group relative shrink-0"
+        >
+          {isOpen ? (
+            <X size={24} weight="thin" className="text-gold" />
+          ) : (
+            <ChatCircleDots size={28} weight="thin" className="text-gold" />
+          )}
+        </button>
+      </div>
     </div>
   );
 }
