@@ -13,37 +13,48 @@
   --font-urbanist: "Urbanist", sans-serif;
   --font-amotha: "Amotha", serif;
 
-  --color-black: #0e0f12;
-  --color-black-2: #12141a;
-  --color-black-3: #1a1d26;
+  /* V4 NAVY BASE */
+  --color-navy: #16243F;
+  --color-navy-deep: #0E1A30;
+  --color-navy-rich: #1B2C4C;
+  --color-navy-raise: #233A61;
+  --color-navy-glass: rgba(27,44,76,.55);
 
-  --color-gold: #ad8957;
-  --color-gold-m: #a58d67;
-  --color-gold-l: #cead84;
-  --color-gold-xl: #e8d5b0;
+  /* ACCENT — copper (unchanged) */
+  --color-cobre: #ad8957;
+  --color-latte: #cead84;
+  --color-beige: #a58d67;
 
-  --color-navy: #0f1f41;
-  --color-teal: #407e8d;
-  --color-white: #f9f5ec;
-  --color-white-2: rgba(249,245,236,.7);
-  --color-white-3: rgba(249,245,236,.35);
-  --color-white-4: rgba(249,245,236,.12);
-  --color-white-5: rgba(249,245,236,.05);
-  
-  --color-border: rgba(173,137,87,.18);
-  --color-border-2: rgba(173,137,87,.35);
+  /* SUPPORT */
+  --color-off: #f9f5ec;
+  --color-mut: rgba(249,245,236,.58);
+  --color-mut-2: rgba(249,245,236,.36);
+  --color-line-gold: rgba(173,137,87,.16);
+  --color-line-cool: rgba(214,224,247,.09);
+  --color-harbour: #407e8d;
+
+  /* Aliases for compatibility */
+  --color-gold: var(--color-cobre);
+  --color-gold-l: var(--color-latte);
+  --color-gold-m: var(--color-beige);
+  --color-white: var(--color-off);
+  --color-black: var(--color-navy);
+  --color-black-2: var(--color-navy-deep);
+  --color-black-3: var(--color-navy-rich);
+  --color-border: var(--color-line-gold);
+  --color-border-2: var(--color-line-cool);
 }
 
 @layer base {
   body {
-    background-color: var(--color-black);
-    color: var(--color-white);
+    background-color: var(--color-navy);
+    color: var(--color-off);
     font-family: var(--font-urbanist);
     font-weight: 300;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    line-height: 1.6;
+    line-height: 1.7;
     cursor: none;
   }
   
@@ -54,46 +65,92 @@
 }
 
 /* ═══════════════════════════════════════════════════════
-   REVEAL
+   SMOOTH SCROLL (LENIS)
    ═══════════════════════════════════════════════════════ */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all .9s cubic-bezier(.16, 1, .3, 1);
+html.lenis {
+  height: auto;
 }
 
-@media (min-width: 1024px) {
-  body {
-    cursor: default;
-  }
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
 }
 
-.reveal.up {
-  opacity: 1;
-  transform: translateY(0);
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════
+   V4 EFFECTS
+   ═══════════════════════════════════════════════════════ */
+
+/* GRAIN OVERLAY */
+.grain {
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.55;
+  animation: grain 8s steps(10) infinite;
+  background-image: url('data:image/svg+xml,%3Csvg_viewBox=%220_0_256_256%22_xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter_id=%22noise%22%3E%3CfeTurbulence_type=%22fractalNoise%22_baseFrequency=%22.9%22_numOctaves=%224%22_stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect_width=%22100%25%22_height=%22100%25%22_filter=%22url(%23noise)%22_opacity=%22.04%22/%3E%3C/svg%3E');
+}
+
+/* FROSTED GLASS */
+.glass {
+  background: var(--color-navy-glass);
+  backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid var(--color-line-cool);
+}
+
+/* BENTO RADIUS */
+.bento-card {
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--color-navy-rich);
+  border: 1px solid var(--color-line-cool);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card:hover {
+  background: var(--color-navy-raise);
+  box-shadow: 0 30px 80px -30px rgba(173, 137, 87, 0.25);
+  transform: translateY(-4px);
+}
+
+/* CLIP MASK FOR HEADLINES */
+.clip-text {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+/* COPPER SPINE JOURNEY */
+.journey-node {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-navy-rich);
+  border: 2px solid var(--color-line-gold);
+  position: relative;
+  z-index: 10;
+}
+
+.journey-node.active {
+  background: var(--color-cobre);
+  border-color: var(--color-cobre);
+  box-shadow: 0 0 20px var(--color-cobre);
 }
 
 /* ═══════════════════════════════════════════════════════
    ANIMATIONS
    ═══════════════════════════════════════════════════════ */
-@keyframes slideUp {
-  from { transform: translateY(40px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slowspin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-
-@keyframes scrollLine {
-  0%{transform:translateX(-100%)} 50%{transform:translateX(0)} 100%{transform:translateX(100%)}
-}
-
-@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-
 @keyframes grain {
   0%,100%{transform:translate3d(0,0,0)}
   10%{transform:translate3d(-1%,-1%,0)}
@@ -107,48 +164,41 @@
   90%{transform:translate3d(-1%,-1%,0)}
 }
 
-/* ═══════════════════════════════════════════════════════
-   HOVER SPIN ANIMATION
-   ═══════════════════════════════════════════════════════ */
-/* BOTÕES WIPE */
-.group:hover .group-hover\:wipe {
-  transform: scaleX(1);
+@keyframes slideUp {
+  from { transform: translateY(110%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
 
-.wipe-before::before {
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scrollLine {
+  0%{transform:translateX(-100%)} 50%{transform:translateX(0)} 100%{transform:translateX(100%)}
+}
+
+@keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* BOTÕES WIPE */
+.wipe-copper::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: var(--color-gold-xl);
+  background-color: var(--color-latte);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 0;
 }
 
-.wipe-before:hover::before {
+.wipe-copper:hover::before {
   transform: scaleX(1);
 }
 
-.wipe-before span {
+.wipe-copper span {
   position: relative;
   z-index: 10;
-}
-
-/* Rotação contínua do ícone do cursor (o dot) quando estiver em hover */
-#cursor-dot.cursor-hover img {
-  animation: hoverSpin 1s linear infinite !important;
-  width: 40px !important;
-  height: 40px !important;
-}
-
-/* Giradinha rápida nos ícones da página quando em hover (Removido img) */
-a:hover i, a:hover svg,
-button:hover i, button:hover svg,
-[role="button"]:hover i, [role="button"]:hover svg,
-.group:hover .group-hover\:hover-spin,
-.hover-spin:hover i, .hover-spin:hover svg {
-  animation: hoverSpin 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 #lovable-badge-cta {
@@ -159,14 +209,4 @@ button:hover i, button:hover svg,
   height: 0 !important;
   width: 0 !important;
   overflow: hidden !important;
-}
-
-@keyframes slideInRight {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }

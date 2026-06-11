@@ -3,10 +3,12 @@ import { Link } from "@tanstack/react-router";
 export function Wordmark() {
   return (
     <Link to="/" className="flex flex-col group">
-      <div className="flex items-baseline gap-2">
-        <span className="font-sora text-[22px] font-[500] text-gold-l tracking-[0.04em] uppercase">MOOVIA</span>
+      <div className="flex items-baseline">
+        <span className="font-sora text-[22px] font-[500] text-latte tracking-[0.04em] uppercase">MO</span>
+        <span className="font-sora text-[22px] font-[500] text-cobre tracking-[0.04em] uppercase">O</span>
+        <span className="font-sora text-[22px] font-[500] text-latte tracking-[0.04em] uppercase">VIA</span>
       </div>
-      <span className="font-urbanist text-[11px] font-[300] text-white-3 tracking-[0.32em] uppercase">Portugal</span>
+      <span className="font-urbanist text-[11px] font-[300] text-mut-2 tracking-[0.32em] uppercase -mt-0.5">Portugal</span>
     </Link>
   );
 }

@@ -1,114 +1,170 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "@tanstack/react-router";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import NumberFlow from "@number-flow/react";
+import SplitType from "split-type";
+import { gsap } from "gsap";
 
 export function Hero() {
-  const [scrollY, setScrollY] = useState(0);
+  const containerRef = useRef<HTMLElement>(null);
+  const headlineRef = useRef<HTMLHeadingElement>(null);
+  const { scrollY } = useScroll();
+  
+  const yParallax = useTransform(scrollY, [0, 1000], [0, 200]);
+  const opacityFade = useTransform(scrollY, [0, 400], [1, 0]);
+
   useEffect(() => {
-    const onScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    if (!headlineRef.current) return;
+    
+    const split = new SplitType(headlineRef.current, { types: 'lines' });
+    
+    gsap.fromTo(split.lines, 
+      { y: 100, opacity: 0 },
+      { 
+        y: 0, 
+        opacity: 1, 
+        stagger: 0.12, 
+        duration: 1.1, 
+        ease: "power4.out",
+        delay: 0.5
+      }
+    );
+
+    return () => split.revert();
   }, []);
+
+  const stats = [
+    { num: 250, prefix: "€", label: "Strategic Assessment", delay: 0.6 },
+    { num: 90, suffix: "'", label: "Sessão com o founder", delay: 0.75 },
+    { num: 4, prefix: "0", label: "Pilares de coordenação", delay: 0.9 },
+    { num: 90, suffix: "d", label: "Acompanhamento pós-chegada", delay: 1.05 },
+  ];
 
   return (
     <section
-      className="relative min-h-[100svh] flex flex-col lg:flex-row items-center overflow-hidden z-[1]"
-
+      ref={containerRef}
+      className="relative min-h-[100svh] flex flex-col lg:flex-row items-center pt-[140px] pb-[120px] px-6 lg:px-[80px] overflow-hidden z-[1]"
     >
-      <div className="absolute inset-0 z-0 bg-black">
+      {/* BACKGROUND MESH PARALLAX */}
+      <motion.div 
+        style={{ y: yParallax, opacity: opacityFade }}
+        className="absolute inset-0 z-0 pointer-events-none"
+      >
         <div 
-          className="absolute inset-0 opacity-40"
-          style={{
-            background: `radial-gradient(ellipse 60% 50% at 75% 20%, rgba(173,137,87,0.15) 0%, transparent 70%),
-                         radial-gradient(ellipse 40% 60% at 20% 80%, rgba(15,31,65,0.4) 0%, transparent 60%)`
-          }}
+          className="absolute top-[20%] right-[-10%] w-[70vw] h-[70vh] opacity-30 blur-[120px]"
+          style={{ background: 'radial-gradient(circle, rgba(173,137,87,0.15) 0%, transparent 70%)' }}
         />
-      </div>
+        <div 
+          className="absolute bottom-[-10%] left-[-5%] w-[60vw] h-[60vh] opacity-20 blur-[100px]"
+          style={{ background: 'radial-gradient(circle, rgba(64,126,141,0.12) 0%, transparent 70%)' }}
+        />
+      </motion.div>
 
-      {/* Large Decorative Azulejo */}
-      <div 
-        className="absolute right-[-10%] top-1/2 -translate-y-1/2 w-[60vw] max-w-[800px] aspect-square opacity-[0.06] z-[1]"
-        style={{
-          transform: `translateY(calc(-50% + ${scrollY * 0.1}px)) rotate(${scrollY * 0.015}deg)`
-        }}
+      {/* Decorative Azulejo */}
+      <motion.div 
+        style={{ y: useTransform(scrollY, [0, 1000], [0, -150]), rotate: useTransform(scrollY, [0, 2000], [0, 45]) }}
+        className="absolute right-[-5%] top-1/2 -translate-y-1/2 w-[50vw] max-w-[700px] aspect-square opacity-[0.04] z-[1] pointer-events-none"
       >
         <img 
           src="/mooviagold.png" 
-          alt="Decorative Logo" 
-          className="w-full h-full opacity-40 animate-[slowspin_180s_linear_infinite] pointer-events-none select-none object-contain"
+          alt="Decorative" 
+          className="w-full h-full object-contain animate-[slowspin_180s_linear_infinite]"
         />
-      </div>
+      </motion.div>
 
-      <div className="relative z-[100] px-8 lg:px-[100px] pt-[160px] pb-[120px] flex-1 isolate">
-        <p className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-gold mb-10 flex items-center gap-8 animate-[fadeUp_0.8s_ease_0.3s_forwards] opacity-0 will-change-transform">
-          <span className="w-8 h-px bg-gold" />
-          Coordenação Internacional de Vida e Património
-        </p>
+      <div className="relative z-[100] flex-1 max-w-[1000px]">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="flex items-center gap-6 mb-10"
+        >
+          <div className="w-8 h-px bg-cobre" />
+          <span className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-cobre">
+            Coordenação Internacional de Vida e Património
+          </span>
+        </motion.div>
         
-        <h1 className="font-sora text-[clamp(44px,5.5vw,82px)] font-[100] leading-[1.04] tracking-[-0.02em] mb-12 text-white will-change-transform max-w-[900px]">
-          <span className="block overflow-hidden h-[1.15em]">
-            <span className="inline-block animate-[slideUp_1.1s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.5s]">Você não precisa</span>
-          </span>
-          <span className="block overflow-hidden h-[1.15em]">
-            <span className="inline-block animate-[slideUp_1.1s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.7s]">de mais informação.</span>
-          </span>
-          <span className="block overflow-hidden h-[1.15em]">
-            <span className="inline-block font-[200] animate-[slideUp_1.1s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:0.9s]">Precisa de alguém</span>
-          </span>
-          <span className="block overflow-hidden h-[1.15em]">
-            <span className="inline-block font-[200] animate-[slideUp_1.1s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:1.1s]">que coordene</span>
-          </span>
-          <span className="block overflow-hidden h-[1.15em]">
-            <span className="inline-block font-[200] text-gold-l animate-[slideUp_1.1s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 [animation-delay:1.3s] italic">a decisão.</span>
-          </span>
+        <h1 
+          ref={headlineRef}
+          className="font-sora text-[clamp(44px,7vw,88px)] font-[100] leading-[1.04] tracking-[-0.02em] text-off mb-12 clip-text"
+        >
+          Você não precisa<br />
+          de mais informação.<br />
+          <span className="font-[200]">Precisa de alguém</span><br />
+          <span className="font-[200]">que coordene</span><br />
+          <span className="font-[200] text-latte italic">a decisão.</span>
         </h1>
 
-        <p className="font-urbanist text-[17px] font-[300] text-white/35 leading-[1.85] max-w-[460px] mb-[64px] animate-[fadeUp_0.8s_ease_1.3s_forwards] opacity-0">
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.3, ease: [0.16, 1, 0.3, 1] }}
+          className="font-urbanist text-[18px] font-[300] text-mut leading-[1.85] max-w-[480px] mb-16"
+        >
           A MOOVIA Portugal não resolve tarefas isoladas. Coordenação completa, do primeiro diagnóstico aos 90 dias depois da chegada.
-        </p>
+        </motion.p>
 
-        <div className="flex flex-wrap gap-5 animate-[fadeUp_0.8s_ease_1.5s_forwards] opacity-0">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-wrap gap-5"
+        >
           <Link
             to="/contacto"
-            className="bg-gold text-black font-urbanist text-[12px] font-[600] tracking-[0.2em] uppercase px-10 py-4 relative overflow-hidden group transition-all duration-300"
+            className="bg-cobre text-navy-deep font-urbanist text-[12px] font-[600] tracking-[0.2em] uppercase px-10 py-5 relative overflow-hidden group rounded-none"
           >
             <span className="relative z-10">Avaliar meu caso</span>
-            <div className="absolute inset-0 bg-gold-xl origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100 pointer-events-none" />
+            <div className="absolute inset-0 bg-latte origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100" />
           </Link>
           <a
             href="#processo"
-            className="bg-transparent border border-border text-white-3 font-urbanist text-[12px] font-normal tracking-[0.2em] uppercase px-12 py-5 transition-all duration-300 hover:text-white hover:border-gold-m"
+            className="bg-transparent border border-line-cool text-mut font-urbanist text-[12px] font-normal tracking-[0.18em] uppercase px-10 py-5 transition-all duration-300 hover:text-off hover:border-beige rounded-none glass"
           >
             Ver como funciona
           </a>
-        </div>
+        </motion.div>
       </div>
 
-      <div className="hidden xl:flex flex-col gap-px bg-border/20 relative z-[100] ml-auto mr-[100px] border border-border/20 isolate">
-        {[
-          { num: "€250", label: "Strategic Assessment", delay: "0.6s" },
-          { num: "90'", label: "Sessão com o founder", delay: "0.75s" },
-          { num: "04", label: "Pilares de coordenação", delay: "0.9s" },
-          { num: "90d", label: "Acompanhamento pós-chegada", delay: "1.05s" },
-        ].map((stat) => (
+      {/* STATS PANEL - FROSTED GLASS */}
+      <motion.div 
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className="hidden xl:flex flex-col gap-px bg-line-cool glass p-1 relative z-[100] ml-auto overflow-hidden rounded-[20px]"
+      >
+        {stats.map((stat) => (
           <div 
             key={stat.label}
-            className="p-10 border border-border/10 bg-black/40 backdrop-blur-sm animate-[fadeUp_0.8s_cubic-bezier(.16,1,.3,1)_forwards] opacity-0 translate-x-10 will-change-transform min-w-[300px]"
-            style={{ animationDelay: stat.delay }}
+            className="px-12 py-10 bg-navy-rich/40 backdrop-blur-sm first:rounded-t-[16px] last:rounded-b-[16px]"
           >
-            <div className="font-sora text-[48px] font-[200] text-gold-l leading-none mb-1.5 tracking-[-0.03em]">
-              {stat.num}
+            <div className="font-sora text-[48px] font-[100] text-latte leading-none mb-2 tracking-[-0.03em] flex items-baseline">
+              {stat.prefix && <span className="text-[28px] mr-1">{stat.prefix}</span>}
+              <NumberFlow value={stat.num} />
+              {stat.suffix && <span className="text-[28px] ml-1">{stat.suffix}</span>}
             </div>
-            <div className="font-urbanist text-[11px] tracking-[0.14em] uppercase text-white/35">{stat.label}</div>
+            <div className="font-urbanist text-[11px] tracking-[0.14em] uppercase text-mut">{stat.label}</div>
           </div>
         ))}
-      </div>
+      </motion.div>
 
-      <div className="absolute bottom-12 left-8 lg:left-[100px] z-[2] flex items-center gap-16 font-urbanist text-[11px] tracking-[0.2em] uppercase text-white/35 animate-[fadeUp_0.6s_ease_1.8s_forwards] opacity-0 pointer-events-none">
-        <div className="w-10 h-px bg-white/12 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gold -translate-x-full animate-[scrollLine_2s_ease_infinite]" />
+      {/* Scroll Indicator */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2, duration: 1 }}
+        className="absolute bottom-12 left-8 lg:left-[80px] flex items-center gap-12 font-urbanist text-[11px] tracking-[0.2em] uppercase text-mut-2"
+      >
+        <div className="w-10 h-px bg-line-gold relative overflow-hidden">
+          <motion.div 
+            animate={{ x: ["-100%", "100%"] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
+            className="absolute inset-0 bg-cobre w-full"
+          />
         </div>
         Planejar · Chegar · Ficar
-      </div>
+      </motion.div>
     </section>
   );
 }

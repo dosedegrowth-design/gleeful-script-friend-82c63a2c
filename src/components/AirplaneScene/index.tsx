@@ -5,23 +5,25 @@ import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
 import { Airplane } from './Airplane'
 import { Trail }    from './Trail'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 export function AirplaneScene() {
-  const progressRef = useRef(0)   // progresso atual (lerpeado)
-  const targetRef   = useRef(0)   // progresso alvo (do scroll)
+  const progressRef = useRef(0)
+  const targetRef   = useRef(0)
 
-  // Sync scroll → targetRef
   useEffect(() => {
-    const onScroll = () => {
-      const max = document.body.scrollHeight - window.innerHeight
-      targetRef.current = max > 0 ? window.scrollY / max : 0
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    onScroll()
-    return () => window.removeEventListener('scroll', onScroll)
+    // Drive airplane progress with GSAP ScrollTrigger for perfect sync with Lenis
+    ScrollTrigger.create({
+      trigger: "body",
+      start: "top top",
+      end: "bottom bottom",
+      onUpdate: (self) => {
+        targetRef.current = self.progress;
+      }
+    });
   }, [])
 
-  // Não renderizar em mobile
   const [isMobile, setIsMobile] = useState(false)
   useEffect(() => {
     setIsMobile(window.innerWidth < 768)
@@ -36,7 +38,7 @@ export function AirplaneScene() {
         left: 0,
         width: '100vw',
         height: '100vh',
-        zIndex:        10,      // ← Entre o fundo (0) e o conteúdo (100+)
+        zIndex:        10,
         pointerEvents: 'none',
       }}
     >
@@ -48,7 +50,7 @@ export function AirplaneScene() {
       >
         <ambientLight    intensity={0.6}  color="#f9f5ec" />
         <directionalLight position={[ 5, 8, 5]} intensity={1.1} />
-        <directionalLight position={[-4,-2,-4]} intensity={0.3} color="#cead84" />
+        <directionalLight position={[-4,-2,-4]} intensity={0.3} color="#ad8957" />
 
         <Suspense fallback={null}>
           <Trail    progressRef={progressRef} />
