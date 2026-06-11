@@ -32,22 +32,22 @@ function Home() {
       <Hero />
       
       {/* MARQUEE — Redesigned for v4 */}
-      <div className="bg-navy-deep/80 border-y border-line-gold/20 h-[56px] flex items-center overflow-hidden relative z-20 backdrop-blur-sm">
+      <div className="bg-navy-deep/60 border-y border-line-gold/10 h-[56px] flex items-center overflow-hidden relative z-20 backdrop-blur-sm">
         <motion.div 
           animate={{ x: [0, "-50%"] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
           className="flex whitespace-nowrap"
         >
           {[1, 2].map((i) => (
-            <div key={i} className="flex items-center gap-12 px-12 font-urbanist text-[11px] font-[400] tracking-[0.3em] uppercase text-mut">
-              Transição Internacional <span className="text-cobre text-[12px] opacity-40">♦</span> 
-              Brasil para Portugal <span className="text-cobre text-[12px] opacity-40">♦</span> 
-              Coordenação de Vida e Património <span className="text-cobre text-[12px] opacity-40">♦</span> 
-              Strategic Assessment <span className="text-cobre text-[12px] opacity-40">♦</span> 
-              Mandato Personalizado <span className="text-cobre text-[12px] opacity-40">♦</span> 
-              90 dias Pós-chegada <span className="text-cobre text-[12px] opacity-40">♦</span> 
-              School Matching <span className="text-cobre text-[12px] opacity-40">♦</span> 
-              Fiscalidade Internacional <span className="text-cobre text-[12px] opacity-40">♦</span>
+            <div key={i} className="flex items-center gap-16 px-16 font-urbanist text-[11px] font-[400] tracking-[0.3em] uppercase text-mut/60">
+              Transição Internacional <span className="text-cobre text-[12px] opacity-20">♦</span> 
+              Brasil para Portugal <span className="text-cobre text-[12px] opacity-20">♦</span> 
+              Coordenação de Vida e Património <span className="text-cobre text-[12px] opacity-20">♦</span> 
+              Strategic Assessment <span className="text-cobre text-[12px] opacity-20">♦</span> 
+              Mandato Personalizado <span className="text-cobre text-[12px] opacity-20">♦</span> 
+              90 dias Pós-chegada <span className="text-cobre text-[12px] opacity-20">♦</span> 
+              School Matching <span className="text-cobre text-[12px] opacity-20">♦</span> 
+              Fiscalidade Internacional <span className="text-cobre text-[12px] opacity-20">♦</span>
             </div>
           ))}
         </motion.div>
