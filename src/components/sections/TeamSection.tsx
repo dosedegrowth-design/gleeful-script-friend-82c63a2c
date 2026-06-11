@@ -20,7 +20,7 @@ const teamMembers = [
     role: "Conselheiro Estratégico",
     chips: ["Deloitte", "Oracle", "IBM", "SAP", "Salesforce"],
     bio: "25+ anos em tecnologia corporativa nas maiores empresas do setor, com especialização na indústria seguradora. Liderou equipas de alta performance e operações C-Level globais.",
-    image: "/moyses.png",
+    image: "/images/moyses.png",
   },
   {
     name: "Eduardo Trindade",
