@@ -78,7 +78,6 @@ export function PillarsSection() {
           >
             Uma jornada <span className="text-latte italic">completa.</span>
           </motion.h2>
-          </h2>
           
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -100,7 +99,6 @@ export function PillarsSection() {
               transition={{ duration: 0.6, delay: i * 0.1 }}
               className={`${pillar.size} bento-card p-12 lg:p-14 flex flex-col group relative`}
             >
-              {/* GHOST NUMBER PARALLAX */}
               <motion.div 
                 style={{ y: useTransform(scrollYProgress, [0, 1], [20, -60]) }}
                 className="absolute top-10 right-14 font-sora text-[140px] font-[100] text-off/5 leading-none pointer-events-none select-none"
@@ -137,7 +135,6 @@ export function PillarsSection() {
                 </div>
               </div>
 
-              {/* BOTTOM ACCENT LINE */}
               <div className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-cobre to-harbour w-0 group-hover:w-full transition-all duration-700" />
             </motion.div>
           ))}
