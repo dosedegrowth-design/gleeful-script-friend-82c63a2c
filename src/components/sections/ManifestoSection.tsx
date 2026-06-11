@@ -12,7 +12,7 @@ export function ManifestoSection() {
       
       <div className="max-w-[900px] relative z-[100] isolate pointer-events-auto">
         <Reveal>
-          <div className="font-urbanist text-[11px] tracking-[0.28em] uppercase text-gold mb-4 flex items-center justify-center gap-3">
+          <div className="font-sora text-[11px] tracking-[0.34em] uppercase text-gold mb-4 flex items-center justify-center gap-3">
             <span className="w-6 h-px bg-gold" />
             A posição da marca
             <span className="w-6 h-px bg-gold" />
