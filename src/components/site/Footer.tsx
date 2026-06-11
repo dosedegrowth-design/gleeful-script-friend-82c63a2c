@@ -10,14 +10,14 @@ export function Footer() {
               <img 
                 src="/mooviagold.svg" 
                 alt="MOOVIA Logo" 
-                className="w-10 h-10 object-contain drop-shadow-[0_0_8px_rgba(173,137,87,0.2)]"
+                className="w-10 h-10 object-contain"
               />
               <div className="flex flex-col">
-                <div className="font-amotha text-[28px] tracking-[0.04em] text-white leading-none">
-                  MO<span className="text-[#cead84]">O</span>VIA
+                <div className="font-amotha text-[28px] tracking-[0.14em] text-white leading-none uppercase">
+                  MO<span className="text-gold">O</span>VIA
                 </div>
-                <p className="font-urbanist text-[11px] tracking-[0.3em] uppercase text-white/40 mt-1">
-                  Portugal
+                <p className="font-sora text-[11px] tracking-[0.3em] uppercase text-white/40 mt-1">
+                  PORTUGAL
                 </p>
               </div>
             </Link>
