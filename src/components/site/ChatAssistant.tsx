@@ -203,7 +203,7 @@ export function ChatAssistant() {
   return (
     <div className="fixed bottom-8 right-8 z-[850] flex flex-col items-end pointer-events-none">
       {isOpen && (
-        <div className="w-[calc(100vw-40px)] md:w-[380px] h-[560px] max-h-[calc(100vh-140px)] bg-[#12141a] border border-gold/20 flex flex-col shadow-2xl animate-[fadeUp_0.4s_ease_forwards] mb-6 pointer-events-auto">
+        <div className="w-[calc(100vw-40px)] md:w-[380px] h-[560px] max-h-[calc(100vh-140px)] bg-[#12141a]/95 backdrop-blur-xl border border-gold/20 flex flex-col shadow-[0_20px_50px_rgba(0,0,0,0.5)] animate-[fadeUp_0.4s_ease_forwards] mb-6 pointer-events-auto rounded-none overflow-hidden">
           <div className="p-4 border-b border-gold/15 flex items-center justify-between bg-black-3/50">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 bg-gold/12 border border-gold/30 flex items-center justify-center">
@@ -254,8 +254,8 @@ export function ChatAssistant() {
 
           <form onSubmit={sendMessage} className="p-4 border-t border-gold/15 bg-black-3/30">
             {phoneError && (
-              <p className="font-urbanist text-[11px] color-gold mb-2 tracking-[0.06em] text-gold">
-                ⚠ {phoneError}
+              <p className="font-urbanist text-[11px] text-[#ff4444] mb-2 tracking-[0.06em] flex items-center gap-1">
+                <span className="text-[14px]">⚠</span> {phoneError}
               </p>
             )}
             <div className="flex gap-2">

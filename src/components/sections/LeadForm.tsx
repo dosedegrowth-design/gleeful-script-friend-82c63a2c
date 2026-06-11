@@ -120,12 +120,12 @@ export function LeadForm() {
     <form onSubmit={onSubmit} className="flex flex-col gap-1.5">
       {selectFields.map((f) => (
         <Select key={f.name} onValueChange={(v) => set(f.name, v)} value={form[f.name] || ""}>
-          <SelectTrigger>
+          <SelectTrigger className="w-full bg-black-3 border border-border text-white-2 font-urbanist text-[15px] font-light h-[58px] px-5 outline-none transition-all duration-300 focus:border-gold focus:ring-0 focus:ring-offset-0">
             <SelectValue placeholder={f.placeholder} />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className="bg-black-3 border border-border text-white-2 font-urbanist">
             {f.options.map((o) => (
-              <SelectItem key={o} value={o}>{o}</SelectItem>
+              <SelectItem key={o} value={o} className="focus:bg-gold/10 focus:text-gold transition-colors">{o}</SelectItem>
             ))}
           </SelectContent>
         </Select>

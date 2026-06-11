@@ -47,10 +47,12 @@ export function FAQSection() {
                   />
                 </button>
                 {isOpen && (
-                  <div className="pb-8 pr-10 border-l-2 border-gold bg-gold/5 p-6 mb-6 animate-[fadeUp_0.4s_ease_forwards]">
-                    <p className="font-urbanist text-[15px] font-light text-white-3 leading-[1.85]">
-                      {f.a}
-                    </p>
+                  <div className="overflow-hidden animate-[fadeUp_0.4s_ease_forwards]">
+                    <div className="pb-8 pr-10 border-l-2 border-gold bg-gold/5 p-6 mb-6">
+                      <p className="font-urbanist text-[15px] font-light text-white-3 leading-[1.85]">
+                        {f.a}
+                      </p>
+                    </div>
                   </div>
                 )}
               </div>
