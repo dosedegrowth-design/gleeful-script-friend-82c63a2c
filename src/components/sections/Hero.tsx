@@ -36,26 +36,20 @@ export function Hero() {
   ];
 
   return (
-    <section className="relative min-h-[100svh] grid lg:grid-cols-2 align-items-center px-6 lg:px-20 overflow-hidden bg-black transition-all duration-300">
-      {/* Background */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1548120231-1d6f891ad49c?auto=format&fit=crop&q=80" 
-          className="w-full h-full object-cover opacity-[0.15] grayscale brightness-[0.15] sepia-[0.3]"
-          alt="Lisboa"
-        />
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 90% 70% at 70% 40%, rgba(15,31,65,.85) 0%, transparent 65%)' }} />
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 50% 50% at 10% 90%, rgba(173,137,87,.08) 0%, transparent 55%)' }} />
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 0%, rgba(79,130,180,.06) 0%, transparent 70%)' }} />
-
+    <section className="relative min-h-[100svh] grid lg:grid-cols-2 align-items-stretch px-0 overflow-hidden bg-[#06091a] transition-all duration-300">
+      {/* Background Gradients & Grain */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 90% 70% at 70% 40%, rgba(15,31,65,0.4) 0%, transparent 70%)' }} />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 50% 50% at 10% 90%, rgba(173,137,87,0.05) 0%, transparent 60%)' }} />
       </div>
 
-      <div className="relative z-10 flex flex-col justify-center py-20">
+      {/* LEFT COLUMN: Content */}
+      <div className="relative z-10 flex flex-col justify-center py-20 pl-6 lg:pl-20 pr-6 lg:pr-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="flex items-center gap-8 mb-8"
+          className="flex items-center gap-4 mb-10"
         >
           <div className="w-8 h-px bg-gold" />
           <span className="font-urbanist text-[11px] font-[400] tracking-[0.32em] uppercase text-gold">
@@ -65,93 +59,83 @@ export function Hero() {
 
         <h1 
           ref={headlineRef}
-          className="font-sora text-[clamp(44px,5.5vw,82px)] text-white leading-[1.04] tracking-[-0.025em] mb-12"
+          className="font-sora text-[clamp(42px,5.2vw,78px)] text-white leading-[1.05] tracking-[-0.03em] mb-12"
         >
-          <span className="font-[100] block">Você não precisa</span>
-          <span className="font-[100] block">de mais informação.</span>
-          <span className="font-[200] block">Precisa de alguém</span>
-          <span className="font-[200] block">que coordene</span>
-          <span className="font-[200] text-gold-l italic block">a decisão.</span>
+          <span className="font-[100] block opacity-85">Você não precisa</span>
+          <span className="font-[100] block opacity-85">de mais informação.</span>
+          <span className="font-[300] block">Precisa de alguém</span>
+          <span className="font-[300] block">que coordene</span>
+          <span className="font-[300] text-gold-l italic block">a decisão.</span>
         </h1>
 
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.3 }}
-          className="font-urbanist text-[17px] font-[300] text-w35 leading-[1.85] max-w-[460px] mb-12"
+          className="font-urbanist text-[16px] font-[300] text-w35 leading-[1.7] max-w-[440px] mb-14"
         >
-          A MOOVIA Portugal não resolve tarefas isoladas.
-          Coordenação completa, do primeiro diagnóstico
-          aos 90 dias depois da chegada.
+          A MOOVIA Portugal coordena a sua transição completa, unindo estratégia fiscal, imobiliária e adaptação familiar em um único mandato personalizado.
         </motion.p>
 
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}
-          className="flex flex-wrap gap-4"
+          className="flex flex-wrap gap-5"
         >
           <Link
             to="/#contacto"
-            className="bg-gold text-black font-urbanist font-[600] text-[12px] tracking-[0.2em] uppercase px-10 py-4 transition-all hover:bg-gold-xl rounded-[2px]"
+            className="bg-gold text-black font-urbanist font-[600] text-[12px] tracking-[0.2em] uppercase px-10 py-4 transition-all hover:bg-gold-xl rounded-[2px] shadow-[0_8px_24px_rgba(173,137,87,0.15)]"
           >
             Avaliar meu caso
           </Link>
           <a
             href="#processo"
-            className="border border-b18 text-w35 font-urbanist font-[400] text-[12px] tracking-[0.2em] uppercase px-10 py-4 hover:border-gold transition-all rounded-[2px]"
+            className="border border-b35 text-gold font-urbanist font-[500] text-[12px] tracking-[0.2em] uppercase px-10 py-4 hover:border-gold hover:text-white transition-all rounded-[2px]"
           >
             Ver como funciona
           </a>
         </motion.div>
 
-        {/* SCROLL INDICATOR */}
+        {/* BOTTOM LEFT INDICATOR */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.8 }}
-          className="absolute bottom-12 flex flex-col items-center gap-4 font-urbanist text-[11px] tracking-[0.2em] uppercase text-w35"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 1.8 }}
+          className="absolute bottom-10 left-6 lg:left-20 flex items-center gap-6 font-urbanist text-[10px] tracking-[0.25em] uppercase text-w35"
         >
-          <div className="flex items-center gap-10">
-            <div className="w-10 h-px bg-gold relative overflow-hidden">
-              <motion.div 
-                animate={{ x: ["-100%", "100%"] }}
-                transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
-                className="absolute inset-0 bg-gold-l"
-              />
-            </div>
-            Planejar · Chegar · Ficar
+          <div className="w-12 h-px bg-gold/30 relative overflow-hidden">
+            <motion.div 
+              animate={{ x: ["-100%", "100%"] }}
+              transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
+              className="absolute inset-0 bg-gold"
+            />
           </div>
-          <motion.div 
-            animate={{ y: [0, 4, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="mt-2"
-          >
-            <Icon icon={ChevronDown} size={16} color="var(--gold)" />
-          </motion.div>
+          <span className="opacity-80">Planejar · Chegar · Ficar</span>
         </motion.div>
-
       </div>
 
-      {/* STATS */}
-      <div className="relative z-10 hidden lg:flex flex-col justify-center items-end gap-4">
-        {stats.map((stat, i) => (
-          <motion.div 
-            key={stat.label}
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: stat.delay }}
-            className="p-[30px_32px] border border-b18 bg-w05 min-w-[320px] backdrop-blur-sm rounded-[2px] transition-all duration-300 hover:shadow-[0_4px_24px_rgba(0,0,0,0.25),0_0_0_1px_rgba(173,137,87,0.2)]"
-          >
-            <div className="font-sora text-[48px] font-[200] text-gold-l leading-none mb-2 tracking-[-0.03em] flex items-baseline">
-              {stat.prefix && <span className="text-[28px] mr-1">{stat.prefix}</span>}
-              <NumberFlow value={stat.num} />
-              {stat.suffix && <span className="text-[28px] ml-1">{stat.suffix}</span>}
-            </div>
-            <div className="font-urbanist text-[11px] font-[400] tracking-[0.14em] uppercase text-w35">{stat.label}</div>
-          </motion.div>
-        ))}
+      {/* RIGHT COLUMN: Photo */}
+      <div className="relative z-10 hidden lg:block h-full">
+        <motion.div 
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2, delay: 0.5 }}
+          className="relative w-full h-full overflow-hidden"
+        >
+          <img 
+            src="https://images.unsplash.com/photo-1548120231-1d6f891ad49c?auto=format&fit=crop&q=90&w=1200" 
+            className="w-full h-full object-cover grayscale brightness-[0.6] contrast-[1.1]"
+            alt="Lisboa editorial perspective"
+          />
+          {/* Overlay to integrate with navy background */}
+          <div className="absolute inset-0 bg-[#06091a]/30 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#06091a] via-transparent to-transparent opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#06091a] via-transparent to-transparent opacity-40" />
+        </motion.div>
       </div>
+    </section>
+  );
     </section>
   );
 }
