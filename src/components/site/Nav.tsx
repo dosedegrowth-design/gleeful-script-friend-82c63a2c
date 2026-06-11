@@ -42,7 +42,7 @@ export function Nav() {
             key={l.label}
             to={l.to}
             hash={l.hash}
-            className="font-urbanist text-[12px] font-[400] tracking-[0.15em] uppercase text-mut hover:text-off relative transition-colors group"
+            className="font-mono text-[10px] font-[400] tracking-[0.2em] uppercase text-mut hover:text-off relative transition-colors group"
           >
             {l.label}
             <span className="absolute -bottom-[4px] left-0 w-0 h-px bg-cobre transition-all duration-300 group-hover:w-full" />
@@ -51,7 +51,7 @@ export function Nav() {
         
         <Link
           to="/contacto"
-          className="wipe-btn bg-cobre text-navy-deep px-6 py-2.5 font-urbanist text-[12px] font-[600] tracking-[0.18em] uppercase transition-all duration-300 rounded-sm active:scale-95"
+          className="wipe-btn bg-cobre text-navy-deep px-6 py-2.5 font-mono text-[10px] font-[600] tracking-[0.2em] uppercase transition-all duration-300 rounded-sm active:scale-95"
         >
           Avaliar meu caso
         </Link>
@@ -85,7 +85,7 @@ export function Nav() {
                   to={l.to}
                   hash={l.hash}
                   onClick={() => setOpen(false)}
-                  className="font-sora text-[36px] font-[200] text-off tracking-tight"
+                  className="font-display text-[36px] font-[200] text-off tracking-tight"
                 >
                   {l.label}
                 </Link>

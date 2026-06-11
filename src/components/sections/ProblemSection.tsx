@@ -77,10 +77,10 @@ export function ProblemSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="glass p-10 lg:p-12 relative overflow-hidden group hover:bg-navy-rich transition-colors rounded-2xl"
+              className="glass p-10 lg:p-12 relative overflow-hidden group hover:bg-navy-rich transition-all duration-700 rounded-2xl border-line-gold/10 hover:border-line-gold/30"
             >
-              <div className="w-10 h-10 glass rounded-lg flex items-center justify-center mb-8 border-line-cool group-hover:border-cobre/40 transition-colors">
-                <card.icon weight="thin" size={20} className="text-cobre" />
+              <div className="w-12 h-12 glass rounded-xl flex items-center justify-center mb-8 border-line-gold group-hover:border-cobre/40 transition-colors shadow-lg shadow-cobre/5">
+                <card.icon weight="thin" size={24} className="text-cobre" />
               </div>
               
               <div className="font-display text-[64px] font-[100] text-cobre opacity-[0.06] absolute top-2 right-8 leading-none select-none pointer-events-none group-hover:-translate-y-2 transition-transform duration-700">
