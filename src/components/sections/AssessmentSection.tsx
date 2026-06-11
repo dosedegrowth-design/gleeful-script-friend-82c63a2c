@@ -23,7 +23,7 @@ export function AssessmentSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-sora text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre mb-4 flex items-center gap-3"
+            className="font-mono text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre mb-4 flex items-center gap-3"
           >
             <span className="w-6 h-px bg-cobre" />
             Strategic Relocation Assessment
@@ -34,7 +34,7 @@ export function AssessmentSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-sora text-[clamp(28px,3.5vw,52px)] font-[200] leading-[1.1] text-off mb-8"
+            className="font-display text-[clamp(28px,5vw,52px)] font-[200] leading-[1.02] text-off mb-8"
           >
             "O diagnóstico que organiza<br />o que você não sabia<br />que precisava organizar."
           </motion.h2>
@@ -44,9 +44,9 @@ export function AssessmentSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="font-urbanist text-[17px] font-[300] text-mut leading-[1.7] max-w-lg mb-12"
+            className="font-body text-[17px] font-[300] text-mut leading-[1.7] max-w-lg mb-12"
           >
-            Não é uma consulta. É o primeiro trabalho estratégico da MOOVIA,
+            Não é uma consulta. Es o primeiro trabalho estratégico da MOOVIA,
             com entregável físico, que mapeia tudo o que precisa ser decidido
             antes de comprar a passagem.
             <br /><br />

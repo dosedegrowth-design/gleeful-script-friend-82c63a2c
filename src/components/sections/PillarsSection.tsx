@@ -85,7 +85,7 @@ export function PillarsSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-sora text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre mb-4 flex items-center gap-3"
+            className="font-mono text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre mb-4 flex items-center gap-3"
           >
             <span className="w-6 h-px bg-cobre" />
             Quatro pilares
@@ -95,7 +95,7 @@ export function PillarsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-sora text-[clamp(32px,4vw,60px)] font-[200] leading-[1.06] text-off"
+            className="font-display text-[clamp(32px,5vw,60px)] font-[200] leading-[1.02] text-off"
           >
             "Uma jornada completa."
           </motion.h2>
@@ -104,7 +104,7 @@ export function PillarsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="font-urbanist text-[18px] font-[300] text-mut leading-[1.7] max-w-2xl mt-6"
+            className="font-body text-[18px] font-[300] text-mut leading-[1.7] max-w-2xl mt-6"
           >
             Não resolvemos tarefas isoladas. Coordenamos a jornada inteira,
             do planejamento à estruturação da vida em Portugal.
