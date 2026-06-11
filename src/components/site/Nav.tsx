@@ -59,7 +59,7 @@ export function Nav() {
         ))}
         <Link
           to="/contacto"
-          className="bg-transparent border border-border/40 text-gold-l px-8 py-[12px] font-urbanist text-[12px] tracking-[0.2em] uppercase transition-all duration-300 hover:bg-gold hover:text-black hover:border-gold"
+          className="bg-transparent border border-border/40 text-gold-l px-8 py-[12px] font-sora text-[12px] tracking-[0.2em] uppercase transition-all duration-300 hover:bg-gold hover:text-black hover:border-gold"
         >
           Avaliar meu caso
         </Link>
