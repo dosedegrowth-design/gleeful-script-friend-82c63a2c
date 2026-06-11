@@ -113,14 +113,14 @@ export function Hero() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: stat.delay, ease: [0.16, 1, 0.3, 1] }}
-            className="p-8 lg:px-10 lg:py-8 min-w-[320px] glass-hover transition-colors"
+            className="p-8 lg:px-10 lg:py-8 min-w-[320px] glass-hover transition-colors border-b border-line-cool last:border-0"
           >
-            <div className="font-sora text-[48px] font-[200] text-latte leading-none mb-3 tracking-[-0.03em] flex items-baseline">
+            <div className="font-display text-[48px] font-[200] text-latte leading-none mb-3 tracking-[-0.03em] flex items-baseline">
               {stat.prefix && <span className="text-[28px] mr-1 font-[100]">{stat.prefix}</span>}
               <NumberFlow value={stat.num} />
               {stat.suffix && <span className="text-[28px] ml-1 font-[100]">{stat.suffix}</span>}
             </div>
-            <div className="font-sora text-[11px] font-[400] tracking-[0.14em] uppercase text-mut">{stat.label}</div>
+            <div className="font-mono text-[10px] font-[400] tracking-[0.14em] uppercase text-mut">{stat.label}</div>
           </motion.div>
         ))}
       </div>

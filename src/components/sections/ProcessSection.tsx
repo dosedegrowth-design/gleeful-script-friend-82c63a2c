@@ -114,7 +114,7 @@ export function ProcessSection() {
                       <div className="w-12 h-12 glass rounded-xl flex items-center justify-center border-line-cool group-hover:border-cobre transition-all group-hover:scale-110 duration-500">
                          <step.icon weight="thin" size={20} className="text-cobre" />
                       </div>
-                      <div className="absolute -top-1 -right-1 w-5 h-5 bg-navy-rich border border-line-gold flex items-center justify-center rounded-full text-[9px] font-sora text-latte">
+                      <div className="absolute -top-1 -right-1 w-5 h-5 bg-navy-rich border border-line-gold flex items-center justify-center rounded-full text-[9px] font-mono text-latte">
                          {step.n}
                       </div>
                    </div>
@@ -126,10 +126,10 @@ export function ProcessSection() {
                      transition={{ duration: 0.6, delay: 0.2 }}
                      className="pb-4"
                    >
-                      <p className="font-sora text-[10px] tracking-[0.14em] uppercase text-beige mb-2">{step.tag}</p>
-                      <h3 className="font-sora text-[22px] font-[200] text-off mb-4 group-hover:text-latte transition-colors">{step.title}</h3>
+                      <p className="font-mono text-[10px] tracking-[0.14em] uppercase text-beige mb-2">{step.tag}</p>
+                      <h3 className="font-display text-[26px] font-[200] text-off mb-4 group-hover:text-latte transition-colors">{step.title}</h3>
                       <p className="font-urbanist text-[15px] font-[300] text-mut leading-[1.7] mb-6 max-w-md">{step.body}</p>
-                      <span className="inline-block px-4 py-1.5 glass rounded-full text-cobre text-[10px] uppercase tracking-widest border-cobre/20">
+                      <span className="inline-block px-4 py-1.5 glass rounded-full text-cobre text-[10px] font-mono uppercase tracking-widest border-cobre/20">
                          {step.badge}
                       </span>
                    </motion.div>
@@ -148,9 +148,9 @@ export function ProcessSection() {
           >
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-cobre opacity-30 group-hover:opacity-100 transition-opacity" />
             
-            <p className="font-sora text-[11px] font-[400] tracking-[0.24em] uppercase text-cobre mb-10">Strategic Relocation Assessment</p>
+            <p className="font-mono text-[11px] font-[400] tracking-[0.24em] uppercase text-cobre mb-10">Strategic Relocation Assessment</p>
             
-            <div className="font-sora text-[88px] font-[100] text-latte leading-none tracking-[-0.04em] flex items-baseline">
+            <div className="font-display text-[88px] font-[100] text-latte leading-none tracking-[-0.04em] flex items-baseline">
               <span className="text-[40px] mr-2">€</span>
               <NumberFlow value={250} />
             </div>

@@ -83,11 +83,11 @@ export function ProblemSection() {
                 <card.icon weight="thin" size={20} className="text-cobre" />
               </div>
               
-              <div className="font-sora text-[44px] font-[100] text-cobre opacity-[0.05] absolute top-4 right-8 leading-none select-none pointer-events-none group-hover:-translate-y-1 transition-transform">
+              <div className="font-display text-[64px] font-[100] text-cobre opacity-[0.06] absolute top-2 right-8 leading-none select-none pointer-events-none group-hover:-translate-y-2 transition-transform duration-700">
                 {card.n}
               </div>
 
-              <h3 className="font-sora text-[19px] font-[300] text-off mb-4 leading-snug">
+              <h3 className="font-display text-[24px] font-[300] text-off mb-4 leading-snug">
                 {card.title}
               </h3>
               <p className="font-urbanist text-[15px] font-[300] text-mut leading-[1.7]">
@@ -103,7 +103,7 @@ export function ProblemSection() {
           viewport={{ once: true }}
           className="mt-4 flex flex-col items-center justify-center text-center glass py-24 px-12 rounded-2xl border-line-gold/20"
         >
-          <p className="font-sora text-[clamp(26px,4vw,52px)] font-[200] leading-tight text-off">
+          <p className="font-display text-[clamp(26px,4vw,52px)] font-[200] leading-[1.02] text-off">
             "O mercado resolve tarefas."<br/>
             <span className="text-latte italic font-[200]">A MOOVIA resolve a decisão.</span>
           </p>
