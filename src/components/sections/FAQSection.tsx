@@ -43,7 +43,7 @@ export function FAQSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-sora text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre mb-6 flex items-center gap-4"
+          className="font-mono text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre mb-6 flex items-center gap-4"
         >
           <span className="w-6 h-px bg-cobre" />
           Perguntas frequentes
@@ -54,7 +54,7 @@ export function FAQSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="font-sora text-[clamp(28px,4vw,44px)] font-[200] leading-[1.15] text-off mb-16"
+          className="font-display text-[clamp(28px,4vw,44px)] font-[200] leading-[1.02] text-off mb-16"
         >
           O que as pessoas perguntam<br />antes de decidir.
         </motion.h2>

@@ -174,7 +174,7 @@ export function FormSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-sora text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre mb-4 flex items-center gap-3"
+            className="font-mono text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre mb-4 flex items-center gap-3"
           >
             <span className="w-6 h-px bg-cobre" />
             O primeiro passo
@@ -184,7 +184,7 @@ export function FormSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-sora text-[clamp(32px,4vw,60px)] font-[200] leading-[1.06] text-off mb-8"
+            className="font-display text-[clamp(32px,4vw,60px)] font-[200] leading-[1.02] text-off mb-8"
           >
             "A conversa certa."
           </motion.h2>

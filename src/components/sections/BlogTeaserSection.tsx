@@ -34,7 +34,7 @@ export function BlogTeaserSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-sora text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre mb-4 flex items-center gap-3"
+            className="font-mono text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre mb-4 flex items-center gap-3"
           >
             <span className="w-6 h-px bg-cobre" />
             Conteúdo estratégico
@@ -44,7 +44,7 @@ export function BlogTeaserSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-sora text-[clamp(28px,4vw,44px)] font-[200] leading-[1.1] text-off max-w-2xl"
+            className="font-display text-[clamp(28px,4vw,44px)] font-[200] leading-[1.02] text-off max-w-2xl"
           >
             "O que você precisa entender antes de decidir."
           </motion.h2>
@@ -69,10 +69,10 @@ export function BlogTeaserSection() {
                transition={{ delay: i * 0.1 }}
                className="glass glass-hover p-10 flex flex-col group rounded-2xl transition-all duration-500"
              >
-                <div className="px-3 py-1 glass rounded-full w-fit text-cobre font-sora text-[10px] uppercase tracking-widest mb-10">
+                <div className="px-3 py-1 glass rounded-full w-fit text-cobre font-mono text-[10px] uppercase tracking-widest mb-10">
                   {post.category}
                 </div>
-                <h3 className="font-sora text-[20px] font-[300] text-off mb-4 leading-tight line-clamp-2 group-hover:text-latte transition-colors">
+                <h3 className="font-display text-[24px] font-[300] text-off mb-4 leading-tight line-clamp-2 group-hover:text-latte transition-colors">
                   {post.title}
                 </h3>
                 <p className="font-urbanist text-[14px] font-[300] text-mut leading-[1.7] mb-10 line-clamp-3">

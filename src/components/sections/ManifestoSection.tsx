@@ -26,7 +26,7 @@ export function ManifestoSection() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="font-sora text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre mb-12"
+          className="font-mono text-[11px] font-[400] tracking-[0.32em] uppercase text-cobre mb-12"
         >
           A posição da marca
         </motion.div>
@@ -40,7 +40,7 @@ export function ManifestoSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2 }}
-          className="font-sora text-[clamp(26px,4vw,56px)] font-[200] leading-[1.2] text-off max-w-[820px] mx-auto mb-12"
+          className="font-display text-[clamp(26px,4vw,56px)] font-[200] leading-[1.02] text-off max-w-[820px] mx-auto mb-12"
         >
           "Acompanhamos um número limitado de mandatos em simultâneo."
         </motion.h2>
