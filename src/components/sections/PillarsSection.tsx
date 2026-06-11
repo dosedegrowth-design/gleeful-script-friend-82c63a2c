@@ -87,7 +87,7 @@ export function PillarsSection() {
                     <p className="font-urbanist text-[13px] text-white-3 italic">{pillar.deliverable}</p>
                   </div>
                 )}
-                <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-gradient-to-r from-gold to-teal transition-all duration-600 ease-[cubic-bezier(.16,1,.3,1)] group-hover:w-full" />
+                <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-gold transition-all duration-600 ease-[cubic-bezier(.16,1,.3,1)] group-hover:w-full" />
               </div>
             </Reveal>
           ))}
