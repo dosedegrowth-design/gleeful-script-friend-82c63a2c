@@ -40,7 +40,7 @@ export function ProblemSection() {
         <Reveal delay={100}>
           <h2 className="font-amotha text-[clamp(32px,4vw,60px)] font-extralight leading-[1.06] tracking-[-0.02em] mb-6 text-white">
             O problema não é a burocracia.<br/>
-            <span className="text-gold-l">É que ninguém coordena o todo.</span>
+            <span className="text-gold italic">É que ninguém coordena o todo.</span>
           </h2>
         </Reveal>
         <Reveal delay={200}>
