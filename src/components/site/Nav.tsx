@@ -28,9 +28,7 @@ export function Nav() {
     >
       {/* LOGO */}
       <Link to="/" className="flex items-center gap-4 mr-auto group">
-        <div className="w-10 h-10 flex items-center justify-center border border-gold/20 rounded-lg bg-black/40 backdrop-blur-sm group-hover:border-gold transition-colors duration-500 overflow-hidden">
-          <img src="/mooviagold.png" alt="MOOVIA" className="w-6 h-6 object-contain group-hover:rotate-[360deg] transition-transform duration-1000 ease-in-out" />
-        </div>
+        <img src="/mooviagold.png" alt="MOOVIA" className="w-9 h-9 object-contain group-hover:rotate-[360deg] transition-transform duration-1000 ease-in-out" />
         <div className="flex flex-col items-start h-[30px] justify-center ml-1">
           <img src="/moovia-logotype.png" alt="MOOVIA Portugal" className="h-[28px] w-auto object-contain brightness-110" />
         </div>
