@@ -26,6 +26,7 @@ export const Route = createFileRoute("/")({
 });
 
 function Home() {
+  console.log("Home route rendered");
   return (
     <SiteLayout>
       <Hero />
