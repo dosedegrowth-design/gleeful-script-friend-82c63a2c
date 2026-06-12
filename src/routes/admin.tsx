@@ -13,45 +13,22 @@ export const Route = createFileRoute("/admin")({
 
 function AdminLayout() {
   const [session, setSession] = useState<any>(null);
-  const [adminUser, setAdminUser] = useState<any>(null);
   const [checking, setChecking] = useState(true);
-  const navigate = useNavigate();
 
   useEffect(() => {
-    async function initAuth() {
-      const { data: { session } } = await supabase.auth.getSession();
+    supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
-      
-      if (session) {
-        const { data: admin } = await supabase
-          .from("admin_users")
-          .select("*")
-          .eq("id", session.user.id)
-          .single();
-        
-        setAdminUser(admin);
-      }
       setChecking(false);
-    }
+    });
 
-    initAuth();
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
-      if (session) {
-        const { data: admin } = await supabase
-          .from("admin_users")
-          .select("*")
-          .eq("id", session.user.id)
-          .single();
-        setAdminUser(admin);
-      } else {
-        setAdminUser(null);
-      }
+      setChecking(false);
     });
 
     return () => subscription.unsubscribe();
   }, []);
+
 
   if (checking) {
     return (
