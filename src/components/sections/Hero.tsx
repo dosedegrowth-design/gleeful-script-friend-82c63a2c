@@ -115,8 +115,8 @@ export function Hero() {
           className="relative w-full h-full overflow-hidden"
         >
           <img 
-            src="https://images.unsplash.com/photo-1543783230-05096c31de40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-            className="w-full h-full object-cover grayscale brightness-[0.6] contrast-[1.1]"
+            src="https://images.unsplash.com/photo-1548120231-1d6f891ad49c?auto=format&fit=crop&q=80&w=1200" 
+            className="w-full h-full object-cover grayscale brightness-50 contrast-[1.1]"
             alt="Lisboa editorial perspective"
           />
           {/* Overlay to integrate with navy background */}
