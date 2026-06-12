@@ -95,14 +95,12 @@ export function Hero() {
       </div>
 
       {/* RIGHT COLUMN: Photo */}
-      <div className="relative z-10 hidden lg:block h-full min-h-screen">
+      <div className="relative z-[100] hidden lg:block h-screen bg-white">
         <img 
-          src="https://images.unsplash.com/photo-1512440114032-41484439c36d?auto=format&fit=crop&q=80&w=1200" 
-          className="absolute inset-0 w-full h-full object-cover grayscale brightness-50 contrast-[1.1]"
-          alt="Lisboa editorial perspective"
+          src="/mooviagold.png" 
+          className="w-full h-full object-contain"
+          alt="Test"
         />
-        <div className="absolute inset-0 bg-[#06091a]/30 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#06091a] via-transparent to-transparent opacity-80" />
       </div>
     </section>
   );
