@@ -49,11 +49,11 @@ export function Hero() {
           ref={headlineRef}
           className="font-display text-[clamp(42px,5.2vw,78px)] text-white leading-[1.05] tracking-[-0.03em] mb-12"
         >
-          <span className="font-[100] block opacity-85">Você não precisa</span>
-          <span className="font-[100] block opacity-85">de mais informação.</span>
-          <span className="font-[300] block">Precisa de alguém</span>
-          <span className="font-[300] block">que coordene</span>
-          <span className="font-[300] text-gold-l italic block">a decisão.</span>
+          <span className="font-[300] block opacity-85">Você não precisa</span>
+          <span className="font-[300] block opacity-85">de mais informação.</span>
+          <span className="font-[500] block">Precisa de alguém</span>
+          <span className="font-[500] block">que coordene</span>
+          <span className="font-[500] text-gold-l italic block">a decisão.</span>
         </h1>
 
         <motion.p 

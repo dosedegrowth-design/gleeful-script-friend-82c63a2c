@@ -17,7 +17,7 @@ export function ManifestoSection() {
         </motion.p>
 
         {/* Ghost Symbol */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[200px] font-[100] text-gold opacity-[0.03] select-none pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[200px] font-[200] text-gold opacity-[0.03] select-none pointer-events-none">
           ∞
         </div>
 
@@ -26,7 +26,7 @@ export function ManifestoSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2 }}
-          className="font-display text-[clamp(26px,4vw,56px)] font-[200] text-white leading-tight max-w-[820px] mb-12"
+          className="font-display text-[clamp(26px,4vw,56px)] font-[300] text-white leading-tight max-w-[820px] mb-12"
         >
           "Acompanhamos um número limitado<br/>de mandatos em simultâneo."
         </motion.h2>

@@ -50,7 +50,7 @@ export function TeamSection() {
     <section className="bg-black py-32 px-6 lg:px-20">
       <div className="mx-auto max-w-[1400px]">
         <div className="mb-20">
-          <h3 className="font-display text-[28px] font-[200] text-white mb-6">A equipa que coordena a sua jornada.</h3>
+          <h3 className="font-display text-[28px] font-[400] text-white mb-6">A equipa que coordena a sua jornada.</h3>
           <p className="font-body text-[17px] font-[300] text-w35 leading-[1.85] max-w-[700px]">
             Cada membro da MOOVIA foi escolhido pela profundidade da experiência, não pelo tamanho do currículo. São as pessoas certas para as decisões que importam.
           </p>
