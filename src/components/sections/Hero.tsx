@@ -105,18 +105,8 @@ export function Hero() {
       </div>
 
       {/* RIGHT COLUMN: Photo */}
-      <div className="relative z-10 hidden lg:block w-1/2 min-h-screen overflow-hidden">
-        <motion.div 
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5, delay: 0.5 }}
-          className="absolute inset-0 w-full h-full"
-        >
-          <img 
-            src="/images/frederico.png" 
-            className="w-full h-full object-cover"
-            alt="Test"
-          />
+      <div className="relative z-10 hidden lg:block w-1/2 min-h-screen bg-red-500">
+        <div className="absolute inset-0 bg-blue-500" />
           <div className="absolute inset-0 bg-[#06091a]/30 mix-blend-multiply" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#06091a] via-transparent to-transparent opacity-80" />
         </motion.div>
