@@ -111,9 +111,10 @@ export function PillarsSection() {
               <h3 className="font-display text-[40px] font-[200] text-gold-l leading-none tracking-[-0.02em] mb-4">
                 {pillar.verb}
               </h3>
-              <p className="font-urbanist text-[14px] font-[300] italic text-w35 mb-8">
+              <p className="font-body text-[14px] font-[300] italic text-w35 mb-8">
                 {pillar.tagline}
               </p>
+
 
               <div className="flex flex-wrap gap-2 mb-12">
                 {pillar.services.slice(0, active === pillar.n ? undefined : 6).map((service) => (
@@ -125,14 +126,15 @@ export function PillarsSection() {
                   </span>
                 ))}
                 {active !== pillar.n && pillar.services.length > 6 && (
-                  <span className="font-urbanist text-[10px] text-gold mt-2 uppercase tracking-widest">+ {pillar.services.length - 6} serviços</span>
+                  <span className="font-body text-[10px] text-gold mt-2 uppercase tracking-widest">+ {pillar.services.length - 6} serviços</span>
                 )}
               </div>
 
               <div className="mt-auto border-t border-b18 pt-8 group-hover:border-gold/30 transition-colors">
-                <p className="font-urbanist text-[11px] font-[500] uppercase tracking-widest text-gold mb-1">Resultado:</p>
-                <p className="font-urbanist text-[13px] font-[300] text-w35">{pillar.result}</p>
+                <p className="font-body text-[11px] font-[500] uppercase tracking-widest text-gold mb-1">Resultado:</p>
+                <p className="font-body text-[13px] font-[300] text-w35">{pillar.result}</p>
               </div>
+
 
               {/* Hover line bottom */}
               <div className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-gold to-teal transition-all duration-700 group-hover:w-full" />

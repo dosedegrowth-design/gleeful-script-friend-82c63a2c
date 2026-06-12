@@ -11,13 +11,13 @@ export function ManifestoSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-gold mb-12"
+          className="font-body text-[11px] tracking-[0.32em] uppercase text-gold mb-12"
         >
           A posição da marca
         </motion.p>
 
         {/* Ghost Symbol */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-sora text-[200px] font-[100] text-gold opacity-[0.03] select-none pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[200px] font-[100] text-gold opacity-[0.03] select-none pointer-events-none">
           ∞
         </div>
 
@@ -26,10 +26,11 @@ export function ManifestoSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2 }}
-          className="font-sora text-[clamp(26px,4vw,56px)] font-[200] text-white leading-tight max-w-[820px] mb-12"
+          className="font-display text-[clamp(26px,4vw,56px)] font-[200] text-white leading-tight max-w-[820px] mb-12"
         >
           "Acompanhamos um número limitado<br/>de mandatos em simultâneo."
         </motion.h2>
+
 
         <motion.div 
           initial={{ width: 0 }}
@@ -42,7 +43,7 @@ export function ManifestoSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-urbanist text-[17px] font-[300] text-w35 leading-[1.9] max-w-[560px] mb-8"
+          className="font-body text-[17px] font-[300] text-w35 leading-[1.9] max-w-[560px] mb-8"
         >
           Não por limitação operacional, porque acreditamos que decisões desta importância exigem acompanhamento próximo, coordenação ativa e atenção individual. Para preservar este nível, aceitamos apenas o número de novos mandatos que conseguimos coordenar com a qualidade que a decisão exige.
         </motion.p>
@@ -52,10 +53,11 @@ export function ManifestoSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="font-urbanist text-[16px] font-[300] text-w35 italic"
+          className="font-body text-[16px] font-[300] text-w35 italic"
         >
           "Se o seu caso merece isso, este é o lugar."
         </motion.p>
+
       </div>
     </section>
   );

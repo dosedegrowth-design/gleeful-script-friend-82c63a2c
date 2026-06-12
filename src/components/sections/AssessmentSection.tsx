@@ -20,7 +20,7 @@ export function AssessmentSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-gold mb-6"
+            className="font-body text-[11px] tracking-[0.32em] uppercase text-gold mb-6"
           >
             Strategic Relocation Assessment
           </motion.p>
@@ -28,7 +28,7 @@ export function AssessmentSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-sora text-[clamp(28px,3.5vw,52px)] font-[200] text-white leading-tight mb-8"
+            className="font-display text-[clamp(28px,3.5vw,52px)] font-[200] text-white leading-tight mb-8"
           >
             "O diagnóstico que organiza<br/>o que você não sabia<br/>que precisava organizar."
           </motion.h2>
@@ -36,7 +36,7 @@ export function AssessmentSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-urbanist text-[17px] font-[300] text-w35 leading-[1.9] max-w-lg mb-12"
+            className="font-body text-[17px] font-[300] text-w35 leading-[1.9] max-w-lg mb-12"
           >
             Não é uma consulta. É o primeiro trabalho estratégico da MOOVIA, com entregável físico, que mapeia tudo o que precisa ser decidido antes de comprar a passagem.
             <br/><br/>
@@ -59,7 +59,7 @@ export function AssessmentSection() {
                 className="bg-black-3 border border-b18 p-6 flex flex-col gap-2"
               >
                 <span className="text-2xl mb-2">{item.icon}</span>
-                <span className="font-urbanist text-[11px] font-[400] text-w35 uppercase tracking-widest leading-tight">{item.label}</span>
+                <span className="font-body text-[11px] font-[400] text-w35 uppercase tracking-widest leading-tight">{item.label}</span>
               </motion.div>
             ))}
           </div>
@@ -75,27 +75,29 @@ export function AssessmentSection() {
             {/* Animated border top */}
             <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-gold via-teal to-gold bg-[length:200%_auto] animate-[gradient_4s_linear_infinite]" />
             
-            <p className="font-urbanist text-[11px] font-[400] tracking-[0.24em] uppercase text-gold mb-12">Strategic Relocation Assessment</p>
+            <p className="font-body text-[11px] font-[400] tracking-[0.24em] uppercase text-gold mb-12">Strategic Relocation Assessment</p>
             
-            <div className="font-sora text-[88px] font-[100] text-gold-l leading-none tracking-[-0.04em] mb-4">
+            <div className="font-display text-[88px] font-[100] text-gold-l leading-none tracking-[-0.04em] mb-4">
               <span className="text-[40px] mr-2">€</span>
               <NumberFlow value={250} />
             </div>
-            <p className="font-urbanist text-[11px] font-[300] text-w35 uppercase tracking-widest mb-12">90 minutos · Entregável físico</p>
+            <p className="font-body text-[11px] font-[300] text-w35 uppercase tracking-widest mb-12">90 minutos · Entregável físico</p>
+
 
             <ul className="space-y-4 mb-12">
               {deliverables.map((d) => (
-                <li key={d} className="flex gap-4 font-urbanist text-[15px] font-[300] text-white/70">
+                <li key={d} className="flex gap-4 font-body text-[15px] font-[300] text-white/70">
                   <span className="text-gold">→</span>
                   {d}
                 </li>
               ))}
             </ul>
 
-            <button className="w-full bg-gold text-black font-urbanist font-[600] text-[13px] tracking-[0.22em] uppercase py-6 transition-all hover:bg-gold-xl group overflow-hidden relative">
+            <button className="w-full bg-gold text-black font-body font-[600] text-[13px] tracking-[0.22em] uppercase py-6 transition-all hover:bg-gold-xl group overflow-hidden relative">
               <span className="relative z-10">Solicitar Assessment</span>
               <div className="absolute inset-0 bg-gold-xl translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500" />
             </button>
+
           </motion.div>
         </div>
       </div>

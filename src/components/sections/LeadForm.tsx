@@ -164,15 +164,16 @@ export function LeadForm() {
               <button
                 type="submit"
                 disabled={loading}
-                className="bg-cobre text-navy-deep font-mono text-[11px] font-[600] tracking-[0.22em] uppercase py-5 relative overflow-hidden group w-full mt-10 rounded-none transition-all duration-500 hover:shadow-[0_20px_40px_-10px_rgba(173,137,87,0.3)]"
+                className="bg-cobre text-navy-deep font-body text-[11px] font-[600] tracking-[0.22em] uppercase py-5 relative overflow-hidden group w-full mt-10 rounded-none transition-all duration-500 hover:shadow-[0_20px_40px_-10px_rgba(173,137,87,0.3)]"
               >
                 <span className="relative z-10">{loading ? "Processando..." : "Enviar e aguardar retorno"}</span>
                 <div className="absolute inset-0 bg-latte origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100" />
               </button>
               
-              <p className="text-center mt-8 font-mono text-[10px] text-mut uppercase tracking-[0.1em]">
+              <p className="text-center mt-8 font-body text-[10px] text-mut uppercase tracking-[0.1em]">
                 Já decidiu? <a href="https://calendly.com/moovia-portugal/conversa-gratuita" target="_blank" rel="noopener" className="text-cobre underline underline-offset-4 decoration-cobre/30 hover:text-latte transition-colors">Marcar Conversa diretamente</a>
               </p>
+
             </form>
           </motion.div>
         ) : (
@@ -201,11 +202,12 @@ export function LeadForm() {
               href="https://wa.me/351913000000" 
               target="_blank" 
               rel="noopener" 
-              className="inline-flex items-center gap-3 text-cobre font-mono text-[11px] font-[500] uppercase tracking-[0.2em] hover:text-latte transition-colors"
+              className="inline-flex items-center gap-3 text-cobre font-body text-[11px] font-[500] uppercase tracking-[0.2em] hover:text-latte transition-colors"
             >
               <WhatsappLogo size={20} weight="thin" />
               Prefere WhatsApp?
             </a>
+
           </motion.div>
         )}
       </AnimatePresence>
