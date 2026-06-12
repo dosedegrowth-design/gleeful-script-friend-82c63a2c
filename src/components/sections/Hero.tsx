@@ -125,5 +125,6 @@ export function Hero() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#06091a] via-transparent to-transparent opacity-40" />
         </motion.div>
       </div>
+    </section>
   );
 }
