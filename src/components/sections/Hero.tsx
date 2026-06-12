@@ -72,7 +72,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}
-          className="flex flex-wrap gap-5"
+          className="flex flex-row items-center gap-4 sm:gap-6"
         >
           <Link
             to="/#contacto"
