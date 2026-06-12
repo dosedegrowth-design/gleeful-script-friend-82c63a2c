@@ -28,6 +28,7 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <SiteLayout>
+      <div className="fixed top-0 left-0 z-[9999] bg-red-500 text-white text-5xl">INDEX IS HERE</div>
       <Hero />
       
       {/* MARQUEE — SEÇÃO 2 */}
