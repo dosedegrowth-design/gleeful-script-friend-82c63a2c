@@ -100,7 +100,7 @@ export function Hero() {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.2, delay: 0.5 }}
-          className="absolute inset-0"
+          className="absolute inset-0 w-full h-full"
         >
           <img 
             src="https://images.unsplash.com/photo-1548120231-1d6f891ad49c?auto=format&fit=crop&q=80&w=1200" 
