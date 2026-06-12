@@ -113,9 +113,9 @@ export function Hero() {
           className="absolute inset-0 w-full h-full"
         >
           <img 
-            src="https://images.unsplash.com/photo-1548120231-1d6f891ad49c?auto=format&fit=crop&q=90&w=1200" 
-            className="w-full h-full object-cover grayscale brightness-50 contrast-[1.1]"
-            alt="Lisboa editorial perspective"
+            src="/images/frederico.png" 
+            className="w-full h-full object-cover"
+            alt="Test"
           />
           <div className="absolute inset-0 bg-[#06091a]/30 mix-blend-multiply" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#06091a] via-transparent to-transparent opacity-80" />
