@@ -79,7 +79,7 @@ export function PillarsSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-display text-[clamp(28px,4vw,48px)] font-[200] text-white leading-tight mb-8"
+            className="font-display text-[clamp(28px,4vw,48px)] font-[300] text-white leading-tight mb-8"
           >
             "Uma jornada completa."
           </motion.h2>
@@ -104,11 +104,11 @@ export function PillarsSection() {
               className="bg-black-2 p-12 relative group cursor-pointer overflow-hidden flex flex-col min-h-[480px]"
             >
               {/* Ghost number */}
-              <div className="absolute top-4 right-8 font-display text-[100px] font-[100] text-gold opacity-[0.05] pointer-events-none group-hover:-translate-y-2 transition-transform duration-700">
+              <div className="absolute top-4 right-8 font-display text-[100px] font-[200] text-gold opacity-[0.05] pointer-events-none group-hover:-translate-y-2 transition-transform duration-700">
                 {pillar.n}
               </div>
 
-              <h3 className="font-display text-[40px] font-[200] text-gold-l leading-none tracking-[-0.02em] mb-4">
+              <h3 className="font-display text-[40px] font-[300] text-gold-l leading-none tracking-[-0.02em] mb-4">
                 {pillar.verb}
               </h3>
               <p className="font-body text-[14px] font-[300] italic text-w35 mb-8">

@@ -183,7 +183,7 @@ export function LeadForm() {
             animate={{ opacity: 1, scale: 1 }}
             className="text-center py-10"
           >
-            <h3 className="font-display text-[32px] font-[300] text-latte mb-6 leading-tight">
+            <h3 className="font-display text-[32px] font-[400] text-latte mb-6 leading-tight">
               Recebemos o seu caso,<br />{form.name?.split(" ")[0]}.
             </h3>
             <p className="font-body text-[17px] font-[300] text-mut leading-relaxed mb-10 max-w-[400px] mx-auto">

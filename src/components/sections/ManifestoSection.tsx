@@ -17,7 +17,7 @@ export function ManifestoSection() {
         </motion.p>
 
         {/* Ghost Symbol */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[200px] font-[100] text-gold opacity-[0.03] select-none pointer-events-none">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[200px] font-[200] text-gold opacity-[0.03] select-none pointer-events-none">
           ∞
         </div>
 

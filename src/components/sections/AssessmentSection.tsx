@@ -28,7 +28,7 @@ export function AssessmentSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-display text-[clamp(28px,3.5vw,52px)] font-[200] text-white leading-tight mb-8"
+            className="font-display text-[clamp(28px,3.5vw,52px)] font-[300] text-white leading-tight mb-8"
           >
             "O diagnóstico que organiza<br/>o que você não sabia<br/>que precisava organizar."
           </motion.h2>
