@@ -42,7 +42,7 @@ export function FAQSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-urbanist text-[11px] tracking-[0.32em] uppercase text-gold mb-6 text-center lg:text-left"
+          className="font-body text-[11px] tracking-[0.32em] uppercase text-gold mb-6 text-center lg:text-left"
         >
           Perguntas frequentes
         </motion.p>
@@ -50,7 +50,7 @@ export function FAQSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-sora text-[clamp(28px,4vw,44px)] font-[200] text-white leading-tight mb-20 text-center lg:text-left"
+          className="font-display text-[clamp(28px,4vw,44px)] font-[200] text-white leading-tight mb-20 text-center lg:text-left"
         >
           O que as pessoas perguntam<br/>antes de decidir.
         </motion.h2>
@@ -62,8 +62,8 @@ export function FAQSection() {
                 onClick={() => setActive(active === i ? null : i)}
                 className="bg-black-2 p-8 flex justify-between items-center group hover:bg-black-3 transition-colors"
               >
-                <span className="font-urbanist text-[16px] text-white text-left pr-8">{faq.q}</span>
-                <span className={`font-sora text-[20px] text-gold transition-transform duration-300 ${active === i ? "rotate-45" : ""}`}>+</span>
+                <span className="font-body text-[16px] text-white text-left pr-8">{faq.q}</span>
+                <span className={`font-display text-[20px] text-gold transition-transform duration-300 ${active === i ? "rotate-45" : ""}`}>+</span>
               </button>
               
               <AnimatePresence>
@@ -74,7 +74,7 @@ export function FAQSection() {
                     exit={{ height: 0, opacity: 0 }}
                     className="overflow-hidden bg-w05 border-l-2 border-gold"
                   >
-                    <div className="p-8 font-urbanist text-[15px] font-[300] text-w35 leading-[1.85]">
+                    <div className="p-8 font-body text-[15px] font-[300] text-w35 leading-[1.85]">
                       {faq.a}
                     </div>
                   </motion.div>
@@ -83,6 +83,7 @@ export function FAQSection() {
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
