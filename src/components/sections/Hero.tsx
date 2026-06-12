@@ -33,7 +33,7 @@ export function Hero() {
       </div>
 
       {/* LEFT COLUMN: Content */}
-      <div className="relative z-10 w-full lg:w-1/2 flex flex-col justify-center py-32 pl-6 lg:pl-20 pr-6 lg:pr-10 min-h-screen">
+      <div className="relative z-10 flex-1 flex flex-col justify-center py-32 pl-6 lg:pl-20 pr-6 lg:pr-10 min-h-screen">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -105,9 +105,9 @@ export function Hero() {
       </div>
 
       {/* RIGHT COLUMN: Photo */}
-      <div className="relative z-10 hidden lg:block w-1/2 min-h-screen">
+      <div className="relative z-10 flex-1 min-h-screen overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center grayscale brightness-50"
+          className="absolute inset-0 bg-cover bg-center grayscale brightness-50 contrast-[1.1]"
           style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1548120231-1d6f891ad49c?auto=format&fit=crop&q=80&w=1200)' }}
         />
         <div className="absolute inset-0 bg-[#06091a]/30 mix-blend-multiply" />
