@@ -107,7 +107,7 @@ export function Hero() {
       </div>
 
       {/* RIGHT COLUMN: Photo */}
-      <div className="relative z-10 hidden lg:block h-full w-full overflow-hidden">
+      <div className="relative z-10 block h-full w-full overflow-hidden border-2 border-red-500">
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
