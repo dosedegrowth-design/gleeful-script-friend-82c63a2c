@@ -76,7 +76,7 @@ function AdminAssessments() {
         </div>
       </div>
 
-      <div className="bg-black-2 border border-border rounded-lg overflow-hidden">
+      <div className="bg-black-2 border border-border rounded-lg overflow-x-auto">
         <table className="w-full text-left border-collapse font-urbanist">
           <thead>
             <tr className="bg-black-3 border-b border-border">
