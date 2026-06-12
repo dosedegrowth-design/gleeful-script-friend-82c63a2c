@@ -25,7 +25,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen flex flex-row bg-[#06091a] overflow-hidden z-[60]">
+    <section className="relative min-h-screen grid lg:grid-cols-2 bg-[#06091a] overflow-hidden">
       {/* Background Gradients */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 90% 70% at 70% 40%, rgba(15,31,65,0.4) 0%, transparent 70%)' }} />
@@ -33,7 +33,7 @@ export function Hero() {
       </div>
 
       {/* LEFT COLUMN: Content */}
-      <div className="relative z-10 flex-1 flex flex-col justify-center py-32 pl-6 lg:pl-20 pr-6 lg:pr-10 min-h-screen">
+      <div className="relative z-10 flex flex-col justify-center py-32 pl-6 lg:pl-20 pr-6 lg:pr-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -66,12 +66,7 @@ export function Hero() {
           A MOOVIA Portugal coordena a sua transição completa, unindo estratégia fiscal, imobiliária e adaptação familiar em um único mandato personalizado.
         </motion.p>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.5 }}
-          className="flex flex-row items-center gap-4 sm:gap-6"
-        >
+        <div className="flex flex-row items-center gap-4 sm:gap-6 mb-14">
           <Link
             to="/#contacto"
             className="bg-gold text-black font-body font-[600] text-[11px] sm:text-[12px] tracking-[0.2em] uppercase px-6 sm:px-10 py-4 transition-all hover:bg-gold-xl rounded-[2px] shadow-[0_8px_24px_rgba(173,137,87,0.15)] whitespace-nowrap"
@@ -84,15 +79,10 @@ export function Hero() {
           >
             Ver como funciona
           </a>
-        </motion.div>
+        </div>
 
         {/* BOTTOM LEFT INDICATOR */}
-        <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 1.8 }}
-          className="absolute bottom-10 left-6 lg:left-20 flex items-center gap-6 font-body text-[10px] tracking-[0.25em] uppercase text-w35"
-        >
+        <div className="flex items-center gap-6 font-body text-[10px] tracking-[0.25em] uppercase text-w35">
           <div className="w-12 h-px bg-gold/30 relative overflow-hidden">
             <motion.div 
               animate={{ x: ["-100%", "100%"] }}
@@ -101,14 +91,15 @@ export function Hero() {
             />
           </div>
           <span className="opacity-80">Planejar · Chegar · Ficar</span>
-        </motion.div>
+        </div>
       </div>
 
       {/* RIGHT COLUMN: Photo */}
-      <div className="relative z-10 flex-1 min-h-screen overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center grayscale brightness-50 contrast-[1.1]"
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1548120231-1d6f891ad49c?auto=format&fit=crop&q=80&w=1200)' }}
+      <div className="relative z-10 hidden lg:block h-full min-h-screen">
+        <img 
+          src="https://images.unsplash.com/photo-1512440114032-41484439c36d?auto=format&fit=crop&q=80&w=1200" 
+          className="absolute inset-0 w-full h-full object-cover grayscale brightness-50 contrast-[1.1]"
+          alt="Lisboa editorial perspective"
         />
         <div className="absolute inset-0 bg-[#06091a]/30 mix-blend-multiply" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#06091a] via-transparent to-transparent opacity-80" />
