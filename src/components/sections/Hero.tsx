@@ -106,22 +106,6 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* RIGHT COLUMN: Photo */}
-      <div className="relative z-10 block h-full w-full overflow-hidden border-2 border-red-500">
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5, delay: 0.5 }}
-          className="absolute inset-0 bg-cover bg-center grayscale brightness-50"
-          style={{ 
-            backgroundImage: 'url(https://images.unsplash.com/photo-1512440114032-41484439c36d?auto=format&fit=crop&q=80&w=1200)',
-          }}
-        >
-          {/* Overlay to integrate with navy background */}
-          <div className="absolute inset-0 bg-[#06091a]/40 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#06091a] via-transparent to-transparent opacity-80" />
-        </motion.div>
-      </div>
     </section>
   );
 }
