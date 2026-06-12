@@ -64,13 +64,28 @@
     font-family: var(--font-body);
     font-weight: 300;
     overflow-x: hidden;
-    cursor: none !important;
+    cursor: none;
   }
 
   a, button, input, select, textarea {
-    cursor: none !important;
+    cursor: none;
+  }
+
+  /* Restore native cursor inside admin panel */
+  body:has(.admin-root),
+  body:has(.admin-root) a,
+  body:has(.admin-root) button,
+  body:has(.admin-root) input,
+  body:has(.admin-root) select,
+  body:has(.admin-root) textarea {
+    cursor: auto;
+  }
+  body:has(.admin-root) a,
+  body:has(.admin-root) button {
+    cursor: pointer;
   }
 }
+
 
 .grain {
   position: fixed;

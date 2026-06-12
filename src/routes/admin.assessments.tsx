@@ -76,8 +76,8 @@ function AdminAssessments() {
         </div>
       </div>
 
-      <div className="bg-black-2 border border-border rounded-lg overflow-hidden">
-        <table className="w-full text-left border-collapse font-urbanist">
+      <div className="bg-black-2 border border-border rounded-lg overflow-x-auto">
+        <table className="w-full min-w-[640px] text-left border-collapse font-urbanist">
           <thead>
             <tr className="bg-black-3 border-b border-border">
               <th className="p-6 text-[10px] uppercase tracking-[0.2em] font-bold text-gold-l">Cliente</th>
