@@ -26,7 +26,7 @@ export function ManifestoSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2 }}
-          className="font-display text-[clamp(26px,4vw,56px)] font-[300] text-white leading-tight max-w-[820px] mb-12"
+          className="font-display text-[clamp(26px,4.5vw,64px)] font-[200] text-white leading-[0.95] tracking-[-0.04em] max-w-[900px] mb-12 uppercase"
         >
           "Acompanhamos um número limitado<br/>de mandatos em simultâneo."
         </motion.h2>

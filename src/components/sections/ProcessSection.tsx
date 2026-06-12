@@ -60,7 +60,7 @@ export function ProcessSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-display text-[clamp(28px,4vw,48px)] font-[300] text-white leading-tight mb-20"
+            className="font-display text-[clamp(28px,4.5vw,60px)] font-[200] text-white leading-[0.95] tracking-[-0.04em] mb-20 uppercase"
           >
             "Um processo.<br/>Do diagnóstico ao destino."
           </motion.h2>

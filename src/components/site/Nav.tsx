@@ -32,7 +32,7 @@ export function Nav() {
           <img src="/mooviagold.png" alt="MOOVIA" className="w-6 h-6 object-contain group-hover:rotate-[360deg] transition-transform duration-1000 ease-in-out" />
         </div>
         <div className="flex flex-col items-start">
-          <span className="font-display font-[500] text-[22px] text-gold-l tracking-[0.04em] leading-none">MOOVIA</span>
+          <span className="font-display font-[500] text-[22px] text-gold-l tracking-[0.04em] leading-none uppercase">MOOVIA</span>
           <span className="font-body font-[300] text-[11px] text-w35 tracking-[0.32em] uppercase leading-none mt-1">Portugal</span>
         </div>
       </Link>
