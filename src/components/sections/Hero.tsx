@@ -25,7 +25,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen grid lg:grid-cols-2 bg-[#06091a] overflow-hidden">
+    <section className="relative min-h-[100svh] flex flex-col lg:flex-row bg-[#06091a] overflow-hidden">
       {/* Background Gradients */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 90% 70% at 70% 40%, rgba(15,31,65,0.4) 0%, transparent 70%)' }} />
@@ -33,7 +33,7 @@ export function Hero() {
       </div>
 
       {/* LEFT COLUMN: Content */}
-      <div className="relative z-10 flex flex-col justify-center py-32 pl-6 lg:pl-20 pr-6 lg:pr-10">
+      <div className="relative z-10 w-full lg:w-1/2 flex flex-col justify-center py-20 lg:py-32 pl-6 lg:pl-20 pr-6 lg:pr-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -95,14 +95,21 @@ export function Hero() {
       </div>
 
       {/* RIGHT COLUMN: Photo */}
-      <div className="relative z-10 hidden lg:block min-h-screen overflow-hidden">
-        <img 
-          src="https://images.unsplash.com/photo-1548120231-1d6f891ad49c?auto=format&fit=crop&q=90&w=1200" 
-          className="absolute inset-0 w-full h-full object-cover grayscale brightness-50 contrast-[1.1]"
-          alt="Lisboa editorial perspective"
-        />
-        <div className="absolute inset-0 bg-[#06091a]/30 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#06091a] via-transparent to-transparent opacity-80" />
+      <div className="relative z-10 hidden lg:block lg:w-1/2 min-h-screen">
+        <motion.div 
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2, delay: 0.5 }}
+          className="absolute inset-0"
+        >
+          <img 
+            src="https://images.unsplash.com/photo-1548120231-1d6f891ad49c?auto=format&fit=crop&q=80&w=1200" 
+            className="w-full h-full object-cover grayscale brightness-50 contrast-[1.1]"
+            alt="Lisboa editorial perspective"
+          />
+          <div className="absolute inset-0 bg-[#06091a]/30 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#06091a] via-transparent to-transparent opacity-80" />
+        </motion.div>
       </div>
     </section>
   );
