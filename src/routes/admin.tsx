@@ -98,7 +98,7 @@ function AdminLayout() {
 }
 
 function AdminLogin() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -107,15 +107,20 @@ function AdminLogin() {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    
+
     try {
+      // Aceita "admin" como utilizador, ou um e-mail completo
+      const email = username.includes("@")
+        ? username.trim()
+        : `${username.trim().toLowerCase()}@moovia.local`;
+
       const { error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
 
       if (error) throw error;
-      
+
       toast.success("Login realizado com sucesso");
       navigate({ to: "/admin/leads" });
     } catch (error: any) {
