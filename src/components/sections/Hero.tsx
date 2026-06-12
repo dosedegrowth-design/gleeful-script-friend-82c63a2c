@@ -50,8 +50,7 @@ export function Hero() {
           className="font-display text-[clamp(42px,5.2vw,86px)] text-white leading-[0.9] tracking-[-0.05em] mb-12 uppercase"
         >
           <span className="font-[200] block opacity-85">Você não precisa</span>
-          <span className="font-[200] block opacity-85">de mais</span>
-          <span className="font-[200] block opacity-85">informação.</span>
+          <span className="font-[200] block opacity-85">de mais informação.</span>
           <span className="font-[500] block mt-4">Precisa de</span>
           <span className="font-[500] block">alguém</span>
           <span className="font-[500] block">que coordene</span>
