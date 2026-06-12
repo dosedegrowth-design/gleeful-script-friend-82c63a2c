@@ -8,7 +8,6 @@ export function Hero() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
   
   useEffect(() => {
-    console.log("Hero component rendered");
     if (!headlineRef.current) return;
     const split = new SplitType(headlineRef.current, { types: 'lines,words' });
     
