@@ -25,7 +25,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-screen grid lg:grid-cols-2 bg-[#06091a] overflow-hidden">
+    <section className="relative h-screen flex flex-row bg-red-500 overflow-hidden z-[1000]">
       {/* Background Gradients */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 90% 70% at 70% 40%, rgba(15,31,65,0.4) 0%, transparent 70%)' }} />
