@@ -50,10 +50,11 @@ export function TeamSection() {
     <section className="bg-black py-32 px-6 lg:px-20">
       <div className="mx-auto max-w-[1400px]">
         <div className="mb-20">
-          <h3 className="font-sora text-[28px] font-[200] text-white mb-6">A equipa que coordena a sua jornada.</h3>
-          <p className="font-urbanist text-[17px] font-[300] text-w35 leading-[1.85] max-w-[700px]">
+          <h3 className="font-display text-[28px] font-[200] text-white mb-6">A equipa que coordena a sua jornada.</h3>
+          <p className="font-body text-[17px] font-[300] text-w35 leading-[1.85] max-w-[700px]">
             Cada membro da MOOVIA foi escolhido pela profundidade da experiência, não pelo tamanho do currículo. São as pessoas certas para as decisões que importam.
           </p>
+
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-b18">
@@ -70,14 +71,15 @@ export function TeamSection() {
               
               <div className="flex flex-wrap gap-2 mb-8">
                 {member.chips.map(chip => (
-                  <span key={chip} className="font-urbanist text-[10px] font-[400] text-w35 uppercase tracking-widest border border-b18 px-2 py-1">
+                  <span key={chip} className="font-body text-[10px] font-[400] text-w35 uppercase tracking-widest border border-b18 px-2 py-1">
                     {chip}
                   </span>
                 ))}
               </div>
-              <h4 className="font-sora text-[18px] font-[300] text-white mb-1 group-hover:text-gold-l transition-colors">{member.name}</h4>
-              <p className="font-urbanist text-[11px] font-[400] tracking-[0.18em] uppercase text-gold mb-6">{member.role}</p>
-              <p className="font-urbanist text-[14px] font-[300] text-w35 leading-[1.7] line-clamp-2">{member.bio}</p>
+              <h4 className="font-display text-[18px] font-[300] text-white mb-1 group-hover:text-gold-l transition-colors">{member.name}</h4>
+              <p className="font-body text-[11px] font-[400] tracking-[0.18em] uppercase text-gold mb-6">{member.role}</p>
+              <p className="font-body text-[14px] font-[300] text-w35 leading-[1.7] line-clamp-2">{member.bio}</p>
+
             </motion.div>
           ))}
         </div>
