@@ -115,14 +115,12 @@ export function Hero() {
           className="relative w-full h-full overflow-hidden"
         >
           <img 
-            src="https://images.unsplash.com/photo-1548120231-1d6f891ad49c?auto=format&fit=crop&q=80&w=1200" 
-            className="w-full h-full object-cover grayscale brightness-50 contrast-[1.1]"
+            src="https://images.unsplash.com/photo-1512440114032-41484439c36d?auto=format&fit=crop&q=80&w=1200" 
+            className="w-full h-full object-cover"
             alt="Lisboa editorial perspective"
           />
-          {/* Overlay to integrate with navy background */}
-          <div className="absolute inset-0 bg-[#06091a]/30 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#06091a] via-transparent to-transparent opacity-60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#06091a] via-transparent to-transparent opacity-40" />
+          {/* Subtle Overlay */}
+          <div className="absolute inset-0 bg-black/40" />
         </motion.div>
       </div>
     </section>
