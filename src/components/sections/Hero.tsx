@@ -3,6 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import SplitType from "split-type";
 import { gsap } from "gsap";
+import heroLisboaEditorial from "@/assets/hero-lisboa-editorial.jpg";
 
 export function Hero() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
@@ -26,13 +27,11 @@ export function Hero() {
 
   return (
     <section className="relative min-h-[100svh] flex flex-col lg:flex-row bg-[#06091a] overflow-hidden">
-      {/* Background Gradients */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 90% 70% at 70% 40%, rgba(15,31,65,0.4) 0%, transparent 70%)' }} />
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 50% 50% at 10% 90%, rgba(173,137,87,0.05) 0%, transparent 60%)' }} />
       </div>
 
-      {/* LEFT COLUMN: Content */}
       <div className="relative z-10 w-full lg:w-1/2 flex flex-col justify-center py-20 lg:py-32 pl-6 lg:pl-20 pr-6 lg:pr-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -81,7 +80,6 @@ export function Hero() {
           </a>
         </div>
 
-        {/* BOTTOM LEFT INDICATOR */}
         <div className="flex items-center gap-6 font-body text-[10px] tracking-[0.25em] uppercase text-w35">
           <div className="w-12 h-px bg-gold/30 relative overflow-hidden">
             <motion.div 
@@ -94,8 +92,7 @@ export function Hero() {
         </div>
       </div>
 
-      {/* RIGHT COLUMN: Photo */}
-      <div className="relative z-10 hidden lg:block lg:w-1/2 min-h-screen">
+      <div className="relative z-10 hidden lg:block lg:w-1/2 min-h-screen overflow-hidden">
         <motion.div 
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -103,12 +100,15 @@ export function Hero() {
           className="absolute inset-0 w-full h-full"
         >
           <img 
-            src="https://images.unsplash.com/photo-1543783230-05096c31de40?auto=format&fit=crop&q=80&w=1200" 
-            className="w-full h-full object-cover grayscale brightness-50 contrast-[1.1]"
-            alt="Lisboa editorial perspective"
+            src={heroLisboaEditorial}
+            width={1080}
+            height={1920}
+            className="w-full h-full object-cover grayscale brightness-50 contrast-[1.05]"
+            alt="Rua elegante de Lisboa ao entardecer"
           />
-          <div className="absolute inset-0 bg-[#06091a]/30 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#06091a] via-transparent to-transparent opacity-80" />
+          <div className="absolute inset-0 bg-[#06091a]/35 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#06091a] via-[#06091a]/18 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#06091a]/35 via-transparent to-[#06091a]/10" />
         </motion.div>
       </div>
     </section>
