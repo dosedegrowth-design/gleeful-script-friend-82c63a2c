@@ -107,20 +107,19 @@ export function Hero() {
       </div>
 
       {/* RIGHT COLUMN: Photo */}
-      <div className="relative z-10 hidden lg:block h-full">
+      <div className="relative z-10 hidden lg:block h-full w-full overflow-hidden">
         <motion.div 
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1.2, delay: 0.5 }}
-          className="relative w-full h-full overflow-hidden"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5, delay: 0.5 }}
+          className="absolute inset-0 bg-cover bg-center grayscale brightness-50"
+          style={{ 
+            backgroundImage: 'url(https://images.unsplash.com/photo-1512440114032-41484439c36d?auto=format&fit=crop&q=80&w=1200)',
+          }}
         >
-          <img 
-            src="https://images.unsplash.com/photo-1512440114032-41484439c36d?auto=format&fit=crop&q=80&w=1200" 
-            className="w-full h-full object-cover"
-            alt="Lisboa editorial perspective"
-          />
-          {/* Subtle Overlay */}
-          <div className="absolute inset-0 bg-black/40" />
+          {/* Overlay to integrate with navy background */}
+          <div className="absolute inset-0 bg-[#06091a]/40 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#06091a] via-transparent to-transparent opacity-80" />
         </motion.div>
       </div>
     </section>
