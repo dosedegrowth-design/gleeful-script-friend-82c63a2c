@@ -142,14 +142,15 @@ function AdminLogin() {
             
             <form onSubmit={handleLogin} className="space-y-6">
               <div>
-                <label className="block font-urbanist text-[11px] uppercase tracking-widest text-white-3 mb-2">E-mail</label>
+                <label className="block font-urbanist text-[11px] uppercase tracking-widest text-white-3 mb-2">Utilizador</label>
                 <input
-                  type="email"
+                  type="text"
                   required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  autoComplete="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   className="w-full bg-black-3 border border-border text-white p-4 font-urbanist text-sm outline-none focus:border-gold transition-colors"
-                  placeholder="admin@mooviaportugal.com"
+                  placeholder="admin"
                 />
               </div>
               
