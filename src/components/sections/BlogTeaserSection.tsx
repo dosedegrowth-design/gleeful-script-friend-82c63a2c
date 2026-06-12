@@ -51,7 +51,7 @@ export function BlogTeaserSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-display text-[clamp(28px,4vw,44px)] font-[200] text-white leading-tight mb-8"
+            className="font-display text-[clamp(28px,4vw,44px)] font-[300] text-white leading-tight mb-8"
           >
             "O que você precisa entender<br/>antes de decidir."
           </motion.h2>
