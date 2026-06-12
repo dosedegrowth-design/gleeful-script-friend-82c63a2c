@@ -3,8 +3,6 @@ import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import SplitType from "split-type";
 import { gsap } from "gsap";
-import { Icon } from "@/components/ui/Icon";
-import { ChevronDown } from "lucide-react";
 
 export function Hero() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
@@ -27,15 +25,15 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[100svh] grid lg:grid-cols-2 align-items-stretch px-0 overflow-hidden bg-[#06091a] transition-all duration-300">
-      {/* Background Gradients & Grain */}
+    <section className="relative min-h-[100svh] flex flex-col lg:flex-row bg-[#06091a] overflow-hidden">
+      {/* Background Gradients */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 90% 70% at 70% 40%, rgba(15,31,65,0.4) 0%, transparent 70%)' }} />
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 50% 50% at 10% 90%, rgba(173,137,87,0.05) 0%, transparent 60%)' }} />
       </div>
 
       {/* LEFT COLUMN: Content */}
-      <div className="relative z-10 flex flex-col justify-center py-20 pl-6 lg:pl-20 pr-6 lg:pr-10">
+      <div className="relative z-10 w-full lg:w-1/2 flex flex-col justify-center py-32 pl-6 lg:pl-20 pr-6 lg:pr-10 min-h-screen">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -107,14 +105,21 @@ export function Hero() {
       </div>
 
       {/* RIGHT COLUMN: Photo */}
-      <div className="relative z-10 hidden lg:block h-full w-full overflow-hidden">
+      <div className="relative z-10 hidden lg:block w-1/2 min-h-screen overflow-hidden">
         <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.5 }}
-          className="w-full h-full bg-cover bg-center"
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1512440114032-41484439c36d?auto=format&fit=crop&q=80&w=1200)' }}
-        />
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.5, delay: 0.5 }}
+          className="absolute inset-0 w-full h-full"
+        >
+          <img 
+            src="https://images.unsplash.com/photo-1548120231-1d6f891ad49c?auto=format&fit=crop&q=90&w=1200" 
+            className="w-full h-full object-cover grayscale brightness-50 contrast-[1.1]"
+            alt="Lisboa editorial perspective"
+          />
+          <div className="absolute inset-0 bg-[#06091a]/30 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#06091a] via-transparent to-transparent opacity-80" />
+        </motion.div>
       </div>
     </section>
   );
