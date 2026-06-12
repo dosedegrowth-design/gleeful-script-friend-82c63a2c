@@ -72,17 +72,17 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5 }}
-          className="flex flex-wrap gap-5"
+          className="flex flex-row items-center gap-4 sm:gap-6"
         >
           <Link
             to="/#contacto"
-            className="bg-gold text-black font-body font-[600] text-[12px] tracking-[0.2em] uppercase px-10 py-4 transition-all hover:bg-gold-xl rounded-[2px] shadow-[0_8px_24px_rgba(173,137,87,0.15)]"
+            className="bg-gold text-black font-body font-[600] text-[11px] sm:text-[12px] tracking-[0.2em] uppercase px-6 sm:px-10 py-4 transition-all hover:bg-gold-xl rounded-[2px] shadow-[0_8px_24px_rgba(173,137,87,0.15)] whitespace-nowrap"
           >
             Avaliar meu caso
           </Link>
           <a
             href="#processo"
-            className="border border-b35 text-gold font-body font-[500] text-[12px] tracking-[0.2em] uppercase px-10 py-4 hover:border-gold hover:text-white transition-all rounded-[2px]"
+            className="border border-b35 text-gold font-body font-[500] text-[11px] sm:text-[12px] tracking-[0.2em] uppercase px-6 sm:px-10 py-4 hover:border-gold hover:text-white transition-all rounded-[2px] whitespace-nowrap"
           >
             Ver como funciona
           </a>
