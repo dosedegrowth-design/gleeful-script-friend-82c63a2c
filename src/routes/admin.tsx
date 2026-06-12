@@ -98,7 +98,7 @@ function AdminLayout() {
 }
 
 function AdminLogin() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -107,15 +107,20 @@ function AdminLogin() {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    
+
     try {
+      // Aceita "admin" como utilizador, ou um e-mail completo
+      const email = username.includes("@")
+        ? username.trim()
+        : `${username.trim().toLowerCase()}@moovia.local`;
+
       const { error } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
 
       if (error) throw error;
-      
+
       toast.success("Login realizado com sucesso");
       navigate({ to: "/admin/leads" });
     } catch (error: any) {
@@ -137,14 +142,15 @@ function AdminLogin() {
             
             <form onSubmit={handleLogin} className="space-y-6">
               <div>
-                <label className="block font-urbanist text-[11px] uppercase tracking-widest text-white-3 mb-2">E-mail</label>
+                <label className="block font-urbanist text-[11px] uppercase tracking-widest text-white-3 mb-2">Utilizador</label>
                 <input
-                  type="email"
+                  type="text"
                   required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  autoComplete="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                   className="w-full bg-black-3 border border-border text-white p-4 font-urbanist text-sm outline-none focus:border-gold transition-colors"
-                  placeholder="admin@mooviaportugal.com"
+                  placeholder="admin"
                 />
               </div>
               
