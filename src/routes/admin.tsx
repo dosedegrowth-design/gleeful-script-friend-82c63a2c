@@ -136,7 +136,7 @@ function AdminLogin() {
         <Reveal>
           <div className="w-full max-w-md bg-black-2 border border-border p-10 lg:p-12">
             <div className="text-center mb-10">
-              <h1 className="font-amotha text-3xl text-white mb-2">Painel Admin</h1>
+              <h1 className="font-amotha text-3xl text-white mb-2 whitespace-pre-line">mude{"\n"}</h1>
               <p className="font-urbanist text-[13px] tracking-widest uppercase text-gold">MOOVIA Portugal</p>
             </div>
             
