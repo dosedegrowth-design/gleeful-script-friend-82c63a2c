@@ -44,16 +44,17 @@ function AdminLayout() {
 
 
   return (
-    <div className="flex bg-black min-h-screen overflow-x-hidden">
+    <div className="admin-root flex bg-black min-h-screen w-full overflow-x-hidden">
       <AdminSidebar />
-      <main className="flex-1 min-h-screen overflow-y-auto">
-        <div className="p-8 lg:p-12">
+      <main className="flex-1 min-w-0 min-h-screen overflow-y-auto overflow-x-hidden">
+        <div className="p-6 lg:p-10 max-w-full">
           <Outlet />
         </div>
       </main>
     </div>
   );
 }
+
 
 function AdminLogin() {
   const [username, setUsername] = useState("");
