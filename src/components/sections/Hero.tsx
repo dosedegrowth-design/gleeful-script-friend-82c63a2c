@@ -106,6 +106,24 @@ export function Hero() {
         </motion.div>
       </div>
 
-    </section>
+      {/* RIGHT COLUMN: Photo */}
+      <div className="relative z-10 hidden lg:block h-full w-full overflow-hidden">
+        <motion.div 
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.2, delay: 0.5 }}
+          className="relative w-full h-full"
+        >
+          <img 
+            src="https://images.unsplash.com/photo-1548120231-1d6f891ad49c?auto=format&fit=crop&q=80&w=1200" 
+            className="w-full h-full object-cover grayscale brightness-50 contrast-[1.1]"
+            alt="Lisboa editorial perspective"
+          />
+          {/* Overlays */}
+          <div className="absolute inset-0 bg-[#06091a]/30 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#06091a] via-transparent to-transparent opacity-80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#06091a] via-transparent to-transparent opacity-40" />
+        </motion.div>
+      </div>
   );
 }
