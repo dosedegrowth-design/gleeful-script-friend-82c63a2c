@@ -105,11 +105,13 @@ export function Hero() {
       </div>
 
       {/* RIGHT COLUMN: Photo */}
-      <div className="relative z-10 hidden lg:block w-1/2 min-h-screen bg-red-500">
-        <div className="absolute inset-0 bg-blue-500" />
-          <div className="absolute inset-0 bg-[#06091a]/30 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#06091a] via-transparent to-transparent opacity-80" />
-        </motion.div>
+      <div className="relative z-10 hidden lg:block w-1/2 min-h-screen">
+        <div 
+          className="absolute inset-0 bg-cover bg-center grayscale brightness-50"
+          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1548120231-1d6f891ad49c?auto=format&fit=crop&q=80&w=1200)' }}
+        />
+        <div className="absolute inset-0 bg-[#06091a]/30 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#06091a] via-transparent to-transparent opacity-80" />
       </div>
     </section>
   );
