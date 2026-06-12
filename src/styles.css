@@ -1,3 +1,4 @@
+@import "tailwindcss";
 
 :root {
   /* ── FUNDOS PRINCIPAIS ─────────────────────────── */
@@ -33,7 +34,6 @@
 }
 
 
-@import "tailwindcss";
 
 @theme {
   --font-display: "Boska", serif;
