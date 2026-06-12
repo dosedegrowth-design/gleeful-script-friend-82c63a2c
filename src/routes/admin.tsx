@@ -65,25 +65,6 @@ function AdminLayout() {
     return <AdminLogin />;
   }
 
-  if (!adminUser) {
-    return (
-      <div className="min-h-screen bg-black flex items-center justify-center p-6 text-center">
-        <div className="max-w-md bg-black-2 border border-border p-12">
-          <ShieldAlert className="mx-auto text-red-500 mb-6" size={48} />
-          <h1 className="font-amotha text-2xl text-white mb-4">Acesso Negado</h1>
-          <p className="font-urbanist text-white/50 mb-8 leading-relaxed">
-            Você está autenticado, mas não possui permissões administrativas para acessar este painel. Entre em contato com o Frederico Prado.
-          </p>
-          <button 
-            onClick={() => supabase.auth.signOut()}
-            className="bg-gold text-black font-urbanist text-[12px] font-bold uppercase tracking-widest px-8 py-4 hover:bg-gold-xl transition-colors"
-          >
-            Sair e trocar conta
-          </button>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="flex bg-black min-h-screen overflow-x-hidden">
