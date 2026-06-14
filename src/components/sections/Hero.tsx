@@ -47,7 +47,7 @@ export function Hero() {
 
         <h1 
           ref={headlineRef}
-          className="font-display text-[clamp(42px,5.2vw,86px)] text-white leading-[0.9] tracking-[-0.05em] mb-12 uppercase"
+          className="font-display text-[clamp(42px,5.2vw,86px)] text-white leading-[0.9] tracking-[-0.05em] mb-12"
         >
           <span className="font-[200] block opacity-85">Você não precisa</span>
           <span className="font-[200] block opacity-85">de mais informação.</span>
