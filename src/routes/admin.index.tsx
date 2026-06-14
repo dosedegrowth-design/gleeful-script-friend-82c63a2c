@@ -158,25 +158,14 @@ function AdminDashboard() {
             <h3 className="font-amotha text-xl text-white mb-6">Origem dos Leads</h3>
             <div className="h-[250px]">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart
-                  layout="vertical"
-                  data={[
-                    { name: 'Organic', value: 45, color: '#ad8957' },
-                    { name: 'LinkedIn', value: 32, color: '#407e8d' },
-                    { name: 'Direct', value: 18, color: '#f9f5ec' },
-                    { name: 'Referral', value: 12, color: '#cead84' },
-                    { name: 'WhatsApp', value: 9, color: '#22c55e' },
-                  ]}
-                >
+                <BarChart layout="vertical" data={sourceData}>
                   <XAxis type="number" hide />
                   <YAxis dataKey="name" type="category" stroke="#ffffff40" fontSize={10} axisLine={false} tickLine={false} width={80} />
                   <Tooltip cursor={{fill: 'transparent'}} contentStyle={{ backgroundColor: '#1a1d26', borderColor: '#ad895733' }} />
                   <Bar dataKey="value" radius={[0, 4, 4, 0]} barSize={20}>
-                    {
-                      [1,2,3,4,5].map((entry, index) => (
-                        <Cell key={`cell-${index}`} />
-                      ))
-                    }
+                    {sourceData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
                   </Bar>
                 </BarChart>
               </ResponsiveContainer>
