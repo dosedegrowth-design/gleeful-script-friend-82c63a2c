@@ -42,7 +42,7 @@ export function FoundersSection() {
             <div className="aspect-[4/5] bg-black-3 overflow-hidden border border-b18 relative group">
               <img 
                 src="/images/frederico.png" 
-                className="w-full h-full object-cover transition-all duration-1000 grayscale sepia-[0.2] group-hover:scale-105"
+                className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
                 alt="Frederico Prado"
                 onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Frederico+Prado&background=1a1d26&color=ad8957&size=512'; }}
               />
