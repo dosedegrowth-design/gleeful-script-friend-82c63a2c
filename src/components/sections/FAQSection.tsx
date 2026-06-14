@@ -31,7 +31,7 @@ export function FAQSection() {
     },
     {
       q: "A MOOVIA atende apenas brasileiros?",
-      a: "O foco principal é o corredor Brasil para Portugal. Atendemos também clientes de África lusófona. Se o seu caso está fora desses corredores, a conversa de qualificação define se temos o perfil certo."
+      a: "O foco da MOOVIA é exclusivamente o corredor Brasil para Portugal. Se o seu caso está fora deste corredor, a conversa de qualificação define se temos o perfil certo."
     }
   ];
 
