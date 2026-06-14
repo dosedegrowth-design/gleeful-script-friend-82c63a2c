@@ -104,6 +104,57 @@ export function FoundersSection() {
           ))}
         </div>
 
+        {/* Equipa */}
+        <div className="border-t border-b18 pt-20">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="font-body text-[11px] tracking-[0.32em] uppercase text-gold mb-6"
+          >
+            Equipa
+          </motion.p>
+          <motion.h3
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="font-display text-[clamp(28px,3.2vw,48px)] font-[300] text-white leading-[1.05] tracking-[-0.025em] mb-14 max-w-[700px]"
+          >
+            As pessoas que conduzem cada mandato.
+          </motion.h3>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+            {[
+              { img: "/images/laura.png", name: "Laura Almeida", role: "Head of Operations" },
+              { img: "/images/eduardo.png", name: "Eduardo Costa", role: "Legal & Compliance" },
+              { img: "/images/moyses.png", name: "Moyses Filipe", role: "Relocation Lead" },
+              { img: "/images/sara.png", name: "Sara Mendes", role: "Client Experience" },
+            ].map((m, idx) => (
+              <motion.div
+                key={m.name}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.08 }}
+                className="flex flex-col"
+              >
+                <div className="aspect-[4/5] bg-black-3 overflow-hidden border border-b18 relative group">
+                  <img
+                    src={m.img}
+                    className="w-full h-full object-cover grayscale-[0.4] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
+                    alt={m.name}
+                    onError={(e) => {
+                      e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(m.name)}&background=1a1d26&color=ad8957&size=512`;
+                    }}
+                  />
+                </div>
+                <h4 className="font-display text-[18px] font-[400] text-white mt-5 tracking-[-0.01em]">{m.name}</h4>
+                <p className="font-body text-[10px] font-[500] tracking-[0.22em] uppercase text-gold mt-1.5">{m.role}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );
