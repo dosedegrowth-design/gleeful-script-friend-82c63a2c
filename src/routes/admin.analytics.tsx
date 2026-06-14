@@ -97,11 +97,7 @@ function AdminAnalytics() {
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
-                  data={[
-                    { name: 'Desktop', value: 58 },
-                    { name: 'Mobile', value: 35 },
-                    { name: 'Tablet', value: 7 },
-                  ]}
+                  data={devices.length ? devices : [{ name: 'Sem dados', value: 1 }]}
                   innerRadius={60}
                   outerRadius={80}
                   paddingAngle={5}
