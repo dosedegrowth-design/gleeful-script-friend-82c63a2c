@@ -31,48 +31,79 @@ export function FoundersSection() {
           </motion.p>
         </div>
 
-        {/* Frederico Card */}
-        <div className="grid lg:grid-cols-[340px_1fr] gap-20 items-start mb-32">
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-col gap-4"
-          >
-            <div className="aspect-[4/5] bg-black-3 overflow-hidden border border-b18 relative group">
-              <img 
-                src="/images/frederico.png" 
-                className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
-                alt="Frederico Prado"
-                onError={(e) => { e.currentTarget.src = 'https://ui-avatars.com/api/?name=Frederico+Prado&background=1a1d26&color=ad8957&size=512'; }}
-              />
-            </div>
-            <p className="font-body text-[12px] font-[300] text-w35 uppercase tracking-widest text-center">Frederico Prado · Lisboa</p>
-          </motion.div>
-
-          <div className="flex flex-col">
-            <h3 className="font-display text-[28px] font-[200] text-white">Frederico Prado</h3>
-            <p className="font-body text-[11px] font-[400] tracking-[0.18em] uppercase text-gold mt-1 mb-6">Founder & CEO</p>
-            
-            <div className="flex flex-wrap gap-2 mb-10">
-              {["Oracle", "SAP", "MBA FGV", "Tampa", "Lisboa, 2018"].map(chip => (
-                <span key={chip} className="border border-b18 px-3 py-1 font-body text-[11px] uppercase tracking-wider text-w35">
-                  {chip}
-                </span>
-              ))}
-            </div>
-
-            <p className="font-body text-[16px] font-[300] text-w35 leading-[1.9] mb-10">
-              29 anos em TI multinacional. MBA em Empreendedorismo FGV. Formação em Comunicação na University of Tampa. Em Lisboa desde 2018 com a família. Viveu a transição que hoje coordena e conduz pessoalmente cada mandato.
-            </p>
-
-            <div className="border-l-2 border-gold bg-w05 p-10">
-              <p className="font-display text-[20px] font-[200] text-gold-m italic leading-relaxed">
-                "Vamos coordenar a sua transição internacional com o mesmo nível de cuidado, estrutura e atenção que gostaríamos de ter recebido na nossa."
+        {/* Founders Grid — Frederico + Pablo (simétrico) */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 mb-32">
+          {[
+            {
+              id: "frederico",
+              img: "/images/frederico.png",
+              name: "Frederico Prado",
+              city: "Lisboa",
+              role: "Founder & CEO",
+              chips: ["Oracle", "SAP", "MBA FGV", "Tampa", "Lisboa, 2018"],
+              bio: "29 anos em TI multinacional. MBA em Empreendedorismo FGV. Formação em Comunicação na University of Tampa. Em Lisboa desde 2018 com a família. Viveu a transição que hoje coordena e conduz pessoalmente cada mandato.",
+              quote: "Vamos coordenar a sua transição internacional com o mesmo nível de cuidado, estrutura e atenção que gostaríamos de ter recebido na nossa.",
+            },
+            {
+              id: "pablo",
+              img: "/images/pablo.png",
+              name: "Pablo Alejandro Saco Paim",
+              city: "Lisboa",
+              role: "Co-Founder & CFO",
+              chips: ["IST", "Engenharia Mecânica", "CFD", "Europa desde os 17"],
+              bio: "Com trajetória internacional iniciada aos 17 anos, lidera as áreas financeira e tecnológica da MOOVIA. Mestrando em Engenharia Mecânica no Instituto Superior Técnico, assegura que cada mandato seja estruturado com eficiência, previsibilidade e visão de longo prazo.",
+              quote: "Estruturamos cada mandato com a precisão de engenharia e a previsibilidade financeira que uma decisão desta dimensão exige.",
+            },
+          ].map((f, idx) => (
+            <motion.div
+              key={f.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.15 }}
+              className="flex flex-col h-full"
+            >
+              <div className="aspect-[4/5] bg-black-3 overflow-hidden border border-b18 relative group mb-6">
+                <img
+                  src={f.img}
+                  className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105"
+                  alt={f.name}
+                  onError={(e) => {
+                    e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(f.name)}&background=1a1d26&color=ad8957&size=512`;
+                  }}
+                />
+              </div>
+              <p className="font-body text-[12px] font-[300] text-w35 uppercase tracking-widest text-center mb-8">
+                {f.name.split(" ")[0]} · {f.city}
               </p>
-            </div>
-          </div>
+
+              <h3 className="font-display text-[28px] font-[200] text-white">{f.name}</h3>
+              <p className="font-body text-[11px] font-[400] tracking-[0.18em] uppercase text-gold mt-1 mb-6">
+                {f.role}
+              </p>
+
+              <div className="flex flex-wrap gap-2 mb-8">
+                {f.chips.map((chip) => (
+                  <span
+                    key={chip}
+                    className="border border-b18 px-3 py-1 font-body text-[11px] uppercase tracking-wider text-w35"
+                  >
+                    {chip}
+                  </span>
+                ))}
+              </div>
+
+              <p className="font-body text-[15px] font-[300] text-w35 leading-[1.9] mb-8">{f.bio}</p>
+
+              <div className="border-l-2 border-gold bg-w05 p-8 mt-auto">
+                <p className="font-display text-[18px] font-[200] text-gold-m italic leading-relaxed">
+                  "{f.quote}"
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
+
       </div>
     </section>
   );
