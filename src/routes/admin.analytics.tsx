@@ -124,16 +124,8 @@ function AdminAnalytics() {
           </div>
           <div className="h-[250px]">
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart
-                data={[
-                  { month: 'Jan', hot: 12, warm: 24, cold: 45 },
-                  { month: 'Fev', hot: 18, warm: 32, cold: 38 },
-                  { month: 'Mar', hot: 15, warm: 28, cold: 52 },
-                  { month: 'Abr', hot: 25, warm: 45, cold: 40 },
-                  { month: 'Mai', hot: 22, warm: 38, cold: 35 },
-                  { month: 'Jun', hot: 31, warm: 52, cold: 48 },
-                ]}
-              >
+              <LineChart data={tempTrend}>
+
                 <CartesianGrid strokeDasharray="3 3" stroke="#ffffff05" vertical={false} />
                 <XAxis dataKey="month" stroke="#ffffff20" fontSize={10} axisLine={false} tickLine={false} />
                 <YAxis stroke="#ffffff20" fontSize={10} axisLine={false} tickLine={false} />
