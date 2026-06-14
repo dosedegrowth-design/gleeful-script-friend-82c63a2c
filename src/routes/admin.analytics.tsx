@@ -1,4 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
 import { 
   ResponsiveContainer, 
   BarChart, 
@@ -17,11 +19,7 @@ import {
 import { 
   BarChart3, 
   TrendingUp, 
-  Users, 
-  MousePointer2, 
-  Globe2, 
   Smartphone, 
-  Laptop
 } from "lucide-react";
 
 export const Route = createFileRoute("/admin/analytics")({
@@ -31,6 +29,56 @@ export const Route = createFileRoute("/admin/analytics")({
 const COLORS = ['#ad8957', '#407e8d', '#cead84', '#e8d5b0', '#1a1d26'];
 
 function AdminAnalytics() {
+  const [devices, setDevices] = useState<{ name: string; value: number }[]>([]);
+  const [tempTrend, setTempTrend] = useState<any[]>([]);
+  const [revenue, setRevenue] = useState<any[]>([]);
+
+  useEffect(() => {
+    async function load() {
+      const [{ data: leads }, { data: mandatos }] = await Promise.all([
+        supabase.from("leads").select("device, temperature, created_at"),
+        supabase.from("mandatos").select("value_eur, created_at"),
+      ]);
+
+      // Devices
+      const devCounts: Record<string, number> = {};
+      (leads || []).forEach((l: any) => {
+        const k = (l.device || 'Desconhecido').toString();
+        devCounts[k] = (devCounts[k] || 0) + 1;
+      });
+      setDevices(Object.entries(devCounts).map(([name, value]) => ({ name, value })));
+
+      // Temperature trend (last 6 months)
+      const months = Array.from({ length: 6 }, (_, i) => {
+        const d = new Date();
+        d.setMonth(d.getMonth() - (5 - i));
+        return { key: `${d.getFullYear()}-${d.getMonth()}`, month: d.toLocaleString('pt-BR', { month: 'short' }), hot: 0, warm: 0, cold: 0 };
+      });
+      (leads || []).forEach((l: any) => {
+        if (!l.created_at) return;
+        const d = new Date(l.created_at);
+        const k = `${d.getFullYear()}-${d.getMonth()}`;
+        const slot = months.find(x => x.key === k);
+        if (!slot) return;
+        const t = (l.temperature || 'cold') as 'hot' | 'warm' | 'cold';
+        slot[t] = (slot[t] || 0) + 1;
+      });
+      setTempTrend(months);
+
+      // Revenue actual vs target
+      const revMonths = months.map(m => ({ category: m.month, actual: 0, target: 20000, key: m.key }));
+      (mandatos || []).forEach((m: any) => {
+        if (!m.created_at) return;
+        const d = new Date(m.created_at);
+        const k = `${d.getFullYear()}-${d.getMonth()}`;
+        const slot = revMonths.find(x => x.key === k);
+        if (slot) slot.actual += Number(m.value_eur || 0);
+      });
+      setRevenue(revMonths);
+    }
+    load();
+  }, []);
+
   return (
     <div className="space-y-12 pb-20">
       <div>
