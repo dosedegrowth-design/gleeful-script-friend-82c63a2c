@@ -97,21 +97,50 @@ export function Hero() {
 
       <div className="relative z-10 hidden lg:block lg:w-1/2 min-h-screen overflow-hidden">
         <motion.div 
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1.2, delay: 0.5 }}
+          initial={{ opacity: 0, scale: 1.08 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="absolute inset-0 w-full h-full"
         >
           <img 
             src={heroLisboaEditorial}
             width={1080}
             height={1920}
-            className="w-full h-full object-cover grayscale brightness-50 contrast-[1.05]"
+            className="w-full h-full object-cover grayscale-[0.55] brightness-[0.9] contrast-[1.08] saturate-[0.9]"
             alt="Rua elegante de Lisboa ao entardecer"
           />
-          <div className="absolute inset-0 bg-[#06091a]/35 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#06091a] via-[#06091a]/18 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#06091a]/35 via-transparent to-[#06091a]/10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#06091a] via-[#06091a]/35 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#06091a]/25 via-transparent to-[#06091a]/55" />
+          <div className="absolute inset-0 mix-blend-overlay opacity-30" style={{ background: 'radial-gradient(ellipse 70% 60% at 65% 45%, rgba(173,137,87,0.45) 0%, transparent 70%)' }} />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2, delay: 1.6 }}
+          className="absolute inset-10 border border-gold/15 pointer-events-none"
+        />
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.8 }}
+          className="absolute top-16 right-12 [writing-mode:vertical-rl] rotate-180 font-body text-[10px] tracking-[0.5em] uppercase text-gold/60 font-medium pointer-events-none"
+        >
+          Lisboa · Cascais · Estoril — 38.7223° N
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 2 }}
+          className="absolute bottom-12 left-12 flex items-center gap-5 pointer-events-none"
+        >
+          <div className="w-px h-16 bg-gold/40" />
+          <div className="flex flex-col gap-1">
+            <span className="font-body text-[10px] tracking-[0.4em] uppercase text-gold font-semibold">Capítulo 01</span>
+            <span className="font-body text-[10px] tracking-[0.25em] uppercase text-white/40">Mandato de transição</span>
+          </div>
         </motion.div>
       </div>
     </section>
