@@ -143,7 +143,7 @@ export function ChatAssistant() {
           {isOpen ? (
             <X size={24} weight="thin" className="text-gold" />
           ) : (
-            <ChatCircleDots size={28} weight="thin" className="text-gold" />
+            <img src="/mooviagold.png" alt="MOOVIA" className="w-7 h-7 object-contain transition-transform duration-700 group-hover:rotate-[360deg]" />
           )}
         </button>
       </div>
