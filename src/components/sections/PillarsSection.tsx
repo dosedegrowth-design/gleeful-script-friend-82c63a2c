@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { RotatingLogo } from "@/components/ui/RotatingLogo";
 
 const pillars = [
   {
@@ -64,7 +65,8 @@ export function PillarsSection() {
   const [active, setActive] = useState<string | null>(null);
 
   return (
-    <section id="servicos" className="bg-black-2 py-32 px-6 lg:px-20 relative">
+    <section id="servicos" className="bg-black-2 py-32 px-6 lg:px-20 relative overflow-hidden">
+      <RotatingLogo size="min(100vw,1300px)" opacity={0.025} duration={160} />
       <div className="mx-auto max-w-[1400px]">
         <div className="mb-20">
           <motion.p 

@@ -1,0 +1,94 @@
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
+import BR from "country-flag-icons/react/3x2/BR";
+import PT from "country-flag-icons/react/3x2/PT";
+import ES from "country-flag-icons/react/3x2/ES";
+import GB from "country-flag-icons/react/3x2/GB";
+import { useI18n } from "@/lib/i18n/I18nProvider";
+import { LOCALES, type Locale } from "@/lib/i18n/translations";
+import { cn } from "@/lib/utils";
+
+const FlagFor: Record<Locale, React.ComponentType<{ className?: string; title?: string }>> = {
+  "pt-BR": BR,
+  "pt-PT": PT,
+  es: ES,
+  en: GB,
+};
+
+export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
+  const { locale, setLocale } = useI18n();
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    window.addEventListener("mousedown", onClick);
+    return () => window.removeEventListener("mousedown", onClick);
+  }, []);
+
+  const Current = FlagFor[locale];
+  const currentMeta = LOCALES.find((l) => l.code === locale)!;
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className={cn(
+          "flex items-center gap-2 border border-b35 px-3 py-2 text-w35 hover:text-gold hover:border-gold transition-all group",
+          compact && "px-2 py-1.5"
+        )}
+        aria-label="Select language"
+      >
+        <Current className="w-5 h-3.5 rounded-[1px] shadow-sm" title={currentMeta.label} />
+        {!compact && (
+          <span className="font-body font-[500] text-[11px] tracking-[0.14em] uppercase">
+            {locale.split("-")[0]}
+          </span>
+        )}
+        <ChevronDown
+          size={12}
+          className={cn("transition-transform text-gold/60", open && "rotate-180")}
+        />
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -8, scale: 0.96 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -8, scale: 0.96 }}
+            transition={{ duration: 0.18, ease: "easeOut" }}
+            className="absolute right-0 mt-2 min-w-[200px] bg-[#06091a] border border-b35 shadow-2xl z-[1100] overflow-hidden"
+          >
+            {LOCALES.map((l) => {
+              const Flag = FlagFor[l.code];
+              const active = l.code === locale;
+              return (
+                <button
+                  key={l.code}
+                  onClick={() => {
+                    setLocale(l.code);
+                    setOpen(false);
+                  }}
+                  className={cn(
+                    "w-full flex items-center gap-3 px-4 py-3 text-left transition-colors font-body text-[12px] tracking-[0.05em]",
+                    active
+                      ? "bg-gold/10 text-gold"
+                      : "text-w35 hover:bg-white/05 hover:text-white"
+                  )}
+                >
+                  <Flag className="w-6 h-4 rounded-[1px] shadow-md flex-shrink-0" title={l.label} />
+                  <span className="flex-1">{l.native}</span>
+                  {active && <span className="w-1.5 h-1.5 rounded-full bg-gold" />}
+                </button>
+              );
+            })}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}

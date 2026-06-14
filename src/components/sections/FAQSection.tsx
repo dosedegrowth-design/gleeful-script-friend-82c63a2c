@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { RotatingLogo } from "@/components/ui/RotatingLogo";
 
 export function FAQSection() {
   const [active, setActive] = useState<number | null>(null);
@@ -36,7 +37,8 @@ export function FAQSection() {
   ];
 
   return (
-    <section className="bg-black py-32 px-6 lg:px-20 relative">
+    <section className="bg-black py-32 px-6 lg:px-20 relative overflow-hidden">
+      <RotatingLogo size="min(90vw,1100px)" opacity={0.03} duration={180} />
       <div className="mx-auto max-w-3xl">
         <motion.p 
           initial={{ opacity: 0, y: 20 }}

@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
+import { RotatingLogo } from "@/components/ui/RotatingLogo";
 
 export function FoundersSection() {
   return (
-    <section id="sobre" className="bg-black py-32 px-6 lg:px-20 relative z-10">
-      <div className="mx-auto max-w-[1400px]">
+    <section id="sobre" className="bg-black py-32 px-6 lg:px-20 relative z-10 overflow-hidden">
+      <RotatingLogo size="min(110vw,1500px)" opacity={0.025} duration={150} />
+      <div className="mx-auto max-w-[1400px] relative z-10">
         <div className="mb-24">
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
