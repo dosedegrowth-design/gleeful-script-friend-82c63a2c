@@ -71,15 +71,17 @@ export function Hero() {
         <div className="flex flex-row items-center gap-4 sm:gap-6 mb-14">
           <Link
             to="/#contacto"
-            className="bg-gold text-black font-body font-[600] text-[11px] sm:text-[12px] tracking-[0.2em] uppercase px-6 sm:px-10 py-4 transition-all hover:bg-gold-xl rounded-[2px] shadow-[0_8px_24px_rgba(173,137,87,0.15)] whitespace-nowrap"
+            className="group relative overflow-hidden bg-gold text-black font-body font-[600] text-[11px] sm:text-[12px] tracking-[0.2em] uppercase px-6 sm:px-10 py-4 rounded-[2px] shadow-[0_8px_24px_rgba(173,137,87,0.15)] whitespace-nowrap isolate"
           >
-            Avaliar meu caso
+            <span className="absolute inset-0 bg-[#06091a] -translate-x-full group-hover:translate-x-0 transition-transform duration-[600ms] ease-[cubic-bezier(0.65,0,0.35,1)]" />
+            <span className="relative z-10 transition-colors duration-300 group-hover:text-gold">Avaliar meu caso</span>
           </Link>
           <a
             href="#processo"
-            className="border border-b35 text-gold font-body font-[500] text-[11px] sm:text-[12px] tracking-[0.2em] uppercase px-6 sm:px-10 py-4 hover:border-gold hover:text-white transition-all rounded-[2px] whitespace-nowrap"
+            className="group relative overflow-hidden border border-b35 text-gold font-body font-[500] text-[11px] sm:text-[12px] tracking-[0.2em] uppercase px-6 sm:px-10 py-4 rounded-[2px] whitespace-nowrap isolate hover:border-gold"
           >
-            Ver como funciona
+            <span className="absolute inset-0 bg-gold -translate-x-full group-hover:translate-x-0 transition-transform duration-[600ms] ease-[cubic-bezier(0.65,0,0.35,1)]" />
+            <span className="relative z-10 transition-colors duration-300 group-hover:text-[#06091a]">Ver como funciona</span>
           </a>
         </div>
 
