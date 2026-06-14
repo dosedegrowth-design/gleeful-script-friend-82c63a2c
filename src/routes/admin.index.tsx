@@ -129,16 +129,8 @@ function AdminDashboard() {
             <h3 className="font-amotha text-2xl text-white mb-8">Receita Estimada (Últimos 6 meses)</h3>
             <div className="h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
-                <AreaChart
-                  data={[
-                    { name: 'Jan', revenue: 12000 },
-                    { name: 'Fev', revenue: 18500 },
-                    { name: 'Mar', revenue: 15200 },
-                    { name: 'Abr', revenue: 25400 },
-                    { name: 'Mai', revenue: 22100 },
-                    { name: 'Jun', revenue: 31000 },
-                  ]}
-                >
+                <AreaChart data={revenueData}>
+
                   <defs>
                     <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="5%" stopColor="#ad8957" stopOpacity={0.3}/>
