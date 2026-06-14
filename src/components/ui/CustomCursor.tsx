@@ -50,11 +50,15 @@ export function CustomCursor() {
         className="w-8 h-8 object-contain drop-shadow-2xl"
         animate={{ 
           rotate: isHovering ? 360 : 0,
-          scale: isHovering ? 1.2 : 1
+          scale: isHovering ? 1.2 : 1,
+          filter: isHovering
+            ? 'brightness(0) saturate(100%) invert(7%) sepia(58%) saturate(2967%) hue-rotate(220deg) brightness(80%) contrast(105%)'
+            : 'none'
         }}
         transition={{ 
           rotate: { duration: 1, repeat: isHovering ? Infinity : 0, ease: "linear" },
-          scale: { duration: 0.3 }
+          scale: { duration: 0.3 },
+          filter: { duration: 0.25 }
         }}
       />
     </motion.div>
