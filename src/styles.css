@@ -127,7 +127,7 @@
 
 
 @theme {
-  --font-display: "Wright Roman", "Inter", system-ui, sans-serif;
+  --font-display: "Stack Sans Headline", "Wright Roman", "Inter", system-ui, sans-serif;
   --font-body: "Wright Pro", "Inter", system-ui, sans-serif;
   
   --color-black: var(--black);
