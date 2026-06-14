@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { supabase } from "@/integrations/supabase/client";
+import DOMPurify from "isomorphic-dompurify";
 
 async function fetchPost(slug: string) {
   const { data, error } = await supabase
@@ -82,7 +83,7 @@ function Post() {
               {post.excerpt && (
                 <p className="mt-8 font-urbanist text-[19px] font-[300] text-white/70 leading-relaxed">{post.excerpt}</p>
               )}
-              <div className="mt-12 prose prose-invert prose-lg max-w-none font-urbanist font-[300] text-white/35 leading-[1.9] prose-headings:font-sora prose-headings:font-[200] prose-a:text-gold" dangerouslySetInnerHTML={{ __html: post.content || "" }} />
+              <div className="mt-12 prose prose-invert prose-lg max-w-none font-urbanist font-[300] text-white/35 leading-[1.9] prose-headings:font-sora prose-headings:font-[200] prose-a:text-gold" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content || "", { FORBID_TAGS: ["script", "style", "iframe", "object", "embed", "form"], FORBID_ATTR: ["onerror", "onload", "onclick", "onmouseover", "onfocus", "onblur", "onchange", "onsubmit", "style"] }) }} />
 
               <div className="mt-24 p-12 border border-b18 bg-black-2 relative overflow-hidden group">
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-gold to-teal" />
