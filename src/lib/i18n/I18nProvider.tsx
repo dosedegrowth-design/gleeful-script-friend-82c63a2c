@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import { DEFAULT_LOCALE, TRANSLATIONS, type Locale } from "./translations";
+import { applyLocale } from "./autoTranslate";
 
 interface I18nCtx {
   locale: Locale;
@@ -29,15 +30,21 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE);
 
   useEffect(() => {
-    setLocaleState(detectInitial());
+    const initial = detectInitial();
+    setLocaleState(initial);
   }, []);
+
+  useEffect(() => {
+    if (typeof document === "undefined") return;
+    document.documentElement.lang = locale;
+    applyLocale(locale);
+  }, [locale]);
 
   const setLocale = (l: Locale) => {
     setLocaleState(l);
     try {
       localStorage.setItem(STORAGE_KEY, l);
     } catch {}
-    if (typeof document !== "undefined") document.documentElement.lang = l;
   };
 
   const t = (key: string) => TRANSLATIONS[locale][key] ?? TRANSLATIONS[DEFAULT_LOCALE][key] ?? key;
