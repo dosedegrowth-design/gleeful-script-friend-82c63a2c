@@ -55,8 +55,9 @@ function AdminCRM() {
 
       if (error) throw error;
       setLeads(data || []);
-    } catch (e) {
-      toast.error("Erro ao carregar leads");
+    } catch (e: any) {
+      console.error("[admin.leads] fetch error:", e);
+      toast.error(`Erro ao carregar leads: ${e?.message || e}`);
     } finally {
       setLoading(false);
     }

@@ -515,6 +515,57 @@ export type Database = {
         }
         Relationships: []
       }
+      ux_events: {
+        Row: {
+          created_at: string
+          device: string | null
+          event_type: string
+          id: string
+          meta: Json | null
+          page_path: string | null
+          referrer: string | null
+          scroll_depth: number | null
+          session_id: string
+          user_agent: string | null
+          viewport_h: number | null
+          viewport_w: number | null
+          x_pct: number | null
+          y_pct: number | null
+        }
+        Insert: {
+          created_at?: string
+          device?: string | null
+          event_type: string
+          id?: string
+          meta?: Json | null
+          page_path?: string | null
+          referrer?: string | null
+          scroll_depth?: number | null
+          session_id: string
+          user_agent?: string | null
+          viewport_h?: number | null
+          viewport_w?: number | null
+          x_pct?: number | null
+          y_pct?: number | null
+        }
+        Update: {
+          created_at?: string
+          device?: string | null
+          event_type?: string
+          id?: string
+          meta?: Json | null
+          page_path?: string | null
+          referrer?: string | null
+          scroll_depth?: number | null
+          session_id?: string
+          user_agent?: string | null
+          viewport_h?: number | null
+          viewport_w?: number | null
+          x_pct?: number | null
+          y_pct?: number | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

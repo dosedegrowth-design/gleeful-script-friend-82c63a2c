@@ -9,7 +9,8 @@ import {
   Package, 
   LogOut,
   ChevronRight,
-  Database
+  Database,
+  Activity
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
@@ -23,6 +24,7 @@ const menuItems = [
   { label: "Conteúdo / CMS", icon: Database, to: "/admin/content" },
   { label: "Chatbot", icon: MessageSquare, to: "/admin/chat" },
   { label: "Analytics", icon: BarChart3, to: "/admin/analytics" },
+  { label: "UX Insights", icon: Activity, to: "/admin/ux" },
   { label: "Configurações", icon: Settings, to: "/admin/settings" },
 ];
 

@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
+import { RotatingLogo } from "@/components/ui/RotatingLogo";
 
 export function ManifestoSection() {
   return (
     <section className="bg-black py-40 px-6 lg:px-20 relative text-center overflow-hidden">
       {/* Background radial gradient */}
       <div className="absolute inset-0 z-0" style={{ background: 'radial-gradient(ellipse 60% 60% at 50% 50%, rgba(15,31,65,.4) 0%, transparent 70%)' }} />
-      
+      <RotatingLogo size="min(140vw,1800px)" opacity={0.035} duration={120} />
+
       <div className="mx-auto max-w-[1400px] relative z-10 flex flex-col items-center">
         <motion.p 
           initial={{ opacity: 0, y: 20 }}

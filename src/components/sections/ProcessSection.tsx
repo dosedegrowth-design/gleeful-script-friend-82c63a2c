@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import NumberFlow from "@number-flow/react";
+import { RotatingLogo } from "@/components/ui/RotatingLogo";
 
 
 export function ProcessSection() {
@@ -47,7 +48,8 @@ export function ProcessSection() {
 
   return (
     <section id="processo" className="bg-black py-32 px-6 lg:px-20 relative overflow-hidden">
-      <div className="mx-auto max-w-[1400px] grid lg:grid-cols-2 gap-20 items-start">
+      <RotatingLogo size="min(110vw,1400px)" opacity={0.03} duration={140} />
+      <div className="mx-auto max-w-[1400px] grid lg:grid-cols-2 gap-20 items-start relative z-10">
         <div className="relative">
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
