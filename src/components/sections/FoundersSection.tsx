@@ -17,7 +17,7 @@ export function FoundersSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-display text-[clamp(32px,4.5vw,72px)] font-[200] text-white leading-[0.95] tracking-[-0.04em] mb-12 uppercase"
+            className="font-display text-[clamp(32px,4.5vw,72px)] font-[200] text-white leading-[0.95] tracking-[-0.04em] mb-12"
           >
             "Antes de coordenar<br/>transições internacionais,<br/>vivemos as nossas."
           </motion.h2>

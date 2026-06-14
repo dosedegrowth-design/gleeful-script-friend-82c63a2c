@@ -50,7 +50,7 @@ export function FAQSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="font-display text-[clamp(28px,4.5vw,56px)] font-[200] text-white leading-[0.95] tracking-[-0.04em] mb-20 text-center lg:text-left uppercase"
+          className="font-display text-[clamp(28px,4.5vw,56px)] font-[200] text-white leading-[0.95] tracking-[-0.04em] mb-20 text-center lg:text-left"
         >
           O que as pessoas perguntam<br/>antes de decidir.
         </motion.h2>
