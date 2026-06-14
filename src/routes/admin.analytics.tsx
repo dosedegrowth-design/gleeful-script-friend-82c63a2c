@@ -149,16 +149,8 @@ function AdminAnalytics() {
           </div>
           <div className="h-[350px]">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart
-                data={[
-                  { category: 'Jan', actual: 12000, target: 15000 },
-                  { category: 'Fev', actual: 18500, target: 15000 },
-                  { category: 'Mar', actual: 15200, target: 15000 },
-                  { category: 'Abr', actual: 25400, target: 20000 },
-                  { category: 'Mai', actual: 22100, target: 20000 },
-                  { category: 'Jun', actual: 31000, target: 25000 },
-                ]}
-              >
+              <BarChart data={revenue}>
+
                 <CartesianGrid strokeDasharray="3 3" stroke="#ffffff05" vertical={false} />
                 <XAxis dataKey="category" stroke="#ffffff20" fontSize={10} axisLine={false} tickLine={false} />
                 <YAxis stroke="#ffffff20" fontSize={10} axisLine={false} tickLine={false} tickFormatter={(val) => `€${val/1000}k`} />
