@@ -1,15 +1,17 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2"
 import { corsHeaders } from "../_shared/cors.ts"
 
 const ANTHROPIC_API_KEY = Deno.env.get('ANTHROPIC_API_KEY')
-const SUPABASE_URL = Deno.env.get('SUPABASE_URL')!
-const SUPABASE_ANON_KEY = Deno.env.get('SUPABASE_ANON_KEY')!
 
-// Limits to prevent abuse
+// Limits to prevent abuse (anonymous public chat widget)
 const MAX_MESSAGES = 40
 const MAX_MESSAGE_CHARS = 4000
 const MAX_TOTAL_CHARS = 30000
+
+// In-memory IP rate limit (per isolate) — best-effort throttle
+const ipHits = new Map<string, { count: number; reset: number }>()
+const RATE_LIMIT = 20 // requests
+const RATE_WINDOW_MS = 60_000 // per minute
 
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
@@ -17,25 +19,20 @@ serve(async (req) => {
   }
 
   try {
-    // --- AuthN: require a valid Supabase JWT (anon key alone is not enough) ---
-    const authHeader = req.headers.get('Authorization') || ''
-    const token = authHeader.replace('Bearer ', '').trim()
-    if (!token) {
-      return new Response(JSON.stringify({ error: 'Unauthorized' }), {
-        status: 401,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      })
-    }
-
-    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
-      global: { headers: { Authorization: `Bearer ${token}` } },
-    })
-    const { data: userData, error: userErr } = await supabase.auth.getUser(token)
-    if (userErr || !userData?.user) {
-      return new Response(JSON.stringify({ error: 'Unauthorized' }), {
-        status: 401,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      })
+    // --- Rate limit by IP ---
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0].trim() || 'unknown'
+    const now = Date.now()
+    const entry = ipHits.get(ip)
+    if (!entry || entry.reset < now) {
+      ipHits.set(ip, { count: 1, reset: now + RATE_WINDOW_MS })
+    } else {
+      entry.count++
+      if (entry.count > RATE_LIMIT) {
+        return new Response(JSON.stringify({ error: 'Rate limit exceeded' }), {
+          status: 429,
+          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        })
+      }
     }
 
     // --- Input validation ---
