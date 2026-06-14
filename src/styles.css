@@ -86,10 +86,9 @@
   }
 
 
-  /* High-ticket headline treatment — refined serif, no caps, balanced */
+  /* Modern minimal sans display — matches MOOVIA wordmark */
   .font-display {
-    text-transform: none !important;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
     font-weight: 300;
     text-wrap: balance;
   }
