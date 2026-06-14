@@ -47,13 +47,13 @@ export function Hero() {
 
         <h1 
           ref={headlineRef}
-          className="font-display text-[clamp(42px,5.2vw,86px)] text-white leading-[0.9] tracking-[-0.05em] mb-12"
+          className="font-display text-[clamp(34px,3.8vw,62px)] text-white leading-[1.02] tracking-[-0.025em] mb-10"
         >
-          <span className="font-[200] block opacity-85">Você não precisa</span>
-          <span className="font-[200] block opacity-85">de mais informação.</span>
-          <span className="font-[500] block mt-4">Precisa de alguém</span>
-          <span className="font-[500] block">que coordene</span>
-          <span className="font-[500] text-gold-l italic block">a decisão.</span>
+          <span className="font-[300] block text-white/70">Você não precisa</span>
+          <span className="font-[300] block text-white/70">de mais informação.</span>
+          <span className="font-[400] block mt-3">Precisa de alguém</span>
+          <span className="font-[400] block">que coordene</span>
+          <span className="font-[400] text-gold-l italic block">a decisão.</span>
         </h1>
 
 
