@@ -1,5 +1,8 @@
 import { motion } from "framer-motion";
 import NumberFlow from "@number-flow/react";
+import { Clock, FileText, CircleDollarSign, User } from "lucide-react";
+import { Icon } from "@/components/ui/Icon";
+
 
 export function AssessmentSection() {
   const deliverables = [
@@ -45,10 +48,10 @@ export function AssessmentSection() {
 
           <div className="grid grid-cols-2 gap-4">
             {[
-              { icon: "⏱", label: "90 minutos estruturados" },
-              { icon: "📄", label: "Entregável físico que você leva" },
-              { icon: "💰", label: "€250 abatidos no mandato" },
-              { icon: "👨‍💼", label: "Diretamente com o founder" }
+              { icon: Clock, label: "90 minutos estruturados" },
+              { icon: FileText, label: "Entregável físico que você leva" },
+              { icon: CircleDollarSign, label: "€250 abatidos no mandato" },
+              { icon: User, label: "Diretamente com o founder" }
             ].map((item, i) => (
               <motion.div 
                 key={i}
@@ -58,11 +61,12 @@ export function AssessmentSection() {
                 transition={{ delay: i * 0.1 }}
                 className="bg-black-3 border border-b18 p-6 flex flex-col gap-2"
               >
-                <span className="text-2xl mb-2">{item.icon}</span>
+                <Icon icon={item.icon} size={22} color="var(--gold)" strokeWidth={1.5} className="mb-2" />
                 <span className="font-body text-[11px] font-[400] text-w35 uppercase tracking-widest leading-tight">{item.label}</span>
               </motion.div>
             ))}
           </div>
+
         </div>
 
         <div className="lg:pl-20">

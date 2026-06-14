@@ -134,21 +134,7 @@ export function ChatAssistant() {
       </AnimatePresence>
       
       <div className="flex items-center gap-4">
-        <AnimatePresence>
-          {!isOpen && (
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 20 }}
-              transition={{ delay: 1 }}
-              className="bg-black-3/90 backdrop-blur-md border border-b35 px-4 py-2 rounded-full mb-0 shadow-xl pointer-events-none"
-            >
-              <p className="font-body text-[11px] text-white/80 uppercase tracking-widest whitespace-nowrap">
-                Convidando para iniciar uma conversa
-              </p>
-            </motion.div>
-          )}
-        </AnimatePresence>
+
         
         <button
           onClick={() => setIsOpen(!isOpen)}

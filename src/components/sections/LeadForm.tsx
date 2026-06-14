@@ -20,8 +20,9 @@ const selectFields = [
   { 
     name: "composition", 
     placeholder: "Quantas pessoas participam da mudança?", 
-    options: ["Apenas eu", "Casal sem filhos", "Família com filhos", "Tenho animais de estimação", "Família com filhos e pets"] 
+    options: ["Apenas eu", "Casal", "Família com filhos", "Família com filhos e pets", "Projeto individual"] 
   },
+
   { 
     name: "decision_phase", 
     placeholder: "Em que fase da decisão está?", 
@@ -144,7 +145,7 @@ export function LeadForm() {
                 <div className="relative group pt-2">
                   <textarea 
                     id="message"
-                    placeholder="Conte brevemente o seu caso"
+                    placeholder="Conte brevemente o seu caso (opcional)"
                     rows={2} 
                     value={form.message || ""} 
                     onChange={(e) => set("message", e.target.value)} 
@@ -154,8 +155,9 @@ export function LeadForm() {
                     htmlFor="message"
                     className="absolute left-0 top-6 text-mut font-body text-[15px] font-[300] pointer-events-none transition-all duration-300 peer-focus:-top-4 peer-focus:text-[11px] peer-focus:text-cobre peer-[:not(:placeholder-shown)]:-top-4 peer-[:not(:placeholder-shown)]:text-[11px] peer-[:not(:placeholder-shown)]:text-cobre"
                   >
-                    Conte brevemente o seu caso
+                    Conte brevemente o seu caso (opcional)
                   </label>
+
                 </div>
               </div>
 
@@ -171,8 +173,9 @@ export function LeadForm() {
               </button>
               
               <p className="text-center mt-8 font-body text-[10px] text-mut uppercase tracking-[0.1em]">
-                Já decidiu? <a href="https://calendly.com/moovia-portugal/conversa-gratuita" target="_blank" rel="noopener" className="text-cobre underline underline-offset-4 decoration-cobre/30 hover:text-latte transition-colors">Marcar Conversa diretamente</a>
+                Já decidiu? → <a href="https://calendly.com/moovia-portugal/conversa-gratuita" target="_blank" rel="noopener" className="text-cobre underline underline-offset-4 decoration-cobre/30 hover:text-latte transition-colors">Marcar Conversa diretamente</a>
               </p>
+
 
             </form>
           </motion.div>

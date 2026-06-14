@@ -13,8 +13,9 @@ export function Footer() {
             </Link>
             <p className="font-urbanist text-[12px] font-[400] tracking-[0.28em] uppercase text-w12 mb-6">Planejar · Chegar · Ficar</p>
             <p className="font-urbanist text-[13px] font-[300] text-w35 max-w-[260px] leading-relaxed">
-              Coordenação Internacional de Vida e Património. Brasil → Portugal · África Lusófona
+              Coordenação Internacional de Vida e Património. Brasil → Portugal
             </p>
+
           </div>
 
           {/* CENTRO */}
@@ -45,8 +46,9 @@ export function Footer() {
         {/* BOTTOM BAR */}
         <div className="pt-10 border-t border-b18 flex flex-col md:flex-row justify-between items-center gap-6 font-urbanist text-[12px] font-[300] text-w12">
           <span>© 2026 MOOVIA Portugal · Todos os direitos reservados</span>
-          <span>Brasil → Portugal · África Lusófona</span>
+          <span>Brasil → Portugal</span>
           <div className="flex gap-8">
+
             <Link to="/#">Privacidade</Link>
             <Link to="/#">Cookies</Link>
           </div>

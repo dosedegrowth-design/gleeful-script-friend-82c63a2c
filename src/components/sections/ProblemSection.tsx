@@ -48,13 +48,14 @@ export function ProblemSection() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="font-display text-[clamp(32px,4.5vw,72px)] font-[200] text-white leading-[0.95] tracking-[-0.04em] mb-12 uppercase"
-            >
-              "O problema não é a burocracia.<br/>É que ninguém coordena o todo."
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+            className="font-display text-[clamp(32px,4.5vw,72px)] font-[200] text-white leading-[0.95] tracking-[-0.04em] mb-12 uppercase"
+          >
+            O problema não é a burocracia.<br/>É que ninguém coordena o todo.
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+
               viewport={{ once: true }}
               className="font-body text-[18px] font-[300] text-w35 leading-[1.85] max-w-[640px]"
             >
@@ -73,18 +74,13 @@ export function ProblemSection() {
               loading="lazy"
               width={1920}
               height={1080}
-              alt="Planeamento sofisticado de uma mudança internacional"
+              alt=""
               className="absolute inset-0 h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#06091a] via-[#06091a]/20 to-transparent" />
             <div className="absolute inset-0 bg-[#06091a]/28 mix-blend-multiply" />
-            <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-10">
-              <p className="font-body text-[10px] uppercase tracking-[0.24em] text-gold mb-3">Antes da mudança</p>
-              <p className="font-display text-[28px] lg:text-[34px] font-[200] text-white leading-tight max-w-[16ch]">
-                Clareza estratégica antes do primeiro passo.
-              </p>
-            </div>
           </motion.div>
+
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-px bg-b18">
@@ -118,10 +114,11 @@ export function ProblemSection() {
           className="mt-1 bg-black p-20 text-center"
         >
           <p className="font-display text-[clamp(26px,4vw,52px)] font-[200] text-white leading-tight">
-            "O mercado resolve tarefas."<br/>
-            <span className="text-gold-l italic font-[200]">"A MOOVIA resolve a decisão."</span>
+            O mercado resolve tarefas.<br/>
+            <span className="text-gold-l italic font-[200]">A MOOVIA resolve a decisão.</span>
           </p>
         </motion.div>
+
       </div>
     </section>
   );

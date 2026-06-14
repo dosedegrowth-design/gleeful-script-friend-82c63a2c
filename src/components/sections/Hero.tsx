@@ -51,11 +51,12 @@ export function Hero() {
         >
           <span className="font-[200] block opacity-85">Você não precisa</span>
           <span className="font-[200] block opacity-85">de mais informação.</span>
-          <span className="font-[500] block mt-4">Precisa de</span>
-          <span className="font-[500] block">alguém</span>
+          <span className="font-[500] block mt-4">Precisa de alguém</span>
           <span className="font-[500] block">que coordene</span>
           <span className="font-[500] text-gold-l italic block">a decisão.</span>
         </h1>
+
+
 
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
@@ -63,8 +64,9 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 1.3 }}
           className="font-body text-[16px] font-[300] text-w35 leading-[1.7] max-w-[440px] mb-14"
         >
-          A MOOVIA Portugal coordena a sua transição completa, unindo estratégia fiscal, imobiliária e adaptação familiar em um único mandato personalizado.
+          A MOOVIA Portugal não resolve tarefas isoladas. Coordenação completa, do primeiro diagnóstico aos 90 dias depois da chegada.
         </motion.p>
+
 
         <div className="flex flex-row items-center gap-4 sm:gap-6 mb-14">
           <Link
