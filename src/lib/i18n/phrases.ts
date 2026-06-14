@@ -116,4 +116,62 @@ export const PHRASES: Record<string, Phrase> = {
   "Contacto MOOVIA Portugal": {
     "pt-BR": "Contato MOOVIA Portugal", es: "Contacto MOOVIA Portugal", en: "Contact MOOVIA Portugal",
   },
+
+  // Hero
+  "Coordenação Internacional de Vida e Património": {
+    "pt-BR": "Coordenação Internacional de Vida e Patrimônio",
+    es: "Coordinación Internacional de Vida y Patrimonio",
+    en: "International Coordination of Life & Wealth",
+  },
+  "Você não precisa": { "pt-BR": "Você não precisa", es: "No necesita", en: "You don't need" },
+  "de mais informação.": { "pt-BR": "de mais informação.", es: "más información.", en: "more information." },
+  "Precisa de alguém": { "pt-BR": "Precisa de alguém", es: "Necesita a alguien", en: "You need someone" },
+  "que coordene": { "pt-BR": "que coordene", es: "que coordine", en: "who coordinates" },
+  "a decisão.": { "pt-BR": "a decisão.", es: "la decisión.", en: "the decision." },
+  "Você não precisa de mais informação. Precisa de alguém que coordene a decisão.": {
+    "pt-BR": "Você não precisa de mais informação. Precisa de alguém que coordene a decisão.",
+    es: "No necesita más información. Necesita a alguien que coordine la decisión.",
+    en: "You don't need more information. You need someone who coordinates the decision.",
+  },
+  "A MOOVIA Portugal não resolve tarefas isoladas. Coordenação completa, do primeiro diagnóstico aos 90 dias depois da chegada.": {
+    "pt-BR": "A MOOVIA Portugal não resolve tarefas isoladas. Coordenação completa, do primeiro diagnóstico aos 90 dias depois da chegada.",
+    es: "MOOVIA Portugal no resuelve tareas aisladas. Coordinación completa, del primer diagnóstico a los 90 días tras la llegada.",
+    en: "MOOVIA Portugal doesn't handle isolated tasks. End-to-end coordination, from the first diagnosis to 90 days after arrival.",
+  },
+  "Ver como funciona": { "pt-BR": "Ver como funciona", es: "Ver cómo funciona", en: "See how it works" },
+  "Planejar · Chegar · Ficar": {
+    "pt-BR": "Planejar · Chegar · Ficar", es: "Planear · Llegar · Quedarse", en: "Plan · Arrive · Stay",
+  },
+  "Lisboa · Cascais · Estoril — 38.7223° N": {
+    "pt-BR": "Lisboa · Cascais · Estoril — 38.7223° N",
+    es: "Lisboa · Cascais · Estoril — 38.7223° N",
+    en: "Lisbon · Cascais · Estoril — 38.7223° N",
+  },
+  "Capítulo 01": { "pt-BR": "Capítulo 01", es: "Capítulo 01", en: "Chapter 01" },
+  "Mandato de transição": { "pt-BR": "Mandato de transição", es: "Mandato de transición", en: "Transition mandate" },
+
+  // CTA section / contact
+  "Conversa Gratuita de 30 minutos": {
+    "pt-BR": "Conversa Gratuita de 30 minutos",
+    es: "Conversación gratuita de 30 minutos",
+    en: "Free 30-minute consultation",
+  },
+  "Fale com a MOOVIA": { "pt-BR": "Fale com a MOOVIA", es: "Hable con MOOVIA", en: "Talk to MOOVIA" },
+  "Enviar mensagem": { "pt-BR": "Enviar mensagem", es: "Enviar mensaje", en: "Send message" },
+  "Nome completo": { "pt-BR": "Nome completo", es: "Nombre completo", en: "Full name" },
+  "E-mail": { "pt-BR": "E-mail", es: "Correo electrónico", en: "Email" },
+  "Telefone": { "pt-BR": "Telefone", es: "Teléfono", en: "Phone" },
+  "Mensagem": { "pt-BR": "Mensagem", es: "Mensaje", en: "Message" },
+
+  // Footer
+  "Todos os direitos reservados.": {
+    "pt-BR": "Todos os direitos reservados.",
+    es: "Todos los derechos reservados.",
+    en: "All rights reserved.",
+  },
+  "Política de privacidade": {
+    "pt-BR": "Política de privacidade", es: "Política de privacidad", en: "Privacy policy",
+  },
+  "Termos": { "pt-BR": "Termos", es: "Términos", en: "Terms" },
 };
+
