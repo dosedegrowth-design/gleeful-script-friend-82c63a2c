@@ -127,8 +127,8 @@
 
 
 @theme {
-  --font-display: "Clash Display", "Inter", system-ui, sans-serif;
-  --font-body: "General Sans", "Inter", sans-serif;
+  --font-display: "Wright Roman", "Inter", system-ui, sans-serif;
+  --font-body: "Wright Pro", "Inter", system-ui, sans-serif;
   
   --color-black: var(--black);
   --color-black-2: var(--black-2);
