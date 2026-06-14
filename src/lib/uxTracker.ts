@@ -14,7 +14,7 @@ interface UxEvent {
   device?: string;
   referrer?: string;
   user_agent?: string;
-  meta?: Record<string, unknown>;
+  meta?: any;
 }
 
 const SESSION_KEY = "moovia_ux_session";
