@@ -12,6 +12,18 @@ interface Message {
   timestamp: Date
 }
 
+function getSessionId(): string {
+  if (typeof window === 'undefined') return '';
+  let id = localStorage.getItem('moovia_chat_session');
+  if (!id) {
+    id = (crypto as any).randomUUID ? (crypto as any).randomUUID() : Math.random().toString(36).slice(2) + Date.now().toString(36);
+    localStorage.setItem('moovia_chat_session', id as string);
+  }
+  return id as string;
+}
+
+const LEAD_RE = /\[LEAD_CAPTURE\]([\s\S]*?)\[\/LEAD_CAPTURE\]/;
+
 export function ChatAssistant() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -19,6 +31,14 @@ export function ChatAssistant() {
   const [loading, setLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const sessionIdRef = useRef<string>('');
+  const startedAtRef = useRef<number>(Date.now());
+  const leadCapturedRef = useRef<boolean>(false);
+  const leadIdRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    sessionIdRef.current = getSessionId();
+  }, []);
 
   useEffect(() => {
     if (isOpen && messages.length === 0) {
@@ -36,6 +56,51 @@ export function ChatAssistant() {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages, loading]);
+
+  async function persistConversation(allMessages: Message[]) {
+    try {
+      const duration = Math.floor((Date.now() - startedAtRef.current) / 1000);
+      await supabase.from('chat_logs').insert({
+        session_id: sessionIdRef.current,
+        messages: allMessages.map(m => ({ role: m.role, content: m.content, timestamp: m.timestamp.toISOString() })),
+        lead_captured: leadCapturedRef.current,
+        lead_id: leadIdRef.current,
+        page_url: typeof window !== 'undefined' ? window.location.href.slice(0, 2000) : null,
+        duration_secs: Math.min(duration, 86400),
+      });
+    } catch (err) {
+      console.error('persist chat_logs failed', err);
+    }
+  }
+
+  async function maybeCaptureLead(rawReply: string) {
+    const match = rawReply.match(LEAD_RE);
+    if (!match || leadCapturedRef.current) return;
+    try {
+      const parsed = JSON.parse(match[1]);
+      if (!parsed?.name && !parsed?.email && !parsed?.whatsapp) return;
+      const { data, error } = await supabase
+        .from('leads')
+        .insert({
+          name: parsed.name || null,
+          email: parsed.email || null,
+          whatsapp: parsed.whatsapp || null,
+          objective: parsed.objective || null,
+          timing: parsed.timing || null,
+          notes: parsed.notes || null,
+          source: 'chat',
+          session_id: sessionIdRef.current,
+          status: 'novo',
+        })
+        .select('id')
+        .maybeSingle();
+      if (error) throw error;
+      leadCapturedRef.current = true;
+      leadIdRef.current = data?.id || null;
+    } catch (err) {
+      console.error('lead capture failed', err);
+    }
+  }
 
   const sendMessage = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
@@ -58,11 +123,19 @@ export function ChatAssistant() {
       if (error) throw error;
 
       if (data?.content?.[0]) {
-        const reply = data.content[0].text.trim();
-        setMessages([...newMessages, { role: 'assistant', content: reply, timestamp: new Date() }]);
+        const raw = data.content[0].text.trim();
+        await maybeCaptureLead(raw);
+        const cleaned = raw.replace(LEAD_RE, '').trim();
+        const finalMessages: Message[] = [...newMessages, { role: 'assistant', content: cleaned, timestamp: new Date() }];
+        setMessages(finalMessages);
+        await persistConversation(finalMessages);
+      } else {
+        await persistConversation(newMessages);
       }
     } catch (err) {
-      setMessages([...newMessages, { role: 'assistant', content: 'Tive uma instabilidade. Pode repetir?', timestamp: new Date() }]);
+      const errored: Message[] = [...newMessages, { role: 'assistant', content: 'Tive uma instabilidade. Pode repetir?', timestamp: new Date() }];
+      setMessages(errored);
+      await persistConversation(errored);
     } finally {
       setLoading(false);
     }

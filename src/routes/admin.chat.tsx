@@ -38,8 +38,16 @@ function AdminChat() {
         .order("created_at", { ascending: false });
 
       if (error) throw error;
-      setSessions(data || []);
-      if (data && data.length > 0) setActiveSession(data[0]);
+      // Dedupe by session_id, keep latest snapshot per session
+      const seen = new Set<string>();
+      const unique = (data || []).filter((row: any) => {
+        const key = row.session_id || row.id;
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+      setSessions(unique);
+      if (unique.length > 0) setActiveSession(unique[0]);
     } catch (e) {
       toast.error("Erro ao carregar logs de chat");
     } finally {
@@ -101,7 +109,7 @@ function AdminChat() {
             <>
               <div className="p-6 border-b border-border bg-black-3 flex items-center justify-between">
                 <div>
-                  <h3 className="font-urbanist text-xs uppercase tracking-widest text-gold font-bold">Sessão: {activeSession.session_id.slice(0, 8)}...</h3>
+                  <h3 className="font-urbanist text-xs uppercase tracking-widest text-gold font-bold">Sessão: {(activeSession.session_id || activeSession.id || '').toString().slice(0, 8)}...</h3>
                   <div className="flex items-center gap-4 mt-1">
                     <span className="text-[10px] text-white/30 flex items-center gap-1"><Clock size={10} /> {activeSession.duration_secs || 0}s duração</span>
                     <span className="text-[10px] text-white/30 flex items-center gap-1"><MessageSquare size={10} /> {activeSession.messages?.length || 0} mensagens</span>

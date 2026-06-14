@@ -26,22 +26,68 @@ export const Route = createFileRoute("/admin/")({
 
 function AdminDashboard() {
   const [funnelData, setFunnelData] = useState<any[]>([]);
+  const [revenueData, setRevenueData] = useState<any[]>([]);
+  const [sourceData, setSourceData] = useState<any[]>([]);
 
   useEffect(() => {
-    async function fetchFunnel() {
-      // Aggregate data from funnel_events and CRM tables
-      // For now, using mock data that follows the structure
-      const data = [
-        { value: 8432, name: 'Visitas', fill: '#8884d8' },
-        { value: 1241, name: 'Forms Iniciados', fill: '#83a6ed' },
-        { value: 347, name: 'Forms Submetidos', fill: '#8dd1e1' },
-        { value: 189, name: 'Conversas Agendadas', fill: '#82ca9d' },
-        { value: 67, name: 'Assessments Pagos', fill: '#a4de6c' },
-        { value: 23, name: 'Mandatos Ativos', fill: '#d0ed57' },
-      ];
-      setFunnelData(data);
+    async function fetchAll() {
+      const [
+        { count: leadsCount },
+        { data: chats },
+        { count: assessSched },
+        { count: assessDone },
+        { data: mandatos },
+        { data: leadsSrc },
+      ] = await Promise.all([
+        supabase.from("leads").select("*", { count: "exact", head: true }),
+        supabase.from("chat_logs").select("session_id"),
+        supabase.from("assessments").select("*", { count: "exact", head: true }).eq("status", "agendado"),
+        supabase.from("assessments").select("*", { count: "exact", head: true }).eq("status", "realizado"),
+        supabase.from("mandatos").select("value_eur, created_at, status"),
+        supabase.from("leads").select("source, utm_source"),
+      ]);
+
+      const uniqueChats = new Set((chats || []).map((c: any) => c.session_id || '')).size;
+      const activeMand = (mandatos || []).filter((m: any) => m.status === 'ativo').length;
+
+      setFunnelData([
+        { value: Math.max(uniqueChats, leadsCount || 0, 1), name: 'Conversas iniciadas', fill: '#8884d8' },
+        { value: leadsCount || 0, name: 'Leads capturados', fill: '#83a6ed' },
+        { value: assessSched || 0, name: 'Assessments agendados', fill: '#8dd1e1' },
+        { value: assessDone || 0, name: 'Assessments realizados', fill: '#82ca9d' },
+        { value: activeMand, name: 'Mandatos ativos', fill: '#d0ed57' },
+      ]);
+
+      // Revenue per month (last 6)
+      const months = Array.from({ length: 6 }, (_, i) => {
+        const d = new Date();
+        d.setMonth(d.getMonth() - (5 - i));
+        return { key: `${d.getFullYear()}-${d.getMonth()}`, name: d.toLocaleString('pt-BR', { month: 'short' }), revenue: 0 };
+      });
+      (mandatos || []).forEach((m: any) => {
+        if (!m.created_at) return;
+        const d = new Date(m.created_at);
+        const k = `${d.getFullYear()}-${d.getMonth()}`;
+        const slot = months.find(x => x.key === k);
+        if (slot) slot.revenue += Number(m.value_eur || 0);
+      });
+      setRevenueData(months);
+
+      // Sources
+      const counts: Record<string, number> = {};
+      (leadsSrc || []).forEach((l: any) => {
+        const s = (l.utm_source || l.source || 'Direct').toString();
+        counts[s] = (counts[s] || 0) + 1;
+      });
+      const palette = ['#ad8957', '#407e8d', '#f9f5ec', '#cead84', '#22c55e'];
+      setSourceData(
+        Object.entries(counts)
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, 5)
+          .map(([name, value], i) => ({ name, value, color: palette[i % palette.length] }))
+      );
     }
-    fetchFunnel();
+    fetchAll();
   }, []);
 
   return (
@@ -83,16 +129,8 @@ function AdminDashboard() {
             <h3 className="font-amotha text-2xl text-white mb-8">Receita Estimada (Últimos 6 meses)</h3>
             <div className="h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
-                <AreaChart
-                  data={[
-                    { name: 'Jan', revenue: 12000 },
-                    { name: 'Fev', revenue: 18500 },
-                    { name: 'Mar', revenue: 15200 },
-                    { name: 'Abr', revenue: 25400 },
-                    { name: 'Mai', revenue: 22100 },
-                    { name: 'Jun', revenue: 31000 },
-                  ]}
-                >
+                <AreaChart data={revenueData}>
+
                   <defs>
                     <linearGradient id="colorRevenue" x1="0" y1="0" x2="0" y2="1">
                       <stop offset="5%" stopColor="#ad8957" stopOpacity={0.3}/>
@@ -120,25 +158,14 @@ function AdminDashboard() {
             <h3 className="font-amotha text-xl text-white mb-6">Origem dos Leads</h3>
             <div className="h-[250px]">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart
-                  layout="vertical"
-                  data={[
-                    { name: 'Organic', value: 45, color: '#ad8957' },
-                    { name: 'LinkedIn', value: 32, color: '#407e8d' },
-                    { name: 'Direct', value: 18, color: '#f9f5ec' },
-                    { name: 'Referral', value: 12, color: '#cead84' },
-                    { name: 'WhatsApp', value: 9, color: '#22c55e' },
-                  ]}
-                >
+                <BarChart layout="vertical" data={sourceData}>
                   <XAxis type="number" hide />
                   <YAxis dataKey="name" type="category" stroke="#ffffff40" fontSize={10} axisLine={false} tickLine={false} width={80} />
                   <Tooltip cursor={{fill: 'transparent'}} contentStyle={{ backgroundColor: '#1a1d26', borderColor: '#ad895733' }} />
                   <Bar dataKey="value" radius={[0, 4, 4, 0]} barSize={20}>
-                    {
-                      [1,2,3,4,5].map((entry, index) => (
-                        <Cell key={`cell-${index}`} />
-                      ))
-                    }
+                    {sourceData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
                   </Bar>
                 </BarChart>
               </ResponsiveContainer>
