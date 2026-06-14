@@ -37,8 +37,9 @@ function AdminAssessments() {
 
       if (error) throw error;
       setAssessments(data || []);
-    } catch (e) {
-      toast.error("Erro ao carregar assessments");
+    } catch (e: any) {
+      console.error("[admin.assessments] fetch error:", e);
+      toast.error(`Erro ao carregar assessments: ${e?.message || e}`);
     } finally {
       setLoading(false);
     }
