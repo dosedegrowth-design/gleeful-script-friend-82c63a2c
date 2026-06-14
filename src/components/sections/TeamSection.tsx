@@ -14,36 +14,37 @@ export function TeamSection() {
       name: "Moyses Filipe",
       role: "Conselheiro Estratégico",
       chips: ["Deloitte", "Oracle", "IBM", "SAP", "Salesforce"],
-      bio: "25+ anos em tecnologia corporativa. Especialista na indústria seguradora. Liderou equipas de alta performance e operações C-Level globais."
+      bio: "25+ anos em tecnologia corporativa nas maiores empresas do setor, com especialização na indústria seguradora. Liderou equipas de alta performance e operações C-Level globais."
     },
     {
       id: "eduardo",
       name: "Eduardo Trindade",
       role: "Strategic Relocation Advisor",
       chips: ["ADLS", "MBA USP", "Live University", "SC Investor"],
-      bio: "VP Global Sales na ADLS. Professor de MBA, palestrante e investidor imobiliário em Santa Catarina. Fluente em PT, EN e ES."
+      bio: "VP Global Sales na ADLS. Professor de MBA, palestrante internacional e investidor imobiliário em Santa Catarina. Fluente em PT, EN e ES."
     },
     {
       id: "dany",
       name: "Dany Zukerman",
       role: "Education & Family Transition Advisor",
       chips: ["Direito UCAM", "18 anos CLO", "CID Records"],
-      bio: "18 anos como Chief Legal Officer da CID Records. Especialista no acompanhamento de estudantes e famílias brasileiras na transição."
+      bio: "18 anos como Chief Legal Officer da CID Records. Especialista no acompanhamento de estudantes e famílias em transição para Portugal."
     },
     {
       id: "laura",
       name: "Laura Costa",
       role: "Mobilidade Internacional",
       chips: ["Mestrado ULisboa", "Erasmus", "TJSC", "Imigração"],
-      bio: "Mestre em Direito pela ULisboa. Erasmus em Itália e Rep. Tcheca. Especialista em imigração, nacionalidade e documentação transfronteiriça."
+      bio: "Mestre em Direito pela ULisboa, com Erasmus em Itália e República Tcheca. Especialista em imigração, nacionalidade e regularização documental."
     },
     {
       id: "sara",
       name: "Sara Russo",
       role: "Real Estate Specialist",
       chips: ["RE/MAX Collection", "Luxo", "10+ anos"],
-      bio: "Mais de 10 anos no mercado imobiliário português. Premiada RE/MAX Portugal. Housing acima de €1.500/mês exclusivamente."
+      bio: "Mais de 10 anos no mercado imobiliário português. Especialista RE/MAX Collection. Habitação a partir de €1.500/mês."
     }
+
   ];
 
   return (
@@ -78,7 +79,7 @@ export function TeamSection() {
               </div>
               <h4 className="font-display text-[18px] font-[300] text-white mb-1 group-hover:text-gold-l transition-colors">{member.name}</h4>
               <p className="font-body text-[11px] font-[400] tracking-[0.18em] uppercase text-gold mb-6">{member.role}</p>
-              <p className="font-body text-[14px] font-[300] text-w35 leading-[1.7] line-clamp-2">{member.bio}</p>
+              <p className="font-body text-[14px] font-[300] text-w35 leading-[1.7]">{member.bio}</p>
 
             </motion.div>
           ))}
