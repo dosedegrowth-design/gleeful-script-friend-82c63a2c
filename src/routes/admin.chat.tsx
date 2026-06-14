@@ -38,8 +38,16 @@ function AdminChat() {
         .order("created_at", { ascending: false });
 
       if (error) throw error;
-      setSessions(data || []);
-      if (data && data.length > 0) setActiveSession(data[0]);
+      // Dedupe by session_id, keep latest snapshot per session
+      const seen = new Set<string>();
+      const unique = (data || []).filter((row: any) => {
+        const key = row.session_id || row.id;
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+      setSessions(unique);
+      if (unique.length > 0) setActiveSession(unique[0]);
     } catch (e) {
       toast.error("Erro ao carregar logs de chat");
     } finally {
