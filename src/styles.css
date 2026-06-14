@@ -1,5 +1,96 @@
 @import "tailwindcss";
 
+/* ── WRIGHT FONT FAMILY (Fontspring DEMO, hosted em mooviaportugal.com) ── */
+/* Wright Roman — display serif/sans elegante (usado em headings) */
+@font-face {
+  font-family: "Wright Roman";
+  src: url("https://mooviaportugal.com/fonts/Fontspring-DEMO-wrightroman-light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Wright Roman";
+  src: url("https://mooviaportugal.com/fonts/Fontspring-DEMO-wrightroman-regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Wright Roman";
+  src: url("https://mooviaportugal.com/fonts/Fontspring-DEMO-wrightroman-semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Wright Roman";
+  src: url("https://mooviaportugal.com/fonts/Fontspring-DEMO-wrightroman-bold(1).otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Wright Roman";
+  src: url("https://mooviaportugal.com/fonts/Fontspring-DEMO-wrightroman-extrabold.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Wright Pro — sans neutra (usado em body) */
+@font-face {
+  font-family: "Wright Pro";
+  src: url("https://mooviaportugal.com/fonts/Fontspring-DEMO-wrightpro-light(1).otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Wright Pro";
+  src: url("https://mooviaportugal.com/fonts/Fontspring-DEMO-wrightpro-regular(1).otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Wright Pro";
+  src: url("https://mooviaportugal.com/fonts/Fontspring-DEMO-wrightpro-semibold(1).otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Wright Pro";
+  src: url("https://mooviaportugal.com/fonts/Fontspring-DEMO-wrightpro-bold(1).otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Wright Deco — decorativa (disponível p/ destaques) */
+@font-face {
+  font-family: "Wright Deco";
+  src: url("https://mooviaportugal.com/fonts/Fontspring-DEMO-wrightdeco-regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Wright Deco";
+  src: url("https://mooviaportugal.com/fonts/Fontspring-DEMO-wrightdeco-semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Wright Deco";
+  src: url("https://mooviaportugal.com/fonts/Fontspring-DEMO-wrightdeco-bold(1).otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* ── FUNDOS PRINCIPAIS ─────────────────────────── */
   --black:    #06091a;
