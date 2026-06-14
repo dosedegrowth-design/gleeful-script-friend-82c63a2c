@@ -12,6 +12,7 @@ import { ManifestoSection } from "@/components/sections/ManifestoSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { FormSection } from "@/components/sections/FormSection";
 import { BlogTeaserSection } from "@/components/sections/BlogTeaserSection";
+import { LisboaGallery } from "@/components/sections/LisboaGallery";
 import { motion } from "framer-motion";
 
 export const Route = createFileRoute("/")({
@@ -61,6 +62,7 @@ function Home() {
 
       <AssessmentSection />
       <PillarsSection />
+      <LisboaGallery />
       <ManifestoSection />
       <BlogTeaserSection />
       <FAQSection />
