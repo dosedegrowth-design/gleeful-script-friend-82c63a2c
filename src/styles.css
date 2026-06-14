@@ -36,8 +36,8 @@
 
 
 @theme {
-  --font-display: "Fraunces", "Cormorant Garamond", Georgia, serif;
-  --font-body: "General Sans", sans-serif;
+  --font-display: "Clash Display", "Inter", system-ui, sans-serif;
+  --font-body: "General Sans", "Inter", sans-serif;
   
   --color-black: var(--black);
   --color-black-2: var(--black-2);
