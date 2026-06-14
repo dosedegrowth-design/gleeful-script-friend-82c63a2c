@@ -12,14 +12,14 @@ interface Message {
   timestamp: Date
 }
 
-function getSessionId() {
+function getSessionId(): string {
   if (typeof window === 'undefined') return '';
   let id = localStorage.getItem('moovia_chat_session');
   if (!id) {
     id = (crypto as any).randomUUID ? (crypto as any).randomUUID() : Math.random().toString(36).slice(2) + Date.now().toString(36);
-    localStorage.setItem('moovia_chat_session', id);
+    localStorage.setItem('moovia_chat_session', id as string);
   }
-  return id;
+  return id as string;
 }
 
 const LEAD_RE = /\[LEAD_CAPTURE\]([\s\S]*?)\[\/LEAD_CAPTURE\]/;
