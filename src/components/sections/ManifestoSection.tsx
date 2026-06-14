@@ -55,8 +55,19 @@ export function ManifestoSection() {
           transition={{ delay: 0.2 }}
           className="font-body text-[16px] font-[300] text-w35 italic"
         >
-          "Se o seu caso merece isso, este é o lugar."
+          Se o seu caso merece isso, este é o lugar.
         </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="font-body text-[13px] font-[300] text-w35 tracking-[0.18em] uppercase mt-10"
+        >
+          Atendemos famílias internacionais em todas as suas formas.
+        </motion.p>
+
 
       </div>
     </section>

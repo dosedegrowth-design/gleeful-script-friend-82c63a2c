@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import NumberFlow from "@number-flow/react";
-import processRelocationDocuments from "@/assets/process-relocation-documents.jpg";
+
 
 export function ProcessSection() {
   const steps = [
@@ -28,10 +28,11 @@ export function ProcessSection() {
     {
       id: "90",
       tag: "Único no mercado",
-      title: "Os 90 dias após o pouso",
+      title: "Chegar é metade",
       body: "Os 90 dias após o pouso são os mais críticos. Adaptação familiar, rotina, integração. Nenhum concorrente acompanha este período de forma estruturada. Nós acompanhamos.",
       badge: "Único no mercado"
     }
+
   ];
 
   const deliverables = [
@@ -94,31 +95,8 @@ export function ProcessSection() {
         </div>
 
         <div className="sticky top-32 space-y-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative overflow-hidden rounded-[4px] border border-b18 min-h-[320px]"
-          >
-            <img
-              src={processRelocationDocuments}
-              loading="lazy"
-              width={1920}
-              height={1080}
-              alt="Documentos e itens que representam a coordenação de uma mudança internacional"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-[#06091a]/35 mix-blend-multiply" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#06091a] via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 p-8">
-              <p className="font-body text-[10px] uppercase tracking-[0.22em] text-gold mb-3">Coordenação real</p>
-              <p className="font-display text-[28px] font-[200] text-white leading-tight max-w-[14ch]">
-                Cada etapa tratada como parte da mesma decisão.
-              </p>
-            </div>
-          </motion.div>
-
           <motion.div 
+
             initial={{ opacity: 0, scale: 0.98 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}

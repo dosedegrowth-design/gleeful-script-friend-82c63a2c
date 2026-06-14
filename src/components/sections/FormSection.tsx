@@ -109,11 +109,12 @@ export function FormSection() {
           <select required onChange={e => set("composition", e.target.value)} className="bg-black-3 border-0 border-b border-b18 font-urbanist text-[15px] font-[300] text-w70 p-6 focus:border-gold outline-none transition-all appearance-none">
             <option value="">Quantas pessoas participam da mudança?</option>
             <option value="individual">Apenas eu</option>
-            <option value="casal">Casal sem filhos</option>
+            <option value="casal">Casal</option>
             <option value="familia">Família com filhos</option>
-            <option value="pets">Tenho animais de estimação</option>
             <option value="familia-pets">Família com filhos e pets</option>
+            <option value="projeto">Projeto individual</option>
           </select>
+
           <select required onChange={e => set("phase", e.target.value)} className="bg-black-3 border-0 border-b border-b18 font-urbanist text-[15px] font-[300] text-w70 p-6 focus:border-gold outline-none transition-all appearance-none">
             <option value="">Em que fase da decisão está?</option>
             <option value="pesquisa">Apenas pesquisando</option>
@@ -125,7 +126,7 @@ export function FormSection() {
           <input required placeholder="Seu nome completo" onChange={e => set("name", e.target.value)} className="bg-black-3 border-0 border-b border-b18 font-urbanist text-[15px] font-[300] text-w70 p-6 focus:border-gold outline-none transition-all" />
           <input required type="tel" placeholder="WhatsApp com código do país — ex: +55 11 99999-9999" onChange={e => set("whatsapp", e.target.value)} className="bg-black-3 border-0 border-b border-b18 font-urbanist text-[15px] font-[300] text-w70 p-6 focus:border-gold outline-none transition-all" />
           <input required type="email" placeholder="E-mail" onChange={e => set("email", e.target.value)} className="bg-black-3 border-0 border-b border-b18 font-urbanist text-[15px] font-[300] text-w70 p-6 focus:border-gold outline-none transition-all" />
-          <textarea rows={3} placeholder="Conte brevemente o seu caso" onChange={e => set("message", e.target.value)} className="bg-black-3 border-0 border-b border-b18 font-urbanist text-[15px] font-[300] text-w70 p-6 focus:border-gold outline-none transition-all resize-none" />
+          <textarea rows={3} placeholder="Conte brevemente o seu caso (opcional)" onChange={e => set("message", e.target.value)} className="bg-black-3 border-0 border-b border-b18 font-urbanist text-[15px] font-[300] text-w70 p-6 focus:border-gold outline-none transition-all resize-none" />
           
           <button type="submit" disabled={loading} className="w-full bg-gold text-black font-urbanist font-[600] text-[13px] tracking-[0.22em] uppercase py-6 mt-10 transition-all hover:bg-gold-xl group relative overflow-hidden">
             <span className="relative z-10">{loading ? "Enviando..." : "Enviar e aguardar retorno"}</span>
@@ -133,7 +134,7 @@ export function FormSection() {
           </button>
           
           <div className="mt-8 text-center">
-            <p className="font-urbanist text-[14px] text-w35">Já decidiu? <a href="https://calendly.com/moovia-portugal/conversa-gratuita" className="text-gold ml-1 border-b border-gold/30">Marcar Conversa Gratuita diretamente</a></p>
+            <p className="font-urbanist text-[14px] text-w35">Já decidiu? → <a href="https://calendly.com/moovia-portugal/conversa-gratuita" className="text-gold ml-1 border-b border-gold/30">Marcar Conversa Gratuita diretamente</a></p>
           </div>
         </form>
       </div>

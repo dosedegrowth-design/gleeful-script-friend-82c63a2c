@@ -33,7 +33,7 @@ export const Footer = () => {
       </div>
 
       <div className="max-w-screen-2xl mx-auto border-t border-border pt-8 flex flex-col md:flex-row justify-between gap-4 font-urbanist font-light text-[12px] text-white/20">
-        <div>© 2026 MOOVIA Portugal | Brasil → Portugal · África Lusófona</div>
+        <div>© 2026 MOOVIA Portugal | Brasil → Portugal</div>
         <div className="flex gap-6">
           <a href="#" className="hover:text-white transition-colors">Privacidade</a>
           <a href="#" className="hover:text-white transition-colors">Cookies</a>
