@@ -3,6 +3,13 @@ import { motion } from "framer-motion";
 export function TeamSection() {
   const team = [
     {
+      id: "pablo",
+      name: "Pablo Alejandro Saco Paim",
+      role: "Co-Founder & CFO",
+      chips: ["IST", "Engenharia Mecânica", "CFD", "Europa desde os 17 anos"],
+      bio: "Com trajetória internacional iniciada aos 17 anos, lidera as áreas financeira e tecnológica da MOOVIA. Mestrando em Engenharia Mecânica no Instituto Superior Técnico, assegura que cada mandato seja estruturado com eficiência, previsibilidade e visão de longo prazo."
+    },
+    {
       id: "joao",
       name: "João Gabriel Prado",
       role: "Co-Founder",
