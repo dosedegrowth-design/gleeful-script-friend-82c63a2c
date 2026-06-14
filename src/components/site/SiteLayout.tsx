@@ -5,6 +5,7 @@ import { Footer } from "./Footer";
 import { WhatsAppFloat } from "./WhatsAppFloat";
 import { ChatAssistant } from "./ChatAssistant";
 import { CustomCursor } from "../ui/CustomCursor";
+import { startUxTracker } from "@/lib/uxTracker";
 
 export function SiteLayout({ children }: { children: ReactNode }) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -12,6 +13,10 @@ export function SiteLayout({ children }: { children: ReactNode }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  useEffect(() => {
+    startUxTracker();
+  }, []);
 
   return (
     <>
