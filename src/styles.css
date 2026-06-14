@@ -36,7 +36,7 @@
 
 
 @theme {
-  --font-display: "Manrope", "Sora", sans-serif;
+  --font-display: "Fraunces", "Cormorant Garamond", Georgia, serif;
   --font-body: "General Sans", sans-serif;
   
   --color-black: var(--black);
@@ -83,6 +83,17 @@
   body:has(.admin-root) a,
   body:has(.admin-root) button {
     cursor: pointer;
+  body:has(.admin-root) a,
+  body:has(.admin-root) button {
+    cursor: pointer;
+  }
+
+  /* High-ticket headline treatment — refined serif, no caps, balanced */
+  .font-display {
+    text-transform: none !important;
+    letter-spacing: -0.02em;
+    font-weight: 300;
+    text-wrap: balance;
   }
 }
 
