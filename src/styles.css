@@ -36,7 +36,7 @@
 
 
 @theme {
-  --font-display: "Manrope", "Sora", sans-serif;
+  --font-display: "Fraunces", "Cormorant Garamond", Georgia, serif;
   --font-body: "General Sans", sans-serif;
   
   --color-black: var(--black);
