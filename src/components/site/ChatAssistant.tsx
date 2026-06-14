@@ -62,7 +62,7 @@ export function ChatAssistant() {
       const duration = Math.floor((Date.now() - startedAtRef.current) / 1000);
       await supabase.from('chat_logs').insert({
         session_id: sessionIdRef.current,
-        messages: allMessages.map(m => ({ role: m.role, content: m.content, timestamp: m.timestamp })),
+        messages: allMessages.map(m => ({ role: m.role, content: m.content, timestamp: m.timestamp.toISOString() })),
         lead_captured: leadCapturedRef.current,
         lead_id: leadIdRef.current,
         page_url: typeof window !== 'undefined' ? window.location.href.slice(0, 2000) : null,
