@@ -83,10 +83,8 @@
   body:has(.admin-root) a,
   body:has(.admin-root) button {
     cursor: pointer;
-  body:has(.admin-root) a,
-  body:has(.admin-root) button {
-    cursor: pointer;
   }
+
 
   /* High-ticket headline treatment — refined serif, no caps, balanced */
   .font-display {
