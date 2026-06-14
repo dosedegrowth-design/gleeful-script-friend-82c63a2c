@@ -83,7 +83,16 @@ function Post() {
               {post.excerpt && (
                 <p className="mt-8 font-urbanist text-[19px] font-[300] text-white/70 leading-relaxed">{post.excerpt}</p>
               )}
-              <div className="mt-12 prose prose-invert prose-lg max-w-none font-urbanist font-[300] text-white/35 leading-[1.9] prose-headings:font-sora prose-headings:font-[200] prose-a:text-gold" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content || "", { FORBID_TAGS: ["script", "style", "iframe", "object", "embed", "form"], FORBID_ATTR: ["onerror", "onload", "onclick", "onmouseover", "onfocus", "onblur", "onchange", "onsubmit", "style"] }) }} />
+              {post.read_time && (
+                <div className="mt-6 font-urbanist text-[11px] uppercase tracking-[0.18em] text-w35">{post.read_time} min de leitura</div>
+              )}
+              {post.featured_image && (
+                <div className="mt-12 relative aspect-[16/9] overflow-hidden border border-b18">
+                  <img src={post.featured_image} alt={post.title} className="h-full w-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+                </div>
+              )}
+              <div className="mt-12 prose prose-invert prose-lg max-w-none font-urbanist font-[300] text-white/70 leading-[1.9] prose-headings:font-sora prose-headings:font-[200] prose-headings:text-white prose-strong:text-white prose-blockquote:border-l-gold prose-blockquote:text-gold-l prose-blockquote:italic prose-a:text-gold prose-li:marker:text-gold" dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content || "", { FORBID_TAGS: ["script", "style", "iframe", "object", "embed", "form"], FORBID_ATTR: ["onerror", "onload", "onclick", "onmouseover", "onfocus", "onblur", "onchange", "onsubmit", "style"] }) }} />
 
               <div className="mt-24 p-12 border border-b18 bg-black-2 relative overflow-hidden group">
                 <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-gold to-teal" />

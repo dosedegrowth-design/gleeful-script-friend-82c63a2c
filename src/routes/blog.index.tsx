@@ -77,17 +77,35 @@ function Blog() {
                   <Link
                     to="/blog/$slug"
                     params={{ slug: p.slug }}
-                    className="block h-full p-10 bg-black-2 hover:bg-black-3 transition-colors border-l-[3px] border-transparent hover:border-gold"
+                    className="group flex h-full flex-col bg-black-2 hover:bg-black-3 transition-colors border-l-[3px] border-transparent hover:border-gold overflow-hidden"
                   >
-                    {p.category && (
-                      <div className="font-urbanist text-[11px] uppercase tracking-[0.18em] text-gold">{p.category}</div>
+                    {p.featured_image && (
+                      <div className="relative aspect-[16/10] overflow-hidden border-b border-b18">
+                        <img
+                          src={p.featured_image}
+                          alt={p.title}
+                          loading="lazy"
+                          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                        {p.category && (
+                          <div className="absolute left-5 top-5 bg-black/55 backdrop-blur-sm px-3 py-1 font-urbanist text-[10px] uppercase tracking-[0.18em] text-gold border border-b18">
+                            {p.category}
+                          </div>
+                        )}
+                      </div>
                     )}
-                    <h2 className="mt-4 font-sora text-2xl font-[200] text-white leading-tight">{p.title}</h2>
-                    {p.excerpt && (
-                      <p className="mt-4 font-urbanist text-[15px] font-[300] text-w35 leading-relaxed line-clamp-3">{p.excerpt}</p>
-                    )}
-                    <div className="mt-6 font-urbanist text-[11px] uppercase tracking-[0.16em] text-w35">
-                      {p.read_time ? `${p.read_time} min de leitura` : "Ler artigo"} →
+                    <div className="flex flex-1 flex-col p-10">
+                      {!p.featured_image && p.category && (
+                        <div className="font-urbanist text-[11px] uppercase tracking-[0.18em] text-gold">{p.category}</div>
+                      )}
+                      <h2 className="mt-2 font-sora text-2xl font-[200] text-white leading-tight">{p.title}</h2>
+                      {p.excerpt && (
+                        <p className="mt-4 font-urbanist text-[15px] font-[300] text-w35 leading-relaxed line-clamp-3">{p.excerpt}</p>
+                      )}
+                      <div className="mt-auto pt-8 font-urbanist text-[11px] uppercase tracking-[0.16em] text-w35 group-hover:text-gold transition-colors">
+                        {p.read_time ? `${p.read_time} min de leitura` : "Ler artigo"} →
+                      </div>
                     </div>
                   </Link>
                 </Reveal>
