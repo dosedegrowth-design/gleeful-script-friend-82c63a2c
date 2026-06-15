@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import NumberFlow from "@number-flow/react";
-import { Clock, FileText, CircleDollarSign, User } from "lucide-react";
-import { Icon } from "@/components/ui/Icon";
+import { ClockIcon, FileIcon, CoinIcon, UserIcon } from "@/components/ui/MooviaIcons";
 
 
 export function AssessmentSection() {

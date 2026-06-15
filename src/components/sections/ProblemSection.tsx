@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import { Layers, Search, AlertTriangle, Clock } from "lucide-react";
-import { Icon } from "@/components/ui/Icon";
+import { LayersIcon, SearchIcon, AlertIcon, ClockIcon } from "@/components/ui/MooviaIcons";
 import problemLisboaPlanning from "@/assets/problem-lisboa-planning.jpg";
 
 export function ProblemSection() {
