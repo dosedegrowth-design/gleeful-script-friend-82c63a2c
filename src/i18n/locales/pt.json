@@ -1,0 +1,32 @@
+{
+  "nav": {
+    "how_it_works": "Como funciona",
+    "services": "Serviços",
+    "assessment": "Assessment",
+    "blog": "Blog",
+    "contact": "Contacto",
+    "cta": "Avaliar o meu caso"
+  },
+  "hero": {
+    "eyebrow": "Coordenação Internacional de Vida e Património",
+    "title_1": "Você não precisa",
+    "title_2": "de mais informação.",
+    "title_3": "Precisa de alguém",
+    "title_4": "que coordene",
+    "title_5": "a decisão.",
+    "lead": "A MOOVIA Portugal não resolve tarefas isoladas. Coordenação completa, do primeiro diagnóstico aos 90 dias depois da chegada.",
+    "cta_primary": "Avaliar o meu caso",
+    "cta_secondary": "Ver como funciona",
+    "tagline": "Planear · Chegar · Ficar",
+    "chapter_label": "Capítulo 01",
+    "chapter_title": "Mandato de transição"
+  },
+  "footer": {
+    "tagline": "Planear · Chegar · Ficar",
+    "services": "Serviços",
+    "contact": "Contacto",
+    "privacy": "Privacidade",
+    "cookies": "Cookies",
+    "rights": "© 2026 MOOVIA Portugal | Brasil → Portugal"
+  }
+}
