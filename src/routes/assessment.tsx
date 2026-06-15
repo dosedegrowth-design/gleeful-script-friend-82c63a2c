@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useState, type FormEvent } from "react";
 import { Briefcase, Users, TrendingUp, Clock, AlertCircle, Search } from "lucide-react";
+import { SiteLayout } from "@/components/site/SiteLayout";
 
 export const Route = createFileRoute("/assessment")({
   head: () => ({
@@ -49,18 +50,18 @@ const objections = [
 
 function AssessmentPage() {
   return (
-    <div className="bg-black min-h-screen text-white">
-      <MinimalNav />
-      <Hero />
-      <NotIsSection />
-      <DeliverablesSection />
-      <TimelineSection />
-      <ProfilesSection />
-      <PhysicalDocSection />
-      <ObjectionsSection />
-      <CtaFormSection />
-      <MinimalFooter />
-    </div>
+    <SiteLayout>
+      <div className="bg-black text-white">
+        <Hero />
+        <NotIsSection />
+        <DeliverablesSection />
+        <TimelineSection />
+        <ProfilesSection />
+        <PhysicalDocSection />
+        <ObjectionsSection />
+        <CtaFormSection />
+      </div>
+    </SiteLayout>
   );
 }
 
