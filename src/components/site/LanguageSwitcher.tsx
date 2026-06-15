@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import BR from "country-flag-icons/react/3x2/BR";
 import PT from "country-flag-icons/react/3x2/PT";
 import ES from "country-flag-icons/react/3x2/ES";
 import GB from "country-flag-icons/react/3x2/GB";
@@ -8,21 +9,23 @@ import { useI18n } from "@/lib/i18n/I18nProvider";
 import type { Lang } from "@/i18n";
 import { cn } from "@/lib/utils";
 
-const LANGS: { code: Lang; native: string; label: string }[] = [
-  { code: "pt", native: "Português", label: "Portuguese" },
-  { code: "en", native: "English", label: "English" },
-  { code: "es", native: "Español", label: "Spanish" },
+const LANGS: { code: Lang; native: string; label: string; short: string }[] = [
+  { code: "pt-BR", native: "Português · Brasil", label: "Portuguese (Brazil)", short: "BR" },
+  { code: "pt-PT", native: "Português · Portugal", label: "Portuguese (Portugal)", short: "PT" },
+  { code: "en", native: "English", label: "English", short: "EN" },
+  { code: "es", native: "Español", label: "Spanish", short: "ES" },
 ];
 
 const FlagFor: Record<Lang, React.ComponentType<{ className?: string; title?: string }>> = {
-  pt: PT,
+  "pt-BR": BR,
+  "pt-PT": PT,
   en: GB,
   es: ES,
 };
 
 export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
   const { locale, setLocale } = useI18n();
-  const current = (LANGS.find((l) => l.code === locale) ?? LANGS[0]) as { code: Lang; native: string; label: string };
+  const current = (LANGS.find((l) => l.code === locale) ?? LANGS[0]) as { code: Lang; native: string; label: string; short: string };
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -49,7 +52,7 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
         <Current className="w-5 h-3.5 rounded-[1px] shadow-sm" title={current.label} />
         {!compact && (
           <span className="font-body font-[500] text-[11px] tracking-[0.14em] uppercase">
-            {current.code}
+            {current.short}
           </span>
         )}
         <ChevronDown
@@ -65,7 +68,7 @@ export function LanguageSwitcher({ compact = false }: { compact?: boolean }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.96 }}
             transition={{ duration: 0.18, ease: "easeOut" }}
-            className="absolute right-0 mt-2 min-w-[200px] bg-[#06091a] border border-b35 shadow-2xl z-[1100] overflow-hidden"
+            className="absolute right-0 mt-2 min-w-[220px] bg-[#06091a] border border-b35 shadow-2xl z-[1100] overflow-hidden"
           >
             {LANGS.map((l) => {
               const Flag = FlagFor[l.code];

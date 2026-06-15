@@ -5,30 +5,40 @@ import en from "./locales/en.json";
 import es from "./locales/es.json";
 import { applyDomTranslations } from "./applyDom";
 
-export type Lang = "pt" | "en" | "es";
-export const SUPPORTED: Lang[] = ["pt", "en", "es"];
+export type Lang = "pt-BR" | "pt-PT" | "en" | "es";
+export const SUPPORTED: Lang[] = ["pt-BR", "pt-PT", "en", "es"];
 const STORAGE_KEY = "mv_lang";
 
+// i18next resource key for a given Lang (both pt variants share the pt dictionary)
+function resourceKey(lang: Lang): string {
+  if (lang === "pt-BR" || lang === "pt-PT") return "pt";
+  return lang;
+}
+
 export function detectInitialLang(): Lang {
-  if (typeof window === "undefined") return "pt";
+  if (typeof window === "undefined") return "pt-BR";
   try {
     const stored = localStorage.getItem(STORAGE_KEY) as Lang | null;
     if (stored && SUPPORTED.includes(stored)) return stored;
+    // Migrate legacy "pt" value
+    if (stored === ("pt" as unknown as Lang)) return "pt-BR";
   } catch {}
-  const nav = navigator.language?.slice(0, 2).toLowerCase();
-  if (nav === "en") return "en";
-  if (nav === "es") return "es";
-  return "pt";
+  const nav = navigator.language?.toLowerCase() ?? "";
+  if (nav.startsWith("en")) return "en";
+  if (nav.startsWith("es")) return "es";
+  if (nav.startsWith("pt-pt")) return "pt-PT";
+  return "pt-BR";
 }
 
 if (!i18n.isInitialized) {
+  const initial = detectInitialLang();
   i18n.use(initReactI18next).init({
     resources: {
       pt: { translation: pt },
       en: { translation: en },
       es: { translation: es },
     },
-    lng: detectInitialLang(),
+    lng: resourceKey(initial),
     fallbackLng: "pt",
     interpolation: { escapeValue: false },
     returnNull: false,
@@ -37,20 +47,33 @@ if (!i18n.isInitialized) {
 
 export function setLang(lang: Lang) {
   if (!SUPPORTED.includes(lang)) return;
-  i18n.changeLanguage(lang);
+  i18n.changeLanguage(resourceKey(lang));
   try {
     localStorage.setItem(STORAGE_KEY, lang);
   } catch {}
   if (typeof document !== "undefined") {
-    document.documentElement.lang = lang === "pt" ? "pt-PT" : lang;
-    applyDomTranslations(lang);
+    document.documentElement.lang = lang;
+    const domLang = lang === "pt-BR" || lang === "pt-PT" ? "pt" : lang;
+    applyDomTranslations(domLang as "pt" | "en" | "es");
   }
+}
+
+export function getCurrentLang(): Lang {
+  if (typeof window === "undefined") return "pt-BR";
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY) as Lang | null;
+    if (stored && SUPPORTED.includes(stored)) return stored;
+  } catch {}
+  const r = (i18n.language as string) ?? "pt";
+  if (r === "pt") return "pt-BR";
+  return (r as Lang);
 }
 
 export function reapplyCurrentLang() {
   if (typeof document === "undefined") return;
-  const lang = (i18n.language as Lang) ?? "pt";
-  applyDomTranslations(SUPPORTED.includes(lang) ? lang : "pt");
+  const lang = getCurrentLang();
+  const domLang = lang === "pt-BR" || lang === "pt-PT" ? "pt" : lang;
+  applyDomTranslations(domLang as "pt" | "en" | "es");
 }
 
 export default i18n;
