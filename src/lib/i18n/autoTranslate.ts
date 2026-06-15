@@ -107,7 +107,7 @@ async function flush(locale: Locale) {
     });
     saveCache(locale);
     // Re-walk DOM so new translations get applied.
-    if (typeof document !== "undefined") walk(document.body, locale);
+    if (typeof document !== "undefined") schedule();
   } catch (e) {
     // eslint-disable-next-line no-console
     console.warn("[i18n] translate batch failed", e);
