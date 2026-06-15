@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useState, type FormEvent } from "react";
 import { Briefcase, Users, TrendingUp, Clock, AlertCircle, Search } from "lucide-react";
+import { SiteLayout } from "@/components/site/SiteLayout";
 
 export const Route = createFileRoute("/assessment")({
   head: () => ({
