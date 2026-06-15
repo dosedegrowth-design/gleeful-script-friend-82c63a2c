@@ -92,7 +92,33 @@ export function TeamSection() {
 
             </motion.div>
           ))}
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: team.length * 0.1 }}
+            className="bg-black-2 p-10 flex flex-col items-center justify-center text-center group relative overflow-hidden"
+          >
+            <div className="absolute left-0 top-0 w-[2px] h-0 bg-gold transition-all duration-500 group-hover:h-full" />
+            <img
+              src="/mooviagold.svg"
+              alt="MOOVIA"
+              className="w-20 h-20 mb-8 opacity-80 group-hover:opacity-100 transition-opacity"
+            />
+            <h4 className="font-display text-[18px] font-[300] text-white mb-3 tracking-[0.2em]">MOOVIA TEAM</h4>
+            <p className="font-body text-[13px] font-[300] text-w35 leading-[1.7] mb-8 max-w-[260px]">
+              Uma equipa multidisciplinar a coordenar cada detalhe da sua mudança para Portugal.
+            </p>
+            <a
+              href="/sobre"
+              className="font-body text-[11px] font-[400] tracking-[0.22em] uppercase text-gold border border-gold/40 px-6 py-3 hover:bg-gold hover:text-black transition-all"
+            >
+              Ver completo
+            </a>
+          </motion.div>
         </div>
+
       </div>
     </section>
   );
