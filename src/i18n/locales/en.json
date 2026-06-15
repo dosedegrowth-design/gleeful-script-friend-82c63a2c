@@ -1,0 +1,32 @@
+{
+  "nav": {
+    "how_it_works": "How it works",
+    "services": "Services",
+    "assessment": "Assessment",
+    "blog": "Blog",
+    "contact": "Contact",
+    "cta": "Assess my case"
+  },
+  "hero": {
+    "eyebrow": "International Life & Wealth Coordination",
+    "title_1": "You don't need",
+    "title_2": "more information.",
+    "title_3": "You need someone",
+    "title_4": "to coordinate",
+    "title_5": "the decision.",
+    "lead": "MOOVIA Portugal doesn't solve isolated tasks. End-to-end coordination, from the first diagnostic to 90 days after arrival.",
+    "cta_primary": "Assess my case",
+    "cta_secondary": "See how it works",
+    "tagline": "Plan · Arrive · Stay",
+    "chapter_label": "Chapter 01",
+    "chapter_title": "Transition mandate"
+  },
+  "footer": {
+    "tagline": "Plan · Arrive · Stay",
+    "services": "Services",
+    "contact": "Contact",
+    "privacy": "Privacy",
+    "cookies": "Cookies",
+    "rights": "© 2026 MOOVIA Portugal | Brazil → Portugal"
+  }
+}

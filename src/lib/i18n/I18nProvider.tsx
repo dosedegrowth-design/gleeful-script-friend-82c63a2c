@@ -1,66 +1,39 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
-import { DEFAULT_LOCALE, TRANSLATIONS, type Locale } from "./translations";
-import { applyLocale } from "./autoTranslate";
+import { useEffect, useState, type ReactNode } from "react";
+import { I18nextProvider, useTranslation } from "react-i18next";
+import i18n, { detectInitialLang, setLang as setLangCore, type Lang } from "@/i18n";
 
-interface I18nCtx {
-  locale: Locale;
-  setLocale: (l: Locale) => void;
-  t: (key: string) => string;
-}
-
-const Ctx = createContext<I18nCtx | null>(null);
-
-const STORAGE_KEY = "moovia_locale";
-
-function detectInitial(): Locale {
-  if (typeof window === "undefined") return DEFAULT_LOCALE;
-  try {
-    const stored = localStorage.getItem(STORAGE_KEY) as Locale | null;
-    if (stored && stored in TRANSLATIONS) return stored;
-  } catch {}
-  const nav = navigator.language?.toLowerCase() || "";
-  if (nav.startsWith("pt-br")) return "pt-BR";
-  if (nav.startsWith("pt")) return "pt-PT";
-  if (nav.startsWith("es")) return "es";
-  if (nav.startsWith("en")) return "en";
-  return DEFAULT_LOCALE;
-}
+// Compatibility shim so existing imports of `useI18n` keep working.
+// New code should prefer `useTranslation()` from `react-i18next`.
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE);
-
+  // Re-sync detected language on client mount (SSR safe).
   useEffect(() => {
-    const initial = detectInitial();
-    setLocaleState(initial);
+    const detected = detectInitialLang();
+    if (i18n.language !== detected) {
+      setLangCore(detected);
+    } else if (typeof document !== "undefined") {
+      document.documentElement.lang = detected === "pt" ? "pt-PT" : detected;
+    }
   }, []);
 
-  useEffect(() => {
-    if (typeof document === "undefined") return;
-    document.documentElement.lang = locale;
-    applyLocale(locale);
-  }, [locale]);
-
-  const setLocale = (l: Locale) => {
-    setLocaleState(l);
-    try {
-      localStorage.setItem(STORAGE_KEY, l);
-    } catch {}
-  };
-
-  const t = (key: string) => TRANSLATIONS[locale][key] ?? TRANSLATIONS[DEFAULT_LOCALE][key] ?? key;
-
-  return <Ctx.Provider value={{ locale, setLocale, t }}>{children}</Ctx.Provider>;
+  return <I18nextProvider i18n={i18n}>{children}</I18nextProvider>;
 }
 
 export function useI18n() {
-  const ctx = useContext(Ctx);
-  if (!ctx) {
-    // Fallback when used outside provider (SSR safety)
-    return {
-      locale: DEFAULT_LOCALE,
-      setLocale: () => {},
-      t: (k: string) => TRANSLATIONS[DEFAULT_LOCALE][k] ?? k,
-    } as I18nCtx;
-  }
-  return ctx;
+  const { t, i18n: i18nInstance } = useTranslation();
+  const [, force] = useState(0);
+
+  useEffect(() => {
+    const handler = () => force((n) => n + 1);
+    i18nInstance.on("languageChanged", handler);
+    return () => {
+      i18nInstance.off("languageChanged", handler);
+    };
+  }, [i18nInstance]);
+
+  return {
+    locale: (i18nInstance.language as Lang) ?? "pt",
+    setLocale: (l: string) => setLangCore(l as Lang),
+    t: (key: string) => t(key),
+  };
 }
