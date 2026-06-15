@@ -247,6 +247,7 @@ function schedule() {
 
 export function applyLocale(locale: Locale) {
   if (typeof document === "undefined") return;
+  purgeLegacyCaches();
   currentLocale = locale;
   loadCache(locale);
   safeWalk(document.body, locale);
