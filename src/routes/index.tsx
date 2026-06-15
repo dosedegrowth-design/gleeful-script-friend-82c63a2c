@@ -8,6 +8,7 @@ import { TeamSection } from "@/components/sections/TeamSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { AssessmentSection } from "@/components/sections/AssessmentSection";
 import { PillarsSection } from "@/components/sections/PillarsSection";
+import { SymbolSection } from "@/components/sections/SymbolSection";
 import { ManifestoSection } from "@/components/sections/ManifestoSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { FormSection } from "@/components/sections/FormSection";
