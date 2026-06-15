@@ -21,9 +21,10 @@ export function PageLoader() {
           <motion.img
             src="/mooviagold.png"
             alt="MOOVIA"
-            className="w-20 h-20 object-contain"
+            className="w-32 h-32 md:w-40 md:h-40 object-contain"
+            style={{ filter: "drop-shadow(0 0 24px rgba(173,137,87,0.55)) drop-shadow(0 0 60px rgba(173,137,87,0.25))" }}
             animate={{ rotate: 360 }}
-            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 2.4, repeat: Infinity, ease: "linear" }}
           />
         </motion.div>
       )}
