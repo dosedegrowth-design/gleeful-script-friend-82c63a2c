@@ -107,7 +107,7 @@ async function flush(locale: Locale) {
     });
     saveCache(locale);
     // Re-walk DOM so new translations get applied.
-    if (typeof document !== "undefined") walk(document.body, locale);
+    if (typeof document !== "undefined") schedule();
   } catch (e) {
     // eslint-disable-next-line no-console
     console.warn("[i18n] translate batch failed", e);
@@ -204,13 +204,26 @@ function walk(root: Node, locale: Locale) {
 let currentLocale: Locale = SOURCE_LOCALE;
 let observer: MutationObserver | null = null;
 let scheduled = false;
+let muted = false;
+
+function safeWalk(root: Node, locale: Locale) {
+  if (muted) return;
+  muted = true;
+  try {
+    walk(root, locale);
+  } finally {
+    // Let the mutations triggered by our own writes settle before
+    // re-enabling the observer, otherwise we get an infinite churn.
+    setTimeout(() => { muted = false; }, 0);
+  }
+}
 
 function schedule() {
   if (scheduled) return;
   scheduled = true;
   requestAnimationFrame(() => {
     scheduled = false;
-    if (typeof document !== "undefined") walk(document.body, currentLocale);
+    if (typeof document !== "undefined") safeWalk(document.body, currentLocale);
   });
 }
 
@@ -218,28 +231,29 @@ export function applyLocale(locale: Locale) {
   if (typeof document === "undefined") return;
   currentLocale = locale;
   loadCache(locale);
-  walk(document.body, locale);
+  safeWalk(document.body, locale);
 
   if (!observer) {
     observer = new MutationObserver((mutations) => {
+      if (muted) return;
+      let needsWalk = false;
       for (const m of mutations) {
-        if (m.type === "characterData" && m.target.nodeType === 3) {
-          processTextNode(m.target as Text, currentLocale);
-        } else if (m.addedNodes.length) {
+        if (m.type === "childList" && m.addedNodes.length) {
           for (const n of Array.from(m.addedNodes)) {
-            if (n.nodeType === 3) processTextNode(n as Text, currentLocale);
-            else if (n.nodeType === 1) walk(n, currentLocale);
+            if (n.nodeType === 1 || n.nodeType === 3) { needsWalk = true; break; }
           }
         }
       }
+      if (needsWalk) schedule();
     });
     observer.observe(document.body, {
       subtree: true,
       childList: true,
-      characterData: true,
+      // NOTE: do NOT observe characterData — our own text writes would
+      // re-trigger the observer and cause text to flicker every frame.
     });
   }
   schedule();
-  setTimeout(schedule, 300);
-  setTimeout(schedule, 1200);
+  setTimeout(schedule, 400);
+  setTimeout(schedule, 1500);
 }
