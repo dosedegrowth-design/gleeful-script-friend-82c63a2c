@@ -71,7 +71,7 @@ export function TeamSection() {
               <div className="aspect-[4/5] bg-black-3 overflow-hidden border border-b18 relative group mb-8">
                 <img
                   src={member.img}
-                  className="w-full h-full object-cover grayscale-[0.4] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
                   alt={member.name}
                   onError={(e) => {
                     e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=1a1d26&color=ad8957&size=512`;
@@ -98,21 +98,24 @@ export function TeamSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: team.length * 0.1 }}
-            className="bg-black-2 p-10 flex flex-col items-center justify-center text-center group relative overflow-hidden"
+            className="min-h-[560px] bg-black p-10 flex flex-col items-center justify-center text-center group relative overflow-hidden border border-gold/40"
           >
-            <div className="absolute left-0 top-0 w-[2px] h-0 bg-gold transition-all duration-500 group-hover:h-full" />
+            <div className="absolute inset-0 bg-black" />
+            <div className="absolute left-0 right-0 top-0 h-1 bg-gold" />
+            <div className="absolute inset-[18px] border border-gold/20 transition-all duration-500 group-hover:inset-[24px] group-hover:border-gold/45" />
+            <div className="absolute left-0 top-0 w-[2px] h-full bg-gold" />
             <img
               src="/mooviagold.svg"
               alt="MOOVIA"
-              className="w-20 h-20 mb-8 opacity-80 group-hover:opacity-100 transition-opacity"
+              className="relative z-10 w-24 h-24 mb-9 opacity-95 group-hover:opacity-100 transition-opacity"
             />
-            <h4 className="font-display text-[18px] font-[300] text-white mb-3 tracking-[0.2em]">MOOVIA TEAM</h4>
-            <p className="font-body text-[13px] font-[300] text-w35 leading-[1.7] mb-8 max-w-[260px]">
+            <h4 className="relative z-10 font-display text-[20px] font-[300] text-white mb-4 tracking-[0.2em]">MOOVIA TEAM</h4>
+            <p className="relative z-10 font-body text-[13px] font-[300] text-w70 leading-[1.7] mb-9 max-w-[260px]">
               Uma equipa multidisciplinar a coordenar cada detalhe da sua mudança para Portugal.
             </p>
             <a
               href="/sobre"
-              className="font-body text-[11px] font-[400] tracking-[0.22em] uppercase text-gold border border-gold/40 px-6 py-3 hover:bg-gold hover:text-black transition-all"
+              className="relative z-10 font-body text-[11px] font-[500] tracking-[0.22em] uppercase text-black bg-gold border border-gold px-7 py-3 hover:bg-gold-xl hover:border-gold-xl transition-all"
             >
               Ver completo
             </a>
