@@ -34,7 +34,7 @@ export function FoundersSection() {
         </div>
 
         {/* Founders Grid — Frederico + Pablo (simétrico) */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 mb-32">
+        <div className="grid lg:grid-cols-3 gap-12 lg:gap-12 mb-32">
           {[
             {
               id: "frederico",
@@ -55,6 +55,16 @@ export function FoundersSection() {
               chips: ["IST", "Engenharia Mecânica", "CFD", "Europa desde os 17"],
               bio: "Com trajetória internacional iniciada aos 17 anos, lidera as áreas financeira e tecnológica da MOOVIA. Mestrando em Engenharia Mecânica no Instituto Superior Técnico, assegura que cada mandato seja estruturado com eficiência, previsibilidade e visão de longo prazo.",
               quote: "Estruturamos cada mandato com a precisão de engenharia e a previsibilidade financeira que uma decisão desta dimensão exige.",
+            },
+            {
+              id: "dany",
+              img: "/images/dany.png",
+              name: "Dany Zukerman",
+              city: "Lisboa",
+              role: "Co-Founder & Partner",
+              chips: ["Estratégia", "Relações Institucionais", "Lisboa"],
+              bio: "Sócio da MOOVIA, traz visão estratégica e uma rede consolidada de relações institucionais em Portugal. Acompanha cada mandato com a sensibilidade de quem entende que uma transição internacional é, antes de tudo, uma decisão de vida.",
+              quote: "Cada família que recebemos merece ser tratada como se fosse a nossa — com discrição, presença e compromisso real.",
             },
           ].map((f, idx) => (
             <motion.div
