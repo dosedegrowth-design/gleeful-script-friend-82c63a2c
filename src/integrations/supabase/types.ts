@@ -368,11 +368,13 @@ export type Database = {
       }
       posts: {
         Row: {
+          banner_image: string | null
           category: string | null
           content: string | null
           created_at: string | null
           excerpt: string | null
           featured_image: string | null
+          focus_keyword: string | null
           id: string
           meta_description: string | null
           meta_title: string | null
@@ -382,15 +384,18 @@ export type Database = {
           read_time: number | null
           schema_json: Json | null
           slug: string
+          tags: string[] | null
           title: string
           updated_at: string | null
         }
         Insert: {
+          banner_image?: string | null
           category?: string | null
           content?: string | null
           created_at?: string | null
           excerpt?: string | null
           featured_image?: string | null
+          focus_keyword?: string | null
           id?: string
           meta_description?: string | null
           meta_title?: string | null
@@ -400,15 +405,18 @@ export type Database = {
           read_time?: number | null
           schema_json?: Json | null
           slug: string
+          tags?: string[] | null
           title: string
           updated_at?: string | null
         }
         Update: {
+          banner_image?: string | null
           category?: string | null
           content?: string | null
           created_at?: string | null
           excerpt?: string | null
           featured_image?: string | null
+          focus_keyword?: string | null
           id?: string
           meta_description?: string | null
           meta_title?: string | null
@@ -418,6 +426,7 @@ export type Database = {
           read_time?: number | null
           schema_json?: Json | null
           slug?: string
+          tags?: string[] | null
           title?: string
           updated_at?: string | null
         }
