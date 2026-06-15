@@ -53,8 +53,8 @@ export function setLang(lang: Lang) {
   } catch {}
   if (typeof document !== "undefined") {
     document.documentElement.lang = lang;
-    const domLang = lang === "pt-BR" || lang === "pt-PT" ? "pt" : lang;
-    applyDomTranslations(domLang as "pt" | "en" | "es");
+    const domLang = lang === "pt-PT" ? "pt" : lang === "pt-BR" ? "pt-BR" : lang;
+    applyDomTranslations(domLang as any);
   }
 }
 
@@ -72,8 +72,8 @@ export function getCurrentLang(): Lang {
 export function reapplyCurrentLang() {
   if (typeof document === "undefined") return;
   const lang = getCurrentLang();
-  const domLang = lang === "pt-BR" || lang === "pt-PT" ? "pt" : lang;
-  applyDomTranslations(domLang as "pt" | "en" | "es");
+  const domLang = lang === "pt-PT" ? "pt" : lang === "pt-BR" ? "pt-BR" : lang;
+  applyDomTranslations(domLang as any);
 }
 
 export default i18n;
