@@ -136,6 +136,7 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body>
         <AirplaneScene />
+        <PageLoader />
         {children}
         <Toaster position="top-right" richColors />
         <Scripts />
