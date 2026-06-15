@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import type { ReactNode } from "react";
 
 type Card = {
   num: string;
@@ -7,48 +6,9 @@ type Card = {
   pillar: string;
   description: string;
   tagline: string;
-  icon: ReactNode;
+  icon: string;
   alt: string;
 };
-
-const iconBaseProps = {
-  width: 52,
-  height: 52,
-  viewBox: "0 0 52 52",
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: 1.25,
-  strokeLinecap: "round" as const,
-  strokeLinejoin: "round" as const,
-};
-
-const AviaoIcon = () => (
-  <svg {...iconBaseProps} aria-hidden>
-    <path d="M26 6 L30 24 L46 30 L46 33 L30 30 L28 42 L33 45 L33 47 L26 45 L19 47 L19 45 L24 42 L22 30 L6 33 L6 30 L22 24 Z" />
-  </svg>
-);
-
-const PonteIcon = () => (
-  <svg {...iconBaseProps} aria-hidden>
-    <path d="M6 38 H46" />
-    <path d="M10 38 V22 A16 16 0 0 1 42 22 V38" />
-    <path d="M18 38 V28 M26 38 V24 M34 38 V28" />
-  </svg>
-);
-
-const PessoaIcon = () => (
-  <svg {...iconBaseProps} aria-hidden>
-    <circle cx="26" cy="16" r="6" />
-    <path d="M12 46 V40 A14 14 0 0 1 40 40 V46" />
-  </svg>
-);
-
-const CasaIcon = () => (
-  <svg {...iconBaseProps} aria-hidden>
-    <path d="M8 24 L26 8 L44 24 V44 H8 Z" />
-    <path d="M22 44 V30 H30 V44" />
-  </svg>
-);
 
 const cards: Card[] = [
   {
@@ -58,7 +18,7 @@ const cards: Card[] = [
     description:
       "Toda transição começa com uma decisão. Antes de comprar a passagem, é preciso ter clareza sobre o que vem depois: visto, escola, imóvel, fiscalidade, família. O Assessment existe para que a partida seja o início de um plano — não o início de um improviso.",
     tagline: "A decisão certa começa aqui.",
-    icon: <AviaoIcon />,
+    icon: "/icons/aviao.svg",
     alt: "Ícone de avião",
   },
   {
@@ -68,7 +28,7 @@ const cards: Card[] = [
     description:
       "Cruzar uma fronteira não é só pegar um avião. É obter documentação, abrir uma conta bancária, conseguir o NIF, a casa, a escola, as ativações. A MOOVIA coordena cada etapa dessa passagem para que a família chegue a Portugal instalada — não perdida.",
     tagline: "A fronteira é o começo, não o obstáculo.",
-    icon: <PonteIcon />,
+    icon: "/icons/ponte.svg",
     alt: "Ícone de arco/ponte",
   },
   {
@@ -78,7 +38,7 @@ const cards: Card[] = [
     description:
       "Uma mudança de país não termina quando o avião aterrissa. Começa. A escola das crianças, a rotina do cônjuge, a rede social, a adaptação cultural — tudo isso precisa de atenção nos primeiros 90 dias. A MOOVIA é a única empresa que acompanha este período de forma estruturada.",
     tagline: "Chegar é metade. Ficar é o que importa.",
-    icon: <PessoaIcon />,
+    icon: "/icons/pessoa.svg",
     alt: "Ícone de pessoa",
   },
   {
@@ -88,7 +48,7 @@ const cards: Card[] = [
     description:
       "O objetivo final não é ter o visto ou o NIF. É ter uma vida em Portugal — estruturada, legal e financeiramente organizada. Fiscalidade, empresa, patrimônio, investimento. A MOOVIA coordena a chegada e a construção do que vem depois.",
     tagline: "Portugal não é o destino. É o começo.",
-    icon: <CasaIcon />,
+    icon: "/icons/casa.svg",
     alt: "Ícone de casa",
   },
 ];
