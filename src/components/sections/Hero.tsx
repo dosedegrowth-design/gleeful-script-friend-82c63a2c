@@ -1,29 +1,12 @@
-import { useEffect, useRef } from "react";
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import SplitType from "split-type";
-import { gsap } from "gsap";
 import heroLisboaEditorial from "@/assets/hero-lisboa-editorial.jpg";
+import { useI18n } from "@/lib/i18n/I18nProvider";
+import { PHRASES } from "@/lib/i18n/phrases";
 
 export function Hero() {
-  const headlineRef = useRef<HTMLHeadingElement>(null);
-  
-  useEffect(() => {
-    if (!headlineRef.current) return;
-    const split = new SplitType(headlineRef.current, { types: 'lines,words' });
-    
-    gsap.fromTo(split.words, 
-      { y: '110%' },
-      { 
-        y: 0, 
-        stagger: 0.05, 
-        duration: 0.8, 
-        ease: "power4.out",
-        delay: 0.5
-      }
-    );
-    return () => split.revert();
-  }, []);
+  const { locale } = useI18n();
+  const phrase = (text: string) => PHRASES[text]?.[locale] ?? text;
 
   return (
     <section className="relative min-h-[100svh] flex flex-col lg:flex-row bg-[#06091a] overflow-hidden">
@@ -46,14 +29,15 @@ export function Hero() {
         </motion.div>
 
         <h1 
-          ref={headlineRef}
+          key={locale}
+          data-no-translate
           className="font-display text-[clamp(34px,3.8vw,62px)] text-white leading-[1.02] tracking-[-0.025em] mb-10"
         >
-          <span className="font-[300] block text-white/70">Você não precisa</span>
-          <span className="font-[300] block text-white/70">de mais informação.</span>
-          <span className="font-[400] block mt-3">Precisa de alguém</span>
-          <span className="font-[400] block">que coordene</span>
-          <span className="font-[400] text-gold-l italic block">a decisão.</span>
+          <span className="font-[300] block text-white/70">{phrase("Você não precisa")}</span>
+          <span className="font-[300] block text-white/70">{phrase("de mais informação.")}</span>
+          <span className="font-[400] block mt-3">{phrase("Precisa de alguém")}</span>
+          <span className="font-[400] block">{phrase("que coordene")}</span>
+          <span className="font-[400] text-gold-l italic block">{phrase("a decisão.")}</span>
         </h1>
 
 
