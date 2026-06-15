@@ -9,8 +9,12 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermosRouteImport } from './routes/termos'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as ServicosRouteImport } from './routes/servicos'
+import { Route as PrivacidadeRouteImport } from './routes/privacidade'
+import { Route as EquipaRouteImport } from './routes/equipa'
+import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as AssessmentRouteImport } from './routes/assessment'
 import { Route as AdminRouteImport } from './routes/admin'
@@ -27,6 +31,11 @@ import { Route as AdminBlogRouteImport } from './routes/admin.blog'
 import { Route as AdminAssessmentsRouteImport } from './routes/admin.assessments'
 import { Route as AdminAnalyticsRouteImport } from './routes/admin.analytics'
 
+const TermosRoute = TermosRouteImport.update({
+  id: '/termos',
+  path: '/termos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SobreRoute = SobreRouteImport.update({
   id: '/sobre',
   path: '/sobre',
@@ -35,6 +44,21 @@ const SobreRoute = SobreRouteImport.update({
 const ServicosRoute = ServicosRouteImport.update({
   id: '/servicos',
   path: '/servicos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacidadeRoute = PrivacidadeRouteImport.update({
+  id: '/privacidade',
+  path: '/privacidade',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EquipaRoute = EquipaRouteImport.update({
+  id: '/equipa',
+  path: '/equipa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactoRoute = ContactoRouteImport.update({
@@ -118,8 +142,12 @@ export interface FileRoutesByFullPath {
   '/admin': typeof AdminRouteWithChildren
   '/assessment': typeof AssessmentRoute
   '/contacto': typeof ContactoRoute
+  '/cookies': typeof CookiesRoute
+  '/equipa': typeof EquipaRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
+  '/termos': typeof TermosRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/assessments': typeof AdminAssessmentsRoute
   '/admin/blog': typeof AdminBlogRoute
@@ -136,8 +164,12 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/assessment': typeof AssessmentRoute
   '/contacto': typeof ContactoRoute
+  '/cookies': typeof CookiesRoute
+  '/equipa': typeof EquipaRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
+  '/termos': typeof TermosRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/assessments': typeof AdminAssessmentsRoute
   '/admin/blog': typeof AdminBlogRoute
@@ -156,8 +188,12 @@ export interface FileRoutesById {
   '/admin': typeof AdminRouteWithChildren
   '/assessment': typeof AssessmentRoute
   '/contacto': typeof ContactoRoute
+  '/cookies': typeof CookiesRoute
+  '/equipa': typeof EquipaRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/servicos': typeof ServicosRoute
   '/sobre': typeof SobreRoute
+  '/termos': typeof TermosRoute
   '/admin/analytics': typeof AdminAnalyticsRoute
   '/admin/assessments': typeof AdminAssessmentsRoute
   '/admin/blog': typeof AdminBlogRoute
@@ -177,8 +213,12 @@ export interface FileRouteTypes {
     | '/admin'
     | '/assessment'
     | '/contacto'
+    | '/cookies'
+    | '/equipa'
+    | '/privacidade'
     | '/servicos'
     | '/sobre'
+    | '/termos'
     | '/admin/analytics'
     | '/admin/assessments'
     | '/admin/blog'
@@ -195,8 +235,12 @@ export interface FileRouteTypes {
     | '/'
     | '/assessment'
     | '/contacto'
+    | '/cookies'
+    | '/equipa'
+    | '/privacidade'
     | '/servicos'
     | '/sobre'
+    | '/termos'
     | '/admin/analytics'
     | '/admin/assessments'
     | '/admin/blog'
@@ -214,8 +258,12 @@ export interface FileRouteTypes {
     | '/admin'
     | '/assessment'
     | '/contacto'
+    | '/cookies'
+    | '/equipa'
+    | '/privacidade'
     | '/servicos'
     | '/sobre'
+    | '/termos'
     | '/admin/analytics'
     | '/admin/assessments'
     | '/admin/blog'
@@ -234,14 +282,25 @@ export interface RootRouteChildren {
   AdminRoute: typeof AdminRouteWithChildren
   AssessmentRoute: typeof AssessmentRoute
   ContactoRoute: typeof ContactoRoute
+  CookiesRoute: typeof CookiesRoute
+  EquipaRoute: typeof EquipaRoute
+  PrivacidadeRoute: typeof PrivacidadeRoute
   ServicosRoute: typeof ServicosRoute
   SobreRoute: typeof SobreRoute
+  TermosRoute: typeof TermosRoute
   BlogSlugRoute: typeof BlogSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/termos': {
+      id: '/termos'
+      path: '/termos'
+      fullPath: '/termos'
+      preLoaderRoute: typeof TermosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sobre': {
       id: '/sobre'
       path: '/sobre'
@@ -254,6 +313,27 @@ declare module '@tanstack/react-router' {
       path: '/servicos'
       fullPath: '/servicos'
       preLoaderRoute: typeof ServicosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacidade': {
+      id: '/privacidade'
+      path: '/privacidade'
+      fullPath: '/privacidade'
+      preLoaderRoute: typeof PrivacidadeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/equipa': {
+      id: '/equipa'
+      path: '/equipa'
+      fullPath: '/equipa'
+      preLoaderRoute: typeof EquipaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contacto': {
@@ -395,21 +475,15 @@ const rootRouteChildren: RootRouteChildren = {
   AdminRoute: AdminRouteWithChildren,
   AssessmentRoute: AssessmentRoute,
   ContactoRoute: ContactoRoute,
+  CookiesRoute: CookiesRoute,
+  EquipaRoute: EquipaRoute,
+  PrivacidadeRoute: PrivacidadeRoute,
   ServicosRoute: ServicosRoute,
   SobreRoute: SobreRoute,
+  TermosRoute: TermosRoute,
   BlogSlugRoute: BlogSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
