@@ -76,6 +76,17 @@ export function TeamSection() {
             >
               <div className="absolute left-0 top-0 w-[2px] h-0 bg-gold transition-all duration-500 group-hover:h-full" />
               
+              <div className="aspect-[4/5] bg-black-3 overflow-hidden border border-b18 relative group mb-8">
+                <img
+                  src={member.img}
+                  className="w-full h-full object-cover grayscale-[0.4] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
+                  alt={member.name}
+                  onError={(e) => {
+                    e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=1a1d26&color=ad8957&size=512`;
+                  }}
+                />
+              </div>
+
               <div className="flex flex-wrap gap-2 mb-8">
                 {member.chips.map(chip => (
                   <span key={chip} className="font-body text-[10px] font-[400] text-w35 uppercase tracking-widest border border-b18 px-2 py-1">
