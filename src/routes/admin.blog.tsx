@@ -64,9 +64,16 @@ function AdminBlog() {
   async function fetchPosts() {
     setLoading(true);
     const { data, error } = await supabase
-      .from("posts").select("*").order("created_at", { ascending: false });
-    if (error) toast.error("Erro ao carregar posts");
-    else setPosts((data as any) || []);
+      .from("posts")
+      .select("id,title,slug,excerpt,content,category,tags,published,featured_image,banner_image,og_image,read_time,meta_title,meta_description,focus_keyword,published_at,created_at")
+      .order("created_at", { ascending: false });
+    if (error) {
+      console.error("[admin.blog] fetch error", error);
+      toast.error(`Erro ao carregar posts: ${error.message}`);
+      setPosts([]);
+    } else {
+      setPosts((data as any) || []);
+    }
     setLoading(false);
   }
 
