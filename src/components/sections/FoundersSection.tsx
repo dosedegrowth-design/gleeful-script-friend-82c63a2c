@@ -133,7 +133,7 @@ export function FoundersSection() {
               { img: "/images/eduardo.png", name: "Eduardo Costa", role: "Legal & Compliance" },
               { img: "/images/moyses.png", name: "Moyses Filipe", role: "Relocation Lead" },
               { img: "/images/sara.png", name: "Sara Mendes", role: "Client Experience" },
-              { img: "/images/joao.png", name: "João", role: "Partner" },
+              { img: "/images/joao.png", name: "João Gabriel Prado", role: "Partner" },
 
             ].map((m, idx) => (
               <motion.div
