@@ -47,10 +47,10 @@ export function AssessmentSection() {
 
           <div className="grid grid-cols-2 gap-4">
             {[
-              { icon: Clock, label: "90 minutos estruturados" },
-              { icon: FileText, label: "Entregável físico que você leva" },
-              { icon: CircleDollarSign, label: "€250 abatidos no mandato" },
-              { icon: User, label: "Diretamente com o founder" }
+              { icon: ClockIcon, label: "90 minutos estruturados" },
+              { icon: FileIcon, label: "Entregável físico que você leva" },
+              { icon: CoinIcon, label: "€250 abatidos no mandato" },
+              { icon: UserIcon, label: "Diretamente com o founder" }
             ].map((item, i) => (
               <motion.div 
                 key={i}
@@ -60,7 +60,9 @@ export function AssessmentSection() {
                 transition={{ delay: i * 0.1 }}
                 className="bg-black-3 border border-b18 p-6 flex flex-col gap-2"
               >
-                <Icon icon={item.icon} size={22} color="var(--gold)" strokeWidth={1.5} className="mb-2" />
+                <div className="mb-2 text-gold">
+                  <item.icon size={26} />
+                </div>
                 <span className="font-body text-[11px] font-[400] text-w35 uppercase tracking-widest leading-tight">{item.label}</span>
               </motion.div>
             ))}
