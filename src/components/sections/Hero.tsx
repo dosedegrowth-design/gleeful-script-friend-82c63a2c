@@ -35,10 +35,12 @@ export function Hero() {
           data-no-translate
           className="font-display text-[clamp(34px,3.8vw,62px)] text-white leading-[1.02] tracking-[-0.025em] mb-10"
         >
-          <span className="font-[300] block text-white/70">{cx("hero.title_1", t("hero.title_1"))}</span>
-          <span className="font-[300] block text-white/70">{cx("hero.title_2", t("hero.title_2"))}</span>
-          <span className="font-[400] block mt-3">{cx("hero.title_3", t("hero.title_3"))}</span>
-          <span className="font-[400] block">{cx("hero.title_4", t("hero.title_4"))}</span>
+          <span className="font-[300] block text-white/70">
+            {cx("hero.title_1", t("hero.title_1"))} {cx("hero.title_2", t("hero.title_2"))}
+          </span>
+          <span className="font-[400] block mt-3">
+            {cx("hero.title_3", t("hero.title_3"))} {cx("hero.title_4", t("hero.title_4"))}
+          </span>
           <span className="font-[400] text-gold-l italic block">{cx("hero.title_5", t("hero.title_5"))}</span>
         </h1>
 
