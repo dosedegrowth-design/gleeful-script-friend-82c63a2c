@@ -35,6 +35,6 @@ function Equipa() {
       </div>
 
       <EquipaShowcase />
-
+    </SiteLayout>
   );
 }
