@@ -24,7 +24,7 @@ export const Route = createFileRoute("/blog/$slug")({
     const url = `https://beta.mooviaportugal.com/blog/${params.slug}`;
     const title = post?.meta_title || (post ? `${post.title} — MOOVIA Portugal` : "Artigo — MOOVIA Portugal");
     const description = post?.meta_description || post?.excerpt || "Artigo MOOVIA Portugal sobre transição internacional.";
-    const image = post?.og_image || post?.featured_image;
+    const image = post?.og_image || post?.banner_image || post?.featured_image;
     return {
       meta: [
         { title },
@@ -124,9 +124,9 @@ function Post() {
               {post.read_time && (
                 <div className="mt-6 font-urbanist text-[11px] uppercase tracking-[0.18em] text-w35">{post.read_time} min de leitura</div>
               )}
-              {post.featured_image && (
+              {(post.banner_image || post.featured_image) && (
                 <div className="mt-12 relative aspect-[16/9] overflow-hidden border border-b18">
-                  <img src={post.featured_image} alt={post.title} className="h-full w-full object-cover" />
+                  <img src={post.banner_image || post.featured_image} alt={post.title} className="h-full w-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                 </div>
               )}
