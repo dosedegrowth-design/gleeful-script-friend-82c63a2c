@@ -1,12 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import heroLisboaEditorial from "@/assets/hero-lisboa-editorial.jpg";
-import { useI18n } from "@/lib/i18n/I18nProvider";
-import { PHRASES } from "@/lib/i18n/phrases";
 
 export function Hero() {
-  const { locale } = useI18n();
-  const phrase = (text: string) => PHRASES[text]?.[locale] ?? text;
+  const { t, i18n } = useTranslation();
+  const locale = i18n.language;
 
   return (
     <section className="relative min-h-[100svh] flex flex-col lg:flex-row bg-[#06091a] overflow-hidden">
