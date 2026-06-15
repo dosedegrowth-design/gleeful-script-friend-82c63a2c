@@ -63,6 +63,7 @@ function Home() {
 
       <AssessmentSection />
       <PillarsSection />
+      <SymbolSection />
       <LisboaGallery />
       <ManifestoSection />
       <BlogTeaserSection />
