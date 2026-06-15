@@ -3,14 +3,6 @@ import { motion } from "framer-motion";
 export function TeamSection() {
   const team = [
     {
-      id: "joao",
-      name: "João Gabriel Prado",
-      role: "Co-Founder",
-      img: "/images/joao.png",
-      chips: ["Abreu Advogados", "ULisboa", "CIDP", "Corporate & M&A"],
-      bio: "Advogado na Abreu Advogados em Corporate e M&A. Pós-graduações CIDP em Corporate Finance e M&A. O braço jurídico da MOOVIA no ecossistema português."
-    },
-    {
       id: "moyses",
       name: "Moyses Filipe",
       role: "Conselheiro Estratégico",
