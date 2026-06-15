@@ -54,7 +54,7 @@ export function FoundersSection() {
               role: "Co-Founder",
               chips: ["Abreu Advogados", "ULisboa", "CIDP", "Corporate & M&A"],
               bio: "Advogado na Abreu Advogados em Corporate e M&A. Pós-graduações CIDP em Corporate Finance e M&A. O braço jurídico da MOOVIA no ecossistema português.",
-              quote: "",
+              quote: "Cada transição internacional é, antes de tudo, uma decisão jurídica. O nosso papel é garantir que essa decisão tenha estrutura, segurança e previsibilidade desde o primeiro passo.",
             },
             {
               id: "pablo",
