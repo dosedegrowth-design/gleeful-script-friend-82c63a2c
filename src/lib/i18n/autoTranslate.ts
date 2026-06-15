@@ -157,19 +157,16 @@ function processElement(el: Element, locale: Locale) {
   if ((el as HTMLElement).hasAttribute?.("data-no-translate")) return;
   if (!ELEMENT_TAGS.has(el.tagName)) return;
 
-  const originalHTML = HTML_ORIGINALS.get(el) ?? el.innerHTML;
+  // CRITICAL: only do element-level replacement if the element has NO
+  // child elements at all. Otherwise we'd destroy nested spans used by
+  // SplitType, animations, gradient/weight styling, icons, etc. — which
+  // breaks layout and typography. The text-node walker handles those.
+  if (el.children.length > 0) return;
+
   const text = (el.textContent ?? "").trim();
   if (!text) return;
-  // Only treat as an "element-level phrase" if there are NO block children;
-  // otherwise the per-child walk handles it.
-  const hasBlockChild = Array.from(el.children).some((c) => {
-    const tag = c.tagName;
-    return tag === "DIV" || tag === "SECTION" || tag === "ARTICLE" ||
-           tag === "UL" || tag === "OL" || tag === "HEADER" || tag === "FOOTER" ||
-           tag === "NAV" || tag === "FORM";
-  });
-  if (hasBlockChild) return;
 
+  const originalHTML = HTML_ORIGINALS.get(el) ?? el.innerHTML;
   if (!HTML_ORIGINALS.has(el)) HTML_ORIGINALS.set(el, originalHTML);
 
   if (locale === SOURCE_LOCALE) {
