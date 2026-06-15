@@ -64,7 +64,7 @@ export function Nav() {
           to="/#contacto"
           className="border border-b35 text-gold-l font-body font-[600] text-[12px] tracking-[0.18em] uppercase px-6 py-2.5 hover:bg-gold hover:text-black hover:border-gold transition-all"
         >
-          {t("nav.cta")}
+          {cmsText("nav.cta", t("nav.cta"))}
         </Link>
       </div>
 
@@ -113,7 +113,7 @@ export function Nav() {
               onClick={() => setMobileOpen(false)}
               className="mt-4 border border-gold text-gold font-body font-[600] text-[14px] tracking-[0.2em] uppercase px-10 py-4"
             >
-              {t("nav.cta")}
+              {cmsText("nav.cta", t("nav.cta"))}
             </Link>
           </motion.div>
         )}
