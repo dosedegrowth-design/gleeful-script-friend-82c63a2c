@@ -584,6 +584,8 @@ export type Database = {
         Args: { lead_record: Database["public"]["Tables"]["leads"]["Row"] }
         Returns: string
       }
+      is_admin: { Args: { _user_id: string }; Returns: boolean }
+      is_owner: { Args: { _user_id: string }; Returns: boolean }
     }
     Enums: {
       [_ in never]: never
