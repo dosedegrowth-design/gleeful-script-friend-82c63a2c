@@ -1,11 +1,10 @@
 // Runtime DOM translator.
 // Walks all text nodes + selected attributes once per language change.
-// Stores the ORIGINAL Portuguese text in a WeakMap so we can restore it.
-// No MutationObserver — avoids the previous "text flickers" loop.
-// We re-run a few times after a change to catch nodes that mount later
-// (framer-motion whileInView, route transitions, etc.).
+// Stores the ORIGINAL Portuguese text (pt-PT) in a WeakMap so we can restore it.
 
-import { translate, type Lang } from "./dict";
+import { translate, type Lang as DictLang } from "./dict";
+
+export type WalkerLang = DictLang | "pt-BR";
 
 const ORIGINAL_TEXT = new WeakMap<Text, string>();
 const ORIGINAL_ATTR = new WeakMap<Element, Record<string, string>>();
@@ -13,6 +12,46 @@ const ORIGINAL_ATTR = new WeakMap<Element, Record<string, string>>();
 const ATTRS = ["placeholder", "alt", "aria-label", "title"];
 
 const SKIP_TAGS = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "CODE", "PRE", "TEXTAREA"]);
+
+// pt-PT → pt-BR word swaps. Case-preserving for capitalized variants.
+const BR_PAIRS: [string, string][] = [
+  ["Contacto", "Contato"],
+  ["contacto", "contato"],
+  ["Contactos", "Contatos"],
+  ["contactos", "contatos"],
+  ["Contactar", "Contatar"],
+  ["contactar", "contatar"],
+  ["Equipa", "Equipe"],
+  ["equipa", "equipe"],
+  ["Equipas", "Equipes"],
+  ["equipas", "equipes"],
+  ["facto", "fato"],
+  ["Facto", "Fato"],
+  ["a coordenar", "coordenando"],
+  ["a carregar", "carregando"],
+  ["A carregar", "Carregando"],
+  ["telemóvel", "celular"],
+  ["Telemóvel", "Celular"],
+  ["autocarro", "ônibus"],
+  ["casa de banho", "banheiro"],
+  ["pequeno-almoço", "café da manhã"],
+  ["ecrã", "tela"],
+  ["Ecrã", "Tela"],
+  ["a sua", "sua"],
+  ["A sua", "Sua"],
+  ["o seu", "seu"],
+  ["O seu", "Seu"],
+];
+
+function toBR(text: string): string {
+  let out = text;
+  for (const [from, to] of BR_PAIRS) {
+    if (out.includes(from)) {
+      out = out.split(from).join(to);
+    }
+  }
+  return out;
+}
 
 function shouldSkip(node: Node): boolean {
   let el: Node | null = node.parentNode;
@@ -25,20 +64,20 @@ function shouldSkip(node: Node): boolean {
   return false;
 }
 
-function translateTextNode(node: Text, lang: Lang) {
+function resolve(original: string, lang: WalkerLang): string {
+  if (lang === "pt") return original;
+  if (lang === "pt-BR") return toBR(original);
+  return translate(original, lang) ?? original;
+}
+
+function translateTextNode(node: Text, lang: WalkerLang) {
   const original = ORIGINAL_TEXT.get(node) ?? node.nodeValue ?? "";
   if (!ORIGINAL_TEXT.has(node)) ORIGINAL_TEXT.set(node, original);
-
-  if (lang === "pt") {
-    if (node.nodeValue !== original) node.nodeValue = original;
-    return;
-  }
-  const translated = translate(original, lang);
-  const next = translated ?? original;
+  const next = resolve(original, lang);
   if (node.nodeValue !== next) node.nodeValue = next;
 }
 
-function translateAttr(el: Element, attr: string, lang: Lang) {
+function translateAttr(el: Element, attr: string, lang: WalkerLang) {
   const current = el.getAttribute(attr);
   if (current == null) return;
   let store = ORIGINAL_ATTR.get(el);
@@ -48,18 +87,11 @@ function translateAttr(el: Element, attr: string, lang: Lang) {
   }
   if (!(attr in store)) store[attr] = current;
   const original = store[attr];
-
-  if (lang === "pt") {
-    if (current !== original) el.setAttribute(attr, original);
-    return;
-  }
-  const translated = translate(original, lang);
-  const next = translated ?? original;
+  const next = resolve(original, lang);
   if (current !== next) el.setAttribute(attr, next);
 }
 
-function walk(root: Node, lang: Lang) {
-  // Text nodes
+function walk(root: Node, lang: WalkerLang) {
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
     acceptNode: (n) => {
       if (shouldSkip(n)) return NodeFilter.FILTER_REJECT;
@@ -74,7 +106,6 @@ function walk(root: Node, lang: Lang) {
     current = walker.nextNode();
   }
 
-  // Attributes
   if (root.nodeType === 1) {
     for (const attr of ATTRS) {
       const els = (root as Element).querySelectorAll?.(`[${attr}]`);
@@ -86,11 +117,10 @@ function walk(root: Node, lang: Lang) {
 }
 
 let scheduled = false;
-export function applyDomTranslations(lang: Lang) {
+export function applyDomTranslations(lang: WalkerLang) {
   if (typeof document === "undefined") return;
   const run = () => walk(document.body, lang);
   run();
-  // Re-run shortly after to catch async-mounted nodes (whileInView, route transitions).
   if (scheduled) return;
   scheduled = true;
   const delays = [100, 400, 1200, 3000];
