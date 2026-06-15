@@ -2,10 +2,13 @@ import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import heroLisboaEditorial from "@/assets/hero-lisboa-editorial.jpg";
+import { useSiteContent } from "@/lib/useSiteContent";
 
 export function Hero() {
   const { t, i18n } = useTranslation();
   const locale = i18n.language;
+  const { data: cms } = useSiteContent();
+  const cx = (k: string, fb: string) => (cms && cms[k]) || fb;
 
   return (
     <section className="relative min-h-[100svh] flex flex-col lg:flex-row bg-[#06091a] overflow-hidden">
@@ -23,7 +26,7 @@ export function Hero() {
         >
           <div className="w-8 h-px bg-gold" />
           <span className="font-body text-[11px] font-[400] tracking-[0.32em] uppercase text-gold">
-            {t("hero.eyebrow")}
+            {cx("hero.eyebrow", t("hero.eyebrow"))}
           </span>
         </motion.div>
 
@@ -32,11 +35,11 @@ export function Hero() {
           data-no-translate
           className="font-display text-[clamp(34px,3.8vw,62px)] text-white leading-[1.02] tracking-[-0.025em] mb-10"
         >
-          <span className="font-[300] block text-white/70">{t("hero.title_1")}</span>
-          <span className="font-[300] block text-white/70">{t("hero.title_2")}</span>
-          <span className="font-[400] block mt-3">{t("hero.title_3")}</span>
-          <span className="font-[400] block">{t("hero.title_4")}</span>
-          <span className="font-[400] text-gold-l italic block">{t("hero.title_5")}</span>
+          <span className="font-[300] block text-white/70">{cx("hero.title_1", t("hero.title_1"))}</span>
+          <span className="font-[300] block text-white/70">{cx("hero.title_2", t("hero.title_2"))}</span>
+          <span className="font-[400] block mt-3">{cx("hero.title_3", t("hero.title_3"))}</span>
+          <span className="font-[400] block">{cx("hero.title_4", t("hero.title_4"))}</span>
+          <span className="font-[400] text-gold-l italic block">{cx("hero.title_5", t("hero.title_5"))}</span>
         </h1>
 
 
@@ -47,7 +50,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 1.3 }}
           className="font-body text-[16px] font-[300] text-w35 leading-[1.7] max-w-[440px] mb-14"
         >
-          {t("hero.lead")}
+          {cx("hero.lead", t("hero.lead"))}
         </motion.p>
 
 
@@ -57,14 +60,14 @@ export function Hero() {
             className="group relative overflow-hidden bg-gold text-black font-body font-[600] text-[11px] sm:text-[12px] tracking-[0.2em] uppercase px-6 sm:px-10 py-4 rounded-[2px] shadow-[0_8px_24px_rgba(173,137,87,0.15)] whitespace-nowrap isolate"
           >
             <span className="absolute inset-0 bg-[#06091a] -translate-x-full group-hover:translate-x-0 transition-transform duration-[600ms] ease-[cubic-bezier(0.65,0,0.35,1)]" />
-            <span className="relative z-10 transition-colors duration-300 group-hover:text-gold">{t("hero.cta_primary")}</span>
+            <span className="relative z-10 transition-colors duration-300 group-hover:text-gold">{cx("hero.cta_primary", t("hero.cta_primary"))}</span>
           </Link>
           <a
             href="#processo"
             className="group relative overflow-hidden border border-b35 text-gold font-body font-[500] text-[11px] sm:text-[12px] tracking-[0.2em] uppercase px-6 sm:px-10 py-4 rounded-[2px] whitespace-nowrap isolate hover:border-gold"
           >
             <span className="absolute inset-0 bg-gold -translate-x-full group-hover:translate-x-0 transition-transform duration-[600ms] ease-[cubic-bezier(0.65,0,0.35,1)]" />
-            <span className="relative z-10 transition-colors duration-300 group-hover:text-[#06091a]">{t("hero.cta_secondary")}</span>
+            <span className="relative z-10 transition-colors duration-300 group-hover:text-[#06091a]">{cx("hero.cta_secondary", t("hero.cta_secondary"))}</span>
           </a>
         </div>
 
@@ -76,7 +79,7 @@ export function Hero() {
               className="absolute inset-0 bg-gold"
             />
           </div>
-          <span className="opacity-80">{t("hero.tagline")}</span>
+          <span className="opacity-80">{cx("hero.tagline", t("hero.tagline"))}</span>
         </div>
       </div>
 
