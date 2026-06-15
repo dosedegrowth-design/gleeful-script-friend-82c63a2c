@@ -34,7 +34,25 @@ const memCache: Record<Locale, Cache> = {
   "pt-PT": {}, "pt-BR": {}, es: {}, en: {},
 };
 
-function cacheKey(locale: Locale) { return `i18n-cache:${locale}`; }
+// Bump this version whenever cache shape/keys can be corrupted by prior
+// bugs (e.g. translated text accidentally used as source key). It forces a
+// clean cache on next load so users don't see swapped/inverted strings.
+const CACHE_VERSION = "v3";
+function cacheKey(locale: Locale) { return `i18n-cache:${CACHE_VERSION}:${locale}`; }
+
+function purgeLegacyCaches() {
+  if (typeof localStorage === "undefined") return;
+  try {
+    const keys: string[] = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const k = localStorage.key(i);
+      if (k && k.startsWith("i18n-cache:") && !k.startsWith(`i18n-cache:${CACHE_VERSION}:`)) {
+        keys.push(k);
+      }
+    }
+    keys.forEach((k) => localStorage.removeItem(k));
+  } catch { /* noop */ }
+}
 
 function loadCache(locale: Locale) {
   if (typeof localStorage === "undefined") return;
