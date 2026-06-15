@@ -50,18 +50,18 @@ const objections = [
 
 function AssessmentPage() {
   return (
-    <div className="bg-black min-h-screen text-white">
-      <MinimalNav />
-      <Hero />
-      <NotIsSection />
-      <DeliverablesSection />
-      <TimelineSection />
-      <ProfilesSection />
-      <PhysicalDocSection />
-      <ObjectionsSection />
-      <CtaFormSection />
-      <MinimalFooter />
-    </div>
+    <SiteLayout>
+      <div className="bg-black text-white">
+        <Hero />
+        <NotIsSection />
+        <DeliverablesSection />
+        <TimelineSection />
+        <ProfilesSection />
+        <PhysicalDocSection />
+        <ObjectionsSection />
+        <CtaFormSection />
+      </div>
+    </SiteLayout>
   );
 }
 
