@@ -8,6 +8,7 @@ type Card = {
   tagline: string;
   icon: string;
   alt: string;
+  iconScale: number;
 };
 
 const cards: Card[] = [
@@ -20,6 +21,7 @@ const cards: Card[] = [
     tagline: "A decisão certa começa aqui.",
     icon: "/icons/aviao.svg",
     alt: "Ícone de avião",
+    iconScale: 1.16,
   },
   {
     num: "02 / 04",
@@ -30,6 +32,7 @@ const cards: Card[] = [
     tagline: "A fronteira é o começo, não o obstáculo.",
     icon: "/icons/ponte.svg",
     alt: "Ícone de arco/ponte",
+    iconScale: 1.28,
   },
   {
     num: "03 / 04",
@@ -40,6 +43,7 @@ const cards: Card[] = [
     tagline: "Chegar é metade. Ficar é o que importa.",
     icon: "/icons/pessoa.svg",
     alt: "Ícone de pessoa",
+    iconScale: 0.9,
   },
   {
     num: "04 / 04",
@@ -50,6 +54,7 @@ const cards: Card[] = [
     tagline: "Portugal não é o destino. É o começo.",
     icon: "/icons/casa.svg",
     alt: "Ícone de casa",
+    iconScale: 0.95,
   },
 ];
 
@@ -93,17 +98,7 @@ export function SymbolSection() {
 
       {/* Grid */}
       <div className="max-w-7xl mx-auto relative">
-        {/* Connector line — desktop only */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9, delay: 0.6, ease: "easeOut" }}
-          style={{ transformOrigin: "left center" }}
-          className="hidden lg:block absolute left-0 right-0 top-[124px] h-px bg-gold/20 z-0 pointer-events-none"
-        />
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-b15 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-b15/70 relative z-10">
           {cards.map((card, i) => (
             <motion.article
               key={card.num}
@@ -111,29 +106,28 @@ export function SymbolSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              className="group relative bg-black2 hover:bg-black3 transition-colors duration-500 overflow-hidden border-t border-transparent hover:border-gold"
-              style={{ padding: "52px 40px" }}
+              className="group relative flex min-h-[520px] flex-col bg-black2 hover:bg-black3 transition-colors duration-500 overflow-hidden"
+              style={{ padding: "44px 34px" }}
             >
-              {/* Ghost number */}
-              <span
-                aria-hidden
-                className="absolute top-6 right-6 font-sora font-[100] leading-none select-none pointer-events-none"
-                style={{ fontSize: "80px", color: "rgba(173,137,87,0.05)" }}
-              >
-                {card.num.split(" / ")[0]}
-              </span>
-
               {/* Icon */}
-              <motion.img
-                src={card.icon}
-                alt={card.alt}
+              <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: i * 0.1 + 0.2 }}
-                className="relative mb-8 w-[52px] h-[52px] transition-transform duration-500 group-hover:scale-110"
-                style={{ filter: "brightness(0) saturate(100%) invert(63%) sepia(31%) saturate(456%) hue-rotate(358deg) brightness(91%) contrast(86%)" }}
-              />
+                className="relative mb-10 flex h-16 w-16 items-center justify-center border border-gold/20"
+              >
+                <img
+                  src={card.icon}
+                  alt={card.alt}
+                  className="h-9 w-9 object-contain opacity-85 transition-opacity duration-500 group-hover:opacity-100"
+                  style={{
+                    filter:
+                      "brightness(0) saturate(100%) invert(63%) sepia(31%) saturate(456%) hue-rotate(358deg) brightness(91%) contrast(86%)",
+                    transform: `scale(${card.iconScale})`,
+                  }}
+                />
+              </motion.div>
 
 
               {/* Number label */}
@@ -157,9 +151,7 @@ export function SymbolSection() {
               </p>
 
               {/* Tagline */}
-              <p
-                className="font-urbanist font-[300] text-[13px] text-w35 italic mt-6 pt-5 border-t border-b15 translate-y-1 group-hover:translate-y-0 transition-transform duration-500"
-              >
+              <p className="mt-auto pt-8 font-urbanist font-[300] text-[13px] text-w35 italic">
                 {card.tagline}
               </p>
             </motion.article>
