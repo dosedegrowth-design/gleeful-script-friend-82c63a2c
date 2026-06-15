@@ -164,18 +164,17 @@ export function SymbolSection() {
               </span>
 
               {/* Icon */}
-              <div className="relative mb-8 w-[52px] h-[52px] flex items-center justify-center">
-                <motion.img
-                  src={card.icon}
-                  alt={card.alt}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: i * 0.1 + 0.2 }}
-                  className="w-[52px] h-[52px] transition-transform duration-500 group-hover:scale-110"
-                  style={{ filter: "brightness(0) saturate(100%) invert(60%) sepia(28%) saturate(617%) hue-rotate(354deg) brightness(91%) contrast(86%)" }}
-                />
-              </div>
+              <motion.div
+                role="img"
+                aria-label={card.alt}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: i * 0.1 + 0.2 }}
+                className="relative mb-8 w-[52px] h-[52px] flex items-center justify-center text-gold transition-transform duration-500 group-hover:scale-110"
+              >
+                {card.icon}
+              </motion.div>
 
               {/* Number label */}
               <p className="font-urbanist font-[400] text-[10px] tracking-[0.2em] uppercase text-gold/60 mb-3">
