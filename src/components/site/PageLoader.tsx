@@ -2,19 +2,12 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 export function PageLoader() {
-  const [visible, setVisible] = useState(() => {
-    if (typeof window === "undefined") return true;
-    return !sessionStorage.getItem("moovia_loaded");
-  });
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    if (!visible) return;
-    const t = setTimeout(() => {
-      sessionStorage.setItem("moovia_loaded", "1");
-      setVisible(false);
-    }, 4000);
+    const t = setTimeout(() => setVisible(false), 4000);
     return () => clearTimeout(t);
-  }, [visible]);
+  }, []);
 
   return (
     <AnimatePresence>
