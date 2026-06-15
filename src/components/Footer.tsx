@@ -18,19 +18,22 @@ export const Footer = () => {
         <div>
           <h4 className="font-urbanist font-normal text-[10px] uppercase tracking-widest text-white/20 mb-6">{t("footer.services")}</h4>
           <ul className="space-y-4 font-urbanist font-light text-[13px] text-white/40">
-            <li><a href="#" className="hover:text-gold transition-colors">Assessment</a></li>
-            <li><a href="#" className="hover:text-gold transition-colors">Pilares</a></li>
-            <li><a href="#" className="hover:text-gold transition-colors">Blog</a></li>
-            <li><a href="#" className="hover:text-gold transition-colors">Sobre</a></li>
+            <li><a href="/assessment" className="hover:text-gold transition-colors">Assessment</a></li>
+            <li><a href="/servicos" className="hover:text-gold transition-colors">Serviços</a></li>
+            <li><a href="/blog" className="hover:text-gold transition-colors">Blog</a></li>
+            <li><a href="/sobre" className="hover:text-gold transition-colors">Sobre</a></li>
+            <li><a href="/equipa" className="hover:text-gold transition-colors">Equipa</a></li>
           </ul>
         </div>
 
         <div>
           <h4 className="font-urbanist font-normal text-[10px] uppercase tracking-widest text-white/20 mb-6">{t("footer.contact")}</h4>
           <ul className="space-y-4 font-urbanist font-light text-[13px] text-white/40">
-            <li><a href="#" className="hover:text-gold transition-colors">mooviaportugal.com</a></li>
-            <li><a href="#" className="hover:text-gold transition-colors">WhatsApp</a></li>
-            <li><a href="#" className="hover:text-gold transition-colors">LinkedIn</a></li>
+            <li><a href="/contacto" className="hover:text-gold transition-colors">Contacto</a></li>
+            <li><a href="mailto:hello@mooviaportugal.com" className="hover:text-gold transition-colors">hello@mooviaportugal.com</a></li>
+            <li><a href="https://wa.me/351910000000" className="hover:text-gold transition-colors">WhatsApp</a></li>
+            <li><a href="https://www.linkedin.com/company/moovia-portugal" className="hover:text-gold transition-colors">LinkedIn</a></li>
+            <li className="text-white/30">Avenida da Liberdade, Lisboa · PT</li>
           </ul>
         </div>
       </div>
@@ -38,8 +41,9 @@ export const Footer = () => {
       <div className="max-w-screen-2xl mx-auto border-t border-border pt-8 flex flex-col md:flex-row justify-between gap-4 font-urbanist font-light text-[12px] text-white/20">
         <div>{t("footer.rights")}</div>
         <div className="flex gap-6">
-          <a href="#" className="hover:text-white transition-colors">{t("footer.privacy")}</a>
-          <a href="#" className="hover:text-white transition-colors">{t("footer.cookies")}</a>
+          <a href="/privacidade" className="hover:text-white transition-colors">{t("footer.privacy")}</a>
+          <a href="/cookies" className="hover:text-white transition-colors">{t("footer.cookies")}</a>
+          <a href="/termos" className="hover:text-white transition-colors">Termos</a>
         </div>
       </div>
     </footer>

@@ -19,14 +19,52 @@ export const Route = createFileRoute("/blog/$slug")({
   loader: async ({ params }) => {
     return { post: await fetchPost(params.slug) };
   },
-  head: ({ loaderData }) => ({
-    meta: [
-      { title: loaderData?.post ? `${loaderData.post.title} — MOOVIA Portugal` : "Artigo — MOOVIA Portugal" },
-      { name: "description", content: loaderData?.post?.excerpt || "Artigo MOOVIA Portugal sobre transição internacional." },
-      { property: "og:title", content: loaderData?.post?.title || "Artigo MOOVIA Portugal" },
-      { property: "og:description", content: loaderData?.post?.excerpt || "Estratégia para quem está a coordenar uma transição internacional." },
-    ],
-  }),
+  head: ({ params, loaderData }) => {
+    const post: any = loaderData?.post;
+    const url = `https://beta.mooviaportugal.com/blog/${params.slug}`;
+    const title = post?.meta_title || (post ? `${post.title} — MOOVIA Portugal` : "Artigo — MOOVIA Portugal");
+    const description = post?.meta_description || post?.excerpt || "Artigo MOOVIA Portugal sobre transição internacional.";
+    const image = post?.og_image || post?.featured_image;
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: post?.title || title },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "article" },
+        { property: "og:url", content: url },
+        ...(image ? [{ property: "og:image", content: image }, { name: "twitter:image", content: image }] : []),
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: post?.title || title },
+        { name: "twitter:description", content: description },
+        ...(post?.category ? [{ property: "article:section", content: post.category }] : []),
+        ...(post?.published_at ? [{ property: "article:published_time", content: post.published_at }] : []),
+      ],
+      links: [{ rel: "canonical", href: url }],
+      scripts: post
+        ? [{
+            type: "application/ld+json",
+            children: JSON.stringify(post.schema_json || {
+              "@context": "https://schema.org",
+              "@type": "Article",
+              headline: post.title,
+              description,
+              image: image ? [image] : undefined,
+              datePublished: post.published_at || post.created_at,
+              dateModified: post.updated_at || post.created_at,
+              articleSection: post.category,
+              mainEntityOfPage: url,
+              author: { "@type": "Organization", name: "MOOVIA Portugal" },
+              publisher: {
+                "@type": "Organization",
+                name: "MOOVIA Portugal",
+                logo: { "@type": "ImageObject", url: "https://beta.mooviaportugal.com/mooviagold.png" },
+              },
+            }),
+          }]
+        : [],
+    };
+  },
   component: Post,
 });
 
