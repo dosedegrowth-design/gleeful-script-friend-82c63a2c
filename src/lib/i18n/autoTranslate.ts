@@ -15,8 +15,10 @@ import { translateBatch } from "./translate.functions";
 
 const SOURCE_LOCALE: Locale = "pt-PT";
 const TEXT_ORIGINALS = new WeakMap<Text, string>();
+const ELEMENT_TEXT_ORIGINALS = new WeakMap<Element, string>();
 const HTML_ORIGINALS = new WeakMap<Element, string>();
 const HANDLED_ELEMENTS = new WeakSet<Element>();
+const HANDLED_SUBTREES = new WeakSet<Element>();
 
 const SKIP_TAGS = new Set([
   "SCRIPT", "STYLE", "NOSCRIPT", "CODE", "PRE", "TEXTAREA", "INPUT", "SVG", "PATH",
@@ -37,8 +39,9 @@ const memCache: Record<Locale, Cache> = {
 // Bump this version whenever cache shape/keys can be corrupted by prior
 // bugs (e.g. translated text accidentally used as source key). It forces a
 // clean cache on next load so users don't see swapped/inverted strings.
-const CACHE_VERSION = "v3";
+const CACHE_VERSION = "v5";
 function cacheKey(locale: Locale) { return `i18n-cache:${CACHE_VERSION}:${locale}`; }
+const ENABLE_AI_FALLBACK = false;
 
 function purgeLegacyCaches() {
   if (typeof localStorage === "undefined") return;
@@ -72,9 +75,13 @@ function saveCache(locale: Locale) {
 function getTranslation(text: string, locale: Locale): string | null {
   const normalized = text.trim().replace(/\s+/g, " ");
   if (!normalized) return null;
-  const entry = PHRASES[normalized] ?? PHRASES[text.trim()];
+  const quoteMatch = normalized.match(/^(["“”])(.+)(["“”])$/);
+  const lookup = quoteMatch ? quoteMatch[2].trim() : normalized;
+  const entry = PHRASES[lookup] ?? PHRASES[normalized] ?? PHRASES[text.trim()];
   const manual = entry?.[locale];
-  if (manual && manual !== normalized) return manual;
+  if (manual && manual !== normalized) {
+    return quoteMatch ? `${quoteMatch[1]}${manual}${quoteMatch[3]}` : manual;
+  }
   const cached = memCache[locale][normalized];
   if (cached && cached !== normalized) return cached;
   return null;
@@ -99,6 +106,7 @@ let flushTimer: ReturnType<typeof setTimeout> | null = null;
 let flushing = false;
 
 function queue(text: string, locale: Locale) {
+  if (!ENABLE_AI_FALLBACK) return;
   if (locale === SOURCE_LOCALE) return;
   const normalized = text.trim().replace(/\s+/g, " ");
   if (!normalized || !isTranslatable(normalized)) return;
@@ -153,6 +161,7 @@ function processTextNode(node: Text, locale: Locale) {
   if (shouldSkip(node)) return;
   const parent = node.parentElement;
   if (parent && HANDLED_ELEMENTS.has(parent)) return;
+  if (parent && hasHandledSubtree(parent)) return;
 
   const original = TEXT_ORIGINALS.get(node) ?? node.nodeValue ?? "";
   if (!TEXT_ORIGINALS.has(node)) TEXT_ORIGINALS.set(node, original);
@@ -186,6 +195,8 @@ function processElement(el: Element, locale: Locale) {
 
   const originalHTML = HTML_ORIGINALS.get(el) ?? el.innerHTML;
   if (!HTML_ORIGINALS.has(el)) HTML_ORIGINALS.set(el, originalHTML);
+  const originalText = ELEMENT_TEXT_ORIGINALS.get(el) ?? text;
+  if (!ELEMENT_TEXT_ORIGINALS.has(el)) ELEMENT_TEXT_ORIGINALS.set(el, originalText);
 
   if (locale === SOURCE_LOCALE) {
     if (el.innerHTML !== originalHTML) el.innerHTML = originalHTML;
@@ -193,13 +204,50 @@ function processElement(el: Element, locale: Locale) {
     return;
   }
 
-  const target = getTranslation(text, locale);
+  const target = getTranslation(originalText, locale);
   if (target == null) {
-    queue(text, locale);
+    queue(originalText, locale);
     return;
   }
   if (el.textContent !== target) el.textContent = target;
   HANDLED_ELEMENTS.add(el);
+}
+
+function hasHandledSubtree(el: Element): boolean {
+  let p: Element | null = el;
+  while (p) {
+    if (HANDLED_SUBTREES.has(p)) return true;
+    p = p.parentElement;
+  }
+  return false;
+}
+
+function processComposedElement(el: Element, locale: Locale) {
+  if (SKIP_TAGS.has(el.tagName)) return;
+  if ((el as HTMLElement).hasAttribute?.("data-no-translate")) return;
+  if (!["H1", "H2", "H3", "H4", "P", "BUTTON", "A"].includes(el.tagName)) return;
+  if (el.children.length === 0) return;
+  if (Array.from(el.children).some((child) => child.tagName !== "BR")) return;
+  if ((el.textContent ?? "").trim().length > 220) return;
+
+  const raw = el.textContent ?? "";
+  const normalized = raw.trim().replace(/\s+/g, " ");
+  const originalHTML = HTML_ORIGINALS.get(el) ?? el.innerHTML;
+  if (!HTML_ORIGINALS.has(el)) HTML_ORIGINALS.set(el, originalHTML);
+  const originalText = ELEMENT_TEXT_ORIGINALS.get(el) ?? normalized;
+  if (!ELEMENT_TEXT_ORIGINALS.has(el)) ELEMENT_TEXT_ORIGINALS.set(el, originalText);
+
+  if (locale === SOURCE_LOCALE) {
+    if (el.innerHTML !== originalHTML) el.innerHTML = originalHTML;
+    HANDLED_SUBTREES.delete(el);
+    return;
+  }
+
+  const target = getTranslation(originalText, locale);
+  if (!target) return;
+
+  if (el.textContent !== target) el.textContent = target;
+  HANDLED_SUBTREES.add(el);
 }
 
 function walk(root: Node, locale: Locale) {
@@ -207,6 +255,7 @@ function walk(root: Node, locale: Locale) {
     const elWalker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT);
     let curEl: Node | null = root;
     while (curEl) {
+      processComposedElement(curEl as Element, locale);
       processElement(curEl as Element, locale);
       curEl = elWalker.nextNode();
     }
