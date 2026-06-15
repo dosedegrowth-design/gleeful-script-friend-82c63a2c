@@ -126,13 +126,14 @@ export function FoundersSection() {
             As pessoas que conduzem cada mandato.
           </motion.h3>
 
-          <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             {[
               { img: "/images/dany.png", name: "Dany Zukerman", role: "Partner" },
               { img: "/images/laura.png", name: "Laura Almeida", role: "Head of Operations" },
               { img: "/images/eduardo.png", name: "Eduardo Costa", role: "Legal & Compliance" },
               { img: "/images/moyses.png", name: "Moyses Filipe", role: "Relocation Lead" },
               { img: "/images/sara.png", name: "Sara Mendes", role: "Client Experience" },
+              { img: "/images/joao.png", name: "João", role: "Partner" },
 
             ].map((m, idx) => (
               <motion.div
