@@ -71,7 +71,7 @@ export function TeamSection() {
               <div className="aspect-[4/5] bg-black-3 overflow-hidden border border-b18 relative group mb-8">
                 <img
                   src={member.img}
-                  className="w-full h-full object-cover grayscale-[0.4] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
                   alt={member.name}
                   onError={(e) => {
                     e.currentTarget.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=1a1d26&color=ad8957&size=512`;
@@ -98,9 +98,10 @@ export function TeamSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: team.length * 0.1 }}
-            className="min-h-[560px] bg-black p-10 flex flex-col items-center justify-center text-center group relative overflow-hidden border border-gold/25"
+            className="min-h-[560px] bg-black p-10 flex flex-col items-center justify-center text-center group relative overflow-hidden border border-gold/40"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_32%,rgba(173,137,87,0.18),transparent_38%),linear-gradient(145deg,rgba(173,137,87,0.16),transparent_34%,rgba(6,9,26,0.96)_68%)]" />
+            <div className="absolute inset-0 bg-black" />
+            <div className="absolute left-0 right-0 top-0 h-1 bg-gold" />
             <div className="absolute inset-[18px] border border-gold/20 transition-all duration-500 group-hover:inset-[24px] group-hover:border-gold/45" />
             <div className="absolute left-0 top-0 w-[2px] h-full bg-gold" />
             <img
