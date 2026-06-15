@@ -3,11 +3,16 @@ import { Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { useI18n } from "@/lib/i18n/I18nProvider";
+import { useSiteContent } from "@/lib/useSiteContent";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const { t } = useI18n();
+  const { data: cms } = useSiteContent();
+  const cmsText = (k: string, fb: string) => (cms && cms[k]) || fb;
+  const logoIcon = cmsText("brand.logo_icon", "/mooviagold.png");
+  const logoWord = cmsText("brand.logo_wordmark", "/moovia-logotype.png");
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -16,12 +21,12 @@ export function Nav() {
   }, []);
 
   const links = [
-    { name: t("nav.services"), to: "/servicos" },
-    { name: t("nav.assessment"), to: "/assessment" },
-    { name: "Sobre", to: "/sobre" },
-    { name: "Equipa", to: "/equipa" },
-    { name: t("nav.blog"), to: "/blog" },
-    { name: t("nav.contact"), to: "/contacto" },
+    { name: cmsText("nav.link_servicos", t("nav.services")), to: "/servicos" },
+    { name: cmsText("nav.link_assessment", t("nav.assessment")), to: "/assessment" },
+    { name: cmsText("nav.link_sobre", "Sobre"), to: "/sobre" },
+    { name: cmsText("nav.link_equipa", "Equipa"), to: "/equipa" },
+    { name: cmsText("nav.link_blog", t("nav.blog")), to: "/blog" },
+    { name: cmsText("nav.link_contacto", t("nav.contact")), to: "/contacto" },
   ];
 
   return (
@@ -32,9 +37,9 @@ export function Nav() {
     >
       {/* LOGO */}
       <Link to="/" className="flex items-center gap-4 mr-auto group">
-        <img src="/mooviagold.png" alt="MOOVIA" className="w-9 h-9 object-contain group-hover:rotate-[360deg] transition-transform duration-1000 ease-in-out" />
+        <img src={logoIcon} alt="MOOVIA" className="w-9 h-9 object-contain group-hover:rotate-[360deg] transition-transform duration-1000 ease-in-out" />
         <div className="flex flex-col items-start h-[30px] justify-center ml-1">
-          <img src="/moovia-logotype.png" alt="MOOVIA Portugal" className="h-[28px] w-auto object-contain brightness-110" />
+          <img src={logoWord} alt="MOOVIA Portugal" className="h-[28px] w-auto object-contain brightness-110" />
         </div>
       </Link>
 
