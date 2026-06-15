@@ -24,7 +24,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
       setLangCore(detected);
     } else {
       if (typeof document !== "undefined") {
-        document.documentElement.lang = detected === "pt" ? "pt-PT" : detected;
+        document.documentElement.lang = detected;
       }
       reapplyCurrentLang();
     }
@@ -50,8 +50,11 @@ export function useI18n() {
     };
   }, [i18nInstance]);
 
+  const stored = (typeof window !== "undefined" ? (localStorage.getItem("mv_lang") as Lang | null) : null);
+  const raw = i18nInstance.language as string | undefined;
+  const fallback: Lang = raw === "en" ? "en" : raw === "es" ? "es" : "pt-BR";
   return {
-    locale: (i18nInstance.language as Lang) ?? "pt",
+    locale: stored ?? fallback,
     setLocale: (l: string) => setLangCore(l as Lang),
     t: (key: string) => t(key),
   };
