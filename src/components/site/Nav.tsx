@@ -16,11 +16,12 @@ export function Nav() {
   }, []);
 
   const links = [
-    { name: t("nav.how_it_works"), to: "/#processo" },
-    { name: t("nav.services"), to: "/#servicos" },
-    { name: t("nav.assessment"), to: "/#assessment" },
+    { name: t("nav.services"), to: "/servicos" },
+    { name: t("nav.assessment"), to: "/assessment" },
+    { name: "Sobre", to: "/sobre" },
+    { name: "Equipa", to: "/equipa" },
     { name: t("nav.blog"), to: "/blog" },
-    { name: t("nav.contact"), to: "/#contacto" },
+    { name: t("nav.contact"), to: "/contacto" },
   ];
 
   return (
