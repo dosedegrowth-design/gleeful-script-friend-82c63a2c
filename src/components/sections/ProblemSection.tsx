@@ -1,30 +1,29 @@
 import { motion } from "framer-motion";
-import { Layers, Search, AlertTriangle, Clock } from "lucide-react";
-import { Icon } from "@/components/ui/Icon";
+import { LayersIcon, SearchIcon, AlertIcon, ClockIcon } from "@/components/ui/MooviaIcons";
 import problemLisboaPlanning from "@/assets/problem-lisboa-planning.jpg";
 
 export function ProblemSection() {
   const cards = [
     {
-      icon: Layers,
+      icon: LayersIcon,
       title: "Decisões simultâneas",
       body: "O tempo não é o maior problema. É tomar dez decisões simultâneas sem ter feito nenhuma delas antes.",
       fullBody: "O tempo não é o maior problema. É tomar dez decisões simultâneas sem ter feito nenhuma delas antes."
     },
     {
-      icon: Search,
+      icon: SearchIcon,
       title: "Volume de informação",
       body: "Informação demais, clareza de menos",
       fullBody: "Grupos de WhatsApp, YouTube, advogados e corretores dizem coisas diferentes. O volume de informação não resolve a decisão, cria mais dúvida."
     },
     {
-      icon: AlertTriangle,
+      icon: AlertIcon,
       title: "Riscos invisíveis",
       body: "Erros que custam",
       fullBody: "Apartamento no bairro errado. Escola sem vaga. Uma rotina mal estruturada para a família. Cada erro custa dinheiro, tempo e energia que a família não tem."
     },
     {
-      icon: Clock,
+      icon: ClockIcon,
       title: "Adaptação estruturada",
       body: "O depois que ninguém resolve",
       fullBody: "Chegar é metade do processo. A adaptação, do cônjuge que largou a carreira, das crianças na nova escola, da rotina reconstruída, exige acompanhamento real."
@@ -94,8 +93,8 @@ export function ProblemSection() {
               className="bg-black-2 p-[52px_44px] relative group overflow-hidden rounded-[2px] transition-all duration-300 hover:shadow-[0_4px_24px_rgba(0,0,0,0.25),0_0_0_1px_rgba(173,137,87,0.2)]"
             >
               <div className="absolute left-0 top-0 w-[3px] h-0 bg-gold transition-all duration-500 group-hover:h-full" />
-              <div className="mb-8">
-                <Icon icon={card.icon} size={20} color="var(--gold)" />
+              <div className="mb-8 text-gold">
+                <card.icon size={28} />
               </div>
               <h3 className="font-display text-[19px] font-[300] text-white mb-4">
                 {card.title}
