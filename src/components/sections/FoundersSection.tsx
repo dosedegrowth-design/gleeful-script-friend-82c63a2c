@@ -33,8 +33,8 @@ export function FoundersSection() {
           </motion.p>
         </div>
 
-        {/* Founders Grid — Frederico + Pablo (simétrico) */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 mb-32">
+        {/* Founders Grid — Frederico + Pablo + João (simétrico) */}
+        <div className="grid lg:grid-cols-3 gap-12 lg:gap-16 mb-32">
           {[
             {
               id: "frederico",
@@ -45,6 +45,16 @@ export function FoundersSection() {
               chips: ["Oracle", "SAP", "MBA FGV", "Tampa", "Lisboa, 2018"],
               bio: "29 anos em TI multinacional. MBA em Empreendedorismo FGV. Formação em Comunicação na University of Tampa. Em Lisboa desde 2018 com a família. Viveu a transição que hoje coordena e conduz pessoalmente cada mandato.",
               quote: "Vamos coordenar a sua transição internacional com o mesmo nível de cuidado, estrutura e atenção que gostaríamos de ter recebido na nossa.",
+            },
+            {
+              id: "joao",
+              img: "/images/joao.png",
+              name: "João Gabriel Prado",
+              city: "Lisboa",
+              role: "Co-Founder",
+              chips: ["Abreu Advogados", "ULisboa", "CIDP", "Corporate & M&A"],
+              bio: "Advogado na Abreu Advogados em Corporate e M&A. Pós-graduações CIDP em Corporate Finance e M&A. O braço jurídico da MOOVIA no ecossistema português.",
+              quote: "",
             },
             {
               id: "pablo",
