@@ -34,8 +34,7 @@ function Equipa() {
         </div>
       </div>
 
-      <FoundersSection />
-      <TeamSection />
-    </SiteLayout>
+      <EquipaShowcase />
+
   );
 }
