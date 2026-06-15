@@ -49,24 +49,47 @@ function AdminChat() {
   async function fetchSessions() {
     setLoading(true);
     try {
-      const { data, error } = await supabase
+      const { data: logs, error } = await supabase
         .from("chat_logs")
-        .select("*, lead:leads(id,name,email,whatsapp,city,country,ip_hash,temperature,status)")
+        .select("id,session_id,created_at,messages,lead_id,lead_captured,page_url,duration_secs")
         .order("created_at", { ascending: false })
         .limit(200);
       if (error) throw error;
 
+      const rows = (logs as any[]) || [];
+      const leadIds = Array.from(
+        new Set(rows.map((r) => r.lead_id).filter(Boolean)),
+      ) as string[];
+
+      let leadsById: Record<string, Lead> = {};
+      if (leadIds.length > 0) {
+        const { data: leadsData, error: leadsErr } = await supabase
+          .from("leads")
+          .select("id,name,email,whatsapp,city,country,ip_hash,temperature,status")
+          .in("id", leadIds);
+        if (leadsErr) console.warn("[admin.chat] leads fetch warning", leadsErr);
+        for (const l of (leadsData as any[]) || []) leadsById[l.id] = l as Lead;
+      }
+
       const seen = new Set<string>();
-      const unique: Session[] = ((data as any) || []).filter((row: any) => {
-        const key = row.session_id || row.id;
-        if (seen.has(key)) return false;
-        seen.add(key);
-        return true;
-      });
+      const unique: Session[] = rows
+        .filter((row) => {
+          const key = row.session_id || row.id;
+          if (seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        })
+        .map((row) => ({
+          ...row,
+          messages: Array.isArray(row.messages) ? row.messages : [],
+          lead: row.lead_id ? leadsById[row.lead_id] || null : null,
+        }));
+
       setSessions(unique);
       if (unique.length > 0) setActive(unique[0]);
     } catch (e: any) {
-      toast.error("Erro ao carregar conversas");
+      console.error("[admin.chat] fetch error", e);
+      toast.error(`Erro ao carregar conversas: ${e?.message || e}`);
     } finally {
       setLoading(false);
     }
