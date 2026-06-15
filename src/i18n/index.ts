@@ -3,6 +3,7 @@ import { initReactI18next } from "react-i18next";
 import pt from "./locales/pt.json";
 import en from "./locales/en.json";
 import es from "./locales/es.json";
+import { applyDomTranslations } from "./applyDom";
 
 export type Lang = "pt" | "en" | "es";
 export const SUPPORTED: Lang[] = ["pt", "en", "es"];
@@ -42,7 +43,14 @@ export function setLang(lang: Lang) {
   } catch {}
   if (typeof document !== "undefined") {
     document.documentElement.lang = lang === "pt" ? "pt-PT" : lang;
+    applyDomTranslations(lang);
   }
+}
+
+export function reapplyCurrentLang() {
+  if (typeof document === "undefined") return;
+  const lang = (i18n.language as Lang) ?? "pt";
+  applyDomTranslations(SUPPORTED.includes(lang) ? lang : "pt");
 }
 
 export default i18n;
