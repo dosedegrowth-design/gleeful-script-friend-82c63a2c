@@ -50,6 +50,7 @@ export function Hero() {
         </motion.div>
 
         <h1 
+          key={locale}
           ref={headlineRef}
           data-no-translate
           className="font-display text-[clamp(34px,3.8vw,62px)] text-white leading-[1.02] tracking-[-0.025em] mb-10"
